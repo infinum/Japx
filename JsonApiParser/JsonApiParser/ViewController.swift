@@ -12,13 +12,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let resp1 = try! JsonApiParser.unbox(jsonApiInput: unboxTest)
-        debugPrint(resp1 as NSDictionary)
-        print("\n\n")
+        let date = Date()
+        for i in (0..<200_000) {
+            let resp1 = try! JsonApiParser.unbox(jsonApiInput: unboxTest)
+        }
+        print(Date().timeIntervalSince(date))
+//        debugPrint(resp1 as NSDictionary)
+//        print("\n\n")
         
-        let resp2 = try! JsonApiParser.wrap(json: wrapTest)
-        debugPrint(resp2 as NSDictionary)
-        print("\n\n")
+//        let resp2 = try! JsonApiParser.wrap(json: wrapTest)
+//        debugPrint(resp2 as NSDictionary)
+//        print("\n\n")
     }
 
 
