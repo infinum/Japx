@@ -85,10 +85,12 @@ extension JsonApiParser {
         }
         
         var jsonApi = jsonApiInput
-        jsonApi[Consts.data] = (objects.count == 1) ? objects[0] : objects
+        let isObject = jsonApiInput[Consts.data].map { $0 is Parameters } ?? false
+        jsonApi[Consts.data] = (objects.count == 1 && isObject) ? objects[0] : objects
 //        jsonApi.removeValue(forKey: Consts.included)
         return jsonApi
     }
+    
     
     static func unbox(jsonApiInput: NSDictionary) throws -> NSDictionary {
         let jsonApi = jsonApiInput.mutable
@@ -124,7 +126,10 @@ private extension JsonApiParser {
  
     private static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary) throws -> Parameters {
         
-        let attributes = (try? object.dictionary(for: Consts.attributes)) ?? Parameters()
+        var attributes = (try? object.dictionary(for: Consts.attributes)) ?? Parameters()
+        attributes[Consts.type] = object[Consts.type]
+        attributes[Consts.id] = object[Consts.id]
+        
         let relationshipsReferences = object.asDictionaty(from: Consts.relationships) ?? Parameters()
         
         let relationships = try paramsDict.allKeys.map({ $0 as! String }).reduce(into: Parameters(), { (result, relationshipsKey) in
@@ -137,7 +142,8 @@ private extension JsonApiParser {
             
             
             if otherObjects.isEmpty { return }
-            result[relationshipsKey] = (otherObjects.count == 1) ? otherObjects[0] : otherObjects
+            let isObject = relationship[Consts.data].map { $0 is Parameters } ?? false
+            result[relationshipsKey] = (isObject && otherObjects.count == 1) ? otherObjects[0] : otherObjects
         })
         
         return attributes.merging(relationships) { $1 }

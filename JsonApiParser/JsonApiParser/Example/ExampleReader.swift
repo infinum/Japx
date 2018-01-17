@@ -22,11 +22,11 @@ class ExampleReader {
         return data
     }
     
-    static func dataToJson(_ data: Data) -> NSDictionary {
-        return try! JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as! NSDictionary
+    static func dataToJson(_ data: Data) -> Parameters {
+        return try! JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as! Parameters
     }
 
-    static func jsonToData(_ data: NSDictionary) -> Data {
+    static func jsonToData(_ data: Parameters) -> Data {
         return try! JSONSerialization.data(withJSONObject: data, options: .init(rawValue: 0))
     }
     
