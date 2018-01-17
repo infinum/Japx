@@ -1,27 +1,2078 @@
+
 {
-    "data": [{
-             "type": "articles",
-             "id": "1",
-             "attributes": {
-             "title": "JSON API paints my bikeshed!",
-             "body": "The shortest article. Ever.",
-             "created": "2015-05-22T14:56:29.000Z",
-             "updated": "2015-05-22T14:56:28.000Z"
-             },
-             "relationships": {
-             "author": {
-             "data": {"id": "42", "type": "people"}
-             }
-             }
-             }],
+    "meta": {},
+    "data": {
+        "id": "cb53d916-43e3-43d9-8335-4be8614e71bb",
+        "type": "recipes",
+        "attributes": {
+            "createdAt": "2017-10-23T08:43:24.862Z",
+            "modifiedAt": "2017-10-23T08:43:24.862Z",
+            "totalTimeSeconds": 2640,
+            "processingTimeSeconds": 840,
+            "preparationTimeSeconds": 1800,
+            "status": 3,
+            "numberOfServings": 5,
+            "type": "USER_GENERATED",
+            "shortId": "UR-B751BE86",
+            "viewCount": 0,
+            "favouriteCount": 0,
+            "shareCount": 0,
+            "translationCount": 1,
+            "commentCount": 0,
+            "deviceCount": 0,
+            "deviceSelected": true,
+            "contentCategory": "AIRFRYER",
+            "isFavourite": null,
+            "lockedAt": null
+        },
+        "relationships": {
+            "recipeNutritionInfo": {
+                "data": []
+            },
+            "devices": {
+                "data": []
+            },
+            "coverImage": {
+                "data": {
+                    "id": "eaad0cd9-587e-4e42-a5bb-1fec39cf8488",
+                    "type": "media"
+                }
+            },
+            "ingredientOverviewImage": {
+                "data": null
+            },
+            "equipmentOverviewImage": {
+                "data": null
+            },
+            "profiles": {
+                "data": [
+                         {
+                         "id": "afdc8370-9e5e-4bef-934a-aaf91fedcdb6",
+                         "type": "profiles"
+                         }
+                         ]
+            },
+            "domain": {
+                "data": {
+                    "id": "00000002-0000-0000-0000-d00000000000",
+                    "type": "domains"
+                }
+            },
+            "authorConsumer": {
+                "data": {
+                    "id": "d7c8a361-9971-44fe-b844-09feed083132",
+                    "type": "consumers"
+                }
+            },
+            "authorUser": {
+                "data": null
+            },
+            "defaultTranslation": {
+                "data": {
+                    "id": "a16baf26-5a0d-4b53-ac7b-ba2ce204b4e7",
+                    "type": "recipeTranslations"
+                }
+            },
+            "tags": {
+                "data": [
+                         {
+                         "id": "27fa0782-e2b3-4c79-adaf-3eddc968af50",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "e76b5f46-4544-4599-a961-3dc7a4f59414",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "e36b5f46-4544-4599-a961-3dc7a4f59414",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "d147e663-a2d3-42ec-a3b5-984f549dbb85",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "d117e663-a2d3-42ec-a3b5-984f549dbb85",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "d107e663-a2d3-42ec-a3b5-984f549dbb85",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "ada55ec0-17fb-4517-990e-190cc2d49fb0",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "ada45ec0-17fb-4517-990e-190cc2d49fb0",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "11fa0782-e2b3-4c79-adaf-3eddc968af50",
+                         "type": "tags"
+                         },
+                         {
+                         "id": "cda12433-b21f-4c75-9aad-7650d5fe34ee",
+                         "type": "tags"
+                         }
+                         ]
+            },
+            "recipeTranslations": {
+                "data": [
+                         {
+                         "id": "a16baf26-5a0d-4b53-ac7b-ba2ce204b4e7",
+                         "type": "recipeTranslations"
+                         }
+                         ]
+            },
+            "processingSteps": {
+                "data": [
+                         {
+                         "id": "f42e0307-f907-4c98-80d1-4900aa47a074",
+                         "type": "processingSteps"
+                         }
+                         ]
+            },
+            "recipeIngredients": {
+                "data": [
+                         {
+                         "id": "1da65bf5-2f35-429e-9c30-f440ef90f6fe",
+                         "type": "recipeIngredients"
+                         },
+                         {
+                         "id": "5728356d-a81f-4e3e-846d-6f8ca138103a",
+                         "type": "recipeIngredients"
+                         },
+                         {
+                         "id": "20dd0969-1e99-4df5-82d4-e869f2f3787d",
+                         "type": "recipeIngredients"
+                         }
+                         ]
+            },
+            "historyItems": {
+                "data": []
+            },
+            "recipeCountryMetrics": {
+                "data": []
+            },
+            "collections": {
+                "data": []
+            },
+            "qualityIndicators": {
+                "data": []
+            },
+            "lockedBy": {
+                "data": null
+            }
+        }
+    },
     "included": [
                  {
-                 "type": "people",
-                 "id": "42",
+                 "id": "eaad0cd9-587e-4e42-a5bb-1fec39cf8488",
+                 "type": "media",
                  "attributes": {
-                 "name": "John",
-                 "age": 80,
-                 "gender": "male"
+                 "url": "https://s3-eu-west-1.amazonaws.com/cf-s3-56c910ac-1a4b-4d4c-addf-b57f6f1e796a/development/e1b5f010-2760-436d-830b-a760c6bec455.jpeg",
+                 "primaryRed": 45,
+                 "primaryGreen": 74,
+                 "primaryBlue": 223,
+                 "availableSizes": {
+                 "thumbnail": "https://s3-eu-west-1.amazonaws.com/cf-s3-56c910ac-1a4b-4d4c-addf-b57f6f1e796a/development/e1b5f010-2760-436d-830b-a760c6bec455_thumbnail.jpeg",
+                 "high": "https://s3-eu-west-1.amazonaws.com/cf-s3-56c910ac-1a4b-4d4c-addf-b57f6f1e796a/development/e1b5f010-2760-436d-830b-a760c6bec455_high.jpeg",
+                 "medium": "https://s3-eu-west-1.amazonaws.com/cf-s3-56c910ac-1a4b-4d4c-addf-b57f6f1e796a/development/e1b5f010-2760-436d-830b-a760c6bec455_medium.jpeg"
+                 }
+                 }
+                 },
+                 {
+                 "id": "a16baf26-5a0d-4b53-ac7b-ba2ce204b4e7",
+                 "type": "recipeTranslations",
+                 "attributes": {
+                 "createdAt": "2017-10-23T08:43:24.920Z",
+                 "modifiedAt": "2017-10-23T08:43:24.920Z",
+                 "language": "en_HR",
+                 "title": "Waterfall",
+                 "description": "Celebration\n",
+                 "status": 2,
+                 "isFavourite": false,
+                 "shareId": "cc535cd3",
+                 "favouriteCount": 0,
+                 "viewCount": 0
+                 },
+                 "relationships": {
+                 "recipe": {
+                 "data": {
+                 "id": "cb53d916-43e3-43d9-8335-4be8614e71bb",
+                 "type": "recipes"
+                 }
+                 },
+                 "comments": {
+                 "data": []
+                 }
+                 }
+                 },
+                 {
+                 "id": "afdc8370-9e5e-4bef-934a-aaf91fedcdb6",
+                 "type": "profiles",
+                 "attributes": {
+                 "name": "Neven Matas",
+                 "email": "neven.matas+34@infinum.hr",
+                 "type": "CONSUMER",
+                 "country": "DE",
+                 "description": "Green yellowish leaf, that's me 😎",
+                 "followersCount": 15,
+                 "followingCount": 2,
+                 "isFollowing": null
+                 },
+                 "relationships": {
+                 "profileImage": {
+                 "data": {
+                 "id": "b4eb570f-826a-4fe0-a848-75a1ab9e5af5",
+                 "type": "media"
+                 }
+                 },
+                 "followers": {
+                 "data": []
+                 },
+                 "following": {
+                 "data": []
+                 },
+                 "countryInfo": {
+                 "data": {
+                 "id": "00000002-0000-0000-0000-cc0000000000",
+                 "type": "countryInfo"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "00000002-0000-0000-0000-cc0000000000",
+                 "type": "countryInfo",
+                 "attributes": {
+                 "code": "DE",
+                 "name": "Germany",
+                 "supported": true,
+                 "supportedLanguages": [
+                                        "de_DE"
+                                        ]
+                 }
+                 },
+                 {
+                 "id": "b4eb570f-826a-4fe0-a848-75a1ab9e5af5",
+                 "type": "media",
+                 "attributes": {
+                 "url": "https://s3-us-west-1.amazonaws.com/cf-s3-c9315de5-f0b6-42ce-bbf3-2a599db40370/9bcab352-b680-4670-812b-7d030ae04053.jpeg",
+                 "primaryRed": 48,
+                 "primaryGreen": 68,
+                 "primaryBlue": 22,
+                 "availableSizes": {
+                 "thumbnail": "https://s3-us-west-1.amazonaws.com/cf-s3-c9315de5-f0b6-42ce-bbf3-2a599db40370/9bcab352-b680-4670-812b-7d030ae04053_thumbnail.jpeg",
+                 "high": "https://s3-us-west-1.amazonaws.com/cf-s3-c9315de5-f0b6-42ce-bbf3-2a599db40370/9bcab352-b680-4670-812b-7d030ae04053_high.jpeg",
+                 "medium": "https://s3-us-west-1.amazonaws.com/cf-s3-c9315de5-f0b6-42ce-bbf3-2a599db40370/9bcab352-b680-4670-812b-7d030ae04053_medium.jpeg"
+                 }
+                 }
+                 },
+                 {
+                 "id": "f42e0307-f907-4c98-80d1-4900aa47a074",
+                 "type": "processingSteps",
+                 "attributes": {
+                 "order": 1,
+                 "stepType": "71e5a1be-8d94-4152-8dbd-7f4ffddf71aa",
+                 "durationSeconds": 840,
+                 "temperatureFahrenheit": null,
+                 "temperatureCelsius": 125
+                 },
+                 "relationships": {
+                 "stepImage": {
+                 "data": null
+                 },
+                 "recipe": {
+                 "data": {
+                 "id": "cb53d916-43e3-43d9-8335-4be8614e71bb",
+                 "type": "recipes"
+                 }
+                 },
+                 "processingStepTranslations": {
+                 "data": [
+                          {
+                          "id": "4733f281-1137-4cf4-ae00-53e5a8dc2a01",
+                          "type": "processingStepTranslations"
+                          }
+                          ]
+                 }
+                 }
+                 },
+                 {
+                 "id": "4733f281-1137-4cf4-ae00-53e5a8dc2a01",
+                 "type": "processingStepTranslations",
+                 "attributes": {
+                 "title": null,
+                 "language": "en_HR",
+                 "description": "First step is simple"
+                 },
+                 "relationships": {
+                 "processingStep": {
+                 "data": {
+                 "id": "f42e0307-f907-4c98-80d1-4900aa47a074",
+                 "type": "processingSteps"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "1da65bf5-2f35-429e-9c30-f440ef90f6fe",
+                 "type": "recipeIngredients",
+                 "attributes": {
+                 "metricUnit": "GRAM",
+                 "metricQuantity": 100,
+                 "usUnit": null,
+                 "usQuantity": null,
+                 "impUnit": null,
+                 "impQuantity": null,
+                 "ingredientOrder": 3
+                 },
+                 "relationships": {
+                 "recipe": {
+                 "data": {
+                 "id": "cb53d916-43e3-43d9-8335-4be8614e71bb",
+                 "type": "recipes"
+                 }
+                 },
+                 "ingredient": {
+                 "data": {
+                 "id": "abb5abd2-9f98-4c8a-b166-a208c5c6660c",
+                 "type": "ingredients"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "5728356d-a81f-4e3e-846d-6f8ca138103a",
+                 "type": "recipeIngredients",
+                 "attributes": {
+                 "metricUnit": "GRAM",
+                 "metricQuantity": 10,
+                 "usUnit": null,
+                 "usQuantity": null,
+                 "impUnit": null,
+                 "impQuantity": null,
+                 "ingredientOrder": 2
+                 },
+                 "relationships": {
+                 "recipe": {
+                 "data": {
+                 "id": "cb53d916-43e3-43d9-8335-4be8614e71bb",
+                 "type": "recipes"
+                 }
+                 },
+                 "ingredient": {
+                 "data": {
+                 "id": "829c91b0-cdd2-4772-a601-fe89da88e424",
+                 "type": "ingredients"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "20dd0969-1e99-4df5-82d4-e869f2f3787d",
+                 "type": "recipeIngredients",
+                 "attributes": {
+                 "metricUnit": "GRAM",
+                 "metricQuantity": 45,
+                 "usUnit": null,
+                 "usQuantity": null,
+                 "impUnit": null,
+                 "impQuantity": null,
+                 "ingredientOrder": 1
+                 },
+                 "relationships": {
+                 "recipe": {
+                 "data": {
+                 "id": "cb53d916-43e3-43d9-8335-4be8614e71bb",
+                 "type": "recipes"
+                 }
+                 },
+                 "ingredient": {
+                 "data": {
+                 "id": "e2c34597-7b4c-4772-8ef3-296f5e8905ab",
+                 "type": "ingredients"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "abb5abd2-9f98-4c8a-b166-a208c5c6660c",
+                 "type": "ingredients",
+                 "attributes": {
+                 "type": "BASIC",
+                 "upc": null,
+                 "referencedRecipesCount": 3,
+                 "translationCount": 3,
+                 "nutritionInfoCount": 0,
+                 "comment": null,
+                 "allergens": [],
+                 "category": null,
+                 "subcategory": null
+                 },
+                 "relationships": {
+                 "ingredientTranslations": {
+                 "data": [
+                          {
+                          "id": "26da8c52-9c02-4532-b41a-13b1d4a57962",
+                          "type": "ingredientTranslations"
+                          },
+                          {
+                          "id": "918324db-1252-4bb3-a148-723857a870f2",
+                          "type": "ingredientTranslations"
+                          },
+                          {
+                          "id": "c54e7dac-ebc4-48d6-ad7d-bc2e3f99b948",
+                          "type": "ingredientTranslations"
+                          }
+                          ]
+                 },
+                 "nutritionInfo": {
+                 "data": []
+                 },
+                 "recipeNutritionInfo": {
+                 "data": []
+                 },
+                 "specificConversions": {
+                 "data": []
+                 }
+                 }
+                 },
+                 {
+                 "id": "829c91b0-cdd2-4772-a601-fe89da88e424",
+                 "type": "ingredients",
+                 "attributes": {
+                 "type": "BASIC",
+                 "upc": null,
+                 "referencedRecipesCount": 36,
+                 "translationCount": 2,
+                 "nutritionInfoCount": 3,
+                 "comment": null,
+                 "allergens": [],
+                 "category": "FRUIT_AND_FRUIT_PRODUCTS",
+                 "subcategory": "POMACEOUS_FRUIT"
+                 },
+                 "relationships": {
+                 "ingredientTranslations": {
+                 "data": [
+                          {
+                          "id": "6cfd3769-18f9-463e-8d96-b8d79e18d87f",
+                          "type": "ingredientTranslations"
+                          },
+                          {
+                          "id": "a732c90a-813a-47ed-aa27-fef6721d3e83",
+                          "type": "ingredientTranslations"
+                          }
+                          ]
+                 },
+                 "nutritionInfo": {
+                 "data": [
+                          {
+                          "id": "db8a5c5c-bfeb-4c69-a486-bf5c4395069c",
+                          "type": "nutritionInfo"
+                          },
+                          {
+                          "id": "f87c4d48-d9d2-4de5-9e96-40f4dc31416d",
+                          "type": "nutritionInfo"
+                          },
+                          {
+                          "id": "73f324d4-4b31-443a-a5bb-8e2a4ae24fa2",
+                          "type": "nutritionInfo"
+                          }
+                          ]
+                 },
+                 "recipeNutritionInfo": {
+                 "data": []
+                 },
+                 "specificConversions": {
+                 "data": []
+                 }
+                 }
+                 },
+                 {
+                 "id": "e2c34597-7b4c-4772-8ef3-296f5e8905ab",
+                 "type": "ingredients",
+                 "attributes": {
+                 "type": "BASIC",
+                 "upc": null,
+                 "referencedRecipesCount": 5,
+                 "translationCount": 2,
+                 "nutritionInfoCount": 3,
+                 "comment": null,
+                 "allergens": [],
+                 "category": "FRUIT_AND_FRUIT_PRODUCTS",
+                 "subcategory": "CITRUS_FRUIT"
+                 },
+                 "relationships": {
+                 "ingredientTranslations": {
+                 "data": [
+                          {
+                          "id": "b75a64f3-a443-43f8-82f9-dba185f31f29",
+                          "type": "ingredientTranslations"
+                          },
+                          {
+                          "id": "03bc2cb4-45b9-4844-8015-894311d2b645",
+                          "type": "ingredientTranslations"
+                          }
+                          ]
+                 },
+                 "nutritionInfo": {
+                 "data": [
+                          {
+                          "id": "f4e3ac48-6c49-4b67-b084-924cb4e88bbf",
+                          "type": "nutritionInfo"
+                          },
+                          {
+                          "id": "5bc0f05b-9f88-4e73-92a8-d066bd372dc5",
+                          "type": "nutritionInfo"
+                          },
+                          {
+                          "id": "f712ecdf-fd62-45bb-b4b9-f32fcdba0ef6",
+                          "type": "nutritionInfo"
+                          }
+                          ]
+                 },
+                 "recipeNutritionInfo": {
+                 "data": []
+                 },
+                 "specificConversions": {
+                 "data": []
+                 }
+                 }
+                 },
+                 {
+                 "id": "a732c90a-813a-47ed-aa27-fef6721d3e83",
+                 "type": "ingredientTranslations",
+                 "attributes": {
+                 "nameSingular": "Apple",
+                 "namePlural": "Apples",
+                 "language": "en_US"
+                 },
+                 "relationships": {
+                 "ingredient": {
+                 "data": {
+                 "id": "829c91b0-cdd2-4772-a601-fe89da88e424",
+                 "type": "ingredients"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "918324db-1252-4bb3-a148-723857a870f2",
+                 "type": "ingredientTranslations",
+                 "attributes": {
+                 "nameSingular": "Eggplant",
+                 "namePlural": "Eggplant",
+                 "language": "en_US"
+                 },
+                 "relationships": {
+                 "ingredient": {
+                 "data": {
+                 "id": "abb5abd2-9f98-4c8a-b166-a208c5c6660c",
+                 "type": "ingredients"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "03bc2cb4-45b9-4844-8015-894311d2b645",
+                 "type": "ingredientTranslations",
+                 "attributes": {
+                 "nameSingular": "Orange",
+                 "namePlural": null,
+                 "language": "en_US"
+                 },
+                 "relationships": {
+                 "ingredient": {
+                 "data": {
+                 "id": "e2c34597-7b4c-4772-8ef3-296f5e8905ab",
+                 "type": "ingredients"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "e36b5f46-4544-4599-a961-3dc7a4f59414",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "BAKING_ACCESSORY"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa100b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "c3131146-09c2-4abc-acfb-7ec12ca06a88",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "a3e4eb4e-6e9d-4a1d-83b2-0c6e6275d358",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb50e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "e76b5f46-4544-4599-a961-3dc7a4f59414",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "BAKING_PLATE"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa104b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "86b3e925-793d-4d7a-b97a-c321a9a25def",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "a8e4eb4e-6e9d-4a1d-83b2-0c6e6275d358",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb50e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "ada45ec0-17fb-4517-990e-190cc2d49fb0",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "BREAKFAST"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa139b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "eaefdaed-8748-41bf-9959-34349e6d8a10",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "e7e4eb4e-6e9d-4a1d-83b2-0c6e6275d358",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb70e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "ada55ec0-17fb-4517-990e-190cc2d49fb0",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "DESSERTS_AND_BAKED_GOODS"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa140b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "51162d76-2747-466d-b84b-d50e9b1b37bd",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "e8e4eb4e-6e9d-4a1d-83b2-0c6e6275d358",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb70e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "11fa0782-e2b3-4c79-adaf-3eddc968af50",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "BIRTHDAY"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa146b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "fbe7e80f-4081-49bf-a53f-b83942573b1d",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "f5e4eb4e-6e9d-4a1d-83b2-0c6e6275d358",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb80e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "27fa0782-e2b3-4c79-adaf-3eddc968af50",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "AUTUMN"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa162b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "00920d60-dedf-410e-b960-ce2f8ab543d7",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "a1e4eb4e-6e9d-4a1d-83b2-0c6e6275d311",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb80e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "cda12433-b21f-4c75-9aad-7650d5fe34ee",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "30-60_MINUTES"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa170b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "d282e97b-db4d-48b0-8b94-df1fa891959d",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "a1e4eb4e-6e9d-4a1d-83b2-0c6e6275d319",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb51e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "d117e663-a2d3-42ec-a3b5-984f549dbb85",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "ASIAN"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa174b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "b6bfde4d-7207-48be-a518-9974197878c8",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "a1e4eb4e-6e9d-4a1d-83b2-0c6e6275d323",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb52e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "d147e663-a2d3-42ec-a3b5-984f549dbb85",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "CAJUN"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa177b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "3b4400b3-76fe-4987-9d85-45c79031fb0c",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "a1e4eb4e-6e9d-4a1d-83b2-0c6e6275d325",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb52e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "d107e663-a2d3-42ec-a3b5-984f549dbb85",
+                 "type": "tags",
+                 "attributes": {
+                 "type": "AMERICAN"
+                 },
+                 "relationships": {
+                 "tagTranslations": {
+                 "data": [
+                          {
+                          "id": "fa173b29-f1d3-4842-9e4c-ced6b063957b",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "3acb7a98-596a-42ea-ac2f-a286133d1364",
+                          "type": "tagTranslations"
+                          },
+                          {
+                          "id": "a1e4eb4e-6e9d-4a1d-83b2-0c6e6275d322",
+                          "type": "tagTranslations"
+                          }
+                          ]
+                 },
+                 "tagCategory": {
+                 "data": {
+                 "id": "bb52e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories"
+                 }
+                 },
+                 "image": {
+                 "data": {
+                 "id": "6eb2ed40-0af3-4318-9c7a-7f08f5d9c4e2",
+                 "type": "media"
+                 }
+                 }
+                 },
+                 "sortProperty": ""
+                 },
+                 {
+                 "id": "bb50e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "ACCESSORIES"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a858bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "ae77a415-74bf-4871-95c1-f32a8e93f143",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f60",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "e36b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e46b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e56b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e66b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e76b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e86b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e96b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e06b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "42a0a8cd-ec8a-48be-8ab9-eb0e58081390",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb50e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "ACCESSORIES"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a858bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "ae77a415-74bf-4871-95c1-f32a8e93f143",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f60",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "e36b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e46b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e56b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e66b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e76b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e86b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e96b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "e06b5f46-4544-4599-a961-3dc7a4f59414",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "42a0a8cd-ec8a-48be-8ab9-eb0e58081390",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb70e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "COURSES"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a058bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "5015d82a-5c4b-411c-97e6-b98b181e00b7",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f62",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "ada45ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "ada55ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "ada65ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "ada75ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "ada85ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb70e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "COURSES"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a058bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "5015d82a-5c4b-411c-97e6-b98b181e00b7",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f62",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "ada45ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "ada55ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "ada65ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "ada75ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "ada85ec0-17fb-4517-990e-190cc2d49fb0",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb80e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "OCCASIONS"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a158bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "b74fcd50-674b-45ef-bc85-4bc5b0d49605",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f65",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "11fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "12fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "13fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "14fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "15fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "16fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "17fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "18fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "19fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "20fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "21fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "22fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "23fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "24fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "25fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "26fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "27fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb80e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "OCCASIONS"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a158bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "b74fcd50-674b-45ef-bc85-4bc5b0d49605",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f65",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "11fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "12fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "13fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "14fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "15fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "16fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "17fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "18fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "19fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "20fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "21fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "22fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "23fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "24fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "25fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "26fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "27fa0782-e2b3-4c79-adaf-3eddc968af50",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb51e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "TIME"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a358bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "0d46228e-e5f4-4747-9557-6ae55b01943e",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f67",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "cda10433-b21f-4c75-9aad-7650d5fe34ee",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "cda11433-b21f-4c75-9aad-7650d5fe34ee",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "cda12433-b21f-4c75-9aad-7650d5fe34ee",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "cda13433-b21f-4c75-9aad-7650d5fe34ee",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "cda14433-b21f-4c75-9aad-7650d5fe34ee",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb52e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "CUISINE"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a458bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "60e109d6-a31d-4cd2-b73e-83f3f80d416d",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f63",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "d367e663-a2d4-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d117e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d127e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d137e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d147e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d187e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d197e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d207e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d217e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d227e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d237e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d247e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d257e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d267e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d277e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d287e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d297e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d307e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d317e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d337e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d347e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d357e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d377e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d397e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d407e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d417e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d107e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb52e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "CUISINE"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a458bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "60e109d6-a31d-4cd2-b73e-83f3f80d416d",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f63",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "d367e663-a2d4-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d117e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d127e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d137e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d147e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d187e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d197e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d207e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d217e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d227e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d237e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d247e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d257e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d267e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d277e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d287e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d297e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d307e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d317e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d337e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d347e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d357e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d377e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d397e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d407e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d417e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d107e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "bb52e3ff-80f9-45a1-97d2-db004c6267c7",
+                 "type": "tagCategories",
+                 "attributes": {
+                 "abbreviation": "CUISINE"
+                 },
+                 "relationships": {
+                 "tagCategoryTranslations": {
+                 "data": [
+                          {
+                          "id": "a458bb06-972e-4021-8a4c-9b40db70eb05",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "60e109d6-a31d-4cd2-b73e-83f3f80d416d",
+                          "type": "tagCategoryTranslations"
+                          },
+                          {
+                          "id": "bd4c58f3-0c77-48ef-ab29-3d878ac52f63",
+                          "type": "tagCategoryTranslations"
+                          }
+                          ]
+                 },
+                 "tags": {
+                 "data": [
+                          {
+                          "id": "d367e663-a2d4-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d117e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d127e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d137e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d147e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d187e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d197e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d207e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d217e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d227e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d237e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d247e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d257e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d267e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d277e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d287e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d297e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d307e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d317e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d337e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d347e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d357e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d377e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d397e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d407e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d417e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          },
+                          {
+                          "id": "d107e663-a2d3-42ec-a3b5-984f549dbb85",
+                          "type": "tags"
+                          }
+                          ]
+                 },
+                 "image": {
+                 "data": {
+                 "id": "ddddeeee-80f9-45a1-97d2-db004c6267c7",
+                 "type": "media"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa146b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "Birthday"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "11fa0782-e2b3-4c79-adaf-3eddc968af50",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa162b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "Autumn"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "27fa0782-e2b3-4c79-adaf-3eddc968af50",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa139b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "Breakfast"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "ada45ec0-17fb-4517-990e-190cc2d49fb0",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa140b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "Desserts and baked goods"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "ada55ec0-17fb-4517-990e-190cc2d49fb0",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa170b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "30-60 min"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "cda12433-b21f-4c75-9aad-7650d5fe34ee",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa173b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "American"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "d107e663-a2d3-42ec-a3b5-984f549dbb85",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa174b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "Asian"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "d117e663-a2d3-42ec-a3b5-984f549dbb85",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa177b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "Cajun"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "d147e663-a2d3-42ec-a3b5-984f549dbb85",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa100b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "Baking accessory"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "e36b5f46-4544-4599-a961-3dc7a4f59414",
+                 "type": "tags"
+                 }
+                 }
+                 }
+                 },
+                 {
+                 "id": "fa104b29-f1d3-4842-9e4c-ced6b063957b",
+                 "type": "tagTranslations",
+                 "attributes": {
+                 "language": "en_US",
+                 "value": "Baking plate"
+                 },
+                 "relationships": {
+                 "tag": {
+                 "data": {
+                 "id": "e76b5f46-4544-4599-a961-3dc7a4f59414",
+                 "type": "tags"
+                 }
+                 }
                  }
                  }
                  ]

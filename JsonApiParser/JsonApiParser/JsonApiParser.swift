@@ -233,6 +233,9 @@ private extension NSDictionary {
         if let dick = value as? NSDictionary {
             return [dick]
         }
+        if value == nil || value is NSNull {
+            return []
+        }
         throw JsonApiUnboxError.cantProcess(data: self)
     }
     

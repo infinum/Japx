@@ -34,4 +34,9 @@ class ExampleReader {
         return try! JSONDecoder().decode(DataModel<[Article]>.self, from: data)
     }
     
+    static func prettyPrintJson(data: NSDictionary) -> String {
+        let dataData = try! JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+        return String(data: dataData, encoding: .utf8)!
+    }
+    
 }

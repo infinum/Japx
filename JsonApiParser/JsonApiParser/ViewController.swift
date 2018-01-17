@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let N = 200_000
         
         //Simple
 //        let simpleData = ExampleReader.importSimpleData()
@@ -25,15 +24,9 @@ class ViewController: UIViewController {
 //        
         //Json api
         let jsonApiData = ExampleReader.importData()
-        
-        let date = Date()
         let jsonApi = ExampleReader.dataToJson(jsonApiData)
-        for _ in (0 ..< N) {
-            let dicts = try! JsonApiParser.unbox(jsonApiInput: jsonApi)
-//        let normalData = ExampleReader.jsonToData(dicts)
-//        _ = ExampleReader.decode(data: normalData)
-        }
-        print(Date().timeIntervalSince(date))
+        let dicts = try! JsonApiParser.unbox(jsonApiInput: jsonApi)
+        print(ExampleReader.prettyPrintJson(data: dicts))
 
     }
 
