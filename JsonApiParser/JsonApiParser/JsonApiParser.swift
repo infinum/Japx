@@ -47,15 +47,20 @@ struct JsonApiParser {
     static func unbox(jsonApiInput: [String: Any]) throws -> NSDictionary {
         let jsonApi = (jsonApiInput as NSDictionary).mutable
         
+        let dataObjectsArray = try jsonApi.array(from: Consts.data)
+        let includedObjectsArray = (try? jsonApi.array(from: Consts.included)) ?? []
+        
         var dataObjects = [TypeIdPair]()
         var objects = [TypeIdPair: NSMutableDictionary]()
+        dataObjects.reserveCapacity(dataObjectsArray.count)
+        objects.reserveCapacity(dataObjectsArray.count + includedObjectsArray.count)
         
-        for dic in try jsonApi.array(from: Consts.data) {
+        for dic in dataObjectsArray {
             let typeId = try dic.extractTypeIdPair()
             dataObjects.append(typeId)
             objects[typeId] = dic.mutable
         }
-        for dic in (try? jsonApi.array(from: Consts.included)) ?? [] {
+        for dic in includedObjectsArray {
             let typeId = try dic.extractTypeIdPair()
             objects[typeId] = dic.mutable
         }
@@ -151,8 +156,7 @@ private extension JsonApiParser {
                 
                 //Fetch those object from `objects`
                 let othersObjects = try others.map { try $0.extractTypeIdPair() }
-                    .map { objects[$0] }
-                    .flatMap { $0 }
+                    .flatMap { objects[$0] }
                 
                 //Store reloationships
                 if others.count == 1 {
