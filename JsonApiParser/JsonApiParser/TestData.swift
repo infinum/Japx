@@ -33,7 +33,7 @@ let unboxTest = [
             ],
             ],
     ]
-    ] as [String : Any]
+] as Parameters
 
 
 
@@ -46,7 +46,7 @@ let wrapTest = [
         "id": "child",
         "name": "Some Child",
     ]
-    ] as [String : Any]
+] as Parameters
 
 
 let empty = [
@@ -54,7 +54,7 @@ let empty = [
         ["type": "empty", "id": "1"],
         ["type": "empty", "id": "2"],
     ],
-]
+] as Parameters
 
 let test2 = [
     "data": [
@@ -65,4 +65,4 @@ let test2 = [
             "int": 123,
         ],
     ],
-]
+] as Parameters

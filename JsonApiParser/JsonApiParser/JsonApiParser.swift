@@ -44,33 +44,44 @@ extension TypeIdPair: Hashable, Equatable {
 
 struct JsonApiParser {
     
-    static func unbox(jsonApi: Parameters) throws -> Parameters {
+    static func unbox(jsonApiInput: [String: Any]) throws -> NSDictionary {
+        let jsonApi = (jsonApiInput as NSDictionary).mutable
         
         var dataObjects = [TypeIdPair]()
-        var includedObjects = [TypeIdPair]()
-        var objects = [TypeIdPair: Parameters]()
+        var objects = [TypeIdPair: NSMutableDictionary]()
         
         for dic in try jsonApi.array(from: Consts.data) {
             let typeId = try dic.extractTypeIdPair()
             dataObjects.append(typeId)
-            objects[typeId] = dic
+            objects[typeId] = dic.mutable
         }
         for dic in (try? jsonApi.array(from: Consts.included)) ?? [] {
             let typeId = try dic.extractTypeIdPair()
-            includedObjects.append(typeId)
-            objects[typeId] = dic
+            objects[typeId] = dic.mutable
         }
         
-        try resolveAttributes(from: &objects)
-        try resolveRelationships(from: &objects, keyOrder: dataObjects + includedObjects)
+        try resolveAttributes(from: objects)
+        try resolveRelationships(from: objects)
         
-        var dick = jsonApi
-        dick[Consts.data] = dataObjects.map { objects[$0]! }
-        return dick
+        jsonApi[Consts.data] = dataObjects.map { objects[$0]! }
+        return jsonApi
     }
     
     static func wrap(json: Parameters) throws -> Parameters {
-        var object = json
+        return try [Consts.data: wrapAttributesAndReloationships(on: json)]
+    }
+    
+    static func wrap(json: [Parameters]) throws -> Parameters {
+        return try [
+            Consts.data: json.flatMap { try wrapAttributesAndReloationships(on: $0) }
+        ]
+    }
+}
+
+private extension JsonApiParser {
+    
+    static func wrapAttributesAndReloationships(on jsonObject: Parameters) throws -> Parameters {
+        var object = jsonObject
         
         var attributes = Parameters()
         var relationships = Parameters()
@@ -81,20 +92,24 @@ struct JsonApiParser {
             if let array = object.asArray(from: key) {
                 let isArrayOfRelationships = array.first?.containsTypeAndId() ?? false
                 if !isArrayOfRelationships {
+                    //Handle attribures array
                     attributes[key] = array
                     continue
                 }
                 let dataArray = try array.map { try $0.asDataWithTypeAndId() }
+                //handle reloationship array
                 relationships[key] = [Consts.data: dataArray]
                 continue
             }
             
-            if let obj = object.asDick(from: key) {
+            if let obj = object.asDictionaty(from: key) {
                 if !obj.containsTypeAndId() {
+                    //Handle attributes object
                     attributes[key] = obj
                     continue
                 }
                 let dataObj = try obj.asDataWithTypeAndId()
+                //Handle reloationship object
                 relationships[key] = [Consts.data: dataObj]
                 continue
             }
@@ -105,74 +120,81 @@ struct JsonApiParser {
         object[Consts.attributes] = attributes
         object[Consts.relationships] = relationships
         
-        return [Consts.data: object]
+        return object
     }
     
 }
 
 private extension JsonApiParser {
     
-    static func resolveAttributes(from objects: inout [TypeIdPair: Parameters]) throws {
+    static func resolveAttributes(from objects: [TypeIdPair: NSMutableDictionary]) throws {
         
-        for typeId in objects.keys {
-            
-            var object = objects[typeId]!
-            let attributes = try? object.dick(for: Consts.attributes)
+        objects.values.forEach { (object) in
+            let attributes = try? object.dictionary(for: Consts.attributes)
             attributes?.forEach { object[$0] = $1 }
-            objects[typeId] = object
         }
+        
     }
     
-    static func resolveRelationships(from objects: inout [TypeIdPair: Parameters], keyOrder: [TypeIdPair]) throws {
+    static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary]) throws {
         
-        for typeId in keyOrder {
+        try objects.values.forEach { (object) in
             
-            var object = objects[typeId]!
-            for relationship in (try? object.dick(for: Consts.relationships)) ?? [:] {
-                guard let relationshipParams = relationship.value as? Parameters else {
+            try object.dictionary(for: Consts.relationships, defaultDict: NSDictionary()).forEach { (relationship) in
+              
+                guard let relationshipParams = relationship.value as? NSDictionary else {
                     throw JsonApiUnboxError.relationshipNotFound(data: relationship)
                 }
+                
+                //Extract typy id from single object / array
                 let others = try relationshipParams.array(from: Consts.data)
+                
+                //Fetch those object from `objects`
                 let othersObjects = try others.map { try $0.extractTypeIdPair() }
                     .map { objects[$0] }
                     .flatMap { $0 }
+                
+                //Store reloationships
                 if others.count == 1 {
                     object[relationship.key] = othersObjects.first
                 } else {
                     object[relationship.key] = othersObjects
                 }
+                
             }
-            objects[typeId] = object
-            
         }
     }
     
 }
 
 private extension Dictionary where Key == String {
-    
-    func asDataWithTypeAndId() throws ->Parameters {
+
+    func asDataWithTypeAndId() throws -> Parameters {
         guard let type = self[Consts.type], let id = self[Consts.id] else {
             throw JsonApiUnboxError.notFoundTypeOrId(data: self)
         }
         return [Consts.type: type, Consts.id: id]
     }
-    
+
     func asArray(from key: String) -> [Parameters]? {
         return self[key] as? [Parameters]
     }
-    
-    func asDick(from key: String) -> Parameters? {
+
+    func asDictionaty(from key: String) -> Parameters? {
         return self[key] as? Parameters
     }
-    
+
     func containsTypeAndId() -> Bool {
         return keys.contains(Consts.type) && keys.contains(Consts.id)
     }
-    
+
 }
 
-private extension Dictionary where Key == String {
+private extension NSDictionary {
+    
+    var mutable: NSMutableDictionary {
+        return self as? NSMutableDictionary ?? self.mutableCopy() as! NSMutableDictionary
+    }
     
     func extractTypeIdPair() throws -> TypeIdPair {
         if let id = self[Consts.id] as? String, let type = self[Consts.type] as? String {
@@ -188,19 +210,23 @@ private extension Dictionary where Key == String {
         throw JsonApiUnboxError.notString(data: self, value: self[key])
     }
     
-    func dick(for key: String) throws -> Parameters {
-        if let value = self[key] as? Parameters {
+    func dictionary(for key: String, defaultDict: NSDictionary) -> NSDictionary {
+        return (self[key] as? NSDictionary) ?? defaultDict
+    }
+    
+    func dictionary(for key: String) throws -> NSDictionary {
+        if let value = self[key] as? NSDictionary {
             return value
         }
         throw JsonApiUnboxError.notDictionary(data: self, value: self[key])
     }
     
-    func array(from key: String) throws -> [Parameters] {
+    func array(from key: String) throws -> [NSDictionary] {
         let value = self[key]
-        if let array = value as? [Parameters] {
+        if let array = value as? [NSDictionary] {
             return array
         }
-        if let dick = value as? Parameters {
+        if let dick = value as? NSDictionary {
             return [dick]
         }
         throw JsonApiUnboxError.cantProcess(data: self)
