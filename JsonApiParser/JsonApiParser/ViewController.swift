@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let N = 100_000
+        let N = 200_000
         
         //Simple
 //        let simpleData = ExampleReader.importSimpleData()

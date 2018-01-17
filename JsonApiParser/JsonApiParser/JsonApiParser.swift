@@ -68,7 +68,7 @@ struct JsonApiParser {
         try resolveAttributes(from: objects)
         try resolveRelationships(from: objects)
         
-        jsonApi[Consts.data] = dataObjects.map { objects[$0]! }
+        jsonApi.setObject(dataObjects.map { objects[$0]! }, forKey: Consts.data as NSCopying)
         return jsonApi
     }
     
@@ -160,9 +160,9 @@ private extension JsonApiParser {
                 
                 //Store reloationships
                 if others.count == 1 {
-                    object[relationship.key] = othersObjects.first
+                    object.setObject(othersObjects.first as Any, forKey: relationship.key as! NSCopying)
                 } else {
-                    object[relationship.key] = othersObjects
+                    object.setObject(othersObjects, forKey: relationship.key as! NSCopying)
                 }
                 
             }
@@ -201,32 +201,32 @@ private extension NSDictionary {
     }
     
     func extractTypeIdPair() throws -> TypeIdPair {
-        if let id = self[Consts.id] as? String, let type = self[Consts.type] as? String {
+        if let id = self.object(forKey: Consts.id) as? String, let type = self.object(forKey: Consts.type) as? String {
             return TypeIdPair(type: type, id: id)
         }
         throw JsonApiUnboxError.notFoundTypeOrId(data: self)
     }
     
     func string(for key: String) throws -> String {
-        if let value = self[key] as? String {
+        if let value = self.object(forKey: key) as? String {
             return value
         }
-        throw JsonApiUnboxError.notString(data: self, value: self[key])
+        throw JsonApiUnboxError.notString(data: self, value: self.object(forKey: key))
     }
     
     func dictionary(for key: String, defaultDict: NSDictionary) -> NSDictionary {
-        return (self[key] as? NSDictionary) ?? defaultDict
+        return (self.object(forKey: key) as? NSDictionary) ?? defaultDict
     }
     
     func dictionary(for key: String) throws -> NSDictionary {
-        if let value = self[key] as? NSDictionary {
+        if let value = self.object(forKey: key) as? NSDictionary {
             return value
         }
         throw JsonApiUnboxError.notDictionary(data: self, value: self[key])
     }
     
     func array(from key: String) throws -> [NSDictionary] {
-        let value = self[key]
+        let value = self.object(forKey: key)
         if let array = value as? [NSDictionary] {
             return array
         }
