@@ -9,38 +9,40 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Simple
-//        let simpleData = ExampleReader.importSimpleData()
+        //        let simpleData = ExampleReader.importSimpleData()
         
-//        let dateSimple = Date()
-//        for _ in (0 ..< N) {
-//            _ = ExampleReader.decode(data: simpleData)
-//        }
-//        print(Date().timeIntervalSince(dateSimple))
-//        
+        //        let dateSimple = Date()
+        //        for _ in (0 ..< N) {
+        //            _ = ExampleReader.decode(data: simpleData)
+        //        }
+        //        print(Date().timeIntervalSince(dateSimple))
+        //
         //Json api
         let jsonApiData = ExampleReader.importData()
         let jsonApi = ExampleReader.dataToJson(jsonApiData)
-        let dicts = try! JsonApiParser.unbox(jsonApiInput: jsonApi)
-        print(ExampleReader.prettyPrintJson(data: dicts))
-
+        
+        let dicts = try! JsonApiParser.unbox(jsonApiInput: jsonApi as! Parameters, include: "activities,announcements,activities.relatedRecipe,activities.relatedTip,activities.relatedProfile,activities.relatedCollection,activities.subject,activities.subject.profileImage,activities.subject.countryInfo,activities.relatedProfile.profileImage,activities.relatedProfile.countryInfo,activities.relatedProfile.isFollowing,activities.relatedRecipe.profiles,activities.relatedRecipe.recipeTranslations,activities.relatedRecipe.coverImage,activities.relatedTip.profiles,activities.relatedTip.tipTranslations,activities.relatedTip.coverImage,activities.relatedCollection.recipeImages,activities.relatedCollection.profiles,activities.relatedCollection.latestRecipeImage,announcements.country,announcements.active,announcements.announcementType,announcements.categories,announcements.entityId,announcements.translations,announcements.defaultTranslation,announcements.image,announcements.relatedRecipe,announcements.relatedTip,announcements.relatedCollection,announcements.relatedProfile")
+        print(ExampleReader.prettyPrintJson(data: dicts as NSDictionary))
+        
+        
     }
-
+    
     func unboxTest() {
-//        let resp1 = try! JsonApiParser.unbox(jsonApiInput: unboxTest)
-//        debugPrint(resp1 as NSDictionary)
-//        print("\n\n")
+        //        let resp1 = try! JsonApiParser.unbox(jsonApiInput: unboxTest)
+        //        debugPrint(resp1 as NSDictionary)
+        //        print("\n\n")
     }
     
     func wrapTest() {
-//        let resp2 = try! JsonApiParser.wrap(json: wrapTest)
-//        debugPrint(resp2 as NSDictionary)
-//        print("\n\n")
+        //        let resp2 = try! JsonApiParser.wrap(json: wrapTest)
+        //        debugPrint(resp2 as NSDictionary)
+        //        print("\n\n")
     }
-
+    
 }
 
