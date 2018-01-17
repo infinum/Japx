@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E152345D200F7C1000ED8095 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = E152345C200F7C1000ED8095 /* example.json */; };
+		E1523460200F7C3700ED8095 /* ExampleReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E152345F200F7C3700ED8095 /* ExampleReader.swift */; };
+		E1523464200F7E4400ED8095 /* simple.json in Resources */ = {isa = PBXBuildFile; fileRef = E1523463200F7E4400ED8095 /* simple.json */; };
+		E1523466200F7EFF00ED8095 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1523465200F7EFF00ED8095 /* Models.swift */; };
 		E19EF110200D252F00A09F37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EF10F200D252F00A09F37 /* AppDelegate.swift */; };
 		E19EF112200D252F00A09F37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EF111200D252F00A09F37 /* ViewController.swift */; };
 		E19EF115200D252F00A09F37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19EF113200D252F00A09F37 /* Main.storyboard */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E152345C200F7C1000ED8095 /* example.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		E152345F200F7C3700ED8095 /* ExampleReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleReader.swift; sourceTree = "<group>"; };
+		E1523463200F7E4400ED8095 /* simple.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = simple.json; sourceTree = "<group>"; };
+		E1523465200F7EFF00ED8095 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E19EF10C200D252F00A09F37 /* JsonApiParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsonApiParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19EF10F200D252F00A09F37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E19EF111200D252F00A09F37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E152345E200F7C2000ED8095 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				E152345F200F7C3700ED8095 /* ExampleReader.swift */,
+				E1523465200F7EFF00ED8095 /* Models.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		E19EF103200D252F00A09F37 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +75,7 @@
 		E19EF10E200D252F00A09F37 /* JsonApiParser */ = {
 			isa = PBXGroup;
 			children = (
+				E152345E200F7C2000ED8095 /* Example */,
 				E19EF10F200D252F00A09F37 /* AppDelegate.swift */,
 				E19EF111200D252F00A09F37 /* ViewController.swift */,
 				E19EF121200D255C00A09F37 /* JsonApiParser.swift */,
@@ -66,6 +84,8 @@
 				E19EF116200D252F00A09F37 /* Assets.xcassets */,
 				E19EF118200D252F00A09F37 /* LaunchScreen.storyboard */,
 				E19EF11B200D252F00A09F37 /* Info.plist */,
+				E152345C200F7C1000ED8095 /* example.json */,
+				E1523463200F7E4400ED8095 /* simple.json */,
 			);
 			path = JsonApiParser;
 			sourceTree = "<group>";
@@ -129,9 +149,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E152345D200F7C1000ED8095 /* example.json in Resources */,
 				E19EF11A200D252F00A09F37 /* LaunchScreen.storyboard in Resources */,
 				E19EF117200D252F00A09F37 /* Assets.xcassets in Resources */,
 				E19EF115200D252F00A09F37 /* Main.storyboard in Resources */,
+				E1523464200F7E4400ED8095 /* simple.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1523460200F7C3700ED8095 /* ExampleReader.swift in Sources */,
 				E19EF112200D252F00A09F37 /* ViewController.swift in Sources */,
 				E19EF110200D252F00A09F37 /* AppDelegate.swift in Sources */,
+				E1523466200F7EFF00ED8095 /* Models.swift in Sources */,
 				E19EF122200D255C00A09F37 /* JsonApiParser.swift in Sources */,
 				E19EF124200D256A00A09F37 /* TestData.swift in Sources */,
 			);

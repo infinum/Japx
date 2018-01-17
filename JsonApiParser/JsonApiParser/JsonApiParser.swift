@@ -44,8 +44,8 @@ extension TypeIdPair: Hashable, Equatable {
 
 struct JsonApiParser {
     
-    static func unbox(jsonApiInput: [String: Any]) throws -> NSDictionary {
-        let jsonApi = (jsonApiInput as NSDictionary).mutable
+    static func unbox(jsonApiInput: NSDictionary) throws -> NSDictionary {
+        let jsonApi = jsonApiInput.mutable
         
         let dataObjectsArray = try jsonApi.array(from: Consts.data)
         let includedObjectsArray = (try? jsonApi.array(from: Consts.included)) ?? []
