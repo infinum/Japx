@@ -16,7 +16,7 @@
 		E19EF115200D252F00A09F37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19EF113200D252F00A09F37 /* Main.storyboard */; };
 		E19EF117200D252F00A09F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19EF116200D252F00A09F37 /* Assets.xcassets */; };
 		E19EF11A200D252F00A09F37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19EF118200D252F00A09F37 /* LaunchScreen.storyboard */; };
-		E19EF122200D255C00A09F37 /* JsonApiParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EF121200D255C00A09F37 /* JsonApiParser.swift */; };
+		E19EF122200D255C00A09F37 /* JSONAPIParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EF121200D255C00A09F37 /* JSONAPIParser.swift */; };
 		E19EF124200D256A00A09F37 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EF123200D256A00A09F37 /* TestData.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,7 @@
 		E19EF116200D252F00A09F37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E19EF119200D252F00A09F37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E19EF11B200D252F00A09F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E19EF121200D255C00A09F37 /* JsonApiParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonApiParser.swift; sourceTree = "<group>"; };
+		E19EF121200D255C00A09F37 /* JSONAPIParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAPIParser.swift; sourceTree = "<group>"; };
 		E19EF123200D256A00A09F37 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +78,7 @@
 				E152345E200F7C2000ED8095 /* Example */,
 				E19EF10F200D252F00A09F37 /* AppDelegate.swift */,
 				E19EF111200D252F00A09F37 /* ViewController.swift */,
-				E19EF121200D255C00A09F37 /* JsonApiParser.swift */,
+				E19EF121200D255C00A09F37 /* JSONAPIParser.swift */,
 				E19EF123200D256A00A09F37 /* TestData.swift */,
 				E19EF113200D252F00A09F37 /* Main.storyboard */,
 				E19EF116200D252F00A09F37 /* Assets.xcassets */,
@@ -168,7 +168,7 @@
 				E19EF112200D252F00A09F37 /* ViewController.swift in Sources */,
 				E19EF110200D252F00A09F37 /* AppDelegate.swift in Sources */,
 				E1523466200F7EFF00ED8095 /* Models.swift in Sources */,
-				E19EF122200D255C00A09F37 /* JsonApiParser.swift in Sources */,
+				E19EF122200D255C00A09F37 /* JSONAPIParser.swift in Sources */,
 				E19EF124200D256A00A09F37 /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

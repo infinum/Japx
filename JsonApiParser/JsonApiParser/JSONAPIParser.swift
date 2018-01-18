@@ -10,7 +10,7 @@ import UIKit
 
 typealias Parameters = [String: Any]
 
-enum JsonApiUnboxError: Error {
+enum JSONAPIParserError: Error {
     case cantProcess(data: Any)
     case notString(data: Any, value: Any?)
     case notDictionary(data: Any, value: Any?)
@@ -34,11 +34,11 @@ fileprivate struct TypeIdPair {
     let id: String
 }
 
-struct JsonApiParser {}
+struct JSONAPIParser {}
 
 //MARK: - Unbox -
 
-extension JsonApiParser {
+extension JSONAPIParser {
     
     static func jsonObject(withJSONObject object: Parameters, includeList: String? = nil) throws -> Parameters {
         //with include list
@@ -51,7 +51,7 @@ extension JsonApiParser {
         if  let unboxedProperties = unboxed as? Parameters {
             return unboxedProperties
         }
-        throw JsonApiUnboxError.unableToConvertNSDictionaryToParams(data: unboxed)
+        throw JSONAPIParserError.unableToConvertNSDictionaryToParams(data: unboxed)
         
     }
 
@@ -70,34 +70,34 @@ extension JsonApiParser {
         //with include list
         if let includeList = includeList {
             guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? Parameters else {
-                throw JsonApiUnboxError.unableToConvertDataToJson(data: data)
+                throw JSONAPIParserError.unableToConvertDataToJson(data: data)
             }
             return try unbox(jsonApiInput: json, include: includeList)
         }
         // without include list
         guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? NSDictionary else {
-            throw JsonApiUnboxError.unableToConvertDataToJson(data: data)
+            throw JSONAPIParserError.unableToConvertDataToJson(data: data)
         }
         let unboxed = try unbox(jsonApiInput: json as NSDictionary)
         
         if  let unboxedProperties = unboxed as? Parameters {
             return unboxedProperties
         }
-        throw JsonApiUnboxError.unableToConvertNSDictionaryToParams(data: unboxed)
+        throw JSONAPIParserError.unableToConvertNSDictionaryToParams(data: unboxed)
     }
 
     static func data(with data: Data, includeList: String? = nil) throws -> Data {
         //with include list
         if let includeList = includeList {
             guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? Parameters else {
-                throw JsonApiUnboxError.unableToConvertDataToJson(data: data)
+                throw JSONAPIParserError.unableToConvertDataToJson(data: data)
             }
             let unboxed = try unbox(jsonApiInput: json, include: includeList)
             return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
         }
         // without include list
         guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? NSDictionary else {
-            throw JsonApiUnboxError.unableToConvertDataToJson(data: data)
+            throw JSONAPIParserError.unableToConvertDataToJson(data: data)
         }
         let unboxed = try unbox(jsonApiInput: json)
         return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
@@ -107,7 +107,7 @@ extension JsonApiParser {
 
 //MARK: Unbox main functions
 
-private extension JsonApiParser {
+private extension JSONAPIParser {
     
     static func unbox(jsonApiInput: Parameters, include: String) throws -> Parameters {
         
@@ -181,7 +181,7 @@ private extension JsonApiParser {
 
 //MARK: Unbox extra functions
 
-private extension JsonApiParser {
+private extension JSONAPIParser {
  
     private static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary) throws -> Parameters {
         
@@ -213,7 +213,7 @@ private extension JsonApiParser {
     
 }
 
-private extension JsonApiParser {
+private extension JSONAPIParser {
     
     static func resolveAttributes(from objects: [TypeIdPair: NSMutableDictionary]) throws {
         
@@ -232,7 +232,7 @@ private extension JsonApiParser {
             try object.dictionary(for: Consts.relationships, defaultDict: NSDictionary()).forEach { (relationship) in
                 
                 guard let relationshipParams = relationship.value as? NSDictionary else {
-                    throw JsonApiUnboxError.relationshipNotFound(data: relationship)
+                    throw JSONAPIParserError.relationshipNotFound(data: relationship)
                 }
                 
                 //Extract typy id from single object / array
@@ -264,7 +264,7 @@ private extension JsonApiParser {
 
 //MARK: - Wrap -
 
-extension JsonApiParser {
+extension JSONAPIParser {
     
     static func wrap(json: Parameters) throws -> Parameters {
         return try [Consts.data: wrapAttributesAndReloationships(on: json)]
@@ -278,7 +278,7 @@ extension JsonApiParser {
     
 }
 
-private extension JsonApiParser {
+private extension JSONAPIParser {
     
     static func wrapAttributesAndReloationships(on jsonObject: Parameters) throws -> Parameters {
         var object = jsonObject
@@ -345,7 +345,7 @@ private extension Dictionary where Key == String {
     
     func asDataWithTypeAndId() throws -> Parameters {
         guard let type = self[Consts.type], let id = self[Consts.id] else {
-            throw JsonApiUnboxError.notFoundTypeOrId(data: self)
+            throw JSONAPIParserError.notFoundTypeOrId(data: self)
         }
         return [Consts.type: type, Consts.id: id]
     }
@@ -354,7 +354,7 @@ private extension Dictionary where Key == String {
         if let id = self[Consts.id] as? String, let type = self[Consts.type] as? String {
             return TypeIdPair(type: type, id: id)
         }
-        throw JsonApiUnboxError.notFoundTypeOrId(data: self)
+        throw JSONAPIParserError.notFoundTypeOrId(data: self)
     }
     
     func asDictionaty(from key: String) -> Parameters? {
@@ -365,7 +365,7 @@ private extension Dictionary where Key == String {
         if let value = self[key] as? Parameters {
             return value
         }
-        throw JsonApiUnboxError.notDictionary(data: self, value: self[key])
+        throw JSONAPIParserError.notDictionary(data: self, value: self[key])
     }
     
     func asArray(from key: String) -> [Parameters]? {
@@ -383,7 +383,7 @@ private extension Dictionary where Key == String {
         if value == nil || value is NSNull {
             return nil
         }
-        throw JsonApiUnboxError.cantProcess(data: self)
+        throw JSONAPIParserError.cantProcess(data: self)
     }
     
 }
@@ -398,7 +398,7 @@ private extension NSDictionary {
         if let id = self.object(forKey: Consts.id) as? String, let type = self.object(forKey: Consts.type) as? String {
             return TypeIdPair(type: type, id: id)
         }
-        throw JsonApiUnboxError.notFoundTypeOrId(data: self)
+        throw JSONAPIParserError.notFoundTypeOrId(data: self)
     }
     
     func dictionary(for key: String, defaultDict: NSDictionary) -> NSDictionary {
@@ -409,7 +409,7 @@ private extension NSDictionary {
         if let value = self.object(forKey: key) as? NSDictionary {
             return value
         }
-        throw JsonApiUnboxError.notDictionary(data: self, value: self[key])
+        throw JSONAPIParserError.notDictionary(data: self, value: self[key])
     }
     
     func array(from key: String) throws -> [NSDictionary]? {
@@ -423,7 +423,7 @@ private extension NSDictionary {
         if value == nil || value is NSNull {
             return nil
         }
-        throw JsonApiUnboxError.cantProcess(data: self)
+        throw JSONAPIParserError.cantProcess(data: self)
     }
     
 }
