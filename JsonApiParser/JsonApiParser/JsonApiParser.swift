@@ -16,6 +16,8 @@ enum JsonApiUnboxError: Error {
     case notDictionary(data: Any, value: Any?)
     case notFoundTypeOrId(data: Any)
     case relationshipNotFound(data: Any)
+    case unableToConvertNSDictionaryToParams(data: Any)
+    case unableToConvertDataToJson(data: Any)
 }
 
 fileprivate struct Consts {
@@ -32,49 +34,103 @@ fileprivate struct TypeIdPair {
     let id: String
 }
 
-extension TypeIdPair: Hashable, Equatable {
-    var hashValue: Int {
-        return (type + id).hashValue
-    }
-    
-    static func == (lhs: TypeIdPair, rhs: TypeIdPair) -> Bool {
-        return lhs.type == rhs.type && lhs.id == rhs.id
-    }
-}
-
 struct JsonApiParser {}
 
 //MARK: - Unbox -
 
 extension JsonApiParser {
     
+    static func jsonObject(withJSONObject object: Parameters, includeList: String? = nil) throws -> Parameters {
+        //with include list
+        if let includeList = includeList {
+            return try unbox(jsonApiInput: object, include: includeList)
+        }
+        // without include list
+        let unboxed = try unbox(jsonApiInput: object as NSDictionary)
+        
+        if  let unboxedProperties = unboxed as? Parameters {
+            return unboxedProperties
+        }
+        throw JsonApiUnboxError.unableToConvertNSDictionaryToParams(data: unboxed)
+        
+    }
+
+    static func data(withJSONObject object: Parameters, includeList: String? = nil) throws -> Data {
+        //with include list
+        if let includeList = includeList {
+            let unboxed = try unbox(jsonApiInput: object, include: includeList)
+            return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
+        }
+        // without include list
+        let unboxed = try unbox(jsonApiInput: object as NSDictionary)
+        return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
+    }
+    
+    static func jsonObject(with data: Data, includeList: String? = nil) throws -> Parameters {
+        //with include list
+        if let includeList = includeList {
+            guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? Parameters else {
+                throw JsonApiUnboxError.unableToConvertDataToJson(data: data)
+            }
+            return try unbox(jsonApiInput: json, include: includeList)
+        }
+        // without include list
+        guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? NSDictionary else {
+            throw JsonApiUnboxError.unableToConvertDataToJson(data: data)
+        }
+        let unboxed = try unbox(jsonApiInput: json as NSDictionary)
+        
+        if  let unboxedProperties = unboxed as? Parameters {
+            return unboxedProperties
+        }
+        throw JsonApiUnboxError.unableToConvertNSDictionaryToParams(data: unboxed)
+    }
+
+    static func data(with data: Data, includeList: String? = nil) throws -> Data {
+        //with include list
+        if let includeList = includeList {
+            guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? Parameters else {
+                throw JsonApiUnboxError.unableToConvertDataToJson(data: data)
+            }
+            let unboxed = try unbox(jsonApiInput: json, include: includeList)
+            return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
+        }
+        // without include list
+        guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? NSDictionary else {
+            throw JsonApiUnboxError.unableToConvertDataToJson(data: data)
+        }
+        let unboxed = try unbox(jsonApiInput: json)
+        return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
+    }
+    
+}
+
+//MARK: Unbox main functions
+
+private extension JsonApiParser {
+    
     static func unbox(jsonApiInput: Parameters, include: String) throws -> Parameters {
         
         let params = include
             .split(separator: ",")
             .map { $0.split(separator: ".") }
-            .reduce(into: [Int: [[Substring.SubSequence]]]()) { (result, arrayPath) in
-                var array = result[arrayPath.count - 1] ?? []
-                array.append(arrayPath)
-                result[arrayPath.count - 1] = array
-        }
         
         let paramsDict = NSMutableDictionary(capacity: 20)
-        for i in (0..<params.count) {
-            let sameRank = params[i]!
-            for path in sameRank {
-                var dict: NSMutableDictionary? = paramsDict
-                for j in (0 ..< (path.count - 1)) {
-                    dict = dict?.object(forKey: path[j]) as? NSMutableDictionary
-                }
-                if let lastPathComponent = path.last {
-                    dict?.setObject(NSMutableDictionary(capacity: 20), forKey: lastPathComponent as NSCopying)
+        for lineArray in params {
+            var dict: NSMutableDictionary = paramsDict
+            for param in lineArray {
+                if let newDict = dict[param] as? NSMutableDictionary {
+                    dict = newDict
+                } else {
+                    let newDict = NSMutableDictionary(capacity: 20)
+                    dict.setObject(newDict, forKey: param as NSCopying)
+                    dict = newDict
                 }
             }
         }
         
-        let dataObjectsArray = try jsonApiInput.array(from: Consts.data)
-        let includedObjectsArray = (try? jsonApiInput.array(from: Consts.included)) ?? []
+        let dataObjectsArray = try jsonApiInput.array(from: Consts.data) ?? []
+        let includedObjectsArray = (try? jsonApiInput.array(from: Consts.included) ?? []) ?? []
         let allObjectsArray = dataObjectsArray + includedObjectsArray
         let allObjects = try allObjectsArray.reduce(into: [TypeIdPair: Parameters]()) { (result, object) in
             result[try object.extractTypeIdPair()] = object
@@ -87,7 +143,7 @@ extension JsonApiParser {
         var jsonApi = jsonApiInput
         let isObject = jsonApiInput[Consts.data].map { $0 is Parameters } ?? false
         jsonApi[Consts.data] = (objects.count == 1 && isObject) ? objects[0] : objects
-//        jsonApi.removeValue(forKey: Consts.included)
+        jsonApi.removeValue(forKey: Consts.included)
         return jsonApi
     }
     
@@ -95,8 +151,8 @@ extension JsonApiParser {
     static func unbox(jsonApiInput: NSDictionary) throws -> NSDictionary {
         let jsonApi = jsonApiInput.mutable
         
-        let dataObjectsArray = try jsonApi.array(from: Consts.data)
-        let includedObjectsArray = (try? jsonApi.array(from: Consts.included)) ?? []
+        let dataObjectsArray = try jsonApi.array(from: Consts.data) ?? []
+        let includedObjectsArray = (try? jsonApi.array(from: Consts.included) ?? []) ?? []
         
         var dataObjects = [TypeIdPair]()
         var objects = [TypeIdPair: NSMutableDictionary]()
@@ -117,10 +173,13 @@ extension JsonApiParser {
         try resolveRelationships(from: objects)
         
         jsonApi.setObject(dataObjects.map { objects[$0]! }, forKey: Consts.data as NSCopying)
+        jsonApi.removeObject(forKey: Consts.included)
         return jsonApi
     }
     
 }
+
+//MARK: Unbox extra functions
 
 private extension JsonApiParser {
  
@@ -134,7 +193,10 @@ private extension JsonApiParser {
         
         let relationships = try paramsDict.allKeys.map({ $0 as! String }).reduce(into: Parameters(), { (result, relationshipsKey) in
             guard let relationship = relationshipsReferences.asDictionaty(from: relationshipsKey) else { return }
-            let otherObjectsData = try relationship.array(from: Consts.data)
+            guard let otherObjectsData = try relationship.array(from: Consts.data) else {
+                result[relationshipsKey] = NSNull()
+                return
+            }
             let otherObjects = try otherObjectsData
                 .map { try $0.extractTypeIdPair() }
                 .flatMap { allObjects[$0] }
@@ -158,6 +220,7 @@ private extension JsonApiParser {
         objects.values.forEach { (object) in
             let attributes = try? object.dictionary(for: Consts.attributes)
             attributes?.forEach { object[$0] = $1 }
+            object.removeObject(forKey: Consts.attributes)
         }
         
     }
@@ -173,20 +236,27 @@ private extension JsonApiParser {
                 }
                 
                 //Extract typy id from single object / array
-                let others = try relationshipParams.array(from: Consts.data)
+                guard let others = try relationshipParams.array(from: Consts.data) else {
+                    object.setObject(NSNull(), forKey: relationship.key as! NSCopying)
+                    return
+                }
                 
                 //Fetch those object from `objects`
                 let othersObjects = try others.map { try $0.extractTypeIdPair() }
                     .flatMap { objects[$0] }
                 
                 //Store reloationships
-                if others.count == 1 {
+                let isObject = relationshipParams.object(forKey: Consts.data).map { $0 is NSDictionary } ?? false
+                
+                if others.count == 1 && isObject {
                     object.setObject(othersObjects.first as Any, forKey: relationship.key as! NSCopying)
                 } else {
                     object.setObject(othersObjects, forKey: relationship.key as! NSCopying)
                 }
                 
             }
+            
+            object.removeObject(forKey: Consts.relationships)
         }
     }
     
@@ -255,7 +325,17 @@ private extension JsonApiParser {
     
 }
 
-//MARK: - Helpers -
+//MARK: - Helper extensions -
+
+extension TypeIdPair: Hashable, Equatable {
+    var hashValue: Int {
+        return (type + id).hashValue
+    }
+    
+    static func == (lhs: TypeIdPair, rhs: TypeIdPair) -> Bool {
+        return lhs.type == rhs.type && lhs.id == rhs.id
+    }
+}
 
 private extension Dictionary where Key == String {
     
@@ -292,7 +372,7 @@ private extension Dictionary where Key == String {
         return self[key] as? [Parameters]
     }
     
-    func array(from key: String) throws -> [Parameters] {
+    func array(from key: String) throws -> [Parameters]? {
         let value = self[key]
         if let array = value as? [Parameters] {
             return array
@@ -301,7 +381,7 @@ private extension Dictionary where Key == String {
             return [dict]
         }
         if value == nil || value is NSNull {
-            return []
+            return nil
         }
         throw JsonApiUnboxError.cantProcess(data: self)
     }
@@ -332,7 +412,7 @@ private extension NSDictionary {
         throw JsonApiUnboxError.notDictionary(data: self, value: self[key])
     }
     
-    func array(from key: String) throws -> [NSDictionary] {
+    func array(from key: String) throws -> [NSDictionary]? {
         let value = self.object(forKey: key)
         if let array = value as? [NSDictionary] {
             return array
@@ -341,7 +421,7 @@ private extension NSDictionary {
             return [dict]
         }
         if value == nil || value is NSNull {
-            return []
+            return nil
         }
         throw JsonApiUnboxError.cantProcess(data: self)
     }
