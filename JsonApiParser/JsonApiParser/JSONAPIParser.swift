@@ -36,81 +36,98 @@ fileprivate struct TypeIdPair {
 
 struct JSONAPIParser {}
 
-//MARK: - Unbox -
+// MARK: - Public interface -
+
+// MARK: - Decoding
 
 extension JSONAPIParser {
     
-    static func jsonObject(withJSONObject object: Parameters, includeList: String? = nil) throws -> Parameters {
-        //with include list
-        if let includeList = includeList {
-            return try unbox(jsonApiInput: object, include: includeList)
-        }
-        // without include list
-        let unboxed = try unbox(jsonApiInput: object as NSDictionary)
+    struct Decode {
         
-        if  let unboxedProperties = unboxed as? Parameters {
-            return unboxedProperties
+        static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Parameters {
+            //with include list
+            if let includeList = includeList {
+                return try decode(jsonApiInput: object, include: includeList)
+            }
+            // without include list
+            let unboxed = try decode(jsonApiInput: object as NSDictionary)
+            
+            if  let unboxedProperties = unboxed as? Parameters {
+                return unboxedProperties
+            }
+            throw JSONAPIParserError.unableToConvertNSDictionaryToParams(data: unboxed)
         }
-        throw JSONAPIParserError.unableToConvertNSDictionaryToParams(data: unboxed)
         
-    }
-
-    static func data(withJSONObject object: Parameters, includeList: String? = nil) throws -> Data {
-        //with include list
-        if let includeList = includeList {
-            let unboxed = try unbox(jsonApiInput: object, include: includeList)
+        static func data(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Data {
+            //with include list
+            if let includeList = includeList {
+                let unboxed = try decode(jsonApiInput: object, include: includeList)
+                return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
+            }
+            // without include list
+            let unboxed = try decode(jsonApiInput: object as NSDictionary)
             return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
         }
-        // without include list
-        let unboxed = try unbox(jsonApiInput: object as NSDictionary)
-        return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
-    }
-    
-    static func jsonObject(with data: Data, includeList: String? = nil) throws -> Parameters {
-        //with include list
-        if let includeList = includeList {
-            guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? Parameters else {
-                throw JSONAPIParserError.unableToConvertDataToJson(data: data)
-            }
-            return try unbox(jsonApiInput: json, include: includeList)
-        }
-        // without include list
-        guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? NSDictionary else {
-            throw JSONAPIParserError.unableToConvertDataToJson(data: data)
-        }
-        let unboxed = try unbox(jsonApiInput: json as NSDictionary)
         
-        if  let unboxedProperties = unboxed as? Parameters {
-            return unboxedProperties
-        }
-        throw JSONAPIParserError.unableToConvertNSDictionaryToParams(data: unboxed)
-    }
-
-    static func data(with data: Data, includeList: String? = nil) throws -> Data {
-        //with include list
-        if let includeList = includeList {
-            guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? Parameters else {
+        static func jsonObject(with data: Data, includeList: String? = nil) throws -> Parameters {
+            //with include list
+            if let includeList = includeList {
+                guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? Parameters else {
+                    throw JSONAPIParserError.unableToConvertDataToJson(data: data)
+                }
+                return try decode(jsonApiInput: json, include: includeList)
+            }
+            // without include list
+            guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? NSDictionary else {
                 throw JSONAPIParserError.unableToConvertDataToJson(data: data)
             }
-            let unboxed = try unbox(jsonApiInput: json, include: includeList)
+            let unboxed = try decode(jsonApiInput: json as NSDictionary)
+            
+            if  let unboxedProperties = unboxed as? Parameters {
+                return unboxedProperties
+            }
+            throw JSONAPIParserError.unableToConvertNSDictionaryToParams(data: unboxed)
+        }
+        
+        static func data(with data: Data, includeList: String? = nil) throws -> Data {
+            //with include list
+            if let includeList = includeList {
+                guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? Parameters else {
+                    throw JSONAPIParserError.unableToConvertDataToJson(data: data)
+                }
+                let unboxed = try decode(jsonApiInput: json, include: includeList)
+                return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
+            }
+            // without include list
+            guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? NSDictionary else {
+                throw JSONAPIParserError.unableToConvertDataToJson(data: data)
+            }
+            let unboxed = try decode(jsonApiInput: json)
             return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
         }
-        // without include list
-        guard let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0)) as? NSDictionary else {
-            throw JSONAPIParserError.unableToConvertDataToJson(data: data)
-        }
-        let unboxed = try unbox(jsonApiInput: json)
-        return try JSONSerialization.data(withJSONObject: unboxed, options: .init(rawValue: 0))
     }
-    
 }
 
-//MARK: Unbox main functions
+// MARK: - Encoding
 
-private extension JSONAPIParser {
+extension JSONAPIParser {
     
-    static func unbox(jsonApiInput: Parameters, include: String) throws -> Parameters {
-        
+    static func encode(json: Parameters) throws -> Parameters {
+        return try [Consts.data: wrapAttributesAndReloationships(on: json)]
+    }
+    
+    static func encode(json: [Parameters]) throws -> Parameters {
+        return try [Consts.data: json.flatMap { try wrapAttributesAndReloationships(on: $0) }]
+    }
+}
+
+// MATK: - Private extensions -
+
+// MARK: - Decoding
+
+private extension JSONAPIParser.Decode {
+    
+    static func decode(jsonApiInput: Parameters, include: String) throws -> Parameters {
         let params = include
             .split(separator: ",")
             .map { $0.split(separator: ".") }
@@ -148,7 +165,7 @@ private extension JSONAPIParser {
     }
     
     
-    static func unbox(jsonApiInput: NSDictionary) throws -> NSDictionary {
+    static func decode(jsonApiInput: NSDictionary) throws -> NSDictionary {
         let jsonApi = jsonApiInput.mutable
         
         let dataObjectsArray = try jsonApi.array(from: Consts.data) ?? []
@@ -176,12 +193,11 @@ private extension JSONAPIParser {
         jsonApi.removeObject(forKey: Consts.included)
         return jsonApi
     }
-    
 }
 
-//MARK: Unbox extra functions
+// MARK: - Decoding extra functions
 
-private extension JSONAPIParser {
+private extension JSONAPIParser.Decode {
  
     private static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary) throws -> Parameters {
         
@@ -210,19 +226,16 @@ private extension JSONAPIParser {
         
         return attributes.merging(relationships) { $1 }
     }
-    
 }
 
-private extension JSONAPIParser {
+private extension JSONAPIParser.Decode {
     
     static func resolveAttributes(from objects: [TypeIdPair: NSMutableDictionary]) throws {
-        
         objects.values.forEach { (object) in
             let attributes = try? object.dictionary(for: Consts.attributes)
             attributes?.forEach { object[$0] = $1 }
             object.removeObject(forKey: Consts.attributes)
         }
-        
     }
     
     static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary]) throws {
@@ -258,22 +271,6 @@ private extension JSONAPIParser {
             
             object.removeObject(forKey: Consts.relationships)
         }
-    }
-    
-}
-
-//MARK: - Wrap -
-
-extension JSONAPIParser {
-    
-    static func wrap(json: Parameters) throws -> Parameters {
-        return try [Consts.data: wrapAttributesAndReloationships(on: json)]
-    }
-    
-    static func wrap(json: [Parameters]) throws -> Parameters {
-        return try [
-            Consts.data: json.flatMap { try wrapAttributesAndReloationships(on: $0) }
-        ]
     }
     
 }
