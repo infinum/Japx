@@ -21,12 +21,19 @@ enum JSONAPIParserError: Error {
 }
 
 private struct Consts {
-    static let data = "data"
-    static let id = "id"
-    static let type = "type"
-    static let included = "included"
-    static let relationships = "relationships"
-    static let attributes = "attributes"
+    
+    struct APIKeys {
+        static let data = "data"
+        static let id = "id"
+        static let type = "type"
+        static let included = "included"
+        static let relationships = "relationships"
+        static let attributes = "attributes"
+    }
+    
+    struct General {
+        static let dictCapacity = 20
+    }
 }
 
 private struct TypeIdPair {
@@ -100,11 +107,11 @@ extension JSONAPIParser.Decoder {
 extension JSONAPIParser.Encoder {
     
     static func encode(json: Parameters) throws -> Parameters {
-        return try [Consts.data: encodeAttributesAndReloationships(on: json)]
+        return try [Consts.APIKeys.data: encodeAttributesAndReloationships(on: json)]
     }
     
     static func encode(json: [Parameters]) throws -> Parameters {
-        return try [Consts.data: json.flatMap { try encodeAttributesAndReloationships(on: $0) }]
+        return try [Consts.APIKeys.data: json.flatMap { try encodeAttributesAndReloationships(on: $0) }]
     }
 }
 
@@ -119,22 +126,22 @@ private extension JSONAPIParser.Decoder {
             .split(separator: ",")
             .map { $0.split(separator: ".") }
         
-        let paramsDict = NSMutableDictionary(capacity: 20)
+        let paramsDict = NSMutableDictionary(capacity: Consts.General.dictCapacity)
         for lineArray in params {
             var dict: NSMutableDictionary = paramsDict
             for param in lineArray {
                 if let newDict = dict[param] as? NSMutableDictionary {
                     dict = newDict
                 } else {
-                    let newDict = NSMutableDictionary(capacity: 20)
+                    let newDict = NSMutableDictionary(capacity: Consts.General.dictCapacity)
                     dict.setObject(newDict, forKey: param as NSCopying)
                     dict = newDict
                 }
             }
         }
         
-        let dataObjectsArray = try jsonApiInput.array(from: Consts.data) ?? []
-        let includedObjectsArray = (try? jsonApiInput.array(from: Consts.included) ?? []) ?? []
+        let dataObjectsArray = try jsonApiInput.array(from: Consts.APIKeys.data) ?? []
+        let includedObjectsArray = (try? jsonApiInput.array(from: Consts.APIKeys.included) ?? []) ?? []
         let allObjectsArray = dataObjectsArray + includedObjectsArray
         let allObjects = try allObjectsArray.reduce(into: [TypeIdPair: Parameters]()) { (result, object) in
             result[try object.extractTypeIdPair()] = object
@@ -145,9 +152,9 @@ private extension JSONAPIParser.Decoder {
         }
         
         var jsonApi = jsonApiInput
-        let isObject = jsonApiInput[Consts.data].map { $0 is Parameters } ?? false
-        jsonApi[Consts.data] = (objects.count == 1 && isObject) ? objects[0] : objects
-        jsonApi.removeValue(forKey: Consts.included)
+        let isObject = jsonApiInput[Consts.APIKeys.data].map { $0 is Parameters } ?? false
+        jsonApi[Consts.APIKeys.data] = (objects.count == 1 && isObject) ? objects[0] : objects
+        jsonApi.removeValue(forKey: Consts.APIKeys.included)
         return jsonApi
     }
     
@@ -155,8 +162,8 @@ private extension JSONAPIParser.Decoder {
     static func decode(jsonApiInput: NSDictionary) throws -> NSDictionary {
         let jsonApi = jsonApiInput.mutable
         
-        let dataObjectsArray = try jsonApi.array(from: Consts.data) ?? []
-        let includedObjectsArray = (try? jsonApi.array(from: Consts.included) ?? []) ?? []
+        let dataObjectsArray = try jsonApi.array(from: Consts.APIKeys.data) ?? []
+        let includedObjectsArray = (try? jsonApi.array(from: Consts.APIKeys.included) ?? []) ?? []
         
         var dataObjects = [TypeIdPair]()
         var objects = [TypeIdPair: NSMutableDictionary]()
@@ -176,8 +183,8 @@ private extension JSONAPIParser.Decoder {
         try resolveAttributes(from: objects)
         try resolveRelationships(from: objects)
         
-        jsonApi.setObject(dataObjects.map { objects[$0]! }, forKey: Consts.data as NSCopying)
-        jsonApi.removeObject(forKey: Consts.included)
+        jsonApi.setObject(dataObjects.map { objects[$0]! }, forKey: Consts.APIKeys.data as NSCopying)
+        jsonApi.removeObject(forKey: Consts.APIKeys.included)
         return jsonApi
     }
 }
@@ -187,26 +194,26 @@ private extension JSONAPIParser.Decoder {
 private extension JSONAPIParser.Decoder {
  
     private static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary) throws -> Parameters {
-        var attributes = (try? object.dictionary(for: Consts.attributes)) ?? Parameters()
-        attributes[Consts.type] = object[Consts.type]
-        attributes[Consts.id] = object[Consts.id]
+        var attributes = (try? object.dictionary(for: Consts.APIKeys.attributes)) ?? Parameters()
+        attributes[Consts.APIKeys.type] = object[Consts.APIKeys.type]
+        attributes[Consts.APIKeys.id] = object[Consts.APIKeys.id]
         
-        let relationshipsReferences = object.asDictionaty(from: Consts.relationships) ?? Parameters()
+        let relationshipsReferences = object.asDictionaty(from: Consts.APIKeys.relationships) ?? Parameters()
         
         let relationships = try paramsDict.allKeys.map({ $0 as! String }).reduce(into: Parameters(), { (result, relationshipsKey) in
             guard let relationship = relationshipsReferences.asDictionaty(from: relationshipsKey) else { return }
-            guard let otherObjectsData = try relationship.array(from: Consts.data) else {
+            guard let otherObjectsData = try relationship.array(from: Consts.APIKeys.data) else {
                 result[relationshipsKey] = NSNull()
                 return
             }
             let otherObjects = try otherObjectsData
                 .map { try $0.extractTypeIdPair() }
                 .flatMap { allObjects[$0] }
-                .map {  try resolve(object: $0, allObjects: allObjects, paramsDict: try paramsDict.dictionary(for: relationshipsKey)) }
-            
-            
+                .map {  try resolve(object: $0,
+                                    allObjects: allObjects,
+                                    paramsDict: try paramsDict.dictionary(for: relationshipsKey)) }
             if otherObjects.isEmpty { return }
-            let isObject = relationship[Consts.data].map { $0 is Parameters } ?? false
+            let isObject = relationship[Consts.APIKeys.data].map { $0 is Parameters } ?? false
             result[relationshipsKey] = (isObject && otherObjects.count == 1) ? otherObjects[0] : otherObjects
         })
         
@@ -215,34 +222,36 @@ private extension JSONAPIParser.Decoder {
     
     static func resolveAttributes(from objects: [TypeIdPair: NSMutableDictionary]) throws {
         objects.values.forEach { (object) in
-            let attributes = try? object.dictionary(for: Consts.attributes)
+            let attributes = try? object.dictionary(for: Consts.APIKeys.attributes)
             attributes?.forEach { object[$0] = $1 }
-            object.removeObject(forKey: Consts.attributes)
+            object.removeObject(forKey: Consts.APIKeys.attributes)
         }
     }
     
     static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary]) throws {
         try objects.values.forEach { (object) in
             
-            try object.dictionary(for: Consts.relationships, defaultDict: NSDictionary()).forEach { (relationship) in
+            try object.dictionary(for: Consts.APIKeys.relationships, defaultDict: NSDictionary()).forEach { (relationship) in
                 
                 guard let relationshipParams = relationship.value as? NSDictionary else {
                     throw JSONAPIParserError.relationshipNotFound(data: relationship)
                 }
                 
-                //Extract typy id from single object / array
-                guard let others = try relationshipParams.array(from: Consts.data) else {
+                // Extract type-id pair from single object / array
+                guard let others = try relationshipParams.array(from: Consts.APIKeys.data) else {
                     object.setObject(NSNull(), forKey: relationship.key as! NSCopying)
                     return
                 }
                 
-                //Fetch those object from `objects`
+                // Fetch those object from `objects`
                 let othersObjects = try others
                     .map { try $0.extractTypeIdPair() }
                     .flatMap { objects[$0] }
                 
-                //Store reloationships
-                let isObject = relationshipParams.object(forKey: Consts.data).map { $0 is NSDictionary } ?? false
+                // Store relationships
+                let isObject = relationshipParams
+                    .object(forKey: Consts.APIKeys.data)
+                    .map { $0 is NSDictionary } ?? false
                 
                 if others.count == 1 && isObject {
                     object.setObject(othersObjects.first as Any, forKey: relationship.key as! NSCopying)
@@ -250,7 +259,7 @@ private extension JSONAPIParser.Decoder {
                     object.setObject(othersObjects, forKey: relationship.key as! NSCopying)
                 }
             }
-            object.removeObject(forKey: Consts.relationships)
+            object.removeObject(forKey: Consts.APIKeys.relationships)
         }
     }
 }
@@ -261,47 +270,40 @@ private extension JSONAPIParser.Encoder {
     
     static func encodeAttributesAndReloationships(on jsonObject: Parameters) throws -> Parameters {
         var object = jsonObject
-        
         var attributes = Parameters()
         var relationships = Parameters()
-        
         let objectKeys = object.keys
-        for key in objectKeys where key != Consts.type && key != Consts.id {
-            
+        
+        for key in objectKeys where key != Consts.APIKeys.type && key != Consts.APIKeys.id {
             if let array = object.asArray(from: key) {
                 let isArrayOfRelationships = array.first?.containsTypeAndId() ?? false
                 if !isArrayOfRelationships {
-                    //Handle attribures array
+                    // Handle attributes array
                     attributes[key] = array
                     continue
                 }
                 let dataArray = try array.map { try $0.asDataWithTypeAndId() }
-                //handle reloationship array
-                relationships[key] = [Consts.data: dataArray]
+                // Handle reloationship array
+                relationships[key] = [Consts.APIKeys.data: dataArray]
                 continue
             }
-            
             if let obj = object.asDictionaty(from: key) {
                 if !obj.containsTypeAndId() {
-                    //Handle attributes object
+                    // Handle attributes object
                     attributes[key] = obj
                     continue
                 }
                 let dataObj = try obj.asDataWithTypeAndId()
-                //Handle reloationship object
-                relationships[key] = [Consts.data: dataObj]
+                // Handle relationship object
+                relationships[key] = [Consts.APIKeys.data: dataObj]
                 continue
             }
-            
             attributes[key] = object[key]
         }
-        
-        object[Consts.attributes] = attributes
-        object[Consts.relationships] = relationships
-        
+        object[Consts.APIKeys.attributes] = attributes
+        object[Consts.APIKeys.relationships] = relationships
         return object
     }
-    
 }
 
 // MARK: - General helper extensions -
@@ -320,18 +322,18 @@ extension TypeIdPair: Hashable, Equatable {
 private extension Dictionary where Key == String {
     
     func containsTypeAndId() -> Bool {
-        return keys.contains(Consts.type) && keys.contains(Consts.id)
+        return keys.contains(Consts.APIKeys.type) && keys.contains(Consts.APIKeys.id)
     }
     
     func asDataWithTypeAndId() throws -> Parameters {
-        guard let type = self[Consts.type], let id = self[Consts.id] else {
+        guard let type = self[Consts.APIKeys.type], let id = self[Consts.APIKeys.id] else {
             throw JSONAPIParserError.notFoundTypeOrId(data: self)
         }
-        return [Consts.type: type, Consts.id: id]
+        return [Consts.APIKeys.type: type, Consts.APIKeys.id: id]
     }
     
     func extractTypeIdPair() throws -> TypeIdPair {
-        if let id = self[Consts.id] as? String, let type = self[Consts.type] as? String {
+        if let id = self[Consts.APIKeys.id] as? String, let type = self[Consts.APIKeys.type] as? String {
             return TypeIdPair(type: type, id: id)
         }
         throw JSONAPIParserError.notFoundTypeOrId(data: self)
@@ -374,7 +376,7 @@ private extension NSDictionary {
     }
     
     func extractTypeIdPair() throws -> TypeIdPair {
-        if let id = self.object(forKey: Consts.id) as? String, let type = self.object(forKey: Consts.type) as? String {
+        if let id = self.object(forKey: Consts.APIKeys.id) as? String, let type = self.object(forKey: Consts.APIKeys.type) as? String {
             return TypeIdPair(type: type, id: id)
         }
         throw JSONAPIParserError.notFoundTypeOrId(data: self)
