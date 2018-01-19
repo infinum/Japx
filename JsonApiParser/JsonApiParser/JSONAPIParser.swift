@@ -106,6 +106,17 @@ extension JSONAPIParser.Decoder {
 
 extension JSONAPIParser.Encoder {
     
+    static func encode(data: Data) throws -> Parameters {
+        let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0))
+        if let jsonObject = json as? Parameters {
+            return try encode(json: jsonObject)
+        }
+        if let jsonArray = json as? [Parameters] {
+            return try encode(json: jsonArray)
+        }
+        throw JSONAPIParserError.unableToConvertDataToJson(data: json)
+    }
+    
     static func encode(json: Parameters) throws -> Parameters {
         return try [Consts.APIKeys.data: encodeAttributesAndReloationships(on: json)]
     }
