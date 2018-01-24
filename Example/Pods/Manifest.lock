@@ -1,0 +1,22 @@
+PODS:
+  - JSONAPIParser (0.1.0)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - JSONAPIParser (from `../`)
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+
+EXTERNAL SOURCES:
+  JSONAPIParser:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JSONAPIParser: 2e5cadf17128f8951dbee0460579dbbb82a8dcf5
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: 1d1db22afdecdea382fb4adcff4fdf4bf3c85419
+
+COCOAPODS: 1.4.0
