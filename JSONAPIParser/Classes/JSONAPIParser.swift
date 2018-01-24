@@ -106,23 +106,27 @@ public extension JSONAPIParser.Decoder {
 
 public extension JSONAPIParser.Encoder {
     
-    static func encode(data: Data) throws -> Parameters {
+    static func encode(data: Data, additionalParams: Parameters? = nil) throws -> Parameters {
         let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0))
         if let jsonObject = json as? Parameters {
-            return try encode(json: jsonObject)
+            return try encode(json: jsonObject, additionalParams: additionalParams)
         }
         if let jsonArray = json as? [Parameters] {
-            return try encode(json: jsonArray)
+            return try encode(json: jsonArray, additionalParams: additionalParams)
         }
         throw JSONAPIParserError.unableToConvertDataToJson(data: json)
     }
     
-    static func encode(json: Parameters) throws -> Parameters {
-        return try [Consts.APIKeys.data: encodeAttributesAndReloationships(on: json)]
+    static func encode(json: Parameters, additionalParams: Parameters? = nil) throws -> Parameters {
+        var params = additionalParams ?? [:]
+        params[Consts.APIKeys.data] = try encodeAttributesAndReloationships(on: json)
+        return params
     }
     
-    static func encode(json: [Parameters]) throws -> Parameters {
-        return try [Consts.APIKeys.data: json.flatMap { try encodeAttributesAndReloationships(on: $0) }]
+    static func encode(json: [Parameters], additionalParams: Parameters? = nil) throws -> Parameters {
+        var params = additionalParams ?? [:]
+        params[Consts.APIKeys.data] = try json.flatMap { try encodeAttributesAndReloationships(on: $0) as AnyObject }
+        return params
     }
 }
 
@@ -291,25 +295,30 @@ private extension JSONAPIParser.Encoder {
                 if !isArrayOfRelationships {
                     // Handle attributes array
                     attributes[key] = array
+                    object.removeValue(forKey: key)
                     continue
                 }
                 let dataArray = try array.map { try $0.asDataWithTypeAndId() }
                 // Handle reloationship array
                 relationships[key] = [Consts.APIKeys.data: dataArray]
+                object.removeValue(forKey: key)
                 continue
             }
             if let obj = object.asDictionaty(from: key) {
                 if !obj.containsTypeAndId() {
                     // Handle attributes object
                     attributes[key] = obj
+                    object.removeValue(forKey: key)
                     continue
                 }
                 let dataObj = try obj.asDataWithTypeAndId()
                 // Handle relationship object
                 relationships[key] = [Consts.APIKeys.data: dataObj]
+                object.removeValue(forKey: key)
                 continue
             }
             attributes[key] = object[key]
+            object.removeValue(forKey: key)
         }
         object[Consts.APIKeys.attributes] = attributes
         object[Consts.APIKeys.relationships] = relationships

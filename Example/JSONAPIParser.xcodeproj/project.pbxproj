@@ -16,15 +16,26 @@
 		E13B688620188D060071D295 /* EncoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B688520188D060071D295 /* EncoderViewController.swift */; };
 		E13B688820188D100071D295 /* DecoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B688720188D100071D295 /* DecoderViewController.swift */; };
 		E13B688A20188D1E0071D295 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B688920188D1E0071D295 /* ResultViewController.swift */; };
-		E18794DF2018922400E472C4 /* AdditionalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18794DE2018922400E472C4 /* AdditionalFunctions.swift */; };
+		E18794DF2018922400E472C4 /* ResultableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18794DE2018922400E472C4 /* ResultableProtocol.swift */; };
 		E18794E520189E8B00E472C4 /* DecoderTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18794E120189D8000E472C4 /* DecoderTester.swift */; };
 		E18794E620189E8B00E472C4 /* EncoderTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18794E320189D8E00E472C4 /* EncoderTester.swift */; };
 		E18794F32018ABA000E472C4 /* ArticlePerson-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E18794F12018ABA000E472C4 /* ArticlePerson-Json.json */; };
 		E18794F42018ABA000E472C4 /* ArticlePerson-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E18794F22018ABA000E472C4 /* ArticlePerson-JsonApi.json */; };
 		E18794F52018AC2200E472C4 /* AdditionalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18794E720189EE500E472C4 /* AdditionalFunctions.swift */; };
-		E18794F72018AD1B00E472C4 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = E18794F62018AD1B00E472C4 /* .gitkeep */; };
 		E18794FB2018AEC900E472C4 /* RecursivSample-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E18794F92018AEC900E472C4 /* RecursivSample-Json.json */; };
 		E18794FC2018AEC900E472C4 /* RecursivSample-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E18794FA2018AEC900E472C4 /* RecursivSample-JsonApi.json */; };
+		E18795032018CA7100E472C4 /* MissingRelationship-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E18794FE2018CA7100E472C4 /* MissingRelationship-Json.json */; };
+		E18795042018CA7100E472C4 /* MissingRelationship-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E18794FF2018CA7100E472C4 /* MissingRelationship-JsonApi.json */; };
+		E18795052018CA7100E472C4 /* ArticleExample-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E18795012018CA7100E472C4 /* ArticleExample-JsonApi.json */; };
+		E18795062018CA7100E472C4 /* ArticleExample-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E18795022018CA7100E472C4 /* ArticleExample-Json.json */; };
+		E18795102018D76300E472C4 /* RecursivRelationships-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E18795082018D76300E472C4 /* RecursivRelationships-Json.json */; };
+		E18795112018D76300E472C4 /* RecursivRelationships-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E18795092018D76300E472C4 /* RecursivRelationships-JsonApi.json */; };
+		E18795122018D76300E472C4 /* SimpleEncoding-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E187950B2018D76300E472C4 /* SimpleEncoding-JsonApi.json */; };
+		E18795132018D76300E472C4 /* SimpleEncoding-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E187950C2018D76300E472C4 /* SimpleEncoding-Json.json */; };
+		E18795142018D76300E472C4 /* ExtraParams-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E187950E2018D76300E472C4 /* ExtraParams-Json.json */; };
+		E18795152018D76300E472C4 /* ExtraParams-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E187950F2018D76300E472C4 /* ExtraParams-JsonApi.json */; };
+		E18795172018D8AA00E472C4 /* PrettyPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18795162018D8AA00E472C4 /* PrettyPrint.swift */; };
+		E18795182018D8BB00E472C4 /* PrettyPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18795162018D8AA00E472C4 /* PrettyPrint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,15 +69,25 @@
 		E13B688520188D060071D295 /* EncoderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderViewController.swift; sourceTree = "<group>"; };
 		E13B688720188D100071D295 /* DecoderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderViewController.swift; sourceTree = "<group>"; };
 		E13B688920188D1E0071D295 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		E18794DE2018922400E472C4 /* AdditionalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalFunctions.swift; sourceTree = "<group>"; };
+		E18794DE2018922400E472C4 /* ResultableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableProtocol.swift; sourceTree = "<group>"; };
 		E18794E120189D8000E472C4 /* DecoderTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderTester.swift; sourceTree = "<group>"; };
 		E18794E320189D8E00E472C4 /* EncoderTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderTester.swift; sourceTree = "<group>"; };
 		E18794E720189EE500E472C4 /* AdditionalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalFunctions.swift; sourceTree = "<group>"; };
 		E18794F12018ABA000E472C4 /* ArticlePerson-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ArticlePerson-Json.json"; sourceTree = "<group>"; };
 		E18794F22018ABA000E472C4 /* ArticlePerson-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ArticlePerson-JsonApi.json"; sourceTree = "<group>"; };
-		E18794F62018AD1B00E472C4 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		E18794F92018AEC900E472C4 /* RecursivSample-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursivSample-Json.json"; sourceTree = "<group>"; };
 		E18794FA2018AEC900E472C4 /* RecursivSample-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursivSample-JsonApi.json"; sourceTree = "<group>"; };
+		E18794FE2018CA7100E472C4 /* MissingRelationship-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "MissingRelationship-Json.json"; sourceTree = "<group>"; };
+		E18794FF2018CA7100E472C4 /* MissingRelationship-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "MissingRelationship-JsonApi.json"; sourceTree = "<group>"; };
+		E18795012018CA7100E472C4 /* ArticleExample-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ArticleExample-JsonApi.json"; sourceTree = "<group>"; };
+		E18795022018CA7100E472C4 /* ArticleExample-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ArticleExample-Json.json"; sourceTree = "<group>"; };
+		E18795082018D76300E472C4 /* RecursivRelationships-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursivRelationships-Json.json"; sourceTree = "<group>"; };
+		E18795092018D76300E472C4 /* RecursivRelationships-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursivRelationships-JsonApi.json"; sourceTree = "<group>"; };
+		E187950B2018D76300E472C4 /* SimpleEncoding-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SimpleEncoding-JsonApi.json"; sourceTree = "<group>"; };
+		E187950C2018D76300E472C4 /* SimpleEncoding-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SimpleEncoding-Json.json"; sourceTree = "<group>"; };
+		E187950E2018D76300E472C4 /* ExtraParams-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ExtraParams-Json.json"; sourceTree = "<group>"; };
+		E187950F2018D76300E472C4 /* ExtraParams-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ExtraParams-JsonApi.json"; sourceTree = "<group>"; };
+		E18795162018D8AA00E472C4 /* PrettyPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrettyPrint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +139,8 @@
 				E13B688720188D100071D295 /* DecoderViewController.swift */,
 				E13B688520188D060071D295 /* EncoderViewController.swift */,
 				E13B688920188D1E0071D295 /* ResultViewController.swift */,
-				E18794DE2018922400E472C4 /* AdditionalFunctions.swift */,
+				E18794DE2018922400E472C4 /* ResultableProtocol.swift */,
+				E18795162018D8AA00E472C4 /* PrettyPrint.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -197,7 +219,9 @@
 		E18794EE2018ABA000E472C4 /* Encoding */ = {
 			isa = PBXGroup;
 			children = (
-				E18794F62018AD1B00E472C4 /* .gitkeep */,
+				E187950D2018D76300E472C4 /* ExtraParams */,
+				E18795072018D76300E472C4 /* RecursivRelationships */,
+				E187950A2018D76300E472C4 /* SimpleEncoding */,
 			);
 			path = Encoding;
 			sourceTree = "<group>";
@@ -205,7 +229,9 @@
 		E18794EF2018ABA000E472C4 /* Decoding */ = {
 			isa = PBXGroup;
 			children = (
+				E18795002018CA7100E472C4 /* ArticleExample */,
 				E18794F02018ABA000E472C4 /* ArticlePerson */,
+				E18794FD2018CA7100E472C4 /* MissingRelationship */,
 				E18794F82018AEC900E472C4 /* RecursivSample */,
 			);
 			path = Decoding;
@@ -227,6 +253,51 @@
 				E18794FA2018AEC900E472C4 /* RecursivSample-JsonApi.json */,
 			);
 			path = RecursivSample;
+			sourceTree = "<group>";
+		};
+		E18794FD2018CA7100E472C4 /* MissingRelationship */ = {
+			isa = PBXGroup;
+			children = (
+				E18794FE2018CA7100E472C4 /* MissingRelationship-Json.json */,
+				E18794FF2018CA7100E472C4 /* MissingRelationship-JsonApi.json */,
+			);
+			path = MissingRelationship;
+			sourceTree = "<group>";
+		};
+		E18795002018CA7100E472C4 /* ArticleExample */ = {
+			isa = PBXGroup;
+			children = (
+				E18795012018CA7100E472C4 /* ArticleExample-JsonApi.json */,
+				E18795022018CA7100E472C4 /* ArticleExample-Json.json */,
+			);
+			path = ArticleExample;
+			sourceTree = "<group>";
+		};
+		E18795072018D76300E472C4 /* RecursivRelationships */ = {
+			isa = PBXGroup;
+			children = (
+				E18795082018D76300E472C4 /* RecursivRelationships-Json.json */,
+				E18795092018D76300E472C4 /* RecursivRelationships-JsonApi.json */,
+			);
+			path = RecursivRelationships;
+			sourceTree = "<group>";
+		};
+		E187950A2018D76300E472C4 /* SimpleEncoding */ = {
+			isa = PBXGroup;
+			children = (
+				E187950B2018D76300E472C4 /* SimpleEncoding-JsonApi.json */,
+				E187950C2018D76300E472C4 /* SimpleEncoding-Json.json */,
+			);
+			path = SimpleEncoding;
+			sourceTree = "<group>";
+		};
+		E187950D2018D76300E472C4 /* ExtraParams */ = {
+			isa = PBXGroup;
+			children = (
+				E187950E2018D76300E472C4 /* ExtraParams-Json.json */,
+				E187950F2018D76300E472C4 /* ExtraParams-JsonApi.json */,
+			);
+			path = ExtraParams;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,11 +393,20 @@
 			files = (
 				E18794FB2018AEC900E472C4 /* RecursivSample-Json.json in Resources */,
 				E18794FC2018AEC900E472C4 /* RecursivSample-JsonApi.json in Resources */,
+				E18795042018CA7100E472C4 /* MissingRelationship-JsonApi.json in Resources */,
+				E18795062018CA7100E472C4 /* ArticleExample-Json.json in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				E18794F32018ABA000E472C4 /* ArticlePerson-Json.json in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				E18794F72018AD1B00E472C4 /* .gitkeep in Resources */,
+				E18795132018D76300E472C4 /* SimpleEncoding-Json.json in Resources */,
+				E18795102018D76300E472C4 /* RecursivRelationships-Json.json in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				E18795152018D76300E472C4 /* ExtraParams-JsonApi.json in Resources */,
+				E18795112018D76300E472C4 /* RecursivRelationships-JsonApi.json in Resources */,
+				E18795142018D76300E472C4 /* ExtraParams-Json.json in Resources */,
+				E18795122018D76300E472C4 /* SimpleEncoding-JsonApi.json in Resources */,
+				E18795032018CA7100E472C4 /* MissingRelationship-Json.json in Resources */,
+				E18795052018CA7100E472C4 /* ArticleExample-JsonApi.json in Resources */,
 				E18794F42018ABA000E472C4 /* ArticlePerson-JsonApi.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,8 +535,9 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				E13B688A20188D1E0071D295 /* ResultViewController.swift in Sources */,
 				E13B688820188D100071D295 /* DecoderViewController.swift in Sources */,
-				E18794DF2018922400E472C4 /* AdditionalFunctions.swift in Sources */,
+				E18794DF2018922400E472C4 /* ResultableProtocol.swift in Sources */,
 				E13B688620188D060071D295 /* EncoderViewController.swift in Sources */,
+				E18795172018D8AA00E472C4 /* PrettyPrint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18794E620189E8B00E472C4 /* EncoderTester.swift in Sources */,
+				E18795182018D8BB00E472C4 /* PrettyPrint.swift in Sources */,
 				E18794F52018AC2200E472C4 /* AdditionalFunctions.swift in Sources */,
 				E18794E520189E8B00E472C4 /* DecoderTester.swift in Sources */,
 			);

@@ -23,6 +23,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.ios.deployment_target = '9.0'
   s.requires_arc = true
   s.source_files = 'JSONAPIParser/Classes/**/*'
+  s.swift_version = '4.0'
 
   s.frameworks = 'Foundation'
 

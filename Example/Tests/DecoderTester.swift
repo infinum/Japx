@@ -22,6 +22,20 @@ class DecoderTesterSpec: QuickSpec {
                 }
                 expect(correctlyParsed) == true
             }
+            
+            it("Parses json api exmple (http://jsonapi.org/examples/) - Missing reloationship") {
+                let correctlyParsed = does(jsonFromFileNamed: "MissingRelationship-JsonApi", containsEverethingFrom: "MissingRelationship-Json") {
+                    return try! JSONAPIParser.Decoder.jsonObject(with: $0)
+                }
+                expect(correctlyParsed) == true
+            }
+            
+            it("Parses json api intro exmple (http://jsonapi.org/) - Article example") {
+                let correctlyParsed = does(jsonFromFileNamed: "ArticleExample-JsonApi", containsEverethingFrom: "ArticleExample-Json") {
+                    return try! JSONAPIParser.Decoder.jsonObject(with: $0)
+                }
+                expect(correctlyParsed) == true
+            }
         }
         
         describe("Testing json api with includes decoding") {

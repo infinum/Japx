@@ -1,5 +1,5 @@
 {
-    "data": {
+    "data": [{
       "type": "articles",
       "id": "1",
       "attributes": {
@@ -13,21 +13,5 @@
           "data": {"id": "42", "type": "people"}
         }
       }
-    },
-    "included": [
-      {
-        "type": "people",
-        "id": "42",
-        "attributes": {
-            "name": "John",
-            "age": 80,
-            "gender": "male"
-          },
-        "relationships": {
-            "article": {
-              "data": {"id": "1", "type": "articles"}
-            }
-          }
-      }
-    ]
+    }]
   }
