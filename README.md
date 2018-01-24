@@ -5,11 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/JSONAPIParser.svg?style=flat)](http://cocoapods.org/pods/JSONAPIParser)
 [![Platform](https://img.shields.io/cocoapods/p/JSONAPIParser.svg?style=flat)](http://cocoapods.org/pods/JSONAPIParser)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
+Lightweight [JSON:API](http://jsonapi.org/) parser that flattens complex [JSON:API](http://jsonapi.org/) structure and turns it into simple JSON. It can also take simple JSON and turn it into JSON:API structure.
+It works by transfering Dictionary to Dictionary, so you can use [Codable](https://developer.apple.com/documentation/swift/codable), [Unbox](https://github.com/JohnSundell/Unbox), [Wrap](https://github.com/JohnSundell/Wrap), [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper), or any other object mapping tool that you preffer.
 
 ## Installation
 
@@ -20,9 +17,23 @@ it, simply add the following line to your Podfile:
 pod 'JSONAPIParser'
 ```
 
-## Author
+## Usage
 
-vlaho.poluta@infinum.hr, vlaho.poluta@infinum.hr
+TODO
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Authors
+
+Vlaho Poluta, vlaho.poluta@infinum.hr
+Filip Gulan, filip.gulan@infinum.hr
+
+Maintained by [Infinum](http://www.infinum.co)
+
+![Infinum](https://www.infinum.co/assets/logo_pic-2e19713f50692ed9b0805b199676c19a.png)
+
 
 ## License
 
