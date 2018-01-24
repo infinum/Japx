@@ -32,7 +32,7 @@ Filip Gulan, filip.gulan@infinum.hr
 
 Maintained by [Infinum](http://www.infinum.co)
 
-![Infinum](https://www.infinum.co/assets/logo_pic-2e19713f50692ed9b0805b199676c19a.png)
+![Infinum](https://assets.infinum.co/infinum.png)
 
 
 ## License
