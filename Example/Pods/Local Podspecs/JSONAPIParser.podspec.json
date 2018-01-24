@@ -1,22 +1,26 @@
 {
   "name": "JSONAPIParser",
   "version": "0.1.0",
-  "summary": "A short description of JSONAPIParser.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/vlaho.poluta@infinum.hr/JSONAPIParser",
+  "summary": "Lightweight JSON:API parser.",
+  "description": "Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON. It can also take simple JSON and turn it into JSON:API structure.\nIt works by transfering Dictionary to Dictionary, so you can use Codable, Unbox, Wrap, ObjectMapper, or any other object mapping tool that you preffer.",
+  "homepage": "https://github.com/infinum/iOS-JSON-API-Parser",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "vlaho.poluta@infinum.hr": "vlaho.poluta@infinum.hr"
+    "Infinum": "ios@infinum.hr",
+    "Vlaho Poluta": "vlaho.poluta@infinum.hr",
+    "Filip Gulan": "filip.gulan@infinum.hr"
   },
   "source": {
-    "git": "https://github.com/vlaho.poluta@infinum.hr/JSONAPIParser.git",
+    "git": "https://github.com/infinum/iOS-JSON-API-Parser.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "JSONAPIParser/Classes/**/*"
+  "requires_arc": true,
+  "source_files": "JSONAPIParser/Classes/**/*",
+  "frameworks": "Foundation"
 }

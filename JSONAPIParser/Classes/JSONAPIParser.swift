@@ -8,9 +8,9 @@
 
 import UIKit
 
-typealias Parameters = [String: Any]
+public typealias Parameters = [String: Any]
 
-enum JSONAPIParserError: Error {
+public enum JSONAPIParserError: Error {
     case cantProcess(data: Any)
     case notString(data: Any, value: Any?)
     case notDictionary(data: Any, value: Any?)
@@ -41,16 +41,16 @@ private struct TypeIdPair {
     let id: String
 }
 
-struct JSONAPIParser {
-    enum Decoder {}
-    enum Encoder {}
+public struct JSONAPIParser {
+    public enum Decoder {}
+    public enum Encoder {}
 }
 
 // MARK: - Public interface -
 
 // MARK: - Decoding
 
-extension JSONAPIParser.Decoder {
+public extension JSONAPIParser.Decoder {
     
     static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Parameters {
         // First check if JSON API object has `include` list since
@@ -104,7 +104,7 @@ extension JSONAPIParser.Decoder {
 
 // MARK: - Encoding
 
-extension JSONAPIParser.Encoder {
+public extension JSONAPIParser.Encoder {
     
     static func encode(data: Data) throws -> Parameters {
         let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0))

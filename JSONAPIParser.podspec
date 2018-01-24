@@ -21,7 +21,6 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.source           = { :git => 'https://github.com/infinum/iOS-JSON-API-Parser.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
-  s.xcconfig = { 'SWIFT_VERSION' => '4.0' }
   s.requires_arc = true
   s.source_files = 'JSONAPIParser/Classes/**/*'
 
