@@ -24,7 +24,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.ios.deployment_target = '9.0'
   s.swift_version = '4.0'
 
-  spec.default_subspec = 'Core'
+  s.default_subspec = 'Core'
 
   s.subspec 'Core' do |sp| 
     sp.source_files = 'JSONAPIParser/Classes/Core/**/*'
@@ -33,12 +33,13 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
 
   s.subspec 'Codable' do |sp| 
     sp.source_files = 'JSONAPIParser/Classes/Codable/**/*'
-    sp.dependency 'Core'
+    sp.dependency 'JSONAPIParser/Core'
   end
 
   s.subspec 'Alamofire' do |sp| 
     sp.source_files = 'JSONAPIParser/Classes/Alamofire/**/*'
-    sp.dependency 'Core'
+    sp.dependency 'JSONAPIParser/Core'
+    sp.dependency 'Alamofire', '~> 4.5'
   end
 
 end

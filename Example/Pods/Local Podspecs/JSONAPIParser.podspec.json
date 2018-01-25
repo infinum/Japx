@@ -17,10 +17,38 @@
     "git": "https://github.com/infinum/iOS-JSON-API-Parser.git",
     "tag": "0.1.0"
   },
+  "requires_arc": true,
   "platforms": {
     "ios": "9.0"
   },
-  "requires_arc": true,
-  "source_files": "JSONAPIParser/Classes/**/*",
-  "frameworks": "Foundation"
+  "swift_version": "4.0",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "JSONAPIParser/Classes/Core/**/*",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Codable",
+      "source_files": "JSONAPIParser/Classes/Codable/**/*",
+      "dependencies": {
+        "JSONAPIParser/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alamofire",
+      "source_files": "JSONAPIParser/Classes/Alamofire/**/*",
+      "dependencies": {
+        "JSONAPIParser/Core": [
+
+        ],
+        "Alamofire": [
+          "~> 4.5"
+        ]
+      }
+    }
+  ]
 }

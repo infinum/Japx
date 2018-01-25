@@ -2,7 +2,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'JSONAPIParser_Example' do
-  pod 'JSONAPIParser', :path => '../'
+  pod 'JSONAPIParser/Alamofire', :path => '../'
 
   target 'JSONAPIParser_Tests' do
     inherit! :search_paths
