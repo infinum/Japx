@@ -17,7 +17,7 @@ extension Request {
     /// - parameter error:    The error already encountered if it exists.
     ///
     /// - returns: The result data type.
-    public static func serializeResponseJSONAPI<T: JSONAPIDecodable>(response: HTTPURLResponse?, data: Data?, error: Error?, includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> Result<T> {
+    public static func serializeResponseCodableJSONAPI<T: JSONAPIDecodable>(response: HTTPURLResponse?, data: Data?, error: Error?, includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> Result<T> {
         guard error == nil else { return .failure(error!) }
         
         guard let validData = data, validData.count > 0 else {
@@ -49,9 +49,9 @@ extension DataRequest {
     /// Creates a response serializer that returns a JSON:API object result type.
     ///
     /// - returns: A JSON:API object response serializer.
-    public static func jsonApiResponseSerializer<T: JSONAPIDecodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DataResponseSerializer<T> {
+    public static func codableJsonApiResponseSerializer<T: JSONAPIDecodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DataResponseSerializer<T> {
         return DataResponseSerializer { _, response, data, error in
-            return Request.serializeResponseJSONAPI(response: response, data: data, error: error, includeList: includeList, keyPath: keyPath, decoder: decoder)
+            return Request.serializeResponseCodableJSONAPI(response: response, data: data, error: error, includeList: includeList, keyPath: keyPath, decoder: decoder)
         }
     }
     
@@ -61,10 +61,10 @@ extension DataRequest {
     ///
     /// - returns: The request.
     @discardableResult
-    public func responseJSONAPI<T: JSONAPIDecodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder(), completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
+    public func responseCodableJSONAPI<T: JSONAPIDecodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder(), completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
         return response(
             queue: queue,
-            responseSerializer: DataRequest.jsonApiResponseSerializer(includeList: includeList, keyPath: keyPath, decoder: decoder),
+            responseSerializer: DataRequest.codableJsonApiResponseSerializer(includeList: includeList, keyPath: keyPath, decoder: decoder),
             completionHandler: completionHandler
         )
     }
@@ -74,7 +74,7 @@ extension DownloadRequest {
     /// Creates a response serializer that returns a JSON:API object result type.
     ///
     /// - returns: A JSON object response serializer.
-    public static func jsonApiResponseSerializer<T: JSONAPIDecodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DownloadResponseSerializer<T>
+    public static func codableJsonApiResponseSerializer<T: JSONAPIDecodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DownloadResponseSerializer<T>
     {
         return DownloadResponseSerializer { _, response, fileURL, error in
             guard error == nil else { return .failure(error!) }
@@ -85,7 +85,7 @@ extension DownloadRequest {
 
             do {
                 let data = try Data(contentsOf: fileURL)
-                return Request.serializeResponseJSONAPI(response: response, data: data, error: error, includeList: includeList, keyPath: keyPath, decoder: decoder)
+                return Request.serializeResponseCodableJSONAPI(response: response, data: data, error: error, includeList: includeList, keyPath: keyPath, decoder: decoder)
             } catch {
                 return .failure(AFError.responseSerializationFailed(reason: .inputFileReadFailed(at: fileURL)))
             }
@@ -98,10 +98,10 @@ extension DownloadRequest {
     ///
     /// - returns: The request.
     @discardableResult
-    public func responseJSONAPI<T: JSONAPIDecodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder(), completionHandler: @escaping (DownloadResponse<T>) -> Void) -> Self {
+    public func responseCodableJSONAPI<T: JSONAPIDecodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder(), completionHandler: @escaping (DownloadResponse<T>) -> Void) -> Self {
         return response(
             queue: queue,
-            responseSerializer: DownloadRequest.jsonApiResponseSerializer(includeList: includeList, keyPath: keyPath, decoder: decoder),
+            responseSerializer: DownloadRequest.codableJsonApiResponseSerializer(includeList: includeList, keyPath: keyPath, decoder: decoder),
             completionHandler: completionHandler
         )
     }

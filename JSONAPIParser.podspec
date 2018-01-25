@@ -54,4 +54,10 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
     sp.dependency 'JSONAPIParser/Codable'
   end
 
+  s.subspec 'RxCodableAlamofire' do |sp| 
+    sp.source_files = 'JSONAPIParser/Classes/RxCodableAlamofire/**/*'
+    sp.dependency 'JSONAPIParser/CodableAlamofire'
+    sp.dependency 'JSONAPIParser/RxAlamofire'
+  end
+
 end

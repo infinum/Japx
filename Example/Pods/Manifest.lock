@@ -3,16 +3,24 @@ PODS:
   - JSONAPIParser/Alamofire (0.1.0):
     - Alamofire (~> 4.5)
     - JSONAPIParser/Core
+  - JSONAPIParser/Codable (0.1.0):
+    - JSONAPIParser/Core
+  - JSONAPIParser/CodableAlamofire (0.1.0):
+    - JSONAPIParser/Alamofire
+    - JSONAPIParser/Codable
   - JSONAPIParser/Core (0.1.0)
   - JSONAPIParser/RxAlamofire (0.1.0):
     - JSONAPIParser/Alamofire
     - RxSwift (~> 4.0)
+  - JSONAPIParser/RxCodableAlamofire (0.1.0):
+    - JSONAPIParser/CodableAlamofire
+    - JSONAPIParser/RxAlamofire
   - Nimble (7.0.3)
   - Quick (1.2.0)
   - RxSwift (4.1.1)
 
 DEPENDENCIES:
-  - JSONAPIParser/RxAlamofire (from `../`)
+  - JSONAPIParser/RxCodableAlamofire (from `../`)
   - Nimble (~> 7.0.2)
   - Quick (~> 1.2.0)
 
@@ -22,11 +30,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  JSONAPIParser: d88275af681e038e2c48eb6a7579c207b8e72691
+  JSONAPIParser: 346b433eb07c59e550568ab4826132941fa16ff8
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
 
-PODFILE CHECKSUM: dfb35ed7178b6cfeab687b37bbbe60fbee5d6423
+PODFILE CHECKSUM: 8403329d5473b8fc0aa8f8605e4f5f9f01117b01
 
 COCOAPODS: 1.4.0
