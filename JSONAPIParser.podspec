@@ -20,16 +20,25 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.author           = { 'Infinum' => 'ios@infinum.hr', 'Vlaho Poluta' => 'vlaho.poluta@infinum.hr', 'Filip Gulan' => 'filip.gulan@infinum.hr' }
   s.source           = { :git => 'https://github.com/infinum/iOS-JSON-API-Parser.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '9.0'
   s.requires_arc = true
-  s.source_files = 'JSONAPIParser/Classes/**/*'
+  s.ios.deployment_target = '9.0'
   s.swift_version = '4.0'
 
-  s.frameworks = 'Foundation'
+  spec.default_subspec = 'Core'
 
-  # s.resource_bundles = {
-  #   'JSONAPIParser' => ['JSONAPIParser/Assets/*.png']
-  # }
+  s.subspec 'Core' do |sp| 
+    sp.source_files = 'JSONAPIParser/Classes/Core/**/*'
+    sp.frameworks = 'Foundation'
+  end
 
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.subspec 'Codable' do |sp| 
+    sp.source_files = 'JSONAPIParser/Classes/Codable/**/*'
+    sp.dependency 'Core'
+  end
+
+  s.subspec 'Alamofire' do |sp| 
+    sp.source_files = 'JSONAPIParser/Classes/Alamofire/**/*'
+    sp.dependency 'Core'
+  end
+
 end

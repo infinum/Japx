@@ -6,7 +6,7 @@
 //  Copyright © 2018 Vlaho Poluta. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public typealias Parameters = [String: Any]
 
