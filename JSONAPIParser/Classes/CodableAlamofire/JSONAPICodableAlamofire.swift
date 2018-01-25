@@ -26,18 +26,18 @@ extension Request {
         
         do {
             guard let keyPath = keyPath, !keyPath.isEmpty else  {
-                let data = try JSONAPIParser.Decoder.data(with: validData, includeList: includeList)
-                let decondable = try decoder.decode(T.self, from: data)
+                let decondable = try decoder.decode(T.self, from: validData, includeList: includeList)
                 return .success(decondable)
             }
             
             let json = try JSONAPIParser.Decoder.jsonObject(with: validData, includeList: includeList)
-            guard let jsonForKeyPath = (json as AnyObject).value(forKeyPath: keyPath) as? Parameters else  {
+            guard let jsonForKeyPath = (json as AnyObject).value(forKeyPath: keyPath) else {
                 return .failure(JSONAPIAlamofireError.invalidKeyPath(keyPath: keyPath))
             }
+            let data = try JSONSerialization.data(withJSONObject: jsonForKeyPath, options: .init(rawValue: 0))
             
-            let docodable = try decoder.decode(T.self, from: jsonForKeyPath, includeList: includeList)
-            return .success(docodable)
+            let decodable = try decoder.jsonDecoder.decode(T.self, from: data)
+            return .success(decodable)
             
         } catch {
             return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: error)))
