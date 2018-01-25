@@ -12,9 +12,35 @@ It works by transfering Dictionary to Dictionary, so you can use [Codable](https
 
 JSONAPIParser is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
-
 ```ruby
 pod 'JSONAPIParser'
+```
+We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
+You can find those convinience extansions here: 
+
+With Codable (i.e. Decodable / Encodable):
+```ruby
+pod 'JSONAPIParser/Codable'
+```
+
+With Alamofire:
+```ruby
+pod 'JSONAPIParser/Alamofire'
+```
+
+With Alamofire and RxSwift using Single trait:
+```ruby
+pod 'JSONAPIParser/RxAlamofire'
+```
+
+With Alamofire and Codable:
+```ruby
+pod 'JSONAPIParser/CodableAlamofire'
+```
+
+With Alamofire, Codable and RxSwift:
+```ruby
+pod 'JSONAPIParser/RxCodableAlamofire'
 ```
 
 ## Usage
