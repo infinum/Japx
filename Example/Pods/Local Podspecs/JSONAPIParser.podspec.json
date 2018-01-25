@@ -49,6 +49,30 @@
           "~> 4.5"
         ]
       }
+    },
+    {
+      "name": "RxAlamofire",
+      "source_files": "JSONAPIParser/Classes/RxAlamofire/**/*",
+      "dependencies": {
+        "JSONAPIParser/Alamofire": [
+
+        ],
+        "RxSwift": [
+          "~> 4.0"
+        ]
+      }
+    },
+    {
+      "name": "CodableAlamofire",
+      "source_files": "JSONAPIParser/Classes/CodableAlamofire/**/*",
+      "dependencies": {
+        "JSONAPIParser/Alamofire": [
+
+        ],
+        "JSONAPIParser/Codable": [
+
+        ]
+      }
     }
   ]
 }

@@ -42,4 +42,16 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
     sp.dependency 'Alamofire', '~> 4.5'
   end
 
+  s.subspec 'RxAlamofire' do |sp| 
+    sp.source_files = 'JSONAPIParser/Classes/RxAlamofire/**/*'
+    sp.dependency 'JSONAPIParser/Alamofire'
+    sp.dependency 'RxSwift', '~> 4.0'
+  end
+
+  s.subspec 'CodableAlamofire' do |sp| 
+    sp.source_files = 'JSONAPIParser/Classes/CodableAlamofire/**/*'
+    sp.dependency 'JSONAPIParser/Alamofire'
+    sp.dependency 'JSONAPIParser/Codable'
+  end
+
 end

@@ -4,11 +4,15 @@ PODS:
     - Alamofire (~> 4.5)
     - JSONAPIParser/Core
   - JSONAPIParser/Core (0.1.0)
+  - JSONAPIParser/RxAlamofire (0.1.0):
+    - JSONAPIParser/Alamofire
+    - RxSwift (~> 4.0)
   - Nimble (7.0.3)
   - Quick (1.2.0)
+  - RxSwift (4.1.1)
 
 DEPENDENCIES:
-  - JSONAPIParser/Alamofire (from `../`)
+  - JSONAPIParser/RxAlamofire (from `../`)
   - Nimble (~> 7.0.2)
   - Quick (~> 1.2.0)
 
@@ -18,10 +22,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  JSONAPIParser: 6ca61e58b16bda18c359e0f8bfab91dfe230d77f
+  JSONAPIParser: d88275af681e038e2c48eb6a7579c207b8e72691
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
 
-PODFILE CHECKSUM: 2eac8428f398d75c5cfb321a498e5d7a8013fea5
+PODFILE CHECKSUM: dfb35ed7178b6cfeab687b37bbbe60fbee5d6423
 
 COCOAPODS: 1.4.0

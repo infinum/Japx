@@ -23,6 +23,8 @@ public final class JSONAPIEncoder {
     
     let jsonEncoder = JSONEncoder()
     
+    public init() {}
+    
     func encode<T>(_ value: T) throws -> Parameters where T : JSONAPIEncodable {
         let data = try jsonEncoder.encode(value)
         return try JSONAPIParser.Encoder.encode(data: data)
@@ -33,6 +35,8 @@ public final class JSONAPIEncoder {
 public final class JSONAPIDecoder {
     
     let jsonDecoder = JSONDecoder()
+    
+    public init() {}
     
     func decode<T>(_ type: T.Type, from json: Parameters, includeList: String? = nil) throws -> T where T : JSONAPIDecodable {
         let data = try JSONAPIParser.Decoder.data(withJSONAPIObject: json, includeList: includeList)
