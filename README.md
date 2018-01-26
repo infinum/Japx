@@ -218,7 +218,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Maintained by [Infinum](https://infinum.co)
 
 <p align="center">
-    <img src="infinum-logo.png" width="500" max-width="70%" alt="Infinum" href="https://infinum.co"/>
+    <img src="infinum-logo.png" width="300" max-width="70%" alt="Infinum" href="https://infinum.co"/>
 </p>
 
 ## License

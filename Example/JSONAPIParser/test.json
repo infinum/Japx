@@ -1,0 +1,10 @@
+{
+    "data": {
+        "id": "357",
+        "type": "users",
+        "attributes": {
+            "email": "jasmin@infinum.hr",
+            "username": "jaco"
+        }
+    }
+}
