@@ -26,8 +26,8 @@ extension Request {
         
         do {
             guard let keyPath = keyPath, !keyPath.isEmpty else  {
-                let decondable = try decoder.decode(T.self, from: validData, includeList: includeList)
-                return .success(decondable)
+                let decodable = try decoder.decode(T.self, from: validData, includeList: includeList)
+                return .success(decodable)
             }
             
             let json = try JSONAPIParser.Decoder.jsonObject(with: validData, includeList: includeList)
@@ -46,6 +46,7 @@ extension Request {
 }
 
 extension DataRequest {
+    
     /// Creates a response serializer that returns a JSON:API object result type.
     ///
     /// - returns: A JSON:API object response serializer.
@@ -71,6 +72,7 @@ extension DataRequest {
 }
 
 extension DownloadRequest {
+    
     /// Creates a response serializer that returns a JSON:API object result type.
     ///
     /// - returns: A JSON object response serializer.
