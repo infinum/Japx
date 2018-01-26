@@ -12,9 +12,12 @@ extension Request {
     
     /// Returns a JSON:API object contained in a result type.
     ///
-    /// - parameter response: The response from the server.
-    /// - parameter data:     The data returned from the server.
-    /// - parameter error:    The error already encountered if it exists.
+    /// - parameter response:       The response from the server.
+    /// - parameter data:           The data returned from the server.
+    /// - parameter error:          The error already encountered if it exists.
+    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter keyPath:        The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requeted type.
     ///
     /// - returns: The result data type.
     public static func serializeResponseCodableJSONAPI<T: JSONAPIDecodable>(response: HTTPURLResponse?, data: Data?, error: Error?, includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> Result<T> {
@@ -49,6 +52,10 @@ extension DataRequest {
     
     /// Creates a response serializer that returns a JSON:API object result type.
     ///
+    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter keyPath:        The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requeted type.
+    ///
     /// - returns: A JSON:API object response serializer.
     public static func codableJsonApiResponseSerializer<T: JSONAPIDecodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DataResponseSerializer<T> {
         return DataResponseSerializer { _, response, data, error in
@@ -58,6 +65,10 @@ extension DataRequest {
     
     /// Adds a handler to be called once the request has finished.
     ///
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter keyPath:           The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requeted type.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
@@ -74,6 +85,10 @@ extension DataRequest {
 extension DownloadRequest {
     
     /// Creates a response serializer that returns a JSON:API object result type.
+    ///
+    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter keyPath:        The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requeted type.
     ///
     /// - returns: A JSON object response serializer.
     public static func codableJsonApiResponseSerializer<T: JSONAPIDecodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DownloadResponseSerializer<T>
@@ -96,6 +111,10 @@ extension DownloadRequest {
 
     /// Adds a handler to be called once the request has finished.
     ///
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter keyPath:           The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requeted type.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
