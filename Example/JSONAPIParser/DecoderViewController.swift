@@ -17,16 +17,10 @@ class DecoderViewController: UIViewController, Resultable {
         guard let data = textView.text.data(using: .utf8) else { return }
         
         do {
-            
             let json = try JSONAPIParser.Decoder.jsonObject(with: data)
-            
             pushResultViewController(with: PrettyPrint.prettyPrintJson(data: json))
-            
         } catch {
-            
             alert(error: error)
-            
         }
     }
-
 }

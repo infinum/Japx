@@ -10,12 +10,12 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
-    var text: String? = nil
     @IBOutlet var textView: UITextView!
+    
+    var text: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.text = text
     }
-
 }

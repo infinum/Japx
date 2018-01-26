@@ -20,15 +20,10 @@ extension Reactive where Base: DataRequest {
                     case .failure(let error): single(.error(error))
                 }
             })
-            
-            return Disposables.create {
-                request?.cancel()
-            }
+            return Disposables.create { request?.cancel() }
         }
-        
     }
 }
-
 
 extension Reactive where Base: DownloadRequest {
 
@@ -41,11 +36,7 @@ extension Reactive where Base: DownloadRequest {
                 case .failure(let error): single(.error(error))
                 }
             })
-            
-            return Disposables.create {
-                request?.cancel()
-            }
+            return Disposables.create { request?.cancel() }
         }
     }
 }
-

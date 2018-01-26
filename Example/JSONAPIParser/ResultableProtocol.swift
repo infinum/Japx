@@ -9,9 +9,7 @@
 import UIKit
 import JSONAPIParser
 
-protocol Resultable {
-    
-}
+protocol Resultable { }
 
 extension Resultable where Self: UIViewController {
     

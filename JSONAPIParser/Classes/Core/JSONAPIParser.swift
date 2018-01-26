@@ -119,13 +119,13 @@ public extension JSONAPIParser.Encoder {
     
     static func encode(json: Parameters, additionalParams: Parameters? = nil) throws -> Parameters {
         var params = additionalParams ?? [:]
-        params[Consts.APIKeys.data] = try encodeAttributesAndReloationships(on: json)
+        params[Consts.APIKeys.data] = try encodeAttributesAndRelationships(on: json)
         return params
     }
     
     static func encode(json: [Parameters], additionalParams: Parameters? = nil) throws -> Parameters {
         var params = additionalParams ?? [:]
-        params[Consts.APIKeys.data] = try json.flatMap { try encodeAttributesAndReloationships(on: $0) as AnyObject }
+        params[Consts.APIKeys.data] = try json.flatMap { try encodeAttributesAndRelationships(on: $0) as AnyObject }
         return params
     }
 }
@@ -173,7 +173,6 @@ private extension JSONAPIParser.Decoder {
         return jsonApi
     }
     
-    
     static func decode(jsonApiInput: NSDictionary) throws -> NSDictionary {
         let jsonApi = jsonApiInput.mutable
         
@@ -213,10 +212,10 @@ private extension JSONAPIParser.Decoder {
         attributes[Consts.APIKeys.type] = object[Consts.APIKeys.type]
         attributes[Consts.APIKeys.id] = object[Consts.APIKeys.id]
         
-        let relationshipsReferences = object.asDictionaty(from: Consts.APIKeys.relationships) ?? Parameters()
+        let relationshipsReferences = object.asDictionary(from: Consts.APIKeys.relationships) ?? Parameters()
         
         let relationships = try paramsDict.allKeys.map({ $0 as! String }).reduce(into: Parameters(), { (result, relationshipsKey) in
-            guard let relationship = relationshipsReferences.asDictionaty(from: relationshipsKey) else { return }
+            guard let relationship = relationshipsReferences.asDictionary(from: relationshipsKey) else { return }
             guard let otherObjectsData = try relationship.array(from: Consts.APIKeys.data) else {
                 result[relationshipsKey] = NSNull()
                 return
@@ -283,7 +282,7 @@ private extension JSONAPIParser.Decoder {
 
 private extension JSONAPIParser.Encoder {
     
-    static func encodeAttributesAndReloationships(on jsonObject: Parameters) throws -> Parameters {
+    static func encodeAttributesAndRelationships(on jsonObject: Parameters) throws -> Parameters {
         var object = jsonObject
         var attributes = Parameters()
         var relationships = Parameters()
@@ -299,12 +298,12 @@ private extension JSONAPIParser.Encoder {
                     continue
                 }
                 let dataArray = try array.map { try $0.asDataWithTypeAndId() }
-                // Handle reloationship array
+                // Handle relationships array
                 relationships[key] = [Consts.APIKeys.data: dataArray]
                 object.removeValue(forKey: key)
                 continue
             }
-            if let obj = object.asDictionaty(from: key) {
+            if let obj = object.asDictionary(from: key) {
                 if !obj.containsTypeAndId() {
                     // Handle attributes object
                     attributes[key] = obj
@@ -359,7 +358,7 @@ private extension Dictionary where Key == String {
         throw JSONAPIParserError.notFoundTypeOrId(data: self)
     }
     
-    func asDictionaty(from key: String) -> Parameters? {
+    func asDictionary(from key: String) -> Parameters? {
         return self[key] as? Parameters
     }
     

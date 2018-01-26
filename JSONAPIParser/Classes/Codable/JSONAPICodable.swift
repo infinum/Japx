@@ -40,7 +40,6 @@ public final class JSONAPIEncoder {
         let data = try jsonEncoder.encode(value)
         return try JSONAPIParser.Encoder.encode(data: data)
     }
-    
 }
 
 /// Wrapper around JSONDecoder capable of decoding JSON:API objects into normal objects
@@ -75,5 +74,4 @@ public final class JSONAPIDecoder {
         let data = try JSONAPIParser.Decoder.data(with: data, includeList: includeList)
         return try jsonDecoder.decode(type, from: data)
     }
-    
 }

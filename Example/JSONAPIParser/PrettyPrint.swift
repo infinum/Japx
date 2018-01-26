@@ -24,5 +24,4 @@ struct PrettyPrint {
     static func prettyPrintJson(data: Data) -> String {
         return String(data: data, encoding: .utf8)!
     }
-    
 }
