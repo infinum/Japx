@@ -8,7 +8,7 @@
 Lightweight [JSON:API](http://jsonapi.org/) parser that flattens complex [JSON:API](http://jsonapi.org/) structure and turns it into simple JSON and vice versa.
 It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable](https://developer.apple.com/documentation/swift/codable), [Unbox](https://github.com/JohnSundell/Unbox), [Wrap](https://github.com/JohnSundell/Wrap), [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) or any other object mapping tool that you prefer.
 
-# Basic example
+## Basic example
 
 For given example of JSON object:
 ```json
@@ -215,10 +215,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 * Vlaho Poluta, vlaho.poluta@infinum.hr
 * Filip Gulan, filip.gulan@infinum.hr
 
-Maintained by [Infinum](http://www.infinum.co)
+Maintained by [Infinum](https://infinum.co)
 
-![Infinum](https://assets.infinum.co/infinum.png)
-
+<p align="center">
+    <img src="infinum-logo.png" width="500" max-width="70%" alt="Infinum" href="https://infinum.co"/>
+</p>
 
 ## License
 
