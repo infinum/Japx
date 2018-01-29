@@ -50,8 +50,10 @@ private struct TypeIdPair {
 
 /// A class for converting (parsing) JSON:API object to simle JSON object and vice versa.
 public struct JSONAPIParser {
+    
     /// Defines a list of methodes for converting JSON:API object structure to simple JSON by flattening atributes and relationships.
     public enum Decoder {}
+    
     /// Defines a list of methodes for converting simple JSON objects to JSON:API object.
     public enum Encoder {}
 }
