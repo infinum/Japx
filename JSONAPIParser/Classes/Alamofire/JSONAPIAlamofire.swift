@@ -8,6 +8,18 @@
 import Alamofire
 import Foundation
 
+
+/// Returns a JSON:API object contained in a result type.
+///
+/// - parameter response:       The response from the server.
+/// - parameter data:           The data returned from the server.
+/// - parameter error:          The error already encountered if it exists.
+
+/// - parameter keyPath:        The keyPath where object decoding on parsed JSON should be performed.
+/// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requeted type.
+///
+/// - returns: The result data type.
+
 public enum JSONAPIAlamofireError: Error {
     case invalidKeyPath(keyPath: String)
 }
@@ -25,9 +37,10 @@ extension Request {
     
     /// Returns a JSON:API object contained in a result type.
     ///
-    /// - parameter response: The response from the server.
-    /// - parameter data:     The data returned from the server.
-    /// - parameter error:    The error already encountered if it exists.
+    /// - parameter response:       The response from the server.
+    /// - parameter data:           The data returned from the server.
+    /// - parameter error:          The error already encountered if it exists.
+    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
     ///
     /// - returns: The result data type.
     public static func serializeResponseJSONAPI(response: HTTPURLResponse?, data: Data?, error: Error?, includeList: String?) -> Result<Parameters> {
