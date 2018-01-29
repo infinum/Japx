@@ -11,7 +11,15 @@ import Foundation
 
 extension Reactive where Base: DataRequest {
     
-    public func responseCodableJSONAPI<T: JSONAPIDecodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder()) -> Single<T> {
+    /// Converts a parsed and decoded JSON:API object request to `Single` of requested type.
+    ///
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter keyPath:           The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requeted type.
+    ///
+    /// - returns: `Single` of parsed and decoded JSON:API object of requested type.
+    public func responseCodableJSONAPI<T: Decodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder()) -> Single<T> {
         
         return Single<T>.create { [weak base] (single) -> Disposable in
             let request = base?.responseCodableJSONAPI(queue: queue, includeList: includeList, keyPath: keyPath, decoder: decoder, completionHandler: { (response: DataResponse<T>) in
@@ -27,7 +35,15 @@ extension Reactive where Base: DataRequest {
 
 extension Reactive where Base: DownloadRequest {
 
-    public func responseCodableJSONAPI<T: JSONAPIDecodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder()) -> Single<T> {
+    /// Converts a parsed and decoded JSON:API object request to `Single` of requested type.
+    ///
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter keyPath:           The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requeted type.
+    ///
+    /// - returns: `Single` of parsed and decoded JSON:API object of requested type.
+    public func responseCodableJSONAPI<T: Decodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder()) -> Single<T> {
 
         return Single<T>.create { [weak base] (single) -> Disposable in
             let request = base?.responseCodableJSONAPI(queue: queue, includeList: includeList, keyPath: keyPath, decoder: decoder, completionHandler: { (response: DownloadResponse<T>) in

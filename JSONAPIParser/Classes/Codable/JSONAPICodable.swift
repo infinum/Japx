@@ -18,7 +18,7 @@ public protocol JSONAPIEncodable: Encodable {
     var type: String { get }
 }
 
-typealias JSONAPICodable = JSONAPIDecodable & JSONAPIEncodable
+public typealias JSONAPICodable = JSONAPIDecodable & JSONAPIEncodable
 
 /// Wrapper around JSONEncoder capable of encoding normal objects into JSON:API dictionaries
 public final class JSONAPIEncoder {
@@ -36,7 +36,7 @@ public final class JSONAPIEncoder {
     /// - parameter value: The value to encode.
     /// - returns: A new `[String: Any]` value containing the encoded JSON:API data.
     /// - throws: An error if any value throws an error during encoding.
-    public func encode<T>(_ value: T) throws -> Parameters where T : JSONAPIEncodable {
+    public func encode<T>(_ value: T) throws -> Parameters where T : Encodable {
         let data = try jsonEncoder.encode(value)
         return try JSONAPIParser.Encoder.encode(data: data)
     }
@@ -59,7 +59,7 @@ public final class JSONAPIDecoder {
     /// - parameter json: The JSON:API dictionary to decode from.
     /// - returns: A value of the requested type.
     /// - throws: An error if any value throws an error during decoding.
-    public func decode<T>(_ type: T.Type, from json: Parameters, includeList: String? = nil) throws -> T where T : JSONAPIDecodable {
+    public func decode<T>(_ type: T.Type, from json: Parameters, includeList: String? = nil) throws -> T where T : Decodable {
         let data = try JSONAPIParser.Decoder.data(withJSONAPIObject: json, includeList: includeList)
         return try jsonDecoder.decode(type, from: data)
     }
@@ -70,7 +70,7 @@ public final class JSONAPIDecoder {
     /// - parameter data: The JSON:API formated data to decode from.
     /// - returns: A value of the requested type.
     /// - throws: An error if any value throws an error during decoding.
-    public func decode<T>(_ type: T.Type, from data: Data, includeList: String? = nil) throws -> T where T : JSONAPIDecodable {
+    public func decode<T>(_ type: T.Type, from data: Data, includeList: String? = nil) throws -> T where T : Decodable {
         let data = try JSONAPIParser.Decoder.data(with: data, includeList: includeList)
         return try jsonDecoder.decode(type, from: data)
     }

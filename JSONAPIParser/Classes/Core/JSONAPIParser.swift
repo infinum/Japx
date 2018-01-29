@@ -197,7 +197,12 @@ private extension JSONAPIParser.Decoder {
         try resolveAttributes(from: objects)
         try resolveRelationships(from: objects)
         
-        jsonApi.setObject(dataObjects.map { objects[$0]! }, forKey: Consts.APIKeys.data as NSCopying)
+        let isObject = jsonApiInput.object(forKey: Consts.APIKeys.data) is NSDictionary
+        if isObject && dataObjects.count == 1 {
+            jsonApi.setObject(objects[dataObjects[0]]!, forKey: Consts.APIKeys.data as NSCopying)
+        } else {
+            jsonApi.setObject(dataObjects.map { objects[$0]! }, forKey: Consts.APIKeys.data as NSCopying)
+        }
         jsonApi.removeObject(forKey: Consts.APIKeys.included)
         return jsonApi
     }

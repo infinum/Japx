@@ -8,19 +8,10 @@
 import Alamofire
 import Foundation
 
-
-/// Returns a JSON:API object contained in a result type.
-///
-/// - parameter response:       The response from the server.
-/// - parameter data:           The data returned from the server.
-/// - parameter error:          The error already encountered if it exists.
-
-/// - parameter keyPath:        The keyPath where object decoding on parsed JSON should be performed.
-/// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requeted type.
-///
-/// - returns: The result data type.
-
+/// `JSONAPIAlamofireError` is the error type returned by JSONAPIAlamofire subspec.
 public enum JSONAPIAlamofireError: Error {
+    
+    /// - invalidKeyPath: Returned when a nested JSON object doesn't exist in parsed JSON:API response by provided `keyPath`.
     case invalidKeyPath(keyPath: String)
 }
 
@@ -28,14 +19,14 @@ extension JSONAPIAlamofireError: LocalizedError {
     
     public var errorDescription: String? {
         switch self {
-        case let .invalidKeyPath(keyPath: keyPath): return "Nested object doesn't exist by keyPath: \(keyPath)."
+        case let .invalidKeyPath(keyPath: keyPath): return "Nested JSON doesn't exist by keyPath: \(keyPath)."
         }
     }
 }
 
 extension Request {
     
-    /// Returns a JSON:API object contained in a result type.
+    /// Returns a parsed JSON:API object contained in result type.
     ///
     /// - parameter response:       The response from the server.
     /// - parameter data:           The data returned from the server.
@@ -62,7 +53,9 @@ extension Request {
 }
 
 extension DataRequest {
-    /// Creates a response serializer that returns a JSON:API object result type.
+    /// Creates a response serializer that returns a parsed JSON:API object contained in result type.
+    ///
+    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
     ///
     /// - returns: A JSON:API object response serializer.
     public static func jsonApiResponseSerializer(includeList: String?) -> DataResponseSerializer<Parameters> {
@@ -73,6 +66,8 @@ extension DataRequest {
     
     /// Adds a handler to be called once the request has finished.
     ///
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
@@ -87,7 +82,9 @@ extension DataRequest {
 }
 
 extension DownloadRequest {
-    /// Creates a response serializer that returns a JSON:API object result type.
+    /// Creates a response serializer that returns a parsed JSON:API object contained in result type.
+    ///
+    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
     ///
     /// - returns: A JSON object response serializer.
     public static func jsonApiResponseSerializer(includeList: String?) -> DownloadResponseSerializer<Parameters>
@@ -110,6 +107,8 @@ extension DownloadRequest {
     
     /// Adds a handler to be called once the request has finished.
     ///
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
