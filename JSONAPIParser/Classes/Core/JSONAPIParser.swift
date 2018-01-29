@@ -8,15 +8,22 @@
 
 import Foundation
 
+/// `Parameters` is a simplification for writing [String: Any]
 public typealias Parameters = [String: Any]
 
+/// `JSONAPIAlamofireError` is the error type returned by JSONAPIParser.
 public enum JSONAPIParserError: Error {
+    /// - cantProcess(data:): Returned when `data` is not [String: Any] or [[String: Any]]
     case cantProcess(data: Any)
-    case notString(data: Any, value: Any?)
+    /// - notDictionary(data:,value:): Returned when `value` in `data` is not [String: Any], when it should be [String: Any]
     case notDictionary(data: Any, value: Any?)
+    /// - notFoundTypeOrId(data:): Returned when `type` or `id` are not found in `data`, when they were both supposed to be presente.
     case notFoundTypeOrId(data: Any)
+    /// - relationshipNotFound(data:): Returned when `relationship` isn't [String: Any], it should be [String: Any]
     case relationshipNotFound(data: Any)
+    /// - unableToConvertNSDictionaryToParams(data:): Returned when conversion from NSDictionary to [String: Any] is unsuccessful.
     case unableToConvertNSDictionaryToParams(data: Any)
+    /// - unableToConvertDataToJson(data:): Returned when conversion from Data to [String: Any] is unsuccessful.
     case unableToConvertDataToJson(data: Any)
 }
 
@@ -41,8 +48,11 @@ private struct TypeIdPair {
     let id: String
 }
 
+/// A class for converting (parsing) JSON:API object to simle JSON object and vice versa.
 public struct JSONAPIParser {
+    /// Defines a list of methodes for converting JSON:API object structure to simple JSON by flattening atributes and relationships.
     public enum Decoder {}
+    /// Defines a list of methodes for converting simple JSON objects to JSON:API object.
     public enum Encoder {}
 }
 
@@ -52,6 +62,12 @@ public struct JSONAPIParser {
 
 public extension JSONAPIParser.Decoder {
     
+    /// Converts JSON:API object to simple flat JSON object
+    ///
+    /// - parameter object:            JSON:API object.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    ///
+    /// - returns: JSON object.
     static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Parameters {
         // First check if JSON API object has `include` list since
         // parsing objects with include list is done using native
@@ -68,11 +84,23 @@ public extension JSONAPIParser.Decoder {
         throw JSONAPIParserError.unableToConvertNSDictionaryToParams(data: decoded)
     }
     
+    /// Converts JSON:API object to simple flat JSON object
+    ///
+    /// - parameter object:            JSON:API object.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    ///
+    /// - returns: JSON object as Data.
     static func data(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Data {
         let decoded = try jsonObject(withJSONAPIObject: object, includeList: includeList)
         return try JSONSerialization.data(withJSONObject: decoded, options: .init(rawValue: 0))
     }
     
+    /// Converts JSON:API object to simple flat JSON object
+    ///
+    /// - parameter data:              JSON:API object as Data.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    ///
+    /// - returns: JSON object.
     static func jsonObject(with data: Data, includeList: String? = nil) throws -> Parameters {
         let jsonApiObject = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0))
         
@@ -96,6 +124,12 @@ public extension JSONAPIParser.Decoder {
         throw JSONAPIParserError.unableToConvertNSDictionaryToParams(data: decoded)
     }
     
+    /// Converts JSON:API object to simple flat JSON object
+    ///
+    /// - parameter data:              JSON:API object as Data.
+    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    ///
+    /// - returns: JSON object as Data.
     static func data(with data: Data, includeList: String? = nil) throws -> Data {
         let decoded = try jsonObject(with: data, includeList: includeList)
         return try JSONSerialization.data(withJSONObject: decoded, options: .init(rawValue: 0))
@@ -106,6 +140,12 @@ public extension JSONAPIParser.Decoder {
 
 public extension JSONAPIParser.Encoder {
     
+    /// Converts simple flat JSON object to JSON:API object.
+    ///
+    /// - parameter data:              JSON object as Data.
+    /// - parameter additionalParams:  Aditional [String: Any] to add with `data` to JSON:API object.
+    ///
+    /// - returns: JSON:API object.
     static func encode(data: Data, additionalParams: Parameters? = nil) throws -> Parameters {
         let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0))
         if let jsonObject = json as? Parameters {
@@ -117,12 +157,24 @@ public extension JSONAPIParser.Encoder {
         throw JSONAPIParserError.unableToConvertDataToJson(data: json)
     }
     
+    /// Converts simple flat JSON object to JSON:API object.
+    ///
+    /// - parameter json:              JSON object.
+    /// - parameter additionalParams:  Aditional [String: Any] to add with `data` to JSON:API object.
+    ///
+    /// - returns: JSON:API object.
     static func encode(json: Parameters, additionalParams: Parameters? = nil) throws -> Parameters {
         var params = additionalParams ?? [:]
         params[Consts.APIKeys.data] = try encodeAttributesAndRelationships(on: json)
         return params
     }
     
+    /// Converts simple flat JSON object to JSON:API object.
+    ///
+    /// - parameter json:              JSON objects represented as Array.
+    /// - parameter additionalParams:  Aditional [String: Any] to add with `data` to JSON:API object.
+    ///
+    /// - returns: JSON:API object.
     static func encode(json: [Parameters], additionalParams: Parameters? = nil) throws -> Parameters {
         var params = additionalParams ?? [:]
         params[Consts.APIKeys.data] = try json.flatMap { try encodeAttributesAndRelationships(on: $0) as AnyObject }
