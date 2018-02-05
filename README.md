@@ -315,7 +315,7 @@ protocol JSONAPIEncodable: Encodable {
 
 JSONAPIParser also comes with wrapper for [Alamofire][10] and [Codable][7] which can be installed as described in [installation](#installation) chapter.
 
-Use `responseCodableJSONAPI` method on `DataRequest` which will pass serialized response in callback. Also, there is `keyPath` argument to extract only nested `data` object. So, if you don't need any additional info from API side expect plain data, than you can create simple objects, without using wrapping objects/structs.
+Use `responseCodableJSONAPI` method on `DataRequest` which will pass serialized response in callback. Also, there is `keyPath` argument to extract only nested `data` object. So, if you don't need any additional info from API side except plain data, than you can create simple objects, without using wrapping objects/structs.
 
 ```swift
 struct User: JSONAPICodable {
