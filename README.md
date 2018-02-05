@@ -340,6 +340,10 @@ Alamofire
 
 ## Usage with Codable, Alamofire and RxSwift
 
+JSONAPIParser also comes with wrapper for [Alamofire][10], [Codable][7] and [RxSwift][11] which can be installed as described in [installation](#installation) chapter.
+
+Use `responseCodableJSONAPI` method from `.rx` extension on `DataRequest` which will return `Single` with serialized response.
+
 ```swift
 let loginModel: LoginModel = ...
 let executeLogin: ([String: Any]) throws -> Single<User> = {
@@ -418,3 +422,4 @@ JSONAPIParser is available under the MIT license. See the LICENSE file for more 
 [8]:    http://cocoapods.org
 [9]:    https://infinum.co
 [10]:   https://github.com/Alamofire/Alamofire
+[11]:   https://github.com/ReactiveX/RxSwift
