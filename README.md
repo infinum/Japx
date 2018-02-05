@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/JSONAPIParser.svg?style=flat)](http://cocoapods.org/pods/JSONAPIParser)
 [![Platform](https://img.shields.io/cocoapods/p/JSONAPIParser.svg?style=flat)](http://cocoapods.org/pods/JSONAPIParser)
 
-Lightweight [JSON:API](http://jsonapi.org/) parser that flattens complex [JSON:API](http://jsonapi.org/) structure and turns it into simple JSON and vice versa.
-It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable](https://developer.apple.com/documentation/swift/codable), [Unbox](https://github.com/JohnSundell/Unbox), [Wrap](https://github.com/JohnSundell/Wrap), [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) or any other object mapping tool that you prefer.
+Lightweight [JSON:API][1] parser that flattens complex [JSON:API][1] structure and turns it into simple JSON and vice versa.
+It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][2], [Unbox][3], [Wrap][4], [ObjectMapper][5] or any other object mapping tool that you prefer.
 
 ## Basic example
 
@@ -119,7 +119,7 @@ will be flattened to:
 
 ### Parsing additional information
 
-All nested object which do not have keys defined in [JSON:API Specification](http://jsonapi.org/format) will be left inside root object intact (same goes for `links` and `meta` objects):
+All nested object which do not have keys defined in [JSON:API Specification][6] will be left inside root object intact (same goes for `links` and `meta` objects):
 
 ```json
 {
@@ -183,24 +183,26 @@ Parsed JSON:
 
 ## Usage with Codable
 
-JSONAPIParser comes with wrapper for _Swift 4_ `Codable` which can be installed as described in [installation](#installation) chapter.
+JSONAPIParser comes with wrapper for _Swift 4_ [Codable][7] which can be installed as described in [installation](#installation) chapter.
 
-Since JSON:API object can have multiple additional fields like meta, links or pagination info, its real model needs to be wrapped inside some `data` object. For easier parsing, also depending on your API specification, you should create wrapping native object which will contain your generic JSON model:
+Since JSON:API object can have multiple additional fields like meta, links or pagination info, its real model needs to be wrapped inside `data` object. For easier parsing, also depending on your API specification, you should create wrapping native object which will contain your generic JSON model:
 
 ```swift
 struct JSONAPIResponse<T: Codable>: Codable {
     let data: T
     // ... additional info like: meta, links, pagination...
 }
-```
 
-```swift
 struct User: JSONAPICodable {
     var id: String
     var type: String
     let email: String
     var username: String
 }
+
+let userResponse: JSONAPIResponse<User> = try JSONAPIDecoder()
+                                                    .decode(JSONAPIResponse<User>.self, from: data)
+let user: User = userResponse.data
 ```
 
 where `JSONAPIDecodable` and `JSONAPIEncodable` are defined in JSONAPICodable file as:
@@ -218,15 +220,9 @@ protocol JSONAPIEncodable: Encodable {
 }
 ```
 
-```swift
-let userResponse: JSONAPIResponse<User> = try JSONAPIDecoder()
-                                                    .decode(JSONAPIResponse<User>.self, from: data)
-let user: User = userResponse.data
-```
-
 ## Installation
 
-JSONAPIParser is available through [CocoaPods](http://cocoapods.org). To install
+JSONAPIParser is available through [CocoaPods][8]. To install
 it, simply add the following line to your Podfile:
 ```ruby
 pod 'JSONAPIParser'
@@ -234,34 +230,30 @@ pod 'JSONAPIParser'
 We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
 You can find those convinience extansions here: 
 
-With Codable (i.e. Decodable / Encodable):
+With `Codable` (i.e. `Decodable` / `Encodable`):
 ```ruby
 pod 'JSONAPIParser/Codable'
 ```
 
-With Alamofire:
+With `Alamofire`:
 ```ruby
 pod 'JSONAPIParser/Alamofire'
 ```
 
-With Alamofire and RxSwift using Single trait:
+With `Alamofire` and `RxSwift` using Single trait:
 ```ruby
 pod 'JSONAPIParser/RxAlamofire'
 ```
 
-With Alamofire and Codable:
+With `Alamofire` and `Codable`:
 ```ruby
 pod 'JSONAPIParser/CodableAlamofire'
 ```
 
-With Alamofire, Codable and RxSwift:
+With `Alamofire`, `Codable` and `RxSwift`:
 ```ruby
 pod 'JSONAPIParser/RxCodableAlamofire'
 ```
-
-## Usage
-
-TODO
 
 ## Example
 
@@ -272,7 +264,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 * Vlaho Poluta, vlaho.poluta@infinum.hr
 * Filip Gulan, filip.gulan@infinum.hr
 
-Maintained by [Infinum](https://infinum.co)
+Maintained by [Infinum][9]
 
 <p align="center">
     <img src="infinum-logo.png" width="300" max-width="70%" alt="Infinum"/>
@@ -281,3 +273,13 @@ Maintained by [Infinum](https://infinum.co)
 ## License
 
 JSONAPIParser is available under the MIT license. See the LICENSE file for more info.
+
+[1]:    http://jsonapi.org/
+[2]:    https://developer.apple.com/documentation/swift/codable
+[3]:    https://github.com/JohnSundell/Unbox
+[4]:    https://github.com/JohnSundell/Wrap
+[5]:    https://github.com/Hearst-DD/ObjectMapper
+[6]:    http://jsonapi.org/format
+[7]:    https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
+[8]:    http://cocoapods.org
+[9]:    https://infinum.co
