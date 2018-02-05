@@ -11,6 +11,14 @@ import Foundation
 
 extension Reactive where Base: DataRequest {
     
+    /// Converts a parsed and decoded JSON:API object request to `Single` of requested type.
+    ///
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
+    /// - parameter keyPath:           The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requested type.
+    ///
+    /// - returns: `Single` of parsed and decoded JSON:API object of requested type.
     public func responseCodableJSONAPI<T: Decodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder()) -> Single<T> {
         
         return Single<T>.create { [weak base] (single) -> Disposable in
@@ -27,6 +35,14 @@ extension Reactive where Base: DataRequest {
 
 extension Reactive where Base: DownloadRequest {
 
+    /// Converts a parsed and decoded JSON:API object request to `Single` of requested type.
+    ///
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
+    /// - parameter keyPath:           The keyPath where object decoding on parsed JSON should be performed.
+    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requested type.
+    ///
+    /// - returns: `Single` of parsed and decoded JSON:API object of requested type.
     public func responseCodableJSONAPI<T: Decodable>(queue: DispatchQueue? = nil, includeList: String? = nil, keyPath: String? = nil, decoder: JSONAPIDecoder = JSONAPIDecoder()) -> Single<T> {
 
         return Single<T>.create { [weak base] (single) -> Disposable in
