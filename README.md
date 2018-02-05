@@ -32,9 +32,7 @@ let jsonApiObject: [String: Any] = ...
 let simpleObject: [String: Any]
 
 do {
-    simpleObject = try JSONAPIParser
-                                .Decoder
-                                .jsonObject(withJSONAPIObject: jsonApiObject)
+    simpleObject = try JSONAPIParser.Decoder.jsonObject(withJSONAPIObject: jsonApiObject)
 } catch {
     print(error)
 }
