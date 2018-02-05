@@ -8,6 +8,19 @@
 Lightweight [JSON:API][1] parser that flattens complex [JSON:API][1] structure and turns it into simple JSON and vice versa.
 It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][2], [Unbox][3], [Wrap][4], [ObjectMapper][5] or any other object mapping tool that you prefer.
 
+- [Basic example](#basic-example)
+- [Advanced examples](#advanced-examples)
+    - [Parsing relationships](#parsing-relationships)
+    - [Parsing additional information](#parsing-additional-information)
+    - [Parsing with include list](#parsing-with-include-list)
+- [Usage](#usage)
+    - [Codable](#codable)
+    - [Codable and Alamofire](#codable-and-alamofire)
+    - [Codable, Alamofire and RxSwift](#codable-alamofire-and-rxswift)
+- [Example project](#example-project)
+- [Authors](#authors)
+- [License](#license)
+
 ## Basic example
 
 For given example of JSON object:
@@ -272,7 +285,9 @@ Parsed JSON:
 }
 ```
 
-## Usage with Codable
+## Usage
+
+### Codable
 
 JSONAPIParser comes with wrapper for _Swift 4_ [Codable][7] which can be installed as described in [installation](#installation) chapter.
 
@@ -311,7 +326,7 @@ protocol JSONAPIEncodable: Encodable {
 }
 ```
 
-## Usage with Codable and Alamofire
+### Codable and Alamofire
 
 JSONAPIParser also comes with wrapper for [Alamofire][10] and [Codable][7] which can be installed as described in [installation](#installation) chapter.
 
@@ -338,7 +353,7 @@ Alamofire
     })
 ```
 
-## Usage with Codable, Alamofire and RxSwift
+### Codable, Alamofire and RxSwift
 
 JSONAPIParser also comes with wrapper for [Alamofire][10], [Codable][7] and [RxSwift][11] which can be installed as described in [installation](#installation) chapter.
 
@@ -387,7 +402,7 @@ pod 'JSONAPIParser/CodableAlamofire'
 pod 'JSONAPIParser/RxCodableAlamofire'
 ```
 
-## Example
+## Example project
 
 To run the example project, clone the repository, and run `pod install` from the Example directory first.
 
