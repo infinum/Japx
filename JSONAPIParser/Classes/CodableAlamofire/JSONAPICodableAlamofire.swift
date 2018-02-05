@@ -15,7 +15,7 @@ extension Request {
     /// - parameter response:       The response from the server.
     /// - parameter data:           The data returned from the server.
     /// - parameter error:          The error already encountered if it exists.
-    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:    The include list for deserializing JSON:API relationships.
     /// - parameter keyPath:        The keyPath where object decoding on parsed JSON should be performed.
     /// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requested type.
     ///
@@ -52,9 +52,9 @@ extension DataRequest {
     
     /// Creates a response serializer that returns a parsed and decoded JSON:API object into requested type contained in result type.
     ///
-    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:    The include list for deserializing JSON:API relationships.
     /// - parameter keyPath:        The keyPath where object decoding on parsed JSON should be performed.
-    /// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requeted type.
+    /// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requested type.
     ///
     /// - returns: A JSON:API object response serializer.
     public static func codableJsonApiResponseSerializer<T: Decodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DataResponseSerializer<T> {
@@ -66,9 +66,9 @@ extension DataRequest {
     /// Adds a handler to be called once the request has finished.
     ///
     /// - parameter queue:             The queue on which the completion handler is dispatched.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     /// - parameter keyPath:           The keyPath where object decoding on parsed JSON should be performed.
-    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requeted type.
+    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requested type.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
@@ -86,13 +86,12 @@ extension DownloadRequest {
     
     /// Creates a response serializer that returns a parsed and decoded JSON:API object into requested type contained in result type.
     ///
-    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:    The include list for deserializing JSON:API relationships.
     /// - parameter keyPath:        The keyPath where object decoding on parsed JSON should be performed.
-    /// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requeted type.
+    /// - parameter decoder:        The decoder that performs the decoding on parsed JSON into requested type.
     ///
     /// - returns: A JSON:API object response serializer.
-    public static func codableJsonApiResponseSerializer<T: Decodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DownloadResponseSerializer<T>
-    {
+    public static func codableJsonApiResponseSerializer<T: Decodable>(includeList: String?, keyPath: String?, decoder: JSONAPIDecoder) -> DownloadResponseSerializer<T> {
         return DownloadResponseSerializer { _, response, fileURL, error in
             guard error == nil else { return .failure(error!) }
 
@@ -112,9 +111,9 @@ extension DownloadRequest {
     /// Adds a handler to be called once the request has finished.
     ///
     /// - parameter queue:             The queue on which the completion handler is dispatched.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     /// - parameter keyPath:           The keyPath where object decoding on parsed JSON should be performed.
-    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requeted type.
+    /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requested type.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.

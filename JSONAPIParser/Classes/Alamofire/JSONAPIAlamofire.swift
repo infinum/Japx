@@ -31,7 +31,7 @@ extension Request {
     /// - parameter response:       The response from the server.
     /// - parameter data:           The data returned from the server.
     /// - parameter error:          The error already encountered if it exists.
-    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:    The include list for deserializing JSON:API relationships.
     ///
     /// - returns: The result data type.
     public static func serializeResponseJSONAPI(response: HTTPURLResponse?, data: Data?, error: Error?, includeList: String?) -> Result<Parameters> {
@@ -55,7 +55,7 @@ extension Request {
 extension DataRequest {
     /// Creates a response serializer that returns a parsed JSON:API object contained in result type.
     ///
-    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:    The include list for deserializing JSON:API relationships.
     ///
     /// - returns: A JSON:API object response serializer.
     public static func jsonApiResponseSerializer(includeList: String?) -> DataResponseSerializer<Parameters> {
@@ -67,7 +67,7 @@ extension DataRequest {
     /// Adds a handler to be called once the request has finished.
     ///
     /// - parameter queue:             The queue on which the completion handler is dispatched.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
@@ -84,7 +84,7 @@ extension DataRequest {
 extension DownloadRequest {
     /// Creates a response serializer that returns a parsed JSON:API object contained in result type.
     ///
-    /// - parameter includeList:    The include list for desirializing JSON:API relationships.
+    /// - parameter includeList: The include list for deserializing JSON:API relationships.
     ///
     /// - returns: A JSON object response serializer.
     public static func jsonApiResponseSerializer(includeList: String?) -> DownloadResponseSerializer<Parameters>
@@ -108,7 +108,7 @@ extension DownloadRequest {
     /// Adds a handler to be called once the request has finished.
     ///
     /// - parameter queue:             The queue on which the completion handler is dispatched.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.

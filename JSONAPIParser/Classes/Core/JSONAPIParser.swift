@@ -17,7 +17,7 @@ public enum JSONAPIParserError: Error {
     case cantProcess(data: Any)
     /// - notDictionary(data:,value:): Returned when `value` in `data` is not [String: Any], when it should be [String: Any]
     case notDictionary(data: Any, value: Any?)
-    /// - notFoundTypeOrId(data:): Returned when `type` or `id` are not found in `data`, when they were both supposed to be presente.
+    /// - notFoundTypeOrId(data:): Returned when `type` or `id` are not found in `data`, when they were both supposed to be present.
     case notFoundTypeOrId(data: Any)
     /// - relationshipNotFound(data:): Returned when `relationship` isn't [String: Any], it should be [String: Any]
     case relationshipNotFound(data: Any)
@@ -48,13 +48,13 @@ private struct TypeIdPair {
     let id: String
 }
 
-/// A class for converting (parsing) JSON:API object to simle JSON object and vice versa.
+/// A class for converting (parsing) JSON:API object to simple JSON object and vice versa.
 public struct JSONAPIParser {
     
-    /// Defines a list of methodes for converting JSON:API object structure to simple JSON by flattening atributes and relationships.
+    /// Defines a list of methods for converting JSON:API object structure to simple JSON by flattening attributes and relationships.
     public enum Decoder {}
     
-    /// Defines a list of methodes for converting simple JSON objects to JSON:API object.
+    /// Defines a list of methods for converting simple JSON objects to JSON:API object.
     public enum Encoder {}
 }
 
@@ -67,7 +67,7 @@ public extension JSONAPIParser.Decoder {
     /// Converts JSON:API object to simple flat JSON object
     ///
     /// - parameter object:            JSON:API object.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: JSON object.
     static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Parameters {
@@ -89,7 +89,7 @@ public extension JSONAPIParser.Decoder {
     /// Converts JSON:API object to simple flat JSON object
     ///
     /// - parameter object:            JSON:API object.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: JSON object as Data.
     static func data(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Data {
@@ -100,7 +100,7 @@ public extension JSONAPIParser.Decoder {
     /// Converts JSON:API object to simple flat JSON object
     ///
     /// - parameter data:              JSON:API object as Data.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: JSON object.
     static func jsonObject(with data: Data, includeList: String? = nil) throws -> Parameters {
@@ -129,7 +129,7 @@ public extension JSONAPIParser.Decoder {
     /// Converts JSON:API object to simple flat JSON object
     ///
     /// - parameter data:              JSON:API object as Data.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: JSON object as Data.
     static func data(with data: Data, includeList: String? = nil) throws -> Data {
@@ -145,7 +145,7 @@ public extension JSONAPIParser.Encoder {
     /// Converts simple flat JSON object to JSON:API object.
     ///
     /// - parameter data:              JSON object as Data.
-    /// - parameter additionalParams:  Aditional [String: Any] to add with `data` to JSON:API object.
+    /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
     static func encode(data: Data, additionalParams: Parameters? = nil) throws -> Parameters {
@@ -162,7 +162,7 @@ public extension JSONAPIParser.Encoder {
     /// Converts simple flat JSON object to JSON:API object.
     ///
     /// - parameter json:              JSON object.
-    /// - parameter additionalParams:  Aditional [String: Any] to add with `data` to JSON:API object.
+    /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
     static func encode(json: Parameters, additionalParams: Parameters? = nil) throws -> Parameters {
@@ -174,7 +174,7 @@ public extension JSONAPIParser.Encoder {
     /// Converts simple flat JSON object to JSON:API object.
     ///
     /// - parameter json:              JSON objects represented as Array.
-    /// - parameter additionalParams:  Aditional [String: Any] to add with `data` to JSON:API object.
+    /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
     static func encode(json: [Parameters], additionalParams: Parameters? = nil) throws -> Parameters {

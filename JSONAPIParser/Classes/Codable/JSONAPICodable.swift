@@ -23,10 +23,10 @@ public typealias JSONAPICodable = JSONAPIDecodable & JSONAPIEncodable
 /// Wrapper around JSONEncoder capable of encoding normal objects into JSON:API dictionaries
 public final class JSONAPIEncoder {
     
-    // Underlaying JSONEncoder, can be used to add date formats, ...
+    // Underlying JSONEncoder, can be used to add date formats, ...
     public let jsonEncoder: JSONEncoder
     
-    /// Initializes `self` with underlaying `JSONEncoder` instance
+    /// Initializes `self` with underlying `JSONEncoder` instance
     public init(jsonEncoder: JSONEncoder = JSONEncoder()) {
         self.jsonEncoder = jsonEncoder
     }
@@ -45,10 +45,10 @@ public final class JSONAPIEncoder {
 /// Wrapper around JSONDecoder capable of decoding JSON:API objects into normal objects
 public final class JSONAPIDecoder {
     
-    /// Underlaying JSONDecoder, can be used to add date formats, ...
+    /// Underlying JSONDecoder, can be used to add date formats, ...
     public let jsonDecoder: JSONDecoder
     
-    /// Initializes `self` with underlaying `JSONDecoder` instance
+    /// Initializes `self` with underlying `JSONDecoder` instance
     public init(jsonDecoder: JSONDecoder = JSONDecoder()) {
         self.jsonDecoder = jsonDecoder
     }
@@ -67,7 +67,7 @@ public final class JSONAPIDecoder {
     /// Decodes a top-level value of the given type from the given JSON:API representation.
     ///
     /// - parameter type: The type of the value to decode.
-    /// - parameter data: The JSON:API formated data to decode from.
+    /// - parameter data: The JSON:API formatted data to decode from.
     /// - returns: A value of the requested type.
     /// - throws: An error if any value throws an error during decoding.
     public func decode<T>(_ type: T.Type, from data: Data, includeList: String? = nil) throws -> T where T : Decodable {

@@ -9,9 +9,9 @@ import RxSwift
 import Alamofire
 import Foundation
 
-///Extansion to add `Reactive` capabilites to `DataRequest`
+/// Extension to add `Reactive` capabilities to `DataRequest`
 extension DataRequest: ReactiveCompatible {}
-///Extansion to add `Reactive` capabilites to `DownloadRequest`
+/// Extension to add `Reactive` capabilities to `DownloadRequest`
 extension DownloadRequest: ReactiveCompatible {}
 
 extension Reactive where Base: DataRequest {
@@ -19,7 +19,7 @@ extension Reactive where Base: DataRequest {
     /// Converts a parsed JSON:API object request to `Single`.
     ///
     /// - parameter queue:             The queue on which the completion handler is dispatched.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: `Single` of parsed JSON:API object.
     public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil) -> Single<Parameters> {
@@ -41,7 +41,7 @@ extension Reactive where Base: DownloadRequest {
     /// Converts a parsed JSON:API object request to `Single`.
     ///
     /// - parameter queue:             The queue on which the completion handler is dispatched.
-    /// - parameter includeList:       The include list for desirializing JSON:API relationships.
+    /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: `Single` of parsed JSON:API object.
     public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil) -> Single<Parameters> {
