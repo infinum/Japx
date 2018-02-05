@@ -362,40 +362,34 @@ return Single.just(loginModel)
 
 JSONAPIParser is available through [CocoaPods][8]. To install
 it, simply add the following line to your Podfile:
+
 ```ruby
 pod 'JSONAPIParser'
 ```
+
 We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
 You can find those convinience extansions here: 
 
-With `Codable` (i.e. `Decodable` / `Encodable`):
 ```ruby
+# Codable
 pod 'JSONAPIParser/Codable'
-```
 
-With `Alamofire`:
-```ruby
+# Alamofire
 pod 'JSONAPIParser/Alamofire'
-```
 
-With `Alamofire` and `RxSwift` using Single trait:
-```ruby
+# Alamofire and RxSwift
 pod 'JSONAPIParser/RxAlamofire'
-```
 
-With `Alamofire` and `Codable`:
-```ruby
+# Alamofire and Codable
 pod 'JSONAPIParser/CodableAlamofire'
-```
 
-With `Alamofire`, `Codable` and `RxSwift`:
-```ruby
+# Alamofire, Codable and RxSwift
 pod 'JSONAPIParser/RxCodableAlamofire'
 ```
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repository, and run `pod install` from the Example directory first.
 
 ## Authors
 
