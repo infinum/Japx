@@ -11,6 +11,7 @@ It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable](
 ## Basic example
 
 For given example of JSON object:
+
 ```json
 {
     "data": {
@@ -24,7 +25,22 @@ For given example of JSON object:
 }
 ```
 
-parser will convert it to object where all properties inside `attributes` object will be flatted to the root of `data` object:
+to parse it to simple JSON use:
+
+```swift
+let jsonApiObject: [String: Any] = ...
+let simpleObject: [String: Any]
+
+do {
+    simpleObject = try JSONAPIParser
+                                .Decoder
+                                .jsonObject(withJSONAPIObject: jsonApiObject)
+} catch {
+    print(error)
+}
+```
+
+and parser will convert it to object where all properties inside `attributes` object will be flattened to the root of `data` object:
 
 ```json
 {
@@ -167,6 +183,49 @@ Parsed JSON:
 }
 ```
 
+## Usage with Codable
+
+JSONAPIParser comes with wrapper for _Swift 4_ `Codable` which can be installed as described in [installation](#installation) chapter.
+
+Since JSON:API object can have multiple additional fields like meta, links or pagination info, its real model needs to be wrapped inside some `data` object. For easier parsing, also depending on your API specification, you should create wrapping native object which will contain your generic JSON model:
+
+```swift
+struct JSONAPIResponse<T: Codable>: Codable {
+    let data: T
+    // ... additional info like: meta, links, pagination...
+}
+```
+
+```swift
+struct User: JSONAPICodable {
+    var id: String
+    var type: String
+    let email: String
+    var username: String
+}
+```
+
+where `JSONAPIDecodable` and `JSONAPIEncodable` are defined in JSONAPICodable file as:
+
+```swift
+/// Protocol that extends Decodable with required properties for JSON:API objects
+protocol JSONAPIDecodable: Decodable {
+    var type: String { get }
+    var id: String { get }
+}
+
+/// Protocol that extends Encodable with required properties for JSON:API objects
+protocol JSONAPIEncodable: Encodable {
+    var type: String { get }
+}
+```
+
+```swift
+let userResponse: JSONAPIResponse<User> = try JSONAPIDecoder()
+                                                    .decode(JSONAPIResponse<User>.self, from: data)
+let user: User = userResponse.data
+```
+
 ## Installation
 
 JSONAPIParser is available through [CocoaPods](http://cocoapods.org). To install
@@ -218,7 +277,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Maintained by [Infinum](https://infinum.co)
 
 <p align="center">
-    <img src="infinum-logo.png" width="300" max-width="70%" alt="Infinum" href="https://infinum.co"/>
+    <img src="infinum-logo.png" width="300" max-width="70%" alt="Infinum"/>
 </p>
 
 ## License
