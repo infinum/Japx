@@ -181,6 +181,97 @@ Parsed JSON:
 }
 ```
 
+### Parsing with include list
+
+For defining which nested object you want to parse, you can use `includeList` parameter. For example:
+
+```json
+{
+    "data": {
+        "type": "articles",
+        "id": "1",
+        "attributes": {
+            "title": "JSON API paints my bikeshed!",
+            "body": "The shortest article. Ever.",
+            "created": "2015-05-22T14:56:29.000Z",
+            "updated": "2015-05-22T14:56:28.000Z"
+        },
+        "relationships": {
+            "author": {
+                "data": {
+                    "id": "42",
+                    "type": "people"
+                }
+            }
+        }
+    },
+    "included": [
+        {
+            "type": "people",
+            "id": "42",
+            "attributes": {
+                "name": "John",
+                "age": 80,
+                "gender": "male"
+            },
+            "relationships": {
+                "article": {
+                    "data": {
+                        "id": "1",
+                        "type": "articles"
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+`Article` and `Author` can be matched using include reference, as defined in [JSON:API Specification][6]:
+
+```swift
+let includeList: String = "author.article.author"
+let jsonApiObject: [String: Any] = ...
+let recursiveObject: [String: Any] = try JSONAPIParser.Decoder.jsonObject(with: jsonApiObject, includeList: includeList)
+```
+
+Parsed JSON:
+
+```json
+{
+    "data": {
+        "type": "articles",
+        "id": "1",
+        "title": "JSON API paints my bikeshed!",
+        "body": "The shortest article. Ever.",
+        "created": "2015-05-22T14:56:29.000Z",
+        "updated": "2015-05-22T14:56:28.000Z",
+        "author": {
+            "type": "people",
+            "id": "42",
+            "name": "John",
+            "age": 80,
+            "gender": "male",
+            "article": {
+                "type": "articles",
+                "id": "1",
+                "title": "JSON API paints my bikeshed!",
+                "body": "The shortest article. Ever.",
+                "created": "2015-05-22T14:56:29.000Z",
+                "updated": "2015-05-22T14:56:28.000Z",
+                "author": {
+                    "type": "people",
+                    "id": "42",
+                    "name": "John",
+                    "age": 80,
+                    "gender": "male"
+                }
+            }
+        }
+    }
+}
+```
+
 ## Usage with Codable
 
 JSONAPIParser comes with wrapper for _Swift 4_ [Codable][7] which can be installed as described in [installation](#installation) chapter.
@@ -194,10 +285,10 @@ struct JSONAPIResponse<T: Codable>: Codable {
 }
 
 struct User: JSONAPICodable {
-    var id: String
-    var type: String
+    let id: String
+    let type: String
     let email: String
-    var username: String
+    let username: String
 }
 
 let userResponse: JSONAPIResponse<User> = try JSONAPIDecoder()
@@ -218,6 +309,49 @@ protocol JSONAPIDecodable: Decodable {
 protocol JSONAPIEncodable: Encodable {
     var type: String { get }
 }
+```
+
+## Usage with Codable and Alamofire
+
+JSONAPIParser also comes with wrapper for [Alamofire][10] and [Codable][7] which can be installed as described in [installation](#installation) chapter.
+
+Use `responseCodableJSONAPI` method on `DataRequest` which will pass serialized response in callback. Also, there is `keyPath` argument to extract only nested `data` object. So, if you don't need any additional info from API side expect plain data, than you can create simple objects, without using wrapping objects/structs.
+
+```swift
+struct User: JSONAPICodable {
+    let id: String
+    let type: String
+    let email: String
+    let username: String
+}
+
+Alamofire
+    .request(".../api/v1/users/login", method: .post, parameters: [...])
+    .validate()
+    .responseCodableJSONAPI(keyPath: "data", completionHandler: { (response: DataResponse<User>) in
+        switch response.result {
+        case .success(let user):
+            print(user)
+        case .failure(let error):
+            print(error)
+        }
+    })
+```
+
+## Usage with Codable, Alamofire and RxSwift
+
+```swift
+let loginModel: LoginModel = ...
+let executeLogin: ([String: Any]) throws -> Single<User> = {
+    return Alamofire
+        .request(".../api/v1/users/login", method: .post, parameters: $0)
+        .validate()
+        .rx.responseCodableJSONAPI(keyPath: "data")
+}
+
+return Single.just(loginModel)
+        .map { try JSONAPIEncoder().encode($0) }
+        .flatMap(executeLogin)
 ```
 
 ## Installation
@@ -283,3 +417,4 @@ JSONAPIParser is available under the MIT license. See the LICENSE file for more 
 [7]:    https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
 [8]:    http://cocoapods.org
 [9]:    https://infinum.co
+[10]:   https://github.com/Alamofire/Alamofire
