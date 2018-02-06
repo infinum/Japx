@@ -1,0 +1,8 @@
+{
+    "data": [{
+      "type": "articles",
+      "id": "1",
+      "title": "JSON API paints my bikeshed!",
+      "body": "The shortest article. Ever."
+    }]
+  }
