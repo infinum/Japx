@@ -1,4 +1,4 @@
-# JSONAPIParser
+# JADE - JSON:API Decoder/Encoder
 
 [![CI Status](http://img.shields.io/travis/vlaho.poluta@infinum.hr/JSONAPIParser.svg?style=flat)](https://travis-ci.org/vlaho.poluta@infinum.hr/JSONAPIParser)
 [![Version](https://img.shields.io/cocoapods/v/JSONAPIParser.svg?style=flat)](http://cocoapods.org/pods/JSONAPIParser)
