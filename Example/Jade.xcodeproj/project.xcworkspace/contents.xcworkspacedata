@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:JSONAPIParser.xcodeproj">
+      location = "self:Jade.xcodeproj">
    </FileRef>
 </Workspace>

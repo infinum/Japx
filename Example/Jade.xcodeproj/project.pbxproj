@@ -43,7 +43,7 @@
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
-			remoteInfo = JSONAPIParser;
+			remoteInfo = Jade;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -309,7 +309,7 @@
 			dependencies = (
 			);
 			name = Jade_Example;
-			productName = JSONAPIParser;
+			productName = Jade;
 			productReference = 607FACD01AFB9204008FA782 /* Jade_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
