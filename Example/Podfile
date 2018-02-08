@@ -1,10 +1,10 @@
 platform :ios, '9.0'
 use_frameworks!
 
-target 'JSONAPIParser_Example' do
-  pod 'JSONAPIParser/RxCodableAlamofire', :path => '../'
+target 'Jade_Example' do
+  pod 'Jade/RxCodableAlamofire', :path => '../'
 
-  target 'JSONAPIParser_Tests' do
+  target 'Jade_Tests' do
     inherit! :search_paths
 
     pod 'Quick', '~> 1.2.0'

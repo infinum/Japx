@@ -1,9 +1,9 @@
 # JADE - JSON:API Decoder/Encoder
 
-[![CI Status](http://img.shields.io/travis/vlaho.poluta@infinum.hr/JSONAPIParser.svg?style=flat)](https://travis-ci.org/vlaho.poluta@infinum.hr/JSONAPIParser)
-[![Version](https://img.shields.io/cocoapods/v/JSONAPIParser.svg?style=flat)](http://cocoapods.org/pods/JSONAPIParser)
-[![License](https://img.shields.io/cocoapods/l/JSONAPIParser.svg?style=flat)](http://cocoapods.org/pods/JSONAPIParser)
-[![Platform](https://img.shields.io/cocoapods/p/JSONAPIParser.svg?style=flat)](http://cocoapods.org/pods/JSONAPIParser)
+[![CI Status](http://img.shields.io/travis/vlaho.poluta@infinum.hr/Jade.svg?style=flat)](https://travis-ci.org/vlaho.poluta@infinum.hr/Jade)
+[![Version](https://img.shields.io/cocoapods/v/Jade.svg?style=flat)](http://cocoapods.org/pods/Jade)
+[![License](https://img.shields.io/cocoapods/l/Jade.svg?style=flat)](http://cocoapods.org/pods/Jade)
+[![Platform](https://img.shields.io/cocoapods/p/Jade.svg?style=flat)](http://cocoapods.org/pods/Jade)
 
 Lightweight [JSON:API][1] parser that flattens complex [JSON:API][1] structure and turns it into simple JSON and vice versa.
 It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][2], [Unbox][3], [Wrap][4], [ObjectMapper][5] or any other object mapping tool that you prefer.
@@ -45,7 +45,7 @@ let jsonApiObject: [String: Any] = ...
 let simpleObject: [String: Any]
 
 do {
-    simpleObject = try JSONAPIParser.Decoder.jsonObject(withJSONAPIObject: jsonApiObject)
+    simpleObject = try Jade.Decoder.jsonObject(withJSONAPIObject: jsonApiObject)
 } catch {
     print(error)
 }
@@ -245,7 +245,7 @@ For defining which nested object you want to parse, you can use `includeList` pa
 ```swift
 let includeList: String = "author.article.author"
 let jsonApiObject: [String: Any] = ...
-let recursiveObject: [String: Any] = try JSONAPIParser.Decoder.jsonObject(with: jsonApiObject, includeList: includeList)
+let recursiveObject: [String: Any] = try Jade.Decoder.jsonObject(with: jsonApiObject, includeList: includeList)
 ```
 
 Parsed JSON:
@@ -289,51 +289,51 @@ Parsed JSON:
 
 ### Codable
 
-JSONAPIParser comes with wrapper for _Swift 4_ [Codable][7] which can be installed as described in [installation](#installation) chapter.
+Jade comes with wrapper for _Swift 4_ [Codable][7] which can be installed as described in [installation](#installation) chapter.
 
 Since JSON:API object can have multiple additional fields like meta, links or pagination info, its real model needs to be wrapped inside `data` object. For easier parsing, also depending on your API specification, you should create wrapping native object which will contain your generic JSON model:
 
 ```swift
-struct JSONAPIResponse<T: Codable>: Codable {
+struct JadeResponse<T: Codable>: Codable {
     let data: T
     // ... additional info like: meta, links, pagination...
 }
 
-struct User: JSONAPICodable {
+struct User: JadeCodable {
     let id: String
     let type: String
     let email: String
     let username: String
 }
 
-let userResponse: JSONAPIResponse<User> = try JSONAPIDecoder()
-                                                    .decode(JSONAPIResponse<User>.self, from: data)
+let userResponse: JadeResponse<User> = try JadeDecoder()
+                                                    .decode(JadeResponse<User>.self, from: data)
 let user: User = userResponse.data
 ```
 
-where `JSONAPIDecodable` and `JSONAPIEncodable` are defined in JSONAPICodable file as:
+where `JadeDecodable` and `JadeEncodable` are defined in `JadeCodable` file as:
 
 ```swift
 /// Protocol that extends Decodable with required properties for JSON:API objects
-protocol JSONAPIDecodable: Decodable {
+protocol JadeDecodable: Decodable {
     var type: String { get }
     var id: String { get }
 }
 
 /// Protocol that extends Encodable with required properties for JSON:API objects
-protocol JSONAPIEncodable: Encodable {
+protocol JadeEncodable: Encodable {
     var type: String { get }
 }
 ```
 
 ### Codable and Alamofire
 
-JSONAPIParser also comes with wrapper for [Alamofire][10] and [Codable][7] which can be installed as described in [installation](#installation) chapter.
+Jade also comes with wrapper for [Alamofire][10] and [Codable][7] which can be installed as described in [installation](#installation) chapter.
 
 Use `responseCodableJSONAPI` method on `DataRequest` which will pass serialized response in callback. Also, there is `keyPath` argument to extract only nested `data` object. So, if you don't need any additional info from API side except plain data, than you can create simple objects, without using wrapping objects/structs.
 
 ```swift
-struct User: JSONAPICodable {
+struct User: JadeCodable {
     let id: String
     let type: String
     let email: String
@@ -355,7 +355,7 @@ Alamofire
 
 ### Codable, Alamofire and RxSwift
 
-JSONAPIParser also comes with wrapper for [Alamofire][10], [Codable][7] and [RxSwift][11] which can be installed as described in [installation](#installation) chapter.
+Jade also comes with wrapper for [Alamofire][10], [Codable][7] and [RxSwift][11] which can be installed as described in [installation](#installation) chapter.
 
 Use `responseCodableJSONAPI` method from `.rx` extension on `DataRequest` which will return `Single` with serialized response.
 
@@ -369,17 +369,16 @@ let executeLogin: ([String: Any]) throws -> Single<User> = {
 }
 
 return Single.just(loginModel)
-        .map { try JSONAPIEncoder().encode($0) }
+        .map { try JadeEncoder().encode($0) }
         .flatMap(executeLogin)
 ```
 
 ## Installation
 
-JSONAPIParser is available through [CocoaPods][8]. To install
-it, simply add the following line to your Podfile:
+Jade is available through [CocoaPods][8]. To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'JSONAPIParser'
+pod 'Jade'
 ```
 
 We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
@@ -387,19 +386,19 @@ You can find those convinience extansions here:
 
 ```ruby
 # Codable
-pod 'JSONAPIParser/Codable'
+pod 'Jade/Codable'
 
 # Alamofire
-pod 'JSONAPIParser/Alamofire'
+pod 'Jade/Alamofire'
 
 # Alamofire and RxSwift
-pod 'JSONAPIParser/RxAlamofire'
+pod 'Jade/RxAlamofire'
 
 # Alamofire and Codable
-pod 'JSONAPIParser/CodableAlamofire'
+pod 'Jade/CodableAlamofire'
 
 # Alamofire, Codable and RxSwift
-pod 'JSONAPIParser/RxCodableAlamofire'
+pod 'Jade/RxCodableAlamofire'
 ```
 
 ## Example project
@@ -419,7 +418,7 @@ Maintained by [Infinum][9]
 
 ## License
 
-JSONAPIParser is available under the MIT license. See the LICENSE file for more info.
+Jade is available under the MIT license. See the LICENSE file for more info.
 
 [1]:    http://jsonapi.org/
 [2]:    https://developer.apple.com/documentation/swift/codable
