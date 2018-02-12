@@ -10,11 +10,10 @@ jobs:
     steps:
       - checkout
       - run: brew update && brew install ruby
-      - run: bundle update
       - run: bundle exec fastlane unit_tests
 
 workflows:
   version: 2
-  testflight:
+  tests:
     jobs:
       - test
