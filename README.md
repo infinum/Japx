@@ -1,4 +1,4 @@
-# JADE - JSON:API Decoder/Encoder
+# Jade - JSON:API Decoder/Encoder
 
 [![CircleCI](https://circleci.com/gh/infinum/Jade.svg?style=svg&circle-token=9b7d2569484a7f65e32b844af0ad1cf3a6ede4e2)](https://circleci.com/gh/infinum/Jade)
 [![Version](https://img.shields.io/cocoapods/v/Jade.svg?style=flat)](http://cocoapods.org/pods/Jade)
