@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Jade'
-  s.version          = '0.1.0'
+  s.version          = '0.9.0'
   s.summary          = 'Lightweight JSON:API parser.'
 
 # This description is used to generate tags and improve search results.
@@ -15,10 +15,10 @@ Lightweight JSON:API parser that flattens complex JSON:API structure and turns i
 It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox, Wrap, ObjectMapper, or any other object mapping tool that you preffer.
                        DESC
 
-  s.homepage         = 'https://github.com/infinum/iOS-JSON-API-Parser'
+  s.homepage         = 'https://github.com/infinum/Jade'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Infinum' => 'ios@infinum.hr', 'Vlaho Poluta' => 'vlaho.poluta@infinum.hr', 'Filip Gulan' => 'filip.gulan@infinum.hr' }
-  s.source           = { :git => 'https://github.com/infinum/iOS-JSON-API-Parser.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/infinum/Jade.git', :tag => s.version.to_s }
 
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
