@@ -1,0 +1,20 @@
+version: 2
+jobs:
+
+  test:
+    environment:
+      LC_ALL: "en_US.UTF-8"
+      LANG: "en_US.UTF-8"
+    macos:
+      xcode: "9.2.0"
+    steps:
+      - checkout
+      - run: brew update && brew install ruby
+      - run: bundle update
+      - run: bundle exec fastlane unit_tests
+
+workflows:
+  version: 2
+  testflight:
+    jobs:
+      - test

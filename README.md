@@ -1,6 +1,6 @@
 # JADE - JSON:API Decoder/Encoder
 
-[![CI Status](http://img.shields.io/travis/vlaho.poluta@infinum.hr/Jade.svg?style=flat)](https://travis-ci.org/vlaho.poluta@infinum.hr/Jade)
+[![CI Status](https://circleci.com/gh/:infinum/:Jade.svg?style=shield&circle-token=9b7d2569484a7f65e32b844af0ad1cf3a6ede4e2)](https://circleci.com/gh/infinum/Jade)
 [![Version](https://img.shields.io/cocoapods/v/Jade.svg?style=flat)](http://cocoapods.org/pods/Jade)
 [![License](https://img.shields.io/cocoapods/l/Jade.svg?style=flat)](http://cocoapods.org/pods/Jade)
 [![Platform](https://img.shields.io/cocoapods/p/Jade.svg?style=flat)](http://cocoapods.org/pods/Jade)
