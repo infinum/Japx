@@ -9,8 +9,7 @@ jobs:
       xcode: "9.2.0"
     steps:
       - checkout
-      - run: brew update && brew install ruby
-      - run: bundle exec fastlane unit_tests
+      - run: fastlane unit_tests
 
 workflows:
   version: 2
