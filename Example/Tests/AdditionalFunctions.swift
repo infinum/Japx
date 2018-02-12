@@ -1,13 +1,13 @@
 //
 //  AdditionalFunctions.swift
-//  JSONAPIParser_Example
+//  Jade_Example
 //
 //  Created by Vlaho Poluta on 24/01/2018.
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
 import UIKit
-import JSONAPIParser
+import Jade
 
 typealias ParsingPipelineCallback = (_ json: Data)->(Any)
 

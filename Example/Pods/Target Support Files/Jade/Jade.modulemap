@@ -1,0 +1,6 @@
+framework module Jade {
+  umbrella header "Jade-umbrella.h"
+
+  export *
+  module * { export * }
+}

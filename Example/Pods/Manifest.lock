@@ -1,40 +1,40 @@
 PODS:
   - Alamofire (4.6.0)
-  - JSONAPIParser/Alamofire (0.1.0):
+  - Jade/Alamofire (0.1.0):
     - Alamofire (~> 4.5)
-    - JSONAPIParser/Core
-  - JSONAPIParser/Codable (0.1.0):
-    - JSONAPIParser/Core
-  - JSONAPIParser/CodableAlamofire (0.1.0):
-    - JSONAPIParser/Alamofire
-    - JSONAPIParser/Codable
-  - JSONAPIParser/Core (0.1.0)
-  - JSONAPIParser/RxAlamofire (0.1.0):
-    - JSONAPIParser/Alamofire
+    - Jade/Core
+  - Jade/Codable (0.1.0):
+    - Jade/Core
+  - Jade/CodableAlamofire (0.1.0):
+    - Jade/Alamofire
+    - Jade/Codable
+  - Jade/Core (0.1.0)
+  - Jade/RxAlamofire (0.1.0):
+    - Jade/Alamofire
     - RxSwift (~> 4.0)
-  - JSONAPIParser/RxCodableAlamofire (0.1.0):
-    - JSONAPIParser/CodableAlamofire
-    - JSONAPIParser/RxAlamofire
+  - Jade/RxCodableAlamofire (0.1.0):
+    - Jade/CodableAlamofire
+    - Jade/RxAlamofire
   - Nimble (7.0.3)
   - Quick (1.2.0)
   - RxSwift (4.1.1)
 
 DEPENDENCIES:
-  - JSONAPIParser/RxCodableAlamofire (from `../`)
+  - Jade/RxCodableAlamofire (from `../`)
   - Nimble (~> 7.0.2)
   - Quick (~> 1.2.0)
 
 EXTERNAL SOURCES:
-  JSONAPIParser:
+  Jade:
     :path: ../
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  JSONAPIParser: 346b433eb07c59e550568ab4826132941fa16ff8
+  Jade: 65562fb8d5dbfc9163e1fa7ffe79e6220b5caba2
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
 
-PODFILE CHECKSUM: 8403329d5473b8fc0aa8f8605e4f5f9f01117b01
+PODFILE CHECKSUM: 7743f3e59a59d512bb0955619334c45391b7eb84
 
 COCOAPODS: 1.4.0
