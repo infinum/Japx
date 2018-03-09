@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Jade'
-  s.version          = '0.9.0'
+  s.version          = '0.9.1'
   s.summary          = 'Lightweight JSON:API parser.'
 
 # This description is used to generate tags and improve search results.

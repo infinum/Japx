@@ -450,7 +450,11 @@ private extension Dictionary where Key == String {
 private extension NSDictionary {
     
     var mutable: NSMutableDictionary {
-        return self as? NSMutableDictionary ?? self.mutableCopy() as! NSMutableDictionary
+        if #available(iOS 10.0, *) {
+            return self as? NSMutableDictionary ?? self.mutableCopy() as! NSMutableDictionary
+        } else {
+            return self.mutableCopy() as! NSMutableDictionary
+        }
     }
     
     func extractTypeIdPair() throws -> TypeIdPair {
