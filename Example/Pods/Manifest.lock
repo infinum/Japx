@@ -1,0 +1,40 @@
+PODS:
+  - Alamofire (4.7.0)
+  - Japx/Alamofire (1.0.0):
+    - Alamofire (~> 4.5)
+    - Japx/Core
+  - Japx/Codable (1.0.0):
+    - Japx/Core
+  - Japx/CodableAlamofire (1.0.0):
+    - Japx/Alamofire
+    - Japx/Codable
+  - Japx/Core (1.0.0)
+  - Japx/RxAlamofire (1.0.0):
+    - Japx/Alamofire
+    - RxSwift (~> 4.0)
+  - Japx/RxCodableAlamofire (1.0.0):
+    - Japx/CodableAlamofire
+    - Japx/RxAlamofire
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+  - RxSwift (4.1.2)
+
+DEPENDENCIES:
+  - Japx/RxCodableAlamofire (from `../`)
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+
+EXTERNAL SOURCES:
+  Japx:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Japx: 1565d63a2fad537f6213956702cbc51cc20ea656
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+
+PODFILE CHECKSUM: 98601fe2b9583a38fcc317df035455d25482a5c8
+
+COCOAPODS: 1.4.0
