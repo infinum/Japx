@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Japi'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Lightweight JSON:API parser.'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.homepage         = 'https://github.com/infinum/Japi'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Infinum' => 'ios@infinum.hr', 'Vlaho Poluta' => 'vlaho.poluta@infinum.hr', 'Filip Gulan' => 'filip.gulan@infinum.hr' }
-  s.source           = { :git => 'https://github.com/infinum/Japi', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/infinum/Japi.git', :tag => s.version.to_s }
 
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
