@@ -1,0 +1,6 @@
+framework module Japi {
+  umbrella header "Japi-umbrella.h"
+
+  export *
+  module * { export * }
+}

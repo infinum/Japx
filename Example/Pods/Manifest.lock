@@ -1,0 +1,40 @@
+PODS:
+  - Alamofire (4.7.0)
+  - Japi/Alamofire (0.9.1):
+    - Alamofire (~> 4.5)
+    - Japi/Core
+  - Japi/Codable (0.9.1):
+    - Japi/Core
+  - Japi/CodableAlamofire (0.9.1):
+    - Japi/Alamofire
+    - Japi/Codable
+  - Japi/Core (0.9.1)
+  - Japi/RxAlamofire (0.9.1):
+    - Japi/Alamofire
+    - RxSwift (~> 4.0)
+  - Japi/RxCodableAlamofire (0.9.1):
+    - Japi/CodableAlamofire
+    - Japi/RxAlamofire
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+  - RxSwift (4.1.2)
+
+DEPENDENCIES:
+  - Japi/RxCodableAlamofire (from `../`)
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+
+EXTERNAL SOURCES:
+  Japi:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Japi: d395e49f090cef6128da9d4e0927dc7bb2c06154
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+
+PODFILE CHECKSUM: 8f7356f5837ad191cce1a5e9b0664df089c232c2
+
+COCOAPODS: 1.4.0

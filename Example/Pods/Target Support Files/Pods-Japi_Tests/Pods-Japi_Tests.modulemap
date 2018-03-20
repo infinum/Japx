@@ -1,0 +1,6 @@
+framework module Pods_Japi_Tests {
+  umbrella header "Pods-Japi_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
