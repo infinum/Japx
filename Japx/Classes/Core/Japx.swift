@@ -179,7 +179,7 @@ public extension Japx.Encoder {
     /// - returns: JSON:API object.
     static func encode(json: [Parameters], additionalParams: Parameters? = nil) throws -> Parameters {
         var params = additionalParams ?? [:]
-        params[Consts.APIKeys.data] = try json.flatMap { try encodeAttributesAndRelationships(on: $0) as AnyObject }
+        params[Consts.APIKeys.data] = try json.compactMap { try encodeAttributesAndRelationships(on: $0) as AnyObject }
         return params
     }
 }
@@ -281,7 +281,7 @@ private extension Japx.Decoder {
             }
             let otherObjects = try otherObjectsData
                 .map { try $0.extractTypeIdPair() }
-                .flatMap { allObjects[$0] }
+                .compactMap { allObjects[$0] }
                 .map {  try resolve(object: $0,
                                     allObjects: allObjects,
                                     paramsDict: try paramsDict.dictionary(for: relationshipsKey)) }
@@ -319,7 +319,7 @@ private extension Japx.Decoder {
                 // Fetch those object from `objects`
                 let othersObjects = try others
                     .map { try $0.extractTypeIdPair() }
-                    .flatMap { objects[$0] }
+                    .compactMap { objects[$0] }
                 
                 // Store relationships
                 let isObject = relationshipParams
