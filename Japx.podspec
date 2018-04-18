@@ -22,7 +22,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
 
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
-  s.swift_version = '4.0'
+  s.swift_version = '4.1'
 
   s.default_subspec = 'Core'
 
