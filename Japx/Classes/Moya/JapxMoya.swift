@@ -29,7 +29,7 @@ extension Response {
     /// Maps data received from the signal into a JSON:API object.
     ///
     /// - parameter includeList: The include list for deserializing JSON:API relationships.
-    /// - parameter failsOnEmptyData: A Boolean value determining whether the mapping should fail if the data is empty.
+    /// - parameter failsOnEmptyData: A boolean value determining whether the mapping should fail if the data is empty.
     ///
     /// - returns: JSON:API object.
     public func mapJSONAPI(failsOnEmptyData: Bool = true, includeList: String? = nil) throws -> Any {

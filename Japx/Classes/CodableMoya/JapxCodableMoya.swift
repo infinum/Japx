@@ -10,11 +10,11 @@ import Foundation
 
 extension Response {
     
-    /// Maps data received from the signal and decode JSON:API object into requested type.
+    /// Maps data received from the signal and decodes JSON:API object into requested type.
     ///
     /// - parameter includeList: The include list for deserializing JSON:API relationships.
     /// - parameter keyPath:     The keyPath where object decoding on parsed JSON should be performed.
-    /// - parameter decoder:     The decoder that performs the decoding on parsed JSON into requested type.
+    /// - parameter decoder:     The decoder that performs decoding on parsed JSON into requested type.
     ///
     /// - returns: JSON:API object.
     public func mapCodableJSONAPI<T: Decodable>(includeList: String? = nil, keyPath: String? = nil, decoder: JapxDecoder = JapxDecoder()) throws -> T {
@@ -33,7 +33,7 @@ extension Response {
             guard let jsonForKeyPath = (json as AnyObject).value(forKeyPath: keyPath) else {
                 throw JapxMoyaError.invalidKeyPath(keyPath: keyPath)
             }
-            let jsonApiData = try JSONSerialization.data(withJSONObject: jsonForKeyPath, options: .init(rawValue: 0))
+            let jsonApiData = try JSONSerialization.data(withJSONObject: jsonForKeyPath)
 
             let decodable = try decoder.jsonDecoder.decode(T.self, from: jsonApiData)
             return decodable

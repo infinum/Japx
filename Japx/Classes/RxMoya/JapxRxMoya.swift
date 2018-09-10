@@ -11,9 +11,9 @@ import Foundation
 
 extension ObservableType where E == Response {
 
-    /// Maps data received from the signal and decode JSON:API object into requested type. If the conversion fails, the signal errors.
+    /// Maps data received from the signal and decodes JSON:API object into requested type. If the conversion fails, the signal errors.
     ///
-    /// - parameter failsOnEmptyData: A Boolean value determining whether the mapping should fail if the data is empty.
+    /// - parameter failsOnEmptyData: A boolean value determining whether the mapping should fail if the data is empty.
     /// - parameter includeList: The include list for deserializing JSON:API relationships.
     ///
     ///
@@ -25,9 +25,9 @@ extension ObservableType where E == Response {
 
 extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
 
-    /// Maps data received from the signal and decode JSON:API object into requested type. If the conversion fails, the signal errors.
+    /// Maps data received from the signal and decodes JSON:API object into requested type. If the conversion fails, the signal errors.
     ///
-    /// - parameter failsOnEmptyData: A Boolean value determining whether the mapping should fail if the data is empty.
+    /// - parameter failsOnEmptyData: A boolean value determining whether the mapping should fail if the data is empty.
     /// - parameter includeList: The include list for deserializing JSON:API relationships.
     ///
     ///

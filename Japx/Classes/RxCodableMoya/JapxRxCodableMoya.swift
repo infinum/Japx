@@ -15,7 +15,7 @@ extension ObservableType where E == Response {
     ///
     /// - parameter includeList: The include list for deserializing JSON:API relationships.
     /// - parameter keyPath:     The keyPath where object decoding on parsed JSON should be performed.
-    /// - parameter decoder:     The decoder that performs the decoding on parsed JSON into requested type.
+    /// - parameter decoder:     The decoder that performs decoding on parsed JSON into requested type.
     ///
     ///
     /// - returns: `Observable` of JSON:API object.
@@ -30,7 +30,7 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Respo
     ///
     /// - parameter includeList: The include list for deserializing JSON:API relationships.
     /// - parameter keyPath:     The keyPath where object decoding on parsed JSON should be performed.
-    /// - parameter decoder:     The decoder that performs the decoding on parsed JSON into requested type.
+    /// - parameter decoder:     The decoder that performs decoding on parsed JSON into requested type.
     ///
     /// - returns: `Single` of JSON:API object.
     public func mapCodableJSONAPI<T: Decodable>(includeList: String? = nil, keyPath: String? = nil, decoder: JapxDecoder = JapxDecoder()) -> Single<T> {
