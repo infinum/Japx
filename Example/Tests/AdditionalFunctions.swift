@@ -18,7 +18,7 @@ func does(jsonFromFileNamed: String, containsEverethingFrom otherJsonFromFile: S
     let dataOther = try! Data(contentsOf: URL(fileURLWithPath: pathOther), options: .mappedIfSafe)
     
     let json = block(data)
-    let jsonOther = try! JSONSerialization.jsonObject(with: dataOther, options: .init(rawValue: 0))
+    let jsonOther = try! JSONSerialization.jsonObject(with: dataOther)
     
     if let json = json as? Parameters, let jsonOther = jsonOther as? Parameters {
         return does(json: json, containsEverethingFrom: jsonOther)
