@@ -94,7 +94,7 @@ public extension Japx.Decoder {
     /// - returns: JSON object as Data.
     static func data(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Data {
         let decoded = try jsonObject(withJSONAPIObject: object, includeList: includeList)
-        return try JSONSerialization.data(withJSONObject: decoded, options: .init(rawValue: 0))
+        return try JSONSerialization.data(withJSONObject: decoded)
     }
     
     /// Converts JSON:API object to simple flat JSON object
@@ -104,7 +104,7 @@ public extension Japx.Decoder {
     ///
     /// - returns: JSON object.
     static func jsonObject(with data: Data, includeList: String? = nil) throws -> Parameters {
-        let jsonApiObject = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0))
+        let jsonApiObject = try JSONSerialization.jsonObject(with: data)
         
         // With include list
         if let includeList = includeList {
@@ -134,7 +134,7 @@ public extension Japx.Decoder {
     /// - returns: JSON object as Data.
     static func data(with data: Data, includeList: String? = nil) throws -> Data {
         let decoded = try jsonObject(with: data, includeList: includeList)
-        return try JSONSerialization.data(withJSONObject: decoded, options: .init(rawValue: 0))
+        return try JSONSerialization.data(withJSONObject: decoded)
     }
 }
 
@@ -149,7 +149,7 @@ public extension Japx.Encoder {
     ///
     /// - returns: JSON:API object.
     static func encode(data: Data, additionalParams: Parameters? = nil) throws -> Parameters {
-        let json = try JSONSerialization.jsonObject(with: data, options: .init(rawValue: 0))
+        let json = try JSONSerialization.jsonObject(with: data)
         if let jsonObject = json as? Parameters {
             return try encode(json: jsonObject, additionalParams: additionalParams)
         }

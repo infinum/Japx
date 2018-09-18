@@ -59,5 +59,30 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
     sp.dependency 'Japx/CodableAlamofire'
     sp.dependency 'Japx/RxAlamofire'
   end
+  
+  s.subspec 'Moya' do |sp|
+    sp.source_files = 'Japx/Classes/Moya/**/*'
+    sp.dependency 'Japx/Core'
+    sp.dependency 'Moya/RxSwift', '~> 11.0'
+  end
+  
+  s.subspec 'RxMoya' do |sp|
+    sp.source_files = 'Japx/Classes/RxMoya/**/*'
+    sp.dependency 'Japx/Moya'
+  end
+  
+  s.subspec 'CodableMoya' do |sp|
+    sp.source_files = 'Japx/Classes/CodableMoya/**/*'
+    sp.dependency 'Japx/Core'
+    sp.dependency 'Japx/Codable'
+    sp.dependency 'Japx/Moya'
+  end
+  
+  s.subspec 'RxCodableMoya' do |sp|
+      sp.source_files = 'Japx/Classes/RxCodableMoya/**/*'
+      sp.dependency 'Japx/Core'
+      sp.dependency 'Japx/CodableMoya'
+      sp.dependency 'Japx/RxMoya'
+  end
 
 end
