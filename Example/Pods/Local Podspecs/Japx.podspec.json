@@ -1,6 +1,6 @@
 {
   "name": "Japx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "summary": "Lightweight JSON:API parser.",
   "description": "Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON. It can also take simple JSON and turn it into JSON:API structure.\nIt works by transfering Dictionary to Dictionary, so you can use Codable, Unbox, Wrap, ObjectMapper, or any other object mapping tool that you preffer.",
   "homepage": "https://github.com/infinum/Japx",
@@ -15,13 +15,13 @@
   },
   "source": {
     "git": "https://github.com/infinum/Japx.git",
-    "tag": "1.0.2"
+    "tag": "1.0.3"
   },
   "requires_arc": true,
   "platforms": {
     "ios": "9.0"
   },
-  "swift_version": "4.0",
+  "swift_version": "4.2",
   "default_subspecs": "Core",
   "subspecs": [
     {
@@ -94,7 +94,7 @@
 
         ],
         "Moya/RxSwift": [
-          "~> 11.0"
+          "~> 12.0"
         ]
       }
     },

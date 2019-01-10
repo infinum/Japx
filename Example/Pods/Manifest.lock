@@ -1,36 +1,38 @@
 PODS:
-  - Alamofire (4.7.3)
-  - Japx/Codable (1.0.2):
+  - Alamofire (4.8.0)
+  - Japx/Codable (1.0.3):
     - Japx/Core
-  - Japx/CodableMoya (1.0.2):
+  - Japx/CodableMoya (1.0.3):
     - Japx/Codable
     - Japx/Core
     - Japx/Moya
-  - Japx/Core (1.0.2)
-  - Japx/Moya (1.0.2):
+  - Japx/Core (1.0.3)
+  - Japx/Moya (1.0.3):
     - Japx/Core
-    - Moya/RxSwift (~> 11.0)
-  - Japx/RxCodableMoya (1.0.2):
+    - Moya/RxSwift (~> 12.0)
+  - Japx/RxCodableMoya (1.0.3):
     - Japx/CodableMoya
     - Japx/Core
     - Japx/RxMoya
-  - Japx/RxMoya (1.0.2):
+  - Japx/RxMoya (1.0.3):
     - Japx/Moya
-  - Moya/Core (11.0.2):
+  - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 3.0)
-  - Moya/RxSwift (11.0.2):
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - Nimble (7.0.3)
-  - Quick (1.2.0)
-  - Result (3.2.4)
-  - RxSwift (4.2.0)
+  - Nimble (7.3.1)
+  - Quick (1.3.2)
+  - Result (4.1.0)
+  - RxAtomic (4.4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
   - Japx/RxCodableMoya (from `../`)
-  - Nimble (~> 7.0.2)
-  - Quick (~> 1.2.0)
+  - Nimble
+  - Quick
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -39,6 +41,7 @@ SPEC REPOS:
     - Nimble
     - Quick
     - Result
+    - RxAtomic
     - RxSwift
 
 EXTERNAL SOURCES:
@@ -46,14 +49,15 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Japx: 08b7b2d2bc7a378c9e28e9f56c6e4bc48a0e54da
-  Moya: a725035953bc1c0eb1be505ab903984501d82440
-  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Japx: e699c630052f07c2df6cc75f5f98a58c860e32fa
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: e4775c503c3da317938d070d15dc4acc1a5c8e6f
+PODFILE CHECKSUM: 0f489b9dcf880ba0fa2ce6461c9179e581a1b6fe
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.6.0.beta.2

@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Japx'
-  s.version          = '1.0.3'
+  s.version          = '2.0.0'
   s.summary          = 'Lightweight JSON:API parser.'
 
 # This description is used to generate tags and improve search results.
@@ -22,7 +22,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
 
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
-  s.swift_version = '4.1'
+  s.swift_version = '4.2'
 
   s.default_subspec = 'Core'
 
@@ -63,7 +63,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.subspec 'Moya' do |sp|
     sp.source_files = 'Japx/Classes/Moya/**/*'
     sp.dependency 'Japx/Core'
-    sp.dependency 'Moya/RxSwift', '~> 11.0'
+    sp.dependency 'Moya/RxSwift', '~> 12.0'
   end
   
   s.subspec 'RxMoya' do |sp|
