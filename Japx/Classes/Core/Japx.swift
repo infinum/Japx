@@ -285,7 +285,7 @@ private extension Japx.Decoder {
                 .map {  try resolve(object: $0,
                                     allObjects: allObjects,
                                     paramsDict: try paramsDict.dictionary(for: relationshipsKey)) }
-            if otherObjects.isEmpty { return }
+
             let isObject = relationship[Consts.APIKeys.data].map { $0 is Parameters } ?? false
             result[relationshipsKey] = (isObject && otherObjects.count == 1) ? otherObjects[0] : otherObjects
         })
