@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A6C2FEF21FB3BB900D16186 /* EmptyRelationship-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A6C2FEE21FB3BB900D16186 /* EmptyRelationship-JsonApi.json */; };
+		0A6C2FF121FB3BD000D16186 /* EmptyRelationship-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A6C2FF021FB3BD000D16186 /* EmptyRelationship-Json.json */; };
+		0A6C2FF621FB3F4900D16186 /* EmptyRelationshipDeep-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A6C2FF321FB3F4100D16186 /* EmptyRelationshipDeep-Json.json */; };
 		2C5FA422202CA35D00399CC7 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FA416202CA35D00399CC7 /* ResultViewController.swift */; };
 		2C5FA423202CA35D00399CC7 /* DecoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FA417202CA35D00399CC7 /* DecoderViewController.swift */; };
 		2C5FA424202CA35D00399CC7 /* EncoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FA418202CA35D00399CC7 /* EncoderViewController.swift */; };
@@ -48,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A6C2FEE21FB3BB900D16186 /* EmptyRelationship-JsonApi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "EmptyRelationship-JsonApi.json"; sourceTree = "<group>"; };
+		0A6C2FF021FB3BD000D16186 /* EmptyRelationship-Json.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "EmptyRelationship-Json.json"; sourceTree = "<group>"; };
+		0A6C2FF321FB3F4100D16186 /* EmptyRelationshipDeep-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "EmptyRelationshipDeep-Json.json"; sourceTree = "<group>"; };
 		19331546F7078C51296A6FE1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2C5FA416202CA35D00399CC7 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		2C5FA417202CA35D00399CC7 /* DecoderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A6C2FED21FB3B7E00D16186 /* EmptyRelationship */ = {
+			isa = PBXGroup;
+			children = (
+				0A6C2FF321FB3F4100D16186 /* EmptyRelationshipDeep-Json.json */,
+				0A6C2FEE21FB3BB900D16186 /* EmptyRelationship-JsonApi.json */,
+				0A6C2FF021FB3BD000D16186 /* EmptyRelationship-Json.json */,
+			);
+			path = EmptyRelationship;
+			sourceTree = "<group>";
+		};
 		2C5FA415202CA35D00399CC7 /* Japx */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +251,7 @@
 		E18794EF2018ABA000E472C4 /* Decoding */ = {
 			isa = PBXGroup;
 			children = (
+				0A6C2FED21FB3B7E00D16186 /* EmptyRelationship */,
 				E18795002018CA7100E472C4 /* ArticleExample */,
 				E18794F02018ABA000E472C4 /* ArticlePerson */,
 				E18794FD2018CA7100E472C4 /* MissingRelationship */,
@@ -404,6 +421,7 @@
 				2C5FA42C202CA39500399CC7 /* Main.storyboard in Resources */,
 				E18795132018D76300E472C4 /* SimpleEncoding-Json.json in Resources */,
 				E18795102018D76300E472C4 /* RecursivRelationships-Json.json in Resources */,
+				0A6C2FF121FB3BD000D16186 /* EmptyRelationship-Json.json in Resources */,
 				E18795152018D76300E472C4 /* ExtraParams-JsonApi.json in Resources */,
 				E18795112018D76300E472C4 /* RecursivRelationships-JsonApi.json in Resources */,
 				E18795142018D76300E472C4 /* ExtraParams-Json.json in Resources */,
@@ -411,7 +429,9 @@
 				E18795032018CA7100E472C4 /* MissingRelationship-Json.json in Resources */,
 				E18795052018CA7100E472C4 /* ArticleExample-JsonApi.json in Resources */,
 				E18794F42018ABA000E472C4 /* ArticlePerson-JsonApi.json in Resources */,
+				0A6C2FF621FB3F4900D16186 /* EmptyRelationshipDeep-Json.json in Resources */,
 				2C5FA42D202CA39700399CC7 /* LaunchScreen.xib in Resources */,
+				0A6C2FEF21FB3BB900D16186 /* EmptyRelationship-JsonApi.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
