@@ -68,6 +68,14 @@ class DecoderTesterSpec: QuickSpec {
                 expect(correctlyParsed) == true
             }
             
+            it("Should succesfully parse recursive sample with missing relationship include object") {
+                let includeList = "author.article.author,author.categories"
+                let correctlyParsed = does(jsonFromFileNamed: "RelationshipNoInclude-JsonApi", containsEverethingFrom: "RelationshipNoInclude-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList)
+                }
+                expect(correctlyParsed) == true
+            }
+            
         }
         
     }
