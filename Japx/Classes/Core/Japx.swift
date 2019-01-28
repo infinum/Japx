@@ -282,9 +282,10 @@ private extension Japx.Decoder {
             let otherObjects = try otherObjectsData
                 .map { try $0.extractTypeIdPair() }
                 .compactMap { allObjects[$0] }
-                .map {  try resolve(object: $0,
-                                    allObjects: allObjects,
-                                    paramsDict: try paramsDict.dictionary(for: relationshipsKey)) }
+                .map { try resolve(object: $0,
+                                   allObjects: allObjects,
+                                   paramsDict: try paramsDict.dictionary(for: relationshipsKey))
+                }
 
             let isObject = relationship[Consts.APIKeys.data].map { $0 is Parameters } ?? false
             if isObject {
