@@ -85,4 +85,9 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
       sp.dependency 'Japx/RxMoya'
   end
 
+  s.subspec 'Objc' do |sp|
+      sp.source_files = 'Japx/Classes/Objc/**/*'
+      sp.dependency 'Japx/Core'
+  end
+
 end
