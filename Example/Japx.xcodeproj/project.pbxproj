@@ -497,7 +497,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Japx_Example/Pods-Japx_Example-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Japx_Example/Pods-Japx_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Japx/Japx.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -516,7 +516,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Japx_Example/Pods-Japx_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Japx_Example/Pods-Japx_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C1B5BB1EF527CE5CA3158537 /* [CP] Embed Pods Frameworks */ = {
@@ -525,7 +525,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -536,7 +536,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
