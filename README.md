@@ -1,6 +1,6 @@
 # Japx - JSON:API Decoder/Encoder
 
-[![CircleCI](https://circleci.com/gh/infinum/Japx.svg?style=svg&circle-token=9b7d2569484a7f65e32b844af0ad1cf3a6ede4e2)](https://circleci.com/gh/infinum/Japx)
+[![Build Status](https://app.bitrise.io/app/76e0e1ec75e38509/status.svg?token=8DTyJT_7TdJQIKIJuURq2w&branch=master)](https://app.bitrise.io/app/76e0e1ec75e38509)
 [![Version](https://img.shields.io/cocoapods/v/Japx.svg?style=flat)](http://cocoapods.org/pods/Japx)
 [![License](https://img.shields.io/cocoapods/l/Japx.svg?style=flat)](http://cocoapods.org/pods/Japx)
 [![Platform](https://img.shields.io/cocoapods/p/Japx.svg?style=flat)](http://cocoapods.org/pods/Japx)
