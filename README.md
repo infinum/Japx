@@ -60,7 +60,7 @@ and parser will convert it to object where all properties inside `attributes` ob
 ```json
 {
     "data": {
-        "email": "john@infinum.co",
+        "email": "john@infinum.hr",
         "id": "1",
         "username": "john",
         "type": "users"
