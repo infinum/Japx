@@ -17,6 +17,8 @@
 		2C5FA42C202CA39500399CC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C5FA41B202CA35D00399CC7 /* Main.storyboard */; };
 		2C5FA42D202CA39700399CC7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5FA419202CA35D00399CC7 /* LaunchScreen.xib */; };
 		4A82CC5FA2C793776CE5D637 /* Pods_Japx_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544F967701250F279B5314AE /* Pods_Japx_Example.framework */; };
+		4F9A385D220099BC0063BEB3 /* DecoderTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A385C220099BC0063BEB3 /* DecoderTester.m */; };
+		4F9A385F220099C80063BEB3 /* EncoderTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A385E220099C80063BEB3 /* EncoderTester.m */; };
 		B5F3D0748234B83C4EE38F74 /* Pods_Japx_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E817D346E8E2BDDF0DC5F3F3 /* Pods_Japx_Tests.framework */; };
 		E18794E520189E8B00E472C4 /* DecoderTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18794E120189D8000E472C4 /* DecoderTester.swift */; };
 		E18794E620189E8B00E472C4 /* EncoderTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18794E320189D8E00E472C4 /* EncoderTester.swift */; };
@@ -63,6 +65,8 @@
 		3F412D2933D7C24976F407E5 /* Pods-Japx_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Japx_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Japx_Example/Pods-Japx_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4466ED105828243F2F36B17D /* Pods-Japx_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Japx_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		484238D1DA26A9BA2E5115A8 /* Pods-Japx_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Japx_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4F9A385C220099BC0063BEB3 /* DecoderTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecoderTester.m; sourceTree = "<group>"; };
+		4F9A385E220099C80063BEB3 /* EncoderTester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncoderTester.m; sourceTree = "<group>"; };
 		506A9BD1FF981EFDA31530C6 /* Pods-Japx_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Japx_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Japx_Example/Pods-Japx_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		510A39153BE0BF03E5F7F5DA /* Pods-Japx_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Japx_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5449EDE34B60041F4CC6152F /* Pods-Japx_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Japx_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +138,32 @@
 			path = Japx;
 			sourceTree = "<group>";
 		};
+		4F9A3856220095B50063BEB3 /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				4F9A385C220099BC0063BEB3 /* DecoderTester.m */,
+				4F9A385E220099C80063BEB3 /* EncoderTester.m */,
+			);
+			path = Objc;
+			sourceTree = "<group>";
+		};
+		4F9A3857220095C30063BEB3 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				E18794E120189D8000E472C4 /* DecoderTester.swift */,
+				E18794E320189D8E00E472C4 /* EncoderTester.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		4F9A385B220099A00063BEB3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E18794E720189EE500E472C4 /* AdditionalFunctions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -158,9 +188,9 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E18794E720189EE500E472C4 /* AdditionalFunctions.swift */,
-				E18794E120189D8000E472C4 /* DecoderTester.swift */,
-				E18794E320189D8E00E472C4 /* EncoderTester.swift */,
+				4F9A385B220099A00063BEB3 /* Utilities */,
+				4F9A3856220095B50063BEB3 /* Objc */,
+				4F9A3857220095C30063BEB3 /* Swift */,
 				E18794ED2018ABA000E472C4 /* Resources */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -366,7 +396,7 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 5F5M64F878;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -530,8 +560,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18794E620189E8B00E472C4 /* EncoderTester.swift in Sources */,
+				4F9A385F220099C80063BEB3 /* EncoderTester.m in Sources */,
 				E18794F52018AC2200E472C4 /* AdditionalFunctions.swift in Sources */,
 				E18794E520189E8B00E472C4 /* DecoderTester.swift in Sources */,
+				4F9A385D220099BC0063BEB3 /* DecoderTester.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +736,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 510A39153BE0BF03E5F7F5DA /* Pods-Japx_Tests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5F5M64F878;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -714,6 +747,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Japx_Example.app/Japx_Example";
@@ -724,12 +759,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82CEBBAB6F2E42C2289E0421 /* Pods-Japx_Tests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5F5M64F878;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Japx_Example.app/Japx_Example";
