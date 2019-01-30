@@ -56,4 +56,37 @@
     XCTAssertTrue(correctlyParsed);
 }
 
+- (void)testRecursiveSampleWithEmptyRelationshipList
+{
+    NSString *includeList = @"author.article.author,author.categories";
+    BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"EmptyRelationship-JsonApi"
+                                                   containsEverethingFrom:@"EmptyRelationship-Json"
+                                                        afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
+                                                            return [JapxObjcDecoder jsonObjectWithData:data includeList:includeList error:nil];
+                                                        }];
+    XCTAssertTrue(correctlyParsed);
+}
+
+- (void)testRecursiveSampleWithEmptyRelationshipListDeep
+{
+    NSString *includeList = @"author.article.author.categories,author.categories";
+    BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"EmptyRelationship-JsonApi"
+                                                   containsEverethingFrom:@"EmptyRelationshipDeep-Json"
+                                                        afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
+                                                            return [JapxObjcDecoder jsonObjectWithData:data includeList:includeList error:nil];
+                                                        }];
+    XCTAssertTrue(correctlyParsed);
+}
+
+- (void)testRecursiveSampleWithMissinRelationshipIcludeObject
+{
+    NSString *includeList = @"author.article.author,author.categories";
+    BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RelationshipNoInclude-JsonApi"
+                                                   containsEverethingFrom:@"RelationshipNoInclude-Json"
+                                                        afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
+                                                            return [JapxObjcDecoder jsonObjectWithData:data includeList:includeList error:nil];
+                                                        }];
+    XCTAssertTrue(correctlyParsed);
+}
+
 @end
