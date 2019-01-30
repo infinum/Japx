@@ -37,9 +37,6 @@ class EncoderTesterSpec: QuickSpec {
                 }
                 expect(correctlyParsed) == true
             }
-            
-            
-            
         }
     }
 }
