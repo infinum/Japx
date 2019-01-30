@@ -7,24 +7,6 @@
 
 import Foundation
 
-/// `JapxErrorType` is the error type returned by Japx.
-public enum JapxErrorType: Int {
-    /// - cantProcess(data:): Returned when `data` is not [String: Any] or [[String: Any]]
-    case cantProcess
-    /// - notDictionary(data:,value:): Returned when `value` in `data` is not [String: Any], when it should be [String: Any]
-    case notDictionary
-    /// - notFoundTypeOrId(data:): Returned when `type` or `id` are not found in `data`, when they were both supposed to be present.
-    case notFoundTypeOrId
-    /// - relationshipNotFound(data:): Returned when `relationship` isn't [String: Any], it should be [String: Any]
-    case relationshipNotFound
-    /// - unableToConvertNSDictionaryToParams(data:): Returned when conversion from NSDictionary to [String: Any] is unsuccessful.
-    case unableToConvertNSDictionaryToParams
-    /// - unableToConvertDataToJson(data:): Returned when conversion from Data to [String: Any] is unsuccessful.
-    case unableToConvertDataToJson
-    /// - undefined: Returned when error is not defined as Japx error.
-    case undefined
-}
-
 @objc public class JAPXDecoder: NSObject {
 
     // MARK: - Lifecycle
