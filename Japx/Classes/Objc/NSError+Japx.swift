@@ -12,12 +12,12 @@ extension NSError {
     convenience init(error: Error) {
         guard let error = error as? JapxError else {
             self.init(domain: "co.infinum.japx-objc",
-                      code: JapxObjcErrorType.undefined.rawValue,
+                      code: JapxErrorType.undefined.rawValue,
                       userInfo: nil)
             return
         }
 
-        let errorType: JapxObjcErrorType
+        let errorType: JapxErrorType
         let errorData: Any
 
         switch error {

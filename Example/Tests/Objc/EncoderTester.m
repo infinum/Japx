@@ -20,7 +20,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"SimpleEncoding-Json"
                                                    containsEverethingFrom:@"SimpleEncoding-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JapxObjcEncoder encodeWithData:data additionalParams:nil error:nil];
+                                                            return [JAPXEncoder encodeWithData:data additionalParams:nil error:nil];
     }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -30,7 +30,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RecursivRelationships-Json"
                                                    containsEverethingFrom:@"RecursivRelationships-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JapxObjcEncoder encodeWithData:data additionalParams:nil error:nil];
+                                                            return [JAPXEncoder encodeWithData:data additionalParams:nil error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -43,7 +43,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"ExtraParams-Json"
                                                    containsEverethingFrom:@"ExtraParams-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JapxObjcEncoder encodeWithData:data additionalParams:extraParams error:nil];
+                                                            return [JAPXEncoder encodeWithData:data additionalParams:extraParams error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }

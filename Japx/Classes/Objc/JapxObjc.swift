@@ -7,8 +7,8 @@
 
 import Foundation
 
-/// `JapxObjcErrorType` is the error type returned by Japx.
-public enum JapxObjcErrorType: Int {
+/// `JapxErrorType` is the error type returned by Japx.
+public enum JapxErrorType: Int {
     /// - cantProcess(data:): Returned when `data` is not [String: Any] or [[String: Any]]
     case cantProcess
     /// - notDictionary(data:,value:): Returned when `value` in `data` is not [String: Any], when it should be [String: Any]
@@ -25,7 +25,7 @@ public enum JapxObjcErrorType: Int {
     case undefined
 }
 
-@objc public class JapxObjcDecoder: NSObject {
+@objc public class JAPXDecoder: NSObject {
 
     // MARK: - Lifecycle
 
@@ -95,7 +95,7 @@ public enum JapxObjcErrorType: Int {
 // MARK: - Encoder
 
 /// Defines a list of methods for converting simple JSON objects to JSON:API object.
-@objc public class JapxObjcEncoder: NSObject {
+@objc public class JAPXEncoder: NSObject {
 
     // MARK: - Lifecycle
 
