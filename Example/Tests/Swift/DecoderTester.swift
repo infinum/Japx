@@ -17,21 +17,21 @@ class DecoderTesterSpec: QuickSpec {
         describe("Testing simple json api decoding") {
             
             it("Parses json api exmple (http://jsonapi.org/examples/) - Article person") {
-                let correctlyParsed = does(jsonFromFileNamed: "ArticlePerson-JsonApi", containsEverethingFrom: "ArticlePerson-Json") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "ArticlePerson-JsonApi", containsEverethingFrom: "ArticlePerson-Json") {
                     return try! Japx.Decoder.jsonObject(with: $0)
                 }
                 expect(correctlyParsed) == true
             }
             
             it("Parses json api exmple (http://jsonapi.org/examples/) - Missing reloationship") {
-                let correctlyParsed = does(jsonFromFileNamed: "MissingRelationship-JsonApi", containsEverethingFrom: "MissingRelationship-Json") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationship-JsonApi", containsEverethingFrom: "MissingRelationship-Json") {
                     return try! Japx.Decoder.jsonObject(with: $0)
                 }
                 expect(correctlyParsed) == true
             }
             
             it("Parses json api intro exmple (http://jsonapi.org/) - Article example") {
-                let correctlyParsed = does(jsonFromFileNamed: "ArticleExample-JsonApi", containsEverethingFrom: "ArticleExample-Json") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "ArticleExample-JsonApi", containsEverethingFrom: "ArticleExample-Json") {
                     return try! Japx.Decoder.jsonObject(with: $0)
                 }
                 expect(correctlyParsed) == true
@@ -42,7 +42,7 @@ class DecoderTesterSpec: QuickSpec {
             
             it("Should succesfully parse recursiv sample with include list") {
                 let includeList = "author.article.author"
-                let correctlyParsed = does(jsonFromFileNamed: "RecursivSample-JsonApi", containsEverethingFrom: "RecursivSample-Json") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RecursivSample-JsonApi", containsEverethingFrom: "RecursivSample-Json") {
                     return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList)
                 }
                 expect(correctlyParsed) == true
@@ -54,7 +54,7 @@ class DecoderTesterSpec: QuickSpec {
             
             it("Should succesfully parse recursive sample with empty relationship list") {
                 let includeList = "author.article.author,author.categories"
-                let correctlyParsed = does(jsonFromFileNamed: "EmptyRelationship-JsonApi", containsEverethingFrom: "EmptyRelationship-Json") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "EmptyRelationship-JsonApi", containsEverethingFrom: "EmptyRelationship-Json") {
                     return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList)
                 }
                 expect(correctlyParsed) == true
@@ -62,7 +62,7 @@ class DecoderTesterSpec: QuickSpec {
             
             it("Should succesfully parse recursive sample with empty relationship list - deep") {
                 let includeList = "author.article.author.categories,author.categories"
-                let correctlyParsed = does(jsonFromFileNamed: "EmptyRelationship-JsonApi", containsEverethingFrom: "EmptyRelationshipDeep-Json") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "EmptyRelationship-JsonApi", containsEverethingFrom: "EmptyRelationshipDeep-Json") {
                     return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList)
                 }
                 expect(correctlyParsed) == true
@@ -70,13 +70,12 @@ class DecoderTesterSpec: QuickSpec {
             
             it("Should succesfully parse recursive sample with missing relationship include object") {
                 let includeList = "author.article.author,author.categories"
-                let correctlyParsed = does(jsonFromFileNamed: "RelationshipNoInclude-JsonApi", containsEverethingFrom: "RelationshipNoInclude-Json") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipNoInclude-JsonApi", containsEverethingFrom: "RelationshipNoInclude-Json") {
                     return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList)
                 }
                 expect(correctlyParsed) == true
             }
-            
         }
-        
+
     }
 }
