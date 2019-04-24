@@ -21,7 +21,9 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.source           = { :git => 'https://github.com/infinum/Japx.git', :tag => s.version.to_s }
 
   s.requires_arc = true
+  s.platform = :ios, :osx
   s.ios.deployment_target = '9.0'
+  s.osx.deployment_target = '10.9'
   s.swift_version = '4.2'
 
   s.default_subspec = 'Core'
