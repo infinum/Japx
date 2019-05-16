@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Japx_Tests-Swift.h"
+@import Japx;
 
 @interface EncoderTester : XCTestCase
 
