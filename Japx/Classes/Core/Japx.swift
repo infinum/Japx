@@ -195,15 +195,16 @@ private extension Japx.Decoder {
             .split(separator: ",")
             .map { $0.split(separator: ".") }
         
-        let paramsDict = NSMutableDictionary(capacity: Consts.General.dictCapacity)
+        let paramsDict = Dictionary<String, Any>(minimumCapacity: Consts.General.dictCapacity)
         for lineArray in params {
-            var dict: NSMutableDictionary = paramsDict
-            for param in lineArray {
-                if let newDict = dict[param] as? NSMutableDictionary {
+            var dict = paramsDict
+            for paramSubstring in lineArray {
+                let param = String(paramSubstring)
+                if let newDict = dict[param] as? Parameters {
                     dict = newDict
                 } else {
-                    let newDict = NSMutableDictionary(capacity: Consts.General.dictCapacity)
-                    dict.setObject(newDict, forKey: param as NSCopying)
+                    let newDict = Dictionary<String, Any>(minimumCapacity: Consts.General.dictCapacity)
+                    dict[param] = newDict
                     dict = newDict
                 }
             }
@@ -266,14 +267,14 @@ private extension Japx.Decoder {
 
 private extension Japx.Decoder {
  
-    private static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary) throws -> Parameters {
+    private static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: Parameters) throws -> Parameters {
         var attributes = (try? object.dictionary(for: Consts.APIKeys.attributes)) ?? Parameters()
         attributes[Consts.APIKeys.type] = object[Consts.APIKeys.type]
         attributes[Consts.APIKeys.id] = object[Consts.APIKeys.id]
         
         let relationshipsReferences = object.asDictionary(from: Consts.APIKeys.relationships) ?? Parameters()
         
-        let relationships = try paramsDict.allKeys.map({ $0 as! String }).reduce(into: Parameters(), { (result, relationshipsKey) in
+        let relationships = try paramsDict.keys.reduce(into: Parameters(), { (result, relationshipsKey) in
             guard let relationship = relationshipsReferences.asDictionary(from: relationshipsKey) else { return }
             guard let otherObjectsData = try relationship.array(from: Consts.APIKeys.data) else {
                 result[relationshipsKey] = NSNull()
