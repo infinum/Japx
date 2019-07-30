@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Japx'
-  s.version          = '1.0.3'
+  s.version          = '2.1.0'
   s.summary          = 'Lightweight JSON:API parser.'
 
 # This description is used to generate tags and improve search results.
@@ -21,8 +21,10 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.source           = { :git => 'https://github.com/infinum/Japx.git', :tag => s.version.to_s }
 
   s.requires_arc = true
+  s.platform = :ios, :osx
   s.ios.deployment_target = '9.0'
-  s.swift_version = '4.1'
+  s.osx.deployment_target = '10.10'
+  s.swift_version = '5.0'
 
   s.default_subspec = 'Core'
 
@@ -39,13 +41,13 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.subspec 'Alamofire' do |sp| 
     sp.source_files = 'Japx/Classes/Alamofire/**/*'
     sp.dependency 'Japx/Core'
-    sp.dependency 'Alamofire', '~> 4.5'
+    sp.dependency 'Alamofire', '~> 4.8'
   end
 
   s.subspec 'RxAlamofire' do |sp| 
     sp.source_files = 'Japx/Classes/RxAlamofire/**/*'
     sp.dependency 'Japx/Alamofire'
-    sp.dependency 'RxSwift', '~> 4.0'
+    sp.dependency 'RxSwift', '~> 5.0'
   end
 
   s.subspec 'CodableAlamofire' do |sp| 
@@ -63,7 +65,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.subspec 'Moya' do |sp|
     sp.source_files = 'Japx/Classes/Moya/**/*'
     sp.dependency 'Japx/Core'
-    sp.dependency 'Moya/RxSwift', '~> 11.0'
+    sp.dependency 'Moya/RxSwift', '~> 13.0'
   end
   
   s.subspec 'RxMoya' do |sp|
@@ -83,6 +85,11 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
       sp.dependency 'Japx/Core'
       sp.dependency 'Japx/CodableMoya'
       sp.dependency 'Japx/RxMoya'
+  end
+
+  s.subspec 'ObjC' do |sp|
+      sp.source_files = 'Japx/Classes/ObjC/**/*'
+      sp.dependency 'Japx/Core'
   end
 
 end

@@ -282,12 +282,17 @@ private extension Japx.Decoder {
             let otherObjects = try otherObjectsData
                 .map { try $0.extractTypeIdPair() }
                 .compactMap { allObjects[$0] }
-                .map {  try resolve(object: $0,
-                                    allObjects: allObjects,
-                                    paramsDict: try paramsDict.dictionary(for: relationshipsKey)) }
-            if otherObjects.isEmpty { return }
+                .map { try resolve(object: $0,
+                                   allObjects: allObjects,
+                                   paramsDict: try paramsDict.dictionary(for: relationshipsKey))
+                }
+
             let isObject = relationship[Consts.APIKeys.data].map { $0 is Parameters } ?? false
-            result[relationshipsKey] = (isObject && otherObjects.count == 1) ? otherObjects[0] : otherObjects
+            if isObject {
+                result[relationshipsKey] = (otherObjects.count == 1) ? otherObjects[0] : NSNull()
+            } else {
+                result[relationshipsKey] = otherObjects
+            }
         })
         
         return attributes.merging(relationships) { $1 }
@@ -387,11 +392,12 @@ private extension Japx.Encoder {
 // MARK: - General helper extensions -
 
 extension TypeIdPair: Hashable, Equatable {
-    
-    var hashValue: Int {
-        return (type + id).hashValue
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type)
+        hasher.combine(id)
     }
-    
+
     static func == (lhs: TypeIdPair, rhs: TypeIdPair) -> Bool {
         return lhs.type == rhs.type && lhs.id == rhs.id
     }
