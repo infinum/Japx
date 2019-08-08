@@ -312,9 +312,8 @@ private extension Japx.Decoder {
         try objects.values.forEach { (object) in
             
             try object.dictionary(for: Consts.APIKeys.relationships, defaultDict: NSDictionary()).forEach { (relationship) in
-                
                 guard let relationshipParams = relationship.value as? NSDictionary else {
-                    throw JapxError.relationshipNotFound(data: relationship)
+                    return // If it's not in include, don't error out
                 }
                 
                 // Extract type-id pair from single object / array
