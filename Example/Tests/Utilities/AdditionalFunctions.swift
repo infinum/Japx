@@ -73,6 +73,10 @@ public typealias ParsingPipelineCallback = (_ json: Data) -> (Any)
                 return number == numberOther
             }
 
+            if entry.value is NSNull && (jsonParameter[entry.key] == nil || jsonParameter[entry.key] is NSNull) {
+                return true
+            }
+
             assert(false, "You should not end up here")
         }
     }

@@ -75,6 +75,34 @@ class DecoderTesterSpec: QuickSpec {
                 }
                 expect(correctlyParsed) == true
             }
+
+            it("Should parse missing relationship object as type-id pair if parseMissingRelationships is set to true") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverethingFrom: "MissingRelationshipObject-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0, parseMissingRelationships: true)
+                }
+                expect(correctlyParsed) == true
+            }
+
+            it("Should parse missing relationship array of object as array of type-id pairs if parseMissingRelationships is set to true") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverethingFrom: "MissingRelationshipObjects-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0, parseMissingRelationships: true)
+                }
+                expect(correctlyParsed) == true
+            }
+
+            it("Should skip missing relationship object if parseMissingRelationships is set to false") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverethingFrom: "MissingRelationshipObjectNull-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0, parseMissingRelationships: false)
+                }
+                expect(correctlyParsed) == true
+            }
+
+            it("Should skip missing relationship array if parseMissingRelationships is set to false") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverethingFrom: "MissingRelationshipObjectsEmpty-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0, parseMissingRelationships: false)
+                }
+                expect(correctlyParsed) == true
+            }
         }
 
     }

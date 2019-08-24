@@ -1,0 +1,26 @@
+{
+    "links" : {
+        "self" : "url link"
+    },
+    "meta" : {
+        "total_pages" : 1,
+        "total_count" : 1
+    },
+    "data" : [
+        {
+            "status" : "approved",
+            "policy" : null,
+            "id" : "33",
+            "start_date" : "2019-01-14",
+            "type" : "time_off_request",
+            "end_date" : "2019-01-31",
+            "user" : {
+                "avatar" : "",
+                "id" : "25",
+                "email" : "user@email.com",
+                "type" : "user",
+                "name" : "user name"
+            }
+        }
+    ]
+}
