@@ -48,6 +48,17 @@ private struct TypeIdPair {
     let id: String
 }
 
+extension TypeIdPair {
+
+    var asDictionary: NSDictionary {
+        return [
+            Consts.APIKeys.type: type,
+            Consts.APIKeys.id: id
+        ]
+    }
+
+}
+
 /// A class for converting (parsing) JSON:API object to simple JSON object and vice versa.
 public struct Japx {
     
@@ -70,7 +81,7 @@ public extension Japx.Decoder {
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: JSON object.
-    static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Parameters {
+    static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil, parseMissingRelationships: Bool = false) throws -> Parameters {
         // First check if JSON API object has `include` list since
         // parsing objects with include list is done using native
         // Swift dictionary, while objects without it use `NSDictionary`
@@ -78,7 +89,7 @@ public extension Japx.Decoder {
         if let includeList = includeList {
             decoded = try decode(jsonApiInput: object, include: includeList)
         } else {
-            decoded = try decode(jsonApiInput: object as NSDictionary)
+            decoded = try decode(jsonApiInput: object as NSDictionary, parseMissingRelationships: parseMissingRelationships)
         }
         if let decodedProperties = decoded as? Parameters {
             return decodedProperties
@@ -92,8 +103,8 @@ public extension Japx.Decoder {
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: JSON object as Data.
-    static func data(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Data {
-        let decoded = try jsonObject(withJSONAPIObject: object, includeList: includeList)
+    static func data(withJSONAPIObject object: Parameters, includeList: String? = nil, parseMissingRelationships: Bool = false) throws -> Data {
+        let decoded = try jsonObject(withJSONAPIObject: object, includeList: includeList, parseMissingRelationships: parseMissingRelationships)
         return try JSONSerialization.data(withJSONObject: decoded)
     }
     
@@ -103,7 +114,7 @@ public extension Japx.Decoder {
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
     ///
     /// - returns: JSON object.
-    static func jsonObject(with data: Data, includeList: String? = nil) throws -> Parameters {
+    static func jsonObject(with data: Data, includeList: String? = nil, parseMissingRelationships: Bool = true) throws -> Parameters {
         let jsonApiObject = try JSONSerialization.jsonObject(with: data)
         
         // With include list
@@ -118,7 +129,7 @@ public extension Japx.Decoder {
         guard let json = jsonApiObject as? NSDictionary else {
             throw JapxError.unableToConvertDataToJson(data: data)
         }
-        let decoded = try decode(jsonApiInput: json as NSDictionary)
+        let decoded = try decode(jsonApiInput: json as NSDictionary, parseMissingRelationships: parseMissingRelationships)
         
         if let decodedProperties = decoded as? Parameters {
             return decodedProperties
@@ -227,7 +238,7 @@ private extension Japx.Decoder {
         return jsonApi
     }
     
-    static func decode(jsonApiInput: NSDictionary) throws -> NSDictionary {
+    static func decode(jsonApiInput: NSDictionary, parseMissingRelationships: Bool) throws -> NSDictionary {
         let jsonApi = jsonApiInput.mutable
         
         let dataObjectsArray = try jsonApi.array(from: Consts.APIKeys.data) ?? []
@@ -249,7 +260,7 @@ private extension Japx.Decoder {
         }
         
         try resolveAttributes(from: objects)
-        try resolveRelationships(from: objects)
+        try resolveRelationships(from: objects, parseMissingRelationships: parseMissingRelationships)
         
         let isObject = jsonApiInput.object(forKey: Consts.APIKeys.data) is NSDictionary
         if isObject && dataObjects.count == 1 {
@@ -266,7 +277,7 @@ private extension Japx.Decoder {
 
 private extension Japx.Decoder {
  
-    private static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary) throws -> Parameters {
+    static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary) throws -> Parameters {
         var attributes = (try? object.dictionary(for: Consts.APIKeys.attributes)) ?? Parameters()
         attributes[Consts.APIKeys.type] = object[Consts.APIKeys.type]
         attributes[Consts.APIKeys.id] = object[Consts.APIKeys.id]
@@ -306,7 +317,7 @@ private extension Japx.Decoder {
         }
     }
     
-    static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary]) throws {
+    static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary], parseMissingRelationships: Bool) throws {
         try objects.values.forEach { (object) in
             
             try object.dictionary(for: Consts.APIKeys.relationships, defaultDict: NSDictionary()).forEach { (relationship) in
@@ -320,11 +331,12 @@ private extension Japx.Decoder {
                     object.setObject(NSNull(), forKey: relationship.key as! NSCopying)
                     return
                 }
-                
+
+                let extractRelationship = resloveRelationship(from: objects, parseMissingRelationship: parseMissingRelationships)
                 // Fetch those object from `objects`
                 let othersObjects = try others
                     .map { try $0.extractTypeIdPair() }
-                    .compactMap { objects[$0] }
+                    .compactMap { extractRelationship($0) }
                 
                 // Store relationships
                 let isObject = relationshipParams
@@ -340,6 +352,21 @@ private extension Japx.Decoder {
             object.removeObject(forKey: Consts.APIKeys.relationships)
         }
     }
+
+    static func resloveRelationship(
+        from objects: [TypeIdPair: NSMutableDictionary],
+        parseMissingRelationship: Bool
+    ) -> ((TypeIdPair) -> NSMutableDictionary?) {
+        // In case that relationship object is not in objects list, then check should
+        // we fallback to relationship key itself
+        return {
+            guard let resolvedObject = objects[$0] else {
+                return parseMissingRelationship ? $0.asDictionary.mutable : nil
+            }
+            return resolvedObject
+        }
+    }
+
 }
 
 // MARK: - Encoding
