@@ -48,6 +48,9 @@
 		E18795132018D76300E472C4 /* SimpleEncoding-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E187950C2018D76300E472C4 /* SimpleEncoding-Json.json */; };
 		E18795142018D76300E472C4 /* ExtraParams-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E187950E2018D76300E472C4 /* ExtraParams-Json.json */; };
 		E18795152018D76300E472C4 /* ExtraParams-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E187950F2018D76300E472C4 /* ExtraParams-JsonApi.json */; };
+		E1F83D0D237D9A8C009F91CA /* Meta-NotAdded-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F83D0A237D9A8B009F91CA /* Meta-NotAdded-JsonApi.json */; };
+		E1F83D0E237D9A8C009F91CA /* Meta-Added-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F83D0B237D9A8C009F91CA /* Meta-Added-JsonApi.json */; };
+		E1F83D0F237D9A8C009F91CA /* Meta-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = E1F83D0C237D9A8C009F91CA /* Meta-Json.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,9 @@
 		E187950C2018D76300E472C4 /* SimpleEncoding-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SimpleEncoding-Json.json"; sourceTree = "<group>"; };
 		E187950E2018D76300E472C4 /* ExtraParams-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ExtraParams-Json.json"; sourceTree = "<group>"; };
 		E187950F2018D76300E472C4 /* ExtraParams-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ExtraParams-JsonApi.json"; sourceTree = "<group>"; };
+		E1F83D0A237D9A8B009F91CA /* Meta-NotAdded-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Meta-NotAdded-JsonApi.json"; sourceTree = "<group>"; };
+		E1F83D0B237D9A8C009F91CA /* Meta-Added-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Meta-Added-JsonApi.json"; sourceTree = "<group>"; };
+		E1F83D0C237D9A8C009F91CA /* Meta-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Meta-Json.json"; sourceTree = "<group>"; };
 		E817D346E8E2BDDF0DC5F3F3 /* Pods_Japx_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Japx_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -325,6 +331,7 @@
 		E18794EE2018ABA000E472C4 /* Encoding */ = {
 			isa = PBXGroup;
 			children = (
+				E1F83D09237D99A9009F91CA /* MetaParams */,
 				E187950D2018D76300E472C4 /* ExtraParams */,
 				E18795072018D76300E472C4 /* RecursivRelationships */,
 				E187950A2018D76300E472C4 /* SimpleEncoding */,
@@ -407,6 +414,16 @@
 				E187950F2018D76300E472C4 /* ExtraParams-JsonApi.json */,
 			);
 			path = ExtraParams;
+			sourceTree = "<group>";
+		};
+		E1F83D09237D99A9009F91CA /* MetaParams */ = {
+			isa = PBXGroup;
+			children = (
+				E1F83D0C237D9A8C009F91CA /* Meta-Json.json */,
+				E1F83D0B237D9A8C009F91CA /* Meta-Added-JsonApi.json */,
+				E1F83D0A237D9A8B009F91CA /* Meta-NotAdded-JsonApi.json */,
+			);
+			path = MetaParams;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +519,7 @@
 				E18794FB2018AEC900E472C4 /* RecursivSample-Json.json in Resources */,
 				2C5FA429202CA35D00399CC7 /* Images.xcassets in Resources */,
 				0A4CEF7721FF560400D3F0B8 /* RelationshipNoInclude-JsonApi.json in Resources */,
+				E1F83D0D237D9A8C009F91CA /* Meta-NotAdded-JsonApi.json in Resources */,
 				E18794FC2018AEC900E472C4 /* RecursivSample-JsonApi.json in Resources */,
 				0A57D7FD231119AC0009FBEB /* MissingRelationshipObjectNull-Json.json in Resources */,
 				E18795042018CA7100E472C4 /* MissingRelationship-JsonApi.json in Resources */,
@@ -510,6 +528,8 @@
 				E18794F32018ABA000E472C4 /* ArticlePerson-Json.json in Resources */,
 				2C5FA42C202CA39500399CC7 /* Main.storyboard in Resources */,
 				E18795132018D76300E472C4 /* SimpleEncoding-Json.json in Resources */,
+				E1F83D0E237D9A8C009F91CA /* Meta-Added-JsonApi.json in Resources */,
+				E1F83D0F237D9A8C009F91CA /* Meta-Json.json in Resources */,
 				E18795102018D76300E472C4 /* RecursivRelationships-Json.json in Resources */,
 				0A6C2FF121FB3BD000D16186 /* EmptyRelationship-Json.json in Resources */,
 				0A57D7FF231119C10009FBEB /* MissingRelationshipObjectsEmpty-Json.json in Resources */,

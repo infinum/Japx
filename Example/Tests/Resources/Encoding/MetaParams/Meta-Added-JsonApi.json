@@ -1,0 +1,43 @@
+{
+    "data": {
+        "id": "33",
+        "type": "time_off_request",
+        "attributes": {
+            "status": "approved",
+            "start_date": "2019-01-14",
+            "end_date": "2019-01-31"
+        },
+        "relationships": {
+            "user": {
+                "data": {
+                    "id": "25",
+                    "type": "user",
+                    "meta": {
+                        "meta_user": "meta1",
+                        "meta_user2": "meta2"
+                    }
+                }
+            },
+            "policy": {
+                "data": [
+                    {
+                        "id": "24",
+                        "type": "time_off_policy",
+                        "meta": "TOP24"
+                        
+                    },
+                    {
+                        "id": "25",
+                        "type": "time_off_policy",
+                        "meta": "TOP25"
+                        
+                    }
+                ]
+            }
+        },
+        "meta": [
+            { "page": 24 },
+            { "offset": 24 }
+        ]
+    }
+}
