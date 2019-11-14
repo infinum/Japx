@@ -21,7 +21,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"ArticlePerson-JsonApi"
                                                    containsEverethingFrom:@"ArticlePerson-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXDecoder jsonObjectWithData:data includeList:nil error:nil];
+                                                            return [JAPXDecoder jsonObjectWithData:data includeList:nil options:[JAPXDecodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -31,7 +31,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"MissingRelationship-JsonApi"
                                                    containsEverethingFrom:@"MissingRelationship-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXDecoder jsonObjectWithData:data includeList:nil error:nil];
+                                                            return [JAPXDecoder jsonObjectWithData:data includeList:nil options:[JAPXDecodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -41,7 +41,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"ArticleExample-JsonApi"
                                                    containsEverethingFrom:@"ArticleExample-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXDecoder jsonObjectWithData:data includeList:nil error:nil];
+                                                            return [JAPXDecoder jsonObjectWithData:data includeList:nil options:[JAPXDecodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -52,7 +52,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RecursivSample-JsonApi"
                                                    containsEverethingFrom:@"RecursivSample-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXDecoder jsonObjectWithData:data includeList:includeList error:nil];
+                                                            return [JAPXDecoder jsonObjectWithData:data includeList:includeList options:[JAPXDecodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -63,7 +63,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"EmptyRelationship-JsonApi"
                                                    containsEverethingFrom:@"EmptyRelationship-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXDecoder jsonObjectWithData:data includeList:includeList error:nil];
+                                                            return [JAPXDecoder jsonObjectWithData:data includeList:includeList options:[JAPXDecodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -74,7 +74,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"EmptyRelationship-JsonApi"
                                                    containsEverethingFrom:@"EmptyRelationshipDeep-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXDecoder jsonObjectWithData:data includeList:includeList error:nil];
+                                                            return [JAPXDecoder jsonObjectWithData:data includeList:includeList options:[JAPXDecodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -85,7 +85,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RelationshipNoInclude-JsonApi"
                                                    containsEverethingFrom:@"RelationshipNoInclude-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXDecoder jsonObjectWithData:data includeList:includeList error:nil];
+                                                            return [JAPXDecoder jsonObjectWithData:data includeList:includeList options:[JAPXDecodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }

@@ -7,7 +7,27 @@
 
 import Foundation
 
-@objc public class JAPXDecoder: NSObject {
+/// Objc bride for `JapxDecodingOptions`
+@objc
+public class JAPXDecodingOptions: NSObject {
+    
+    // MARK: - Private options reference
+    
+    fileprivate var options: JapxDecodingOptions = .default
+    
+    // MARK: - Propery forwarding
+    
+    /// Objc bridge for [`JAPXDecodingOptions.parseNotIncludedRelationships`](x-source-tag://parseNotIncludedRelationships)
+    @objc
+    public var parseNotIncludedRelationships: Bool {
+        get { options.parseNotIncludedRelationships }
+        set { options.parseNotIncludedRelationships = newValue }
+    }
+}
+
+@objc
+@available(swift, obsoleted: 1.0)
+public class JAPXDecoder: NSObject {
 
     // MARK: - Lifecycle
 
@@ -21,11 +41,13 @@ import Foundation
     ///
     /// - parameter object:            JSON:API object.
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
+    /// - parameter options:           The options specifying how `JAPXDecoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object.
-    @objc public static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Parameters {
+    @objc
+    public static func jsonObject(withJSONAPIObject object: Parameters, includeList: String?, options: JAPXDecodingOptions) throws -> Parameters {
         do {
-            return try Japx.Decoder.jsonObject(withJSONAPIObject: object, includeList: includeList)
+            return try Japx.Decoder.jsonObject(withJSONAPIObject: object, includeList: includeList, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -35,11 +57,13 @@ import Foundation
     ///
     /// - parameter object:            JSON:API object.
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
+    /// - parameter options:           The options specifying how `JAPXDecoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object as Data.
-    @objc public static func data(withJSONAPIObject object: Parameters, includeList: String? = nil) throws -> Data {
+    @objc
+    public static func data(withJSONAPIObject object: Parameters, includeList: String?, options: JAPXDecodingOptions) throws -> Data {
         do {
-            return try Japx.Decoder.data(withJSONAPIObject: object, includeList: includeList)
+            return try Japx.Decoder.data(withJSONAPIObject: object, includeList: includeList, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -49,11 +73,13 @@ import Foundation
     ///
     /// - parameter data:              JSON:API object as Data.
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
+    /// - parameter options:           The options specifying how `JAPXDecoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object.
-    @objc public static func jsonObject(withData data: Data, includeList: String? = nil) throws -> Parameters {
+    @objc
+    public static func jsonObject(withData data: Data, includeList: String?, options: JAPXDecodingOptions) throws -> Parameters {
         do {
-            return try Japx.Decoder.jsonObject(with: data, includeList: includeList)
+            return try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -63,11 +89,13 @@ import Foundation
     ///
     /// - parameter data:              JSON:API object as Data.
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
+    /// - parameter options:           The options specifying how `JAPXDecoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object as Data.
-    @objc public static func data(withData data: Data, includeList: String? = nil) throws -> Data {
+    @objc
+    public static func data(withData data: Data, includeList: String?, options: JAPXDecodingOptions) throws -> Data {
         do {
-            return try Japx.Decoder.data(with: data, includeList: includeList)
+            return try Japx.Decoder.data(with: data, includeList: includeList, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -77,7 +105,9 @@ import Foundation
 // MARK: - Encoder
 
 /// Defines a list of methods for converting simple JSON objects to JSON:API object.
-@objc public class JAPXEncoder: NSObject {
+@objc
+@available(swift, obsoleted: 1.0)
+public class JAPXEncoder: NSObject {
 
     // MARK: - Lifecycle
 
@@ -93,7 +123,8 @@ import Foundation
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
-    @objc public static func encode(data: Data, additionalParams: Parameters? = nil) throws -> Parameters {
+    @objc
+    public static func encode(data: Data, additionalParams: Parameters?) throws -> Parameters {
         do {
             return try Japx.Encoder.encode(data: data, additionalParams: additionalParams)
         } catch {
@@ -107,7 +138,8 @@ import Foundation
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
-    @objc public static func encode(jsonParameter: Parameters, additionalParams: Parameters? = nil) throws -> Parameters {
+    @objc
+    public static func encode(jsonParameter: Parameters, additionalParams: Parameters?) throws -> Parameters {
         do {
             return try Japx.Encoder.encode(json: jsonParameter, additionalParams: additionalParams)
         } catch {
@@ -121,7 +153,8 @@ import Foundation
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
-    @objc public static func encode(jsonParameters: [Parameters], additionalParams: Parameters? = nil) throws -> Parameters {
+    @objc
+    public static func encode(jsonParameters: [Parameters], additionalParams: Parameters?) throws -> Parameters {
         do {
             return try Japx.Encoder.encode(json: jsonParameters, additionalParams: additionalParams)
         } catch {

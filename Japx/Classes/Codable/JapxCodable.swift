@@ -48,9 +48,13 @@ public final class JapxDecoder {
     /// Underlying JSONDecoder, can be used to add date formats, ...
     public let jsonDecoder: JSONDecoder
     
+    /// Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    public let options: JapxDecodingOptions
+    
     /// Initializes `self` with underlying `JSONDecoder` instance
-    public init(jsonDecoder: JSONDecoder = JSONDecoder()) {
+    public init(jsonDecoder: JSONDecoder = JSONDecoder(), options: JapxDecodingOptions = .default) {
         self.jsonDecoder = jsonDecoder
+        self.options = options
     }
     
     /// Decodes a top-level value of the given type from the given JSON:API representation.
@@ -60,7 +64,7 @@ public final class JapxDecoder {
     /// - returns: A value of the requested type.
     /// - throws: An error if any value throws an error during decoding.
     public func decode<T>(_ type: T.Type, from json: Parameters, includeList: String? = nil) throws -> T where T : Decodable {
-        let data = try Japx.Decoder.data(withJSONAPIObject: json, includeList: includeList)
+        let data = try Japx.Decoder.data(withJSONAPIObject: json, includeList: includeList, options: options)
         return try jsonDecoder.decode(type, from: data)
     }
     
@@ -71,7 +75,7 @@ public final class JapxDecoder {
     /// - returns: A value of the requested type.
     /// - throws: An error if any value throws an error during decoding.
     public func decode<T>(_ type: T.Type, from data: Data, includeList: String? = nil) throws -> T where T : Decodable {
-        let data = try Japx.Decoder.data(with: data, includeList: includeList)
+        let data = try Japx.Decoder.data(with: data, includeList: includeList, options: options)
         return try jsonDecoder.decode(type, from: data)
     }
 }

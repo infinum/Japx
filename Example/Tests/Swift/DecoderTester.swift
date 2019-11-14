@@ -75,35 +75,46 @@ class DecoderTesterSpec: QuickSpec {
                 }
                 expect(correctlyParsed) == true
             }
-
-            it("Should parse missing relationship object as type-id pair if parseMissingRelationships is set to true") {
+        }
+        
+        describe("Testing json api `parseNotIncludedRelationships` property") {
+         
+            it("Should parse missing relationship object as type-id pair") {
                 let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverethingFrom: "MissingRelationshipObject-Json") {
-                    return try! Japx.Decoder.jsonObject(with: $0, parseMissingRelationships: true)
+                    return try! Japx.Decoder.jsonObject(with: $0, options: .notIncludedRelationships)
                 }
                 expect(correctlyParsed) == true
             }
 
-            it("Should parse missing relationship array of object as array of type-id pairs if parseMissingRelationships is set to true") {
+            it("Should parse missing relationship with include list as array of type-id pairs") {
+                let includeList = "user"
                 let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverethingFrom: "MissingRelationshipObjects-Json") {
-                    return try! Japx.Decoder.jsonObject(with: $0, parseMissingRelationships: true)
+                    return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList, options: .notIncludedRelationships)
                 }
                 expect(correctlyParsed) == true
             }
 
-            it("Should skip missing relationship object if parseMissingRelationships is set to false") {
+            it("Should parse missing relationship object as nil") {
                 let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverethingFrom: "MissingRelationshipObjectNull-Json") {
-                    return try! Japx.Decoder.jsonObject(with: $0, parseMissingRelationships: false)
+                    return try! Japx.Decoder.jsonObject(with: $0)
                 }
                 expect(correctlyParsed) == true
             }
 
-            it("Should skip missing relationship array if parseMissingRelationships is set to false") {
+            it("Should parse missing relationship with include list as empty array") {
+                let includeList = "user,policy"
                 let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverethingFrom: "MissingRelationshipObjectsEmpty-Json") {
-                    return try! Japx.Decoder.jsonObject(with: $0, parseMissingRelationships: false)
+                    return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList)
                 }
                 expect(correctlyParsed) == true
             }
         }
-
     }
+}
+
+
+extension JapxDecodingOptions {
+    
+    static var notIncludedRelationships: JapxDecodingOptions { .init(parseNotIncludedRelationships: true) }
+    
 }
