@@ -26,19 +26,24 @@ public final class JapxEncoder {
     // Underlying JSONEncoder, can be used to add date formats, ...
     public let jsonEncoder: JSONEncoder
     
+    /// Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
+    public let options: JapxEncodingOptions
+    
     /// Initializes `self` with underlying `JSONEncoder` instance
-    public init(jsonEncoder: JSONEncoder = JSONEncoder()) {
+    public init(jsonEncoder: JSONEncoder = JSONEncoder(), options: JapxEncodingOptions = .default) {
         self.jsonEncoder = jsonEncoder
+        self.options = options
     }
     
     /// Encodes the given top-level value and returns its JSON:API representation.
     ///
     /// - parameter value: The value to encode.
+    /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     /// - returns: A new `[String: Any]` value containing the encoded JSON:API data.
     /// - throws: An error if any value throws an error during encoding.
-    public func encode<T>(_ value: T) throws -> Parameters where T : Encodable {
+    public func encode<T>(_ value: T, additionalParams: Parameters? = nil) throws -> Parameters where T : Encodable {
         let data = try jsonEncoder.encode(value)
-        return try Japx.Encoder.encode(data: data)
+        return try Japx.Encoder.encode(data: data, additionalParams: additionalParams, options: options)
     }
 }
 
@@ -51,7 +56,7 @@ public final class JapxDecoder {
     /// Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     public let options: JapxDecodingOptions
     
-    /// Initializes `self` with underlying `JSONDecoder` instance
+    /// Initializes `self` with underlying `JSONDecoder` instance and `JapxDecodingOptions`
     public init(jsonDecoder: JSONDecoder = JSONDecoder(), options: JapxDecodingOptions = .default) {
         self.jsonDecoder = jsonDecoder
         self.options = options

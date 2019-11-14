@@ -41,7 +41,7 @@ public struct JapxDecodingOptions {
     
     /// Creates an instance with the specified properties.
     ///
-    /// - parameter parseNotIncludedRelationships: Read more [here]MissingRelationshipObjects-JsonApi
+    /// - parameter parseNotIncludedRelationships: Read more [here](parseNotIncludedRelationships)
     ///
     /// - returns: The new `JapxDecodingOptions` instance.
     public init(parseNotIncludedRelationships: Bool = false) {
@@ -55,6 +55,35 @@ public extension JapxDecodingOptions {
     static var `default`: JapxDecodingOptions { .init() }
 }
 
+/// `JapxEncodingOptions` is a set of options affecting the encoding of JSON into JSON:API you requested from `Japx.Encoder`.
+public struct JapxEncodingOptions {
+    
+    /// Common namespace inclued all attribute names, relationship names, `type` and `id`.
+    /// If enabled it will include keyword `meta` into common namepace, expecit the not to
+    /// have `mata` as an attribute or renationship name.
+    /// It will then encode meta on the same level as `attributes` and `relationships`
+    ///
+    /// Defaults to false.
+    ///
+    /// - Tag: includeMetaToCommonNamespce
+    public var includeMetaToCommonNamespce: Bool = false
+    
+    /// Creates an instance with the specified properties.
+    ///
+    /// - parameter includeMetaToCommonNamespce: Read more [here](includeMetaToCommonNamespce)
+    ///
+    /// - returns: The new `JapxDecodingOptions` instance.
+    public init(includeMetaToCommonNamespce: Bool = false) {
+        self.includeMetaToCommonNamespce = includeMetaToCommonNamespce
+    }
+}
+
+public extension JapxEncodingOptions {
+    
+    /// Default JSON to JSON:API decoding options for `Japx.Encoder`
+    static var `default`: JapxEncodingOptions { .init() }
+}
+
 private struct Consts {
     
     struct APIKeys {
@@ -64,6 +93,7 @@ private struct Consts {
         static let included = "included"
         static let relationships = "relationships"
         static let attributes = "attributes"
+        static let meta = "meta"
     }
     
     struct General {
@@ -178,15 +208,16 @@ public extension Japx.Encoder {
     ///
     /// - parameter data:              JSON object as Data.
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
+    /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(data: Data, additionalParams: Parameters? = nil) throws -> Parameters {
+    static func encode(data: Data, additionalParams: Parameters? = nil, options: JapxEncodingOptions = .default) throws -> Parameters {
         let json = try JSONSerialization.jsonObject(with: data)
         if let jsonObject = json as? Parameters {
-            return try encode(json: jsonObject, additionalParams: additionalParams)
+            return try encode(json: jsonObject, additionalParams: additionalParams, options: options)
         }
         if let jsonArray = json as? [Parameters] {
-            return try encode(json: jsonArray, additionalParams: additionalParams)
+            return try encode(json: jsonArray, additionalParams: additionalParams, options: options)
         }
         throw JapxError.unableToConvertDataToJson(data: json)
     }
@@ -195,11 +226,12 @@ public extension Japx.Encoder {
     ///
     /// - parameter json:              JSON object.
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
+    /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(json: Parameters, additionalParams: Parameters? = nil) throws -> Parameters {
+    static func encode(json: Parameters, additionalParams: Parameters? = nil, options: JapxEncodingOptions = .default) throws -> Parameters {
         var params = additionalParams ?? [:]
-        params[Consts.APIKeys.data] = try encodeAttributesAndRelationships(on: json)
+        params[Consts.APIKeys.data] = try encodeAttributesAndRelationships(on: json, options: options)
         return params
     }
     
@@ -207,11 +239,12 @@ public extension Japx.Encoder {
     ///
     /// - parameter json:              JSON objects represented as Array.
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
+    /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(json: [Parameters], additionalParams: Parameters? = nil) throws -> Parameters {
+    static func encode(json: [Parameters], additionalParams: Parameters? = nil, options: JapxEncodingOptions = .default) throws -> Parameters {
         var params = additionalParams ?? [:]
-        params[Consts.APIKeys.data] = try json.compactMap { try encodeAttributesAndRelationships(on: $0) as AnyObject }
+        params[Consts.APIKeys.data] = try json.compactMap { try encodeAttributesAndRelationships(on: $0, options: options) as AnyObject }
         return params
     }
 }
@@ -434,13 +467,22 @@ private extension Japx.Decoder {
 
 private extension Japx.Encoder {
     
-    static func encodeAttributesAndRelationships(on jsonObject: Parameters) throws -> Parameters {
+    static func encodeAttributesAndRelationships(on jsonObject: Parameters, options: JapxEncodingOptions) throws -> Parameters {
         var object = jsonObject
         var attributes = Parameters()
         var relationships = Parameters()
         let objectKeys = object.keys
         
+        let relationshipExtractor = extractRelationshipData(
+            includeMetaToCommonNamespce: options.includeMetaToCommonNamespce
+        )
+        
         for key in objectKeys where key != Consts.APIKeys.type && key != Consts.APIKeys.id {
+            
+            if options.includeMetaToCommonNamespce && key == Consts.APIKeys.meta {
+                continue
+            }
+            
             if let array = object.asArray(from: key) {
                 let isArrayOfRelationships = array.first?.containsTypeAndId() ?? false
                 if !isArrayOfRelationships {
@@ -449,7 +491,7 @@ private extension Japx.Encoder {
                     object.removeValue(forKey: key)
                     continue
                 }
-                let dataArray = try array.map { try $0.asDataWithTypeAndId() }
+                let dataArray = try array.map(relationshipExtractor)
                 // Handle relationships array
                 relationships[key] = [Consts.APIKeys.data: dataArray]
                 object.removeValue(forKey: key)
@@ -462,7 +504,7 @@ private extension Japx.Encoder {
                     object.removeValue(forKey: key)
                     continue
                 }
-                let dataObj = try obj.asDataWithTypeAndId()
+                let dataObj = try relationshipExtractor(obj)
                 // Handle relationship object
                 relationships[key] = [Consts.APIKeys.data: dataObj]
                 object.removeValue(forKey: key)
@@ -474,6 +516,19 @@ private extension Japx.Encoder {
         object[Consts.APIKeys.attributes] = attributes
         object[Consts.APIKeys.relationships] = relationships
         return object
+    }
+    
+    static func extractRelationshipData(includeMetaToCommonNamespce: Bool) -> (Parameters) throws -> (Any) {
+        if !includeMetaToCommonNamespce {
+            return { try $0.asDataWithTypeAndId() }
+        }
+        return { object in
+            var params = try object.asDataWithTypeAndId()
+            if let meta = object[Consts.APIKeys.meta] {
+                params[Consts.APIKeys.meta] = meta
+            }
+            return params
+        }
     }
 }
 
