@@ -352,8 +352,7 @@ private extension Japx.Decoder {
             parseNotIncludedRelationships: options.parseNotIncludedRelationships
         )
         
-        //Force cast here is ok since it is taken from include list string
-        let relationships = try paramsDict.allKeys.map({ $0 as! String }).reduce(into: Parameters(), { (result, relationshipsKey) in
+        let relationships = try paramsDict.allKeys.compactMap({ $0 as? String }).reduce(into: Parameters(), { (result, relationshipsKey) in
             guard let relationship = relationshipsReferences.asDictionary(from: relationshipsKey) else { return }
             guard let otherObjectsData = try relationship.array(from: Consts.APIKeys.data) else {
                 result[relationshipsKey] = NSNull()
