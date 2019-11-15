@@ -1,0 +1,26 @@
+{
+    "id" : "33",
+    "type" : "time_off_request",
+    "status" : "approved",
+    "start_date" : "2019-01-14",
+    "end_date" : "2019-01-31",
+    "policy" : [
+        { "id": "24", "type": "time_off_policy", "meta": "TOP24" },
+        { "id": "25", "type": "time_off_policy", "meta": "TOP25" }
+    ],
+    "user" : {
+        "id" : "25",
+        "type" : "user",
+        "avatar" : "",
+        "email" : "user@email.com",
+        "name" : "user name",
+        "meta": {
+            "meta_user": "meta1",
+            "meta_user2": "meta2"
+        }
+    },
+    "meta": [
+        { "page": 24 },
+        { "offset": 24 }
+    ]
+}

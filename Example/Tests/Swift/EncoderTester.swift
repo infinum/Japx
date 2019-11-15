@@ -38,5 +38,23 @@ class EncoderTesterSpec: QuickSpec {
                 expect(correctlyParsed) == true
             }
         }
+        
+        describe("Testing inclusion of meta") {
+            
+            it("Transforms json to json:api with while including meta") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "Meta-Json", containsEverethingFrom: "Meta-Added-JsonApi") {
+                    return try! Japx.Encoder.encode(data: $0, options: .init(includeMetaToCommonNamespce: true))
+                }
+                expect(correctlyParsed) == true
+            }
+            
+            it("Transforms json to json:api while not including meta") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "Meta-Json", containsEverethingFrom: "Meta-NotAdded-JsonApi") {
+                    return try! Japx.Encoder.encode(data: $0)
+                }
+                expect(correctlyParsed) == true
+            }
+            
+        }
     }
 }

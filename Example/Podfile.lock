@@ -1,25 +1,25 @@
 PODS:
-  - Alamofire (4.8.2)
-  - Japx/Alamofire (2.1.0):
-    - Alamofire (~> 4.8)
+  - Alamofire (4.9.1)
+  - Japx/Alamofire (2.2.0):
+    - Alamofire (~> 4.9)
     - Japx/Core
-  - Japx/Codable (2.1.0):
+  - Japx/Codable (2.2.0):
     - Japx/Core
-  - Japx/CodableAlamofire (2.1.0):
+  - Japx/CodableAlamofire (2.2.0):
     - Japx/Alamofire
     - Japx/Codable
-  - Japx/Core (2.1.0)
-  - Japx/ObjC (2.1.0):
+  - Japx/Core (2.2.0)
+  - Japx/ObjC (2.2.0):
     - Japx/Core
-  - Japx/RxAlamofire (2.1.0):
+  - Japx/RxAlamofire (2.2.0):
     - Japx/Alamofire
     - RxSwift (~> 5.0)
-  - Japx/RxCodableAlamofire (2.1.0):
+  - Japx/RxCodableAlamofire (2.2.0):
     - Japx/CodableAlamofire
     - Japx/RxAlamofire
   - Nimble (8.0.1)
   - Quick (2.1.0)
-  - RxSwift (5.0.0)
+  - RxSwift (5.0.1)
 
 DEPENDENCIES:
   - Japx/ObjC (from `../`)
@@ -28,10 +28,11 @@ DEPENDENCIES:
   - Quick
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Alamofire
+  https://github.com/CocoaPods/Specs.git:
     - Nimble
     - Quick
+  trunk:
+    - Alamofire
     - RxSwift
 
 EXTERNAL SOURCES:
@@ -39,12 +40,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Japx: 7efe9c1b93b6f3cdb561e41f23fbc607a603d03b
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Japx: 339108c7da597bf4e2ce1e846c5e6c3f624e8332
   Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
-  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
 PODFILE CHECKSUM: 0854e6acc1d6ac3258147607046a63ceb040b5e5
 
-COCOAPODS: 1.7.0.rc.2
+COCOAPODS: 1.8.3

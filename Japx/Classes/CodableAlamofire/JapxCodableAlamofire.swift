@@ -33,7 +33,7 @@ extension Request {
                 return .success(decodable)
             }
             
-            let json = try Japx.Decoder.jsonObject(with: validData, includeList: includeList)
+            let json = try Japx.Decoder.jsonObject(with: validData, includeList: includeList, options: decoder.options)
             guard let jsonForKeyPath = (json as AnyObject).value(forKeyPath: keyPath) else {
                 return .failure(JapxAlamofireError.invalidKeyPath(keyPath: keyPath))
             }

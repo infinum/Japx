@@ -76,6 +76,45 @@ class DecoderTesterSpec: QuickSpec {
                 expect(correctlyParsed) == true
             }
         }
+        
+        describe("Testing json api `parseNotIncludedRelationships` property") {
+         
+            it("Should parse missing relationship object as type-id pair") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverethingFrom: "MissingRelationshipObject-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0, options: .notIncludedRelationships)
+                }
+                expect(correctlyParsed) == true
+            }
 
+            it("Should parse missing relationship with include list as array of type-id pairs") {
+                let includeList = "user"
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverethingFrom: "MissingRelationshipObjects-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList, options: .notIncludedRelationships)
+                }
+                expect(correctlyParsed) == true
+            }
+
+            it("Should parse missing relationship object as nil") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverethingFrom: "MissingRelationshipObjectNull-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0)
+                }
+                expect(correctlyParsed) == true
+            }
+
+            it("Should parse missing relationship with include list as empty array") {
+                let includeList = "user,policy"
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverethingFrom: "MissingRelationshipObjectsEmpty-Json") {
+                    return try! Japx.Decoder.jsonObject(with: $0, includeList: includeList)
+                }
+                expect(correctlyParsed) == true
+            }
+        }
     }
+}
+
+
+extension Japx.Decoder.Options {
+    
+    static var notIncludedRelationships: Self { .init(parseNotIncludedRelationships: true) }
+    
 }
