@@ -99,7 +99,7 @@ public extension Japx.Encoder {
         /// If enabled it will include keyword `meta` into that common namespace, making it a part of JSON:API.
         /// i.e. meta will be encoded on the same level as `attributes` and `relationships`.
         /// You should note that by including meta in the common namespace you are prohibited from using keyword `meta` as a name
-        /// of an attribute or relationship, since it will leed to unwanted results be encodin in the wrong place.
+        /// of an attribute or relationship, since it will lead to unwanted results - encoding in the wrong place.
         ///
         ///
         /// Defaults to false.
