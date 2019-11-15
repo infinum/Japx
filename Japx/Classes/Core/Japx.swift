@@ -64,7 +64,7 @@ public extension Japx.Decoder {
     /// `Japx.Decoder.Options` is a set of options affecting the decoding of JSON:API into JSON you request from `Japx.Decoder`.
     struct Options {
         
-        /// Defines if a relationship that doesn't heve related object stored in `included`
+        /// Defines if a relationship that doesn't have related object stored in `included`
         /// shoud be parsed as a dictionary of only `type` and `id`.
         /// If `false` it will be parsed as `nil`.
         ///
