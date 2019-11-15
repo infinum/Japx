@@ -95,10 +95,12 @@ public extension Japx.Encoder {
     /// `Japx.Encoder.Options` is a set of options affecting the encoding of JSON into JSON:API you requested from `Japx.Encoder`.
     struct Options {
         
-        /// Common namespace includes all attribute names, relationship names, `type` and `id`.
-        /// If enabled it will include keyword `meta` into common namepace, expecit the not to
-        /// have `mata` as an attribute or renationship name.
-        /// It will then encode meta on the same level as `attributes` and `relationships`
+        /// Common namespace is a set of all attribute names, relationship names, keyword `type` and keyword `id`.
+        /// If enabled it will include keyword `meta` into that common namespace, making it a part of JSON:API.
+        /// i.e. meta will be encoded on the same level as `attributes` and `relationships`.
+        /// You should note that by including meta in the common namespace you are prhibited from using keyword `meta` as a name
+        /// of an attribute or relationship, since it will leed to unwanted results be encodin in the wrong place.
+        ///
         ///
         /// Defaults to false.
         ///
