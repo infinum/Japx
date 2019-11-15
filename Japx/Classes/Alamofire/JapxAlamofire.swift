@@ -35,7 +35,7 @@ extension Request {
     /// - parameter options:        The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: The result data type.
-    public static func serializeResponseJSONAPI(response: HTTPURLResponse?, data: Data?, error: Error?, includeList: String?, options: JapxDecodingOptions) -> Result<Parameters> {
+    public static func serializeResponseJSONAPI(response: HTTPURLResponse?, data: Data?, error: Error?, includeList: String?, options: Japx.Decoder.Options) -> Result<Parameters> {
         guard error == nil else { return .failure(error!) }
         
         if let response = response, emptyDataStatusCodes.contains(response.statusCode) { return .success([:]) }
@@ -61,7 +61,7 @@ extension DataRequest {
     /// - parameter options:        The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: A JSON:API object response serializer.
-    public static func jsonApiResponseSerializer(includeList: String?, options: JapxDecodingOptions) -> DataResponseSerializer<Parameters> {
+    public static func jsonApiResponseSerializer(includeList: String?, options: Japx.Decoder.Options) -> DataResponseSerializer<Parameters> {
         return DataResponseSerializer { _, response, data, error in
             return Request.serializeResponseJSONAPI(response: response, data: data, error: error, includeList: includeList, options: options)
         }
@@ -76,7 +76,7 @@ extension DataRequest {
     ///
     /// - returns: The request.
     @discardableResult
-    public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil, options: JapxDecodingOptions = .default, completionHandler: @escaping (DataResponse<Parameters>) -> Void) -> Self {
+    public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil, options: Japx.Decoder.Options = .default, completionHandler: @escaping (DataResponse<Parameters>) -> Void) -> Self {
         return response(
             queue: queue,
             responseSerializer: DataRequest.jsonApiResponseSerializer(includeList: includeList, options: options),
@@ -93,7 +93,7 @@ extension DownloadRequest {
     /// - parameter options:        The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: A JSON object response serializer.
-    public static func jsonApiResponseSerializer(includeList: String?, options: JapxDecodingOptions) -> DownloadResponseSerializer<Parameters>
+    public static func jsonApiResponseSerializer(includeList: String?, options: Japx.Decoder.Options) -> DownloadResponseSerializer<Parameters>
     {
         return DownloadResponseSerializer { _, response, fileURL, error in
             guard error == nil else { return .failure(error!) }
@@ -120,7 +120,7 @@ extension DownloadRequest {
     ///
     /// - returns: The request.
     @discardableResult
-    public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil, options: JapxDecodingOptions = .default, completionHandler: @escaping (DownloadResponse<Parameters>) -> Void) -> Self {
+    public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil, options: Japx.Decoder.Options = .default, completionHandler: @escaping (DownloadResponse<Parameters>) -> Void) -> Self {
         return response(
             queue: queue,
             responseSerializer: DownloadRequest.jsonApiResponseSerializer(includeList: includeList, options: options),

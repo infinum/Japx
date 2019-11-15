@@ -27,63 +27,6 @@ public enum JapxError: Error {
     case unableToConvertDataToJson(data: Any)
 }
 
-/// `JapxDecodingOptions` is a set of options affecting the decoding of JSON:API into JSON you request from `Japx.Decoder`.
-public struct JapxDecodingOptions {
-    
-    /// Defines if a relationship that doesn't heve related object stored in `included`
-    /// shoud be parsed as a dictionary of only `type` and `id`.
-    /// If `false` it will be parsed as `nil`.
-    /// 
-    /// Defaults to false.
-    ///
-    /// - Tag: parseNotIncludedRelationships
-    public var parseNotIncludedRelationships: Bool = false
-    
-    /// Creates an instance with the specified properties.
-    ///
-    /// - parameter parseNotIncludedRelationships: Read more [here](parseNotIncludedRelationships)
-    ///
-    /// - returns: The new `JapxDecodingOptions` instance.
-    public init(parseNotIncludedRelationships: Bool = false) {
-        self.parseNotIncludedRelationships = parseNotIncludedRelationships
-    }
-}
-
-public extension JapxDecodingOptions {
-    
-    /// Default JSON:API to JSON decoding options for `Japx.Decoder`
-    static var `default`: JapxDecodingOptions { .init() }
-}
-
-/// `JapxEncodingOptions` is a set of options affecting the encoding of JSON into JSON:API you requested from `Japx.Encoder`.
-public struct JapxEncodingOptions {
-    
-    /// Common namespace includes all attribute names, relationship names, `type` and `id`.
-    /// If enabled it will include keyword `meta` into common namepace, expecit the not to
-    /// have `mata` as an attribute or renationship name.
-    /// It will then encode meta on the same level as `attributes` and `relationships`
-    ///
-    /// Defaults to false.
-    ///
-    /// - Tag: includeMetaToCommonNamespce
-    public var includeMetaToCommonNamespce: Bool = false
-    
-    /// Creates an instance with the specified properties.
-    ///
-    /// - parameter includeMetaToCommonNamespce: Read more [here](includeMetaToCommonNamespce)
-    ///
-    /// - returns: The new `JapxDecodingOptions` instance.
-    public init(includeMetaToCommonNamespce: Bool = false) {
-        self.includeMetaToCommonNamespce = includeMetaToCommonNamespce
-    }
-}
-
-public extension JapxEncodingOptions {
-    
-    /// Default JSON to JSON:API decoding options for `Japx.Encoder`
-    static var `default`: JapxEncodingOptions { .init() }
-}
-
 private struct Consts {
     
     struct APIKeys {
@@ -116,6 +59,69 @@ public struct Japx {
     public enum Encoder {}
 }
 
+public extension Japx.Decoder {
+    
+    /// `Japx.Decoder.Options` is a set of options affecting the decoding of JSON:API into JSON you request from `Japx.Decoder`.
+    struct Options {
+        
+        /// Defines if a relationship that doesn't heve related object stored in `included`
+        /// shoud be parsed as a dictionary of only `type` and `id`.
+        /// If `false` it will be parsed as `nil`.
+        ///
+        /// Defaults to false.
+        ///
+        /// - Tag: parseNotIncludedRelationships
+        public var parseNotIncludedRelationships: Bool = false
+        
+        /// Creates an instance with the specified properties.
+        ///
+        /// - parameter parseNotIncludedRelationships: Read more [here](parseNotIncludedRelationships)
+        ///
+        /// - returns: The new `Japx.Decoder.Options` instance.
+        public init(parseNotIncludedRelationships: Bool = false) {
+            self.parseNotIncludedRelationships = parseNotIncludedRelationships
+        }
+    }
+}
+
+public extension Japx.Decoder.Options {
+    
+    /// Default JSON:API to JSON decoding options for `Japx.Decoder`
+    static var `default`: Japx.Decoder.Options { .init() }
+}
+
+public extension Japx.Encoder {
+    
+    /// `Japx.Encoder.Options` is a set of options affecting the encoding of JSON into JSON:API you requested from `Japx.Encoder`.
+    struct Options {
+        
+        /// Common namespace includes all attribute names, relationship names, `type` and `id`.
+        /// If enabled it will include keyword `meta` into common namepace, expecit the not to
+        /// have `mata` as an attribute or renationship name.
+        /// It will then encode meta on the same level as `attributes` and `relationships`
+        ///
+        /// Defaults to false.
+        ///
+        /// - Tag: includeMetaToCommonNamespce
+        public var includeMetaToCommonNamespce: Bool = false
+        
+        /// Creates an instance with the specified properties.
+        ///
+        /// - parameter includeMetaToCommonNamespce: Read more [here](includeMetaToCommonNamespce)
+        ///
+        /// - returns: The new `Japx.Decoder.Options` instance.
+        public init(includeMetaToCommonNamespce: Bool = false) {
+            self.includeMetaToCommonNamespce = includeMetaToCommonNamespce
+        }
+    }
+}
+
+public extension Japx.Encoder.Options {
+    
+    /// Default JSON to JSON:API decoding options for `Japx.Encoder`
+    static var `default`: Japx.Encoder.Options { .init() }
+}
+
 // MARK: - Public interface -
 
 // MARK: - Decoding
@@ -129,7 +135,7 @@ public extension Japx.Decoder {
     /// - parameter options:           Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object.
-    static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil, options: JapxDecodingOptions = .default) throws -> Parameters {
+    static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Parameters {
         // First check if JSON API object has `include` list since
         // parsing objects with include list is done using native
         // Swift dictionary, while objects without it use `NSDictionary`
@@ -152,7 +158,7 @@ public extension Japx.Decoder {
     /// - parameter options:           Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object as Data.
-    static func data(withJSONAPIObject object: Parameters, includeList: String? = nil, options: JapxDecodingOptions = .default) throws -> Data {
+    static func data(withJSONAPIObject object: Parameters, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Data {
         let decoded = try jsonObject(withJSONAPIObject: object, includeList: includeList, options: options)
         return try JSONSerialization.data(withJSONObject: decoded)
     }
@@ -164,7 +170,7 @@ public extension Japx.Decoder {
     /// - parameter options:           Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object.
-    static func jsonObject(with data: Data, includeList: String? = nil, options: JapxDecodingOptions = .default) throws -> Parameters {
+    static func jsonObject(with data: Data, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Parameters {
         let jsonApiObject = try JSONSerialization.jsonObject(with: data)
         
         // With include list
@@ -194,7 +200,7 @@ public extension Japx.Decoder {
     /// - parameter options:           Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object as Data.
-    static func data(with data: Data, includeList: String? = nil, options: JapxDecodingOptions = .default) throws -> Data {
+    static func data(with data: Data, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Data {
         let decoded = try jsonObject(with: data, includeList: includeList, options: options)
         return try JSONSerialization.data(withJSONObject: decoded)
     }
@@ -211,7 +217,7 @@ public extension Japx.Encoder {
     /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(data: Data, additionalParams: Parameters? = nil, options: JapxEncodingOptions = .default) throws -> Parameters {
+    static func encode(data: Data, additionalParams: Parameters? = nil, options: Japx.Encoder.Options = .default) throws -> Parameters {
         let json = try JSONSerialization.jsonObject(with: data)
         if let jsonObject = json as? Parameters {
             return try encode(json: jsonObject, additionalParams: additionalParams, options: options)
@@ -229,7 +235,7 @@ public extension Japx.Encoder {
     /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(json: Parameters, additionalParams: Parameters? = nil, options: JapxEncodingOptions = .default) throws -> Parameters {
+    static func encode(json: Parameters, additionalParams: Parameters? = nil, options: Japx.Encoder.Options = .default) throws -> Parameters {
         var params = additionalParams ?? [:]
         params[Consts.APIKeys.data] = try encodeAttributesAndRelationships(on: json, options: options)
         return params
@@ -242,7 +248,7 @@ public extension Japx.Encoder {
     /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(json: [Parameters], additionalParams: Parameters? = nil, options: JapxEncodingOptions = .default) throws -> Parameters {
+    static func encode(json: [Parameters], additionalParams: Parameters? = nil, options: Japx.Encoder.Options = .default) throws -> Parameters {
         var params = additionalParams ?? [:]
         params[Consts.APIKeys.data] = try json.compactMap { try encodeAttributesAndRelationships(on: $0, options: options) as AnyObject }
         return params
@@ -255,7 +261,7 @@ public extension Japx.Encoder {
 
 private extension Japx.Decoder {
     
-    static func decode(jsonApiInput: Parameters, include: String, options: JapxDecodingOptions) throws -> Parameters {
+    static func decode(jsonApiInput: Parameters, include: String, options: Japx.Decoder.Options) throws -> Parameters {
         let params = include
             .split(separator: ",")
             .map { $0.split(separator: ".") }
@@ -292,7 +298,7 @@ private extension Japx.Decoder {
         return jsonApi
     }
     
-    static func decode(jsonApiInput: NSDictionary, options: JapxDecodingOptions) throws -> NSDictionary {
+    static func decode(jsonApiInput: NSDictionary, options: Japx.Decoder.Options) throws -> NSDictionary {
         let jsonApi = jsonApiInput.mutable
         
         let dataObjectsArray = try jsonApi.array(from: Consts.APIKeys.data) ?? []
@@ -331,7 +337,7 @@ private extension Japx.Decoder {
 
 private extension Japx.Decoder {
  
-    static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary, options: JapxDecodingOptions) throws -> Parameters {
+    static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary, options: Japx.Decoder.Options) throws -> Parameters {
         var attributes = (try? object.dictionary(for: Consts.APIKeys.attributes)) ?? Parameters()
         attributes[Consts.APIKeys.type] = object[Consts.APIKeys.type]
         attributes[Consts.APIKeys.id] = object[Consts.APIKeys.id]
@@ -395,7 +401,7 @@ private extension Japx.Decoder {
         }
     }
     
-    static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary], options: JapxDecodingOptions) throws {
+    static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary], options: Japx.Decoder.Options) throws {
         
         let extractRelationship = resolveRelationship(
             from: objects,
@@ -466,7 +472,7 @@ private extension Japx.Decoder {
 
 private extension Japx.Encoder {
     
-    static func encodeAttributesAndRelationships(on jsonObject: Parameters, options: JapxEncodingOptions) throws -> Parameters {
+    static func encodeAttributesAndRelationships(on jsonObject: Parameters, options: Japx.Encoder.Options) throws -> Parameters {
         var object = jsonObject
         var attributes = Parameters()
         var relationships = Parameters()

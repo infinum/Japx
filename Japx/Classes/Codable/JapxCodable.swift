@@ -27,10 +27,10 @@ public final class JapxEncoder {
     public let jsonEncoder: JSONEncoder
     
     /// Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
-    public let options: JapxEncodingOptions
+    public let options: Japx.Encoder.Options
     
     /// Initializes `self` with underlying `JSONEncoder` instance
-    public init(jsonEncoder: JSONEncoder = JSONEncoder(), options: JapxEncodingOptions = .default) {
+    public init(jsonEncoder: JSONEncoder = JSONEncoder(), options: Japx.Encoder.Options = .default) {
         self.jsonEncoder = jsonEncoder
         self.options = options
     }
@@ -54,10 +54,10 @@ public final class JapxDecoder {
     public let jsonDecoder: JSONDecoder
     
     /// Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
-    public let options: JapxDecodingOptions
+    public let options: Japx.Decoder.Options
     
-    /// Initializes `self` with underlying `JSONDecoder` instance and `JapxDecodingOptions`
-    public init(jsonDecoder: JSONDecoder = JSONDecoder(), options: JapxDecodingOptions = .default) {
+    /// Initializes `self` with underlying `JSONDecoder` instance and `Japx.Decoder.Options`
+    public init(jsonDecoder: JSONDecoder = JSONDecoder(), options: Japx.Decoder.Options = .default) {
         self.jsonDecoder = jsonDecoder
         self.options = options
     }

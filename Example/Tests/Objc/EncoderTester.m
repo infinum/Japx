@@ -21,8 +21,8 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"SimpleEncoding-Json"
                                                    containsEverethingFrom:@"SimpleEncoding-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXEncoder encodeWithData:data additionalParams:nil error:nil];
-    }];
+                                                            return [JAPXEncoder encodeWithData:data additionalParams:nil options:[JAPXEncodingOptions new] error:nil];
+                                                        }];
     XCTAssertTrue(correctlyParsed);
 }
 
@@ -31,7 +31,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RecursivRelationships-Json"
                                                    containsEverethingFrom:@"RecursivRelationships-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXEncoder encodeWithData:data additionalParams:nil error:nil];
+                                                            return [JAPXEncoder encodeWithData:data additionalParams:nil options:[JAPXEncodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }
@@ -44,7 +44,7 @@
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"ExtraParams-Json"
                                                    containsEverethingFrom:@"ExtraParams-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
-                                                            return [JAPXEncoder encodeWithData:data additionalParams:extraParams error:nil];
+                                                            return [JAPXEncoder encodeWithData:data additionalParams:extraParams options:[JAPXEncodingOptions new] error:nil];
                                                         }];
     XCTAssertTrue(correctlyParsed);
 }

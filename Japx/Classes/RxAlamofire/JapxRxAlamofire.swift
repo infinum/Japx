@@ -24,7 +24,7 @@ extension Reactive where Base: DataRequest {
     /// - parameter options:           The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: `Single` of parsed JSON:API object.
-    public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil, options: JapxDecodingOptions = .default) -> Single<Parameters> {
+    public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil, options: Japx.Decoder.Options = .default) -> Single<Parameters> {
         
         return Single<Parameters>.create { [weak base] (single) -> Disposable in
             let request = base?.responseJSONAPI(queue: queue, includeList: includeList, options: options) { (response) in
@@ -47,7 +47,7 @@ extension Reactive where Base: DownloadRequest {
     /// - parameter options:           The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: `Single` of parsed JSON:API object.
-    public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil, options: JapxDecodingOptions = .default) -> Single<Parameters> {
+    public func responseJSONAPI(queue: DispatchQueue? = nil, includeList: String? = nil, options: Japx.Decoder.Options = .default) -> Single<Parameters> {
         
         return Single<Parameters>.create { [weak base] (single) -> Disposable in
             let request = base?.responseJSONAPI(queue: queue, includeList: includeList, options: options) { (response) in
