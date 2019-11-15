@@ -7,8 +7,8 @@
 
 import Foundation
 
-/// Objc bride for `JapxDecodingOptions`
-@objc
+/// ObjC bride for `JapxDecodingOptions`
+@objcMembers
 public class JAPXDecodingOptions: NSObject {
     
     // MARK: - Private options reference
@@ -17,15 +17,14 @@ public class JAPXDecodingOptions: NSObject {
     
     // MARK: - Propery forwarding
     
-    /// Objc bridge for [`JAPXDecodingOptions.parseNotIncludedRelationships`](x-source-tag://parseNotIncludedRelationships)
-    @objc
+    /// ObjC bridge for [`JAPXDecodingOptions.parseNotIncludedRelationships`](x-source-tag://parseNotIncludedRelationships)
     public var parseNotIncludedRelationships: Bool {
         get { options.parseNotIncludedRelationships }
         set { options.parseNotIncludedRelationships = newValue }
     }
 }
 
-@objc
+@objcMembers
 @available(swift, obsoleted: 1.0)
 public class JAPXDecoder: NSObject {
 
@@ -44,7 +43,6 @@ public class JAPXDecoder: NSObject {
     /// - parameter options:           The options specifying how `JAPXDecoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object.
-    @objc
     public static func jsonObject(withJSONAPIObject object: Parameters, includeList: String?, options: JAPXDecodingOptions) throws -> Parameters {
         do {
             return try Japx.Decoder.jsonObject(withJSONAPIObject: object, includeList: includeList, options: options.options)
@@ -60,7 +58,6 @@ public class JAPXDecoder: NSObject {
     /// - parameter options:           The options specifying how `JAPXDecoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object as Data.
-    @objc
     public static func data(withJSONAPIObject object: Parameters, includeList: String?, options: JAPXDecodingOptions) throws -> Data {
         do {
             return try Japx.Decoder.data(withJSONAPIObject: object, includeList: includeList, options: options.options)
@@ -76,7 +73,6 @@ public class JAPXDecoder: NSObject {
     /// - parameter options:           The options specifying how `JAPXDecoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object.
-    @objc
     public static func jsonObject(withData data: Data, includeList: String?, options: JAPXDecodingOptions) throws -> Parameters {
         do {
             return try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: options.options)
@@ -92,7 +88,6 @@ public class JAPXDecoder: NSObject {
     /// - parameter options:           The options specifying how `JAPXDecoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object as Data.
-    @objc
     public static func data(withData data: Data, includeList: String?, options: JAPXDecodingOptions) throws -> Data {
         do {
             return try Japx.Decoder.data(with: data, includeList: includeList, options: options.options)
@@ -105,7 +100,7 @@ public class JAPXDecoder: NSObject {
 // MARK: - Encoder
 
 /// Defines a list of methods for converting simple JSON objects to JSON:API object.
-@objc
+@objcMembers
 @available(swift, obsoleted: 1.0)
 public class JAPXEncoder: NSObject {
 
@@ -123,7 +118,6 @@ public class JAPXEncoder: NSObject {
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
-    @objc
     public static func encode(data: Data, additionalParams: Parameters?) throws -> Parameters {
         do {
             return try Japx.Encoder.encode(data: data, additionalParams: additionalParams)
@@ -138,7 +132,6 @@ public class JAPXEncoder: NSObject {
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
-    @objc
     public static func encode(jsonParameter: Parameters, additionalParams: Parameters?) throws -> Parameters {
         do {
             return try Japx.Encoder.encode(json: jsonParameter, additionalParams: additionalParams)
@@ -153,7 +146,6 @@ public class JAPXEncoder: NSObject {
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
     ///
     /// - returns: JSON:API object.
-    @objc
     public static func encode(jsonParameters: [Parameters], additionalParams: Parameters?) throws -> Parameters {
         do {
             return try Japx.Encoder.encode(json: jsonParameters, additionalParams: additionalParams)

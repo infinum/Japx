@@ -24,7 +24,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.platform = :ios, :osx
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.10'
-  s.swift_version = '5.1'
+  s.swift_version = '5.0'
 
   s.default_subspec = 'Core'
 

@@ -27,12 +27,12 @@ public enum JapxError: Error {
     case unableToConvertDataToJson(data: Any)
 }
 
-/// `JapxDecodingOptions` is a set of options affecting the decoding of JSON:API into JSON you requested from `Japx.Decoder`.
+/// `JapxDecodingOptions` is a set of options affecting the decoding of JSON:API into JSON you request from `Japx.Decoder`.
 public struct JapxDecodingOptions {
     
     /// Defines if a relationship that doesn't heve related object stored in `included`
     /// shoud be parsed as a dictionary of only `type` and `id`.
-    /// If `false` ti will be parsed as `nil`.
+    /// If `false` it will be parsed as `nil`.
     /// 
     /// Defaults to false.
     ///
@@ -58,7 +58,7 @@ public extension JapxDecodingOptions {
 /// `JapxEncodingOptions` is a set of options affecting the encoding of JSON into JSON:API you requested from `Japx.Encoder`.
 public struct JapxEncodingOptions {
     
-    /// Common namespace inclued all attribute names, relationship names, `type` and `id`.
+    /// Common namespace includes all attribute names, relationship names, `type` and `id`.
     /// If enabled it will include keyword `meta` into common namepace, expecit the not to
     /// have `mata` as an attribute or renationship name.
     /// It will then encode meta on the same level as `attributes` and `relationships`
@@ -338,13 +338,13 @@ private extension Japx.Decoder {
         
         let relationshipsReferences = object.asDictionary(from: Consts.APIKeys.relationships) ?? Parameters()
         
-        //Force cast here is ok since it is taken from include list string
         
         let extractRelationship = resolveRelationship(
             from: allObjects,
             parseNotIncludedRelationships: options.parseNotIncludedRelationships
         )
         
+        //Force cast here is ok since it is taken from include list string
         let relationships = try paramsDict.allKeys.map({ $0 as! String }).reduce(into: Parameters(), { (result, relationshipsKey) in
             guard let relationship = relationshipsReferences.asDictionary(from: relationshipsKey) else { return }
             guard let otherObjectsData = try relationship.array(from: Consts.APIKeys.data) else {
@@ -438,7 +438,6 @@ private extension Japx.Decoder {
 
     // In case that relationship object is not in objects list, then check should
     // we fallback to relationship key itself
-    
     static func resolveRelationship(
         from objects: [TypeIdPair: Parameters],
         parseNotIncludedRelationships: Bool

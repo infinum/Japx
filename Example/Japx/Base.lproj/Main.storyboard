@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="duV-sn-OWJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="duV-sn-OWJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -194,56 +195,34 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sfS-kD-zsN">
                                         <rect key="frame" x="0.0" y="50" width="343" height="553"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">{
-    "data": [
-        {
-            "id": "33",
-            "type": "time_off_request",
-            "attributes": {
-                "status": "approved",
-                "start_date": "2019-01-14",
-                "end_date": "2019-01-31"
-            },
-            "relationships": {
-                "user": {
-                    "data": {
-                        "id": "25",
-                        "type": "user"
-                    }
-                },
-                "policy": {
-                    "data": [{
-                        "id": "24",
-                        "type": "time_off_policy"
-                    }, {
-                        "id": "25",
-                        "type": "time_off_policy"
-                    }]
-                }
-            }
-        }
-    ],
-    "included": [
-        {
-            "id": "25",
-            "type": "user",
-            "attributes": {
-                "id": 20550,
-                "name": "user name",
-                "email": "user@email.com",
-                "avatar": "",
-                "avatar_url": null
-            }
-        }
-    ],
-    "meta": {
-        "total_pages": 1,
-        "total_count": 1
+                                        <string key="text">{
+  "data": [{
+    "type": "articles",
+    "id": "1",
+    "attributes": {
+      "title": "JSON API paints my bikeshed!",
+      "body": "The shortest article. Ever.",
+      "created": "2015-05-22T14:56:29.000Z",
+      "updated": "2015-05-22T14:56:28.000Z"
     },
-    "links": {
-        "self": "url link"
+    "relationships": {
+      "author": {
+        "data": {"id": "42", "type": "people"}
+      }
     }
-}</mutableString>
+  }],
+  "included": [
+    {
+      "type": "people",
+      "id": "42",
+      "attributes": {
+        "name": "John",
+        "age": 80,
+        "gender": "male"
+      }
+    }
+  ]
+}</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -286,6 +265,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vjg-iL-wIa"/>
+        <segue reference="l1x-NH-VqX"/>
     </inferredMetricsTieBreakers>
 </document>
