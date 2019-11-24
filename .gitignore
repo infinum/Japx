@@ -112,6 +112,7 @@ playground.xcworkspace
 # CocoaPods - Refactored to standalone file
 
 # Carthage - Refactored to standalone file
+Carthage/Build
 
 # fastlane
 #
@@ -133,7 +134,6 @@ playground.xcworkspace
 ## Other
 
 ### Xcode Patch ###
-*.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
