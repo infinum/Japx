@@ -138,6 +138,6 @@ derived_data
 !*.xcodeproj/project.pbxproj
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
-!*xcodeproj/xcuserdata/xcschemes/*
+!*.xcodeproj/xcuserdata/xcschemes/*
 
 # End of https://www.gitignore.io/api/macos,swift,xcode,objective-c
