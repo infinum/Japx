@@ -1,0 +1,24 @@
+language: objective-c
+osx_image: xcode11
+
+env:
+  #environment variables
+  global:
+    - LANG=en_US.UTF-8
+    - LC_ALL=en_US.UTF-8
+    - WORKSPACE=Example/Japx.xcworkspace
+    - PROJECT=Example/Japx.xcodeproj
+    - TEST_FRAMEWORK_SCHEME="Japx"
+    - IOS_SDK=iphonesimulator12.2
+  matrix:
+    - DESTINATION="OS=12.2,name=iPhone X" SCHEME="$TEST_FRAMEWORK_SCHEME" SDK="$IOS_SDK"
+
+before_install:
+  - carthage build --no-skip-current
+  - carthage bootstrap --cache-builds --no-use-binaries
+
+script:
+  - xcodebuild -scheme "$TEST_FRAMEWORK_SCHEME" -workspace "$WORKSPACE" build
+
+after_failure:
+  - cat $TMPDIR/carthage-*.log
