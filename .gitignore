@@ -113,6 +113,7 @@ playground.xcworkspace
 
 # Carthage - Refactored to standalone file
 Carthage/Build
+derived_data
 
 # fastlane
 #
@@ -134,9 +135,10 @@ Carthage/Build
 ## Other
 
 ### Xcode Patch ###
+*.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
-
+!*xcodeproj/xcuserdata/xcschemes/*
 
 # End of https://www.gitignore.io/api/macos,swift,xcode,objective-c
