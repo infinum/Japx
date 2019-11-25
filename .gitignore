@@ -135,8 +135,6 @@ derived_data
 ## Other
 
 ### Xcode Patch ###
-!*.xcodeproj/project.pbxproj
-!*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 !*.xcodeproj/xcuserdata/xcschemes/*
 
