@@ -136,6 +136,9 @@ derived_data
 
 ### Xcode Patch ###
 /*.gcno
-!*.xcodeproj/xcuserdata/xcschemes/*
 
+# Xcode Schemes, so Carthage doesn't complain
+!Example/Pods/Pods.xcodeproj/xcshareddata/xcschemes/Japx.xcscheme
+!Example/Japx.xcodeproj/xcsharedata/xcschemes/Pods-Japx_Example.xcscheme
+!Example/Japx.xcodeproj/xcsharedata/xcschemes/Pods-Japx_Tests.xcscheme
 # End of https://www.gitignore.io/api/macos,swift,xcode,objective-c
