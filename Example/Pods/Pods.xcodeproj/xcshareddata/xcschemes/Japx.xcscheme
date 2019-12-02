@@ -17,7 +17,7 @@
                BlueprintIdentifier = "8D5C454863D7AE3089967443AEF1672F"
                BuildableName = "Japx.framework"
                BlueprintName = "Japx"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8D5C454863D7AE3089967443AEF1672F"
+            BuildableName = "Japx.framework"
+            BlueprintName = "Japx"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,21 +44,10 @@
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
                BuildableName = "Japx_Tests.xctest"
                BlueprintName = "Japx_Tests"
-               ReferencedContainer = "container:Japx.xcodeproj">
+               ReferencedContainer = "container:../Japx.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D5C454863D7AE3089967443AEF1672F"
-            BuildableName = "Japx.framework"
-            BlueprintName = "Japx"
-            ReferencedContainer = "container:Pods/Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -67,11 +65,9 @@
             BlueprintIdentifier = "8D5C454863D7AE3089967443AEF1672F"
             BuildableName = "Japx.framework"
             BlueprintName = "Japx"
-            ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -85,7 +81,7 @@
             BlueprintIdentifier = "8D5C454863D7AE3089967443AEF1672F"
             BuildableName = "Japx.framework"
             BlueprintName = "Japx"
-            ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
