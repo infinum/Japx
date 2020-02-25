@@ -64,7 +64,6 @@ extension DownloadRequest {
 
 public final class DecodableJSONAPIResponseSerializer<T: Decodable>: ResponseSerializer {
     
-    public let dataPreprocessor: DataPreprocessor
     public let includeList: String?
     public let keyPath: String?
     public let decoder: JapxDecoder
@@ -72,15 +71,14 @@ public final class DecodableJSONAPIResponseSerializer<T: Decodable>: ResponseSer
     /// Creates an instance using the values provided.
     ///
     /// - Parameters:
-    ///   - dataPreprocessor:    `DataPreprocessor` used to prepare the received `Data` for serialization.
-    ///   - decoder:             The `DataDecoder`. `JSONDecoder()` by default.
+    ///   - includeList:    The include list for deserializing JSON:API relationships.
+    ///   - keyPath:        The keyPath where object decoding on parsed JSON should be performed.
+    ///   - decoder:        The `DataDecoder`. `JSONDecoder()` by default.
     public init(
-        dataPreprocessor: DataPreprocessor = DecodableJSONAPIResponseSerializer.defaultDataPreprocessor,
         includeList: String?,
         keyPath: String?,
         decoder: JapxDecoder
     ) {
-        self.dataPreprocessor = dataPreprocessor
         self.includeList = includeList
         self.keyPath = keyPath
         self.decoder = decoder

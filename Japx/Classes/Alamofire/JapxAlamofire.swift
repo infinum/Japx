@@ -75,31 +75,19 @@ extension DownloadRequest {
 }
 
 public final class JSONAPIResponseSerializer: ResponseSerializer {
-        
-    public let dataPreprocessor: DataPreprocessor
-    public let emptyResponseCodes: Set<Int>
-    public let emptyRequestMethods: Set<HTTPMethod>
+    
     public let includeList: String?
     public let options: Japx.Decoder.Options
 
     /// Creates an instance using the values provided.
     ///
     /// - Parameters:
-    ///   - dataPreprocessor:    `DataPreprocessor` used to prepare the received `Data` for serialization.
-    ///   - emptyResponseCodes:  The HTTP response codes for which empty responses are allowed. `[204, 205]` by default.
-    ///   - emptyRequestMethods: The HTTP request methods for which empty responses are allowed. `[.head]` by default.
     ///   - includeList:         The include list for deserializing JSON:API relationships.
     ///   - options:             The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     public init(
-        dataPreprocessor: DataPreprocessor = JSONAPIResponseSerializer.defaultDataPreprocessor,
-        emptyResponseCodes: Set<Int> = JSONAPIResponseSerializer.defaultEmptyResponseCodes,
-        emptyRequestMethods: Set<HTTPMethod> = JSONAPIResponseSerializer.defaultEmptyRequestMethods,
         includeList: String?,
         options: Japx.Decoder.Options
     ) {
-        self.dataPreprocessor = dataPreprocessor
-        self.emptyResponseCodes = emptyResponseCodes
-        self.emptyRequestMethods = emptyRequestMethods
         self.includeList = includeList
         self.options = options
     }
