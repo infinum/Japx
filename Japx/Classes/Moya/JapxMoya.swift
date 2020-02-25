@@ -33,7 +33,11 @@ extension Response {
     /// - parameter failsOnEmptyData: A boolean value determining whether the mapping should fail if the data is empty.
     ///
     /// - returns: JSON:API object.
-    public func mapJSONAPI(failsOnEmptyData: Bool = true, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Any {
+    public func mapJSONAPI(
+        failsOnEmptyData: Bool = true,
+        includeList: String? = nil,
+        options: Japx.Decoder.Options = .default
+    ) throws -> Any {
         do {
             return try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: options)
         } catch {

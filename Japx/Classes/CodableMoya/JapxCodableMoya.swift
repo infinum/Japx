@@ -17,8 +17,11 @@ extension Response {
     /// - parameter decoder:     The decoder that performs decoding on parsed JSON into requested type.
     ///
     /// - returns: JSON:API object.
-    public func mapCodableJSONAPI<T: Decodable>(includeList: String? = nil, keyPath: String? = nil, decoder: JapxDecoder = JapxDecoder()) throws -> T {
-    
+    public func mapCodableJSONAPI<T: Decodable>(
+        includeList: String? = nil,
+        keyPath: String? = nil,
+        decoder: JapxDecoder = JapxDecoder()
+    ) throws -> T {
         guard data.count > 0 else {
             throw MoyaError.jsonMapping(self)
         }
