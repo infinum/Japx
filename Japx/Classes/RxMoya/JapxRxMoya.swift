@@ -9,7 +9,7 @@ import Moya
 import RxSwift
 import Foundation
 
-extension ObservableType where E == Response {
+extension ObservableType where Element == Response {
 
     /// Maps data received from the signal and decodes JSON:API object into requested type. If the conversion fails, the signal errors.
     ///
@@ -19,12 +19,18 @@ extension ObservableType where E == Response {
     ///
     ///
     /// - returns: `Observable` of JSON:API object.
-    public func mapJSONAPI(failsOnEmptyData: Bool = true, includeList: String? = nil, options: Japx.Decoder.Options = .default) -> Observable<Any> {
-        return map { try $0.mapJSONAPI(failsOnEmptyData: failsOnEmptyData, includeList: includeList) }
+    public func mapJSONAPI(
+        failsOnEmptyData: Bool = true,
+        includeList: String? = nil,
+        options: Japx.Decoder.Options = .default
+    ) -> Observable<Any> {
+        return map {
+            try $0.mapJSONAPI(failsOnEmptyData: failsOnEmptyData, includeList: includeList)
+        }
     }
 }
 
-extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
+extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
 
     /// Maps data received from the signal and decodes JSON:API object into requested type. If the conversion fails, the signal errors.
     ///
@@ -34,7 +40,13 @@ extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Respo
     ///
     ///
     /// - returns: `Single` of JSON:API object.
-    public func mapJSONAPI(failsOnEmptyData: Bool = true, includeList: String? = nil, options: Japx.Decoder.Options = .default) -> Single<Any> {
-        return map { try $0.mapJSONAPI(failsOnEmptyData: failsOnEmptyData, includeList: includeList) }
+    public func mapJSONAPI(
+        failsOnEmptyData: Bool = true,
+        includeList: String? = nil,
+        options: Japx.Decoder.Options = .default
+    ) -> Single<Any> {
+        return map {
+            try $0.mapJSONAPI(failsOnEmptyData: failsOnEmptyData, includeList: includeList)
+        }
     }
 }

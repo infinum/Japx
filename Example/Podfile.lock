@@ -1,38 +1,58 @@
 PODS:
-  - Alamofire (4.9.1)
-  - Japx/Alamofire (2.2.0):
-    - Alamofire (~> 4.9)
+  - Alamofire (5.0.2)
+  - Japx/Alamofire (3.0.0):
+    - Alamofire (~> 5.0)
     - Japx/Core
-  - Japx/Codable (2.2.0):
+  - Japx/Codable (3.0.0):
     - Japx/Core
-  - Japx/CodableAlamofire (2.2.0):
+  - Japx/CodableAlamofire (3.0.0):
     - Japx/Alamofire
     - Japx/Codable
-  - Japx/Core (2.2.0)
-  - Japx/ObjC (2.2.0):
+  - Japx/CodableMoya (3.0.0):
+    - Japx/Codable
     - Japx/Core
-  - Japx/RxAlamofire (2.2.0):
+    - Japx/Moya
+  - Japx/Core (3.0.0)
+  - Japx/Moya (3.0.0):
+    - Japx/Core
+    - Moya/Core (~> 14.0)
+  - Japx/ObjC (3.0.0):
+    - Japx/Core
+  - Japx/RxAlamofire (3.0.0):
     - Japx/Alamofire
     - RxSwift (~> 5.0)
-  - Japx/RxCodableAlamofire (2.2.0):
+  - Japx/RxCodableAlamofire (3.0.0):
     - Japx/CodableAlamofire
     - Japx/RxAlamofire
-  - Nimble (8.0.1)
-  - Quick (2.1.0)
+  - Japx/RxCodableMoya (3.0.0):
+    - Japx/CodableMoya
+    - Japx/Core
+    - Japx/RxMoya
+  - Japx/RxMoya (3.0.0):
+    - Japx/Moya
+    - Moya/RxSwift (~> 14.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - Nimble (8.0.5)
+  - Quick (2.2.0)
   - RxSwift (5.0.1)
 
 DEPENDENCIES:
   - Japx/ObjC (from `../`)
   - Japx/RxCodableAlamofire (from `../`)
+  - Japx/RxCodableMoya (from `../`)
   - Nimble
   - Quick
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Nimble
-    - Quick
   trunk:
     - Alamofire
+    - Moya
+    - Nimble
+    - Quick
     - RxSwift
 
 EXTERNAL SOURCES:
@@ -40,12 +60,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Japx: 339108c7da597bf4e2ce1e846c5e6c3f624e8332
-  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
-  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: 0854e6acc1d6ac3258147607046a63ceb040b5e5
+PODFILE CHECKSUM: 79077a16bf80302392b2b3bffae5300984bbd698
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4
