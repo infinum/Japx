@@ -121,10 +121,12 @@ public extension Japx.Encoder {
         /// Creates an instance with the specified properties.
         ///
         /// - parameter includeMetaToCommonNamespce: Read more [here](includeMetaToCommonNamespce)
+        /// - parameter relationshipList: Read more [here](relationshipList)
         ///
         /// - returns: The new `Japx.Decoder.Options` instance.
-        public init(includeMetaToCommonNamespce: Bool = false) {
+        public init(includeMetaToCommonNamespce: Bool = false, relationshipList: String? = nil) {
             self.includeMetaToCommonNamespce = includeMetaToCommonNamespce
+            self.relationshipList = relationshipList
         }
     }
 }

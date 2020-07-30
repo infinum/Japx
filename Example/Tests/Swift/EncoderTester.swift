@@ -56,5 +56,36 @@ class EncoderTesterSpec: QuickSpec {
             }
             
         }
+        
+        describe("Testing relationship list") {
+         
+            it("Should auto infer relationships without the list") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverethingFrom: "RelationshipList-Not-Relationship-JsonApi") {
+                    return try! Japx.Encoder.encode(data: $0)
+                }
+                expect(correctlyParsed) == true
+            }
+            
+            it("Should decode likes as attributes") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverethingFrom: "RelationshipList-Not-Relationship-JsonApi") {
+                    return try! Japx.Encoder.encode(data: $0, options: .init(relationshipList: "author"))
+                }
+                expect(correctlyParsed) == true
+            }
+            
+            it("Should decode likes and author as attributes") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverethingFrom: "RelationshipList-Broken-JsonApi") {
+                    return try! Japx.Encoder.encode(data: $0, options: .init(relationshipList: ""))
+                }
+                expect(correctlyParsed) == true
+            }
+            
+            it("Should decode likes as relationships") {
+                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverethingFrom: "RelationshipList-Is-Relationship-JsonApi") {
+                    return try! Japx.Encoder.encode(data: $0, options: .init(relationshipList: "author,likes"))
+                }
+                expect(correctlyParsed) == true
+            }
+        }
     }
 }

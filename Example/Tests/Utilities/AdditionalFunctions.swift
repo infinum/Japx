@@ -14,10 +14,8 @@ public typealias ParsingPipelineCallback = (_ json: Data) -> (Any)
 @objc public class AdditionalFunctions: NSObject {
 
     @objc public static func does(jsonFromFileNamed: String, containsEverethingFrom otherJsonFromFile: String, afterParsingBlock block: ParsingPipelineCallback) -> Bool {
-        let path = Bundle.main.path(forResource: jsonFromFileNamed, ofType: "json")!
-        let pathOther = Bundle.main.path(forResource: otherJsonFromFile, ofType: "json")!
-        let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        let dataOther = try! Data(contentsOf: URL(fileURLWithPath: pathOther), options: .mappedIfSafe)
+        let data = jsonData(from: jsonFromFileNamed)
+        let dataOther = jsonData(from: otherJsonFromFile)
 
         let json = block(data)
         let jsonOther = try! JSONSerialization.jsonObject(with: dataOther)
@@ -39,6 +37,11 @@ public typealias ParsingPipelineCallback = (_ json: Data) -> (Any)
         }
 
         assert(false, "You should not end up here")
+    }
+    
+    @objc public static func jsonData(from jsonFromFileNamed: String) -> Data {
+        let path = Bundle.main.path(forResource: jsonFromFileNamed, ofType: "json")!
+        return try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
     }
 
     @objc public static func does(jsonParameters: [Parameters], containsEverethingFrom otherJson: [Parameters]) -> Bool {
