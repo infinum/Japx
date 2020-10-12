@@ -38,7 +38,7 @@ extension DataRequest {
     public func responseJSONAPI(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default,
+        options: JapxCore.Decoder.Options = .default,
         completionHandler: @escaping (AFDataResponse<Parameters>) -> Void
     ) -> Self {
         return response(
@@ -63,7 +63,7 @@ extension DownloadRequest {
     public func responseJSONAPI(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default,
+        options: JapxCore.Decoder.Options = .default,
         completionHandler: @escaping (AFDownloadResponse<Parameters>) -> Void
     ) -> Self {
         return response(
@@ -77,7 +77,7 @@ extension DownloadRequest {
 public final class JSONAPIResponseSerializer: ResponseSerializer {
     
     public let includeList: String?
-    public let options: Japx.Decoder.Options
+    public let options: JapxCore.Decoder.Options
 
     /// Creates an instance using the values provided.
     ///
@@ -86,7 +86,7 @@ public final class JSONAPIResponseSerializer: ResponseSerializer {
     ///   - options:             The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
     public init(
         includeList: String?,
-        options: Japx.Decoder.Options
+        options: JapxCore.Decoder.Options
     ) {
         self.includeList = includeList
         self.options = options
@@ -106,7 +106,7 @@ public final class JSONAPIResponseSerializer: ResponseSerializer {
         data = try dataPreprocessor.preprocess(data)
         
         do {
-            return try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: options)
+            return try JapxCore.Decoder.jsonObject(with: data, includeList: includeList, options: options)
         } catch {
             throw AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: error))
         }

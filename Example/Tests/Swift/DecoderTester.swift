@@ -113,7 +113,7 @@ class DecoderTesterSpec: QuickSpec {
 }
 
 
-extension Japx.Decoder.Options {
+extension JapxCore.Decoder.Options {
     
     static var notIncludedRelationships: Self { .init(parseNotIncludedRelationships: true) }
     

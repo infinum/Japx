@@ -22,7 +22,7 @@ extension ObservableType where Element == Response {
     public func mapJSONAPI(
         failsOnEmptyData: Bool = true,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default
+        options: JapxCore.Decoder.Options = .default
     ) -> Observable<Any> {
         return map {
             try $0.mapJSONAPI(failsOnEmptyData: failsOnEmptyData, includeList: includeList)
@@ -43,7 +43,7 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
     public func mapJSONAPI(
         failsOnEmptyData: Bool = true,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default
+        options: JapxCore.Decoder.Options = .default
     ) -> Single<Any> {
         return map {
             try $0.mapJSONAPI(failsOnEmptyData: failsOnEmptyData, includeList: includeList)

@@ -27,7 +27,7 @@ extension Reactive where Base: DataRequest {
     public func responseJSONAPI(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default
+        options: JapxCore.Decoder.Options = .default
     ) -> Single<Parameters> {
         return Single<Parameters>.create { [weak base] (single) -> Disposable in
             let request = base?.responseJSONAPI(
@@ -57,7 +57,7 @@ extension Reactive where Base: DownloadRequest {
     public func responseJSONAPI(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default
+        options: JapxCore.Decoder.Options = .default
     ) -> Single<Parameters> {
         return Single<Parameters>.create { [weak base] (single) -> Disposable in
             let request = base?.responseJSONAPI(

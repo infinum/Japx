@@ -96,7 +96,7 @@ public final class DecodableJSONAPIResponseSerializer<T: Decodable>: ResponseSer
                 return try decoder.decode(T.self, from: validData, includeList: includeList)
             }
             
-            let json = try Japx.Decoder.jsonObject(with: validData, includeList: includeList, options: decoder.options)
+            let json = try JapxCore.Decoder.jsonObject(with: validData, includeList: includeList, options: decoder.options)
             guard let jsonForKeyPath = (json as AnyObject).value(forKeyPath: keyPath) else {
                 throw JapxAlamofireError.invalidKeyPath(keyPath: keyPath)
             }

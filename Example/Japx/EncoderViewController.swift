@@ -17,7 +17,7 @@ class EncoderViewController: UIViewController, Resultable {
         guard let data = textView.text.data(using: .utf8) else { return }
         
         do {
-            let json = try Japx.Encoder.encode(data: data)
+            let json = try JapxCore.Encoder.encode(data: data)
             pushResultViewController(with: PrettyPrint.prettyPrintJson(data: json))
         } catch {
             alert(error: error)

@@ -32,7 +32,7 @@ extension Response {
                 return decodable
             }
 
-            let json = try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: decoder.options)
+            let json = try JapxCore.Decoder.jsonObject(with: data, includeList: includeList, options: decoder.options)
             guard let jsonForKeyPath = (json as AnyObject).value(forKeyPath: keyPath) else {
                 throw JapxMoyaError.invalidKeyPath(keyPath: keyPath)
             }

@@ -17,7 +17,7 @@ class DecoderViewController: UIViewController, Resultable {
         guard let data = textView.text.data(using: .utf8) else { return }
         
         do {
-            let json = try Japx.Decoder.jsonObject(with: data)
+            let json = try JapxCore.Decoder.jsonObject(with: data)
             pushResultViewController(with: PrettyPrint.prettyPrintJson(data: json))
         } catch {
             alert(error: error)

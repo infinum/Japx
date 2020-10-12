@@ -36,10 +36,10 @@ extension Response {
     public func mapJSONAPI(
         failsOnEmptyData: Bool = true,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default
+        options: JapxCore.Decoder.Options = .default
     ) throws -> Any {
         do {
-            return try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: options)
+            return try JapxCore.Decoder.jsonObject(with: data, includeList: includeList, options: options)
         } catch {
             if data.count < 1 && !failsOnEmptyData {
                 return NSNull()
