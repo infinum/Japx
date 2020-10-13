@@ -8,6 +8,12 @@
 import RxSwift
 import Alamofire
 import Foundation
+#if canImport(JapxCore)
+import JapxCore
+#endif
+#if canImport(JapxAlamofire)
+import JapxAlamofire
+#endif
 
 /// Extension to add `Reactive` capabilities to `DataRequest`
 extension DataRequest: ReactiveCompatible {}
