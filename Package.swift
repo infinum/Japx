@@ -7,6 +7,9 @@ let package = Package(
     platforms: [.macOS(.v10_12), .iOS(.v10)],
     products: [
         .library(
+            name: "Japx",
+            targets: ["Japx"]),
+        .library(
             name: "JapxAlamofire",
             targets: ["JapxAlamofire"]),
         .library(
@@ -19,8 +22,8 @@ let package = Package(
             name: "JapxCodableMoya",
             targets: ["JapxCodableMoya"]),
         .library(
-            name: "JapxCore",
-            targets: ["JapxCore"]),
+            name: "Japx",
+            targets: ["Japx"]),
         .library(
             name: "JapxMoya",
             targets: ["JapxMoya"]),
@@ -50,15 +53,15 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "JapxCore",
+            name: "Japx",
             path: "Japx/Classes/Core"),
         .target(
             name: "JapxCodable",
-            dependencies: ["JapxCore"],
+            dependencies: ["Japx"],
             path: "Japx/Classes/Codable"),
         .target(
             name: "JapxAlamofire",
-            dependencies: ["JapxCore", "Alamofire"],
+            dependencies: ["Japx", "Alamofire"],
             path: "Japx/Classes/Alamofire"),
         .target(
             name: "JapxRxAlamofire",
@@ -74,7 +77,7 @@ let package = Package(
             path: "Japx/Classes/RxCodableAlamofire"),
         .target(
             name: "JapxMoya",
-            dependencies: ["JapxCore", "Moya"],
+            dependencies: ["Japx", "Moya"],
             path: "Japx/Classes/Moya"),
         .target(
             name: "JapxRxMoya",
@@ -82,15 +85,15 @@ let package = Package(
             path: "Japx/Classes/RxMoya"),
         .target(
             name: "JapxCodableMoya",
-            dependencies: ["JapxCore", "JapxCodable", "JapxMoya"],
+            dependencies: ["Japx", "JapxCodable", "JapxMoya"],
             path: "Japx/Classes/CodableMoya"),
         .target(
             name: "JapxRxCodableMoya",
-            dependencies: ["JapxCore", "JapxCodableMoya", "JapxRxMoya"],
+            dependencies: ["Japx", "JapxCodableMoya", "JapxRxMoya"],
             path: "Japx/Classes/RxCodableMoya"),
         .target(
             name: "JapxObjC",
-            dependencies: ["JapxCore"],
+            dependencies: ["Japx"],
             path: "Japx/Classes/ObjC")
     ]
 )
