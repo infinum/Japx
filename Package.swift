@@ -7,20 +7,20 @@ let package = Package(
     platforms: [.macOS(.v10_12), .iOS(.v10)],
     products: [
         .library(
-            name: "JapxAlamofire",
-            targets: ["JapxAlamofire"]),
+            name: "JapxCore",
+            targets: ["JapxCore"]),
         .library(
             name: "JapxCodable",
             targets: ["JapxCodable"]),
+        .library(
+            name: "JapxAlamofire",
+            targets: ["JapxAlamofire"]),
         .library(
             name: "JapxCodableAlamofire",
             targets: ["JapxCodableAlamofire"]),
         .library(
             name: "JapxCodableMoya",
             targets: ["JapxCodableMoya"]),
-        .library(
-            name: "JapxCore",
-            targets: ["JapxCore"]),
         .library(
             name: "JapxMoya",
             targets: ["JapxMoya"]),

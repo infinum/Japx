@@ -8,8 +8,14 @@
 import Moya
 import RxSwift
 import Foundation
+#if canImport(JapxCore)
+import JapxCore
+#endif
 #if canImport(JapxCodable)
 import JapxCodable
+#endif
+#if canImport(JapxMoya)
+import JapxMoya
 #endif
 #if canImport(JapxCodableMoya)
 import JapxCodableMoya

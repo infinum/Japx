@@ -7,7 +7,12 @@
 //
 
 import UIKit
+#if canImport(Japx)
 import Japx
+#endif
+#if canImport(JapxCore)
+import JapxCore
+#endif
 
 public typealias ParsingPipelineCallback = (_ json: Data) -> (Any)
 

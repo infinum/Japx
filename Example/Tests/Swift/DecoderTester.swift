@@ -8,7 +8,15 @@
 
 import Quick
 import Nimble
+#if canImport(Japx)
 import Japx
+#endif
+#if canImport(JapxCore)
+import JapxCore
+#endif
+#if canImport(JapxCodable)
+import JapxCodable
+#endif
 
 class DecoderTesterSpec: QuickSpec {
     

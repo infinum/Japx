@@ -7,7 +7,12 @@
 //
 
 import UIKit
+#if canImport(Japx)
 import Japx
+#endif
+#if canImport(JapxCore)
+import JapxCore
+#endif
 
 class DecoderViewController: UIViewController, Resultable {
 
