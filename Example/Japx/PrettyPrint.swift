@@ -7,10 +7,9 @@
 //
 
 import Foundation
-#if canImport(Japx)
+#if COCOAPODS
 import Japx
-#endif
-#if canImport(JapxCore)
+#else
 import JapxCore
 #endif
 

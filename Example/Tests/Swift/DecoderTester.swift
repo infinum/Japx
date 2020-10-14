@@ -8,13 +8,10 @@
 
 import Quick
 import Nimble
-#if canImport(Japx)
+#if COCOAPODS
 import Japx
-#endif
-#if canImport(JapxCore)
+#else
 import JapxCore
-#endif
-#if canImport(JapxCodable)
 import JapxCodable
 #endif
 
