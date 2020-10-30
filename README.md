@@ -12,18 +12,22 @@
 Lightweight [JSON:API][1] parser that flattens complex [JSON:API][1] structure and turns it into simple JSON and vice versa.
 It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][2], [Unbox][3], [Wrap][4], [ObjectMapper][5] or any other object mapping tool that you prefer.
 
-- [Basic example](#basic-example)
-- [Advanced examples](#advanced-examples)
+- [Japx - JSON:API Decoder/Encoder](#japx---jsonapi-decoderencoder)
+  - [Basic example](#basic-example)
+  - [Advanced examples](#advanced-examples)
     - [Parsing relationships](#parsing-relationships)
     - [Parsing additional information](#parsing-additional-information)
     - [Parsing with include list](#parsing-with-include-list)
-- [Usage](#usage)
+  - [Usage](#usage)
     - [Codable](#codable)
     - [Codable and Alamofire](#codable-and-alamofire)
     - [Codable, Alamofire and RxSwift](#codable-alamofire-and-rxswift)
-- [Example project](#example-project)
-- [Authors](#authors)
-- [License](#license)
+  - [Installation](#installation)
+    - [Cocoapods](#cocoapods)
+    - [Swift Package Manager](#swift-package-manager)
+  - [Example project](#example-project)
+  - [Authors](#authors)
+  - [License](#license)
 
 ## Basic example
 
@@ -379,6 +383,8 @@ return Single.just(loginModel)
 
 ## Installation
 
+### Cocoapods
+
 Japx is available through [CocoaPods][8]. To install it, simply add the following line to your Podfile:
 
 ```ruby
@@ -386,7 +392,7 @@ pod 'Japx'
 ```
 
 We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
-You can find those convinience extansions here: 
+You can find those convinience extensions here: 
 
 ```ruby
 # Codable
@@ -405,11 +411,63 @@ pod 'Japx/CodableAlamofire'
 pod 'Japx/RxCodableAlamofire'
 ```
 
+### Swift Package Manager
+Add te dependency to your `Package.swift` and use in your target
+``` swift
+dependencies: [
+    .package(url: "https://github.com/infinum/Japx.git", .upToNextMajor(from: "3.1.0"))
+]
+```
+
+Sample `Package.swift`
+
+``` swift
+let package = Package(
+    name: "YourDependency",
+    products: [
+        .library(
+            name: "YourDependency",
+            targets: ["YourDependency"])
+    ],
+    dependencies: [
+        .package(url: "https://github.com/infinum/Japx.git", .upToNextMajor(from: "3.1.0")),
+    ],
+    targets: [
+        .target(
+            name: "YourDependency",
+            dependencies: [
+                .product(name: "JapxCodable", package: "Japx")
+            ]
+        ),
+    ]
+)
+```
+
+We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
+You can find those convinience extensions here:
+
+``` swift
+// Codable
+.product(name: "JapxCodable", package: "Japx")
+
+// Alamofire
+.product(name: "JapxAlamofire", package: "Japx")
+
+// Alamofire and RxSwift
+.product(name: "JapxRxAlamofire", package: "Japx")
+
+// Alamofire and Codable
+.product(name: "JapxCodableAlamofire", package: "Japx")
+
+// Alamofire, Codable and RxSwift
+.product(name: "JapxRxCodableAlamofire", package: "Japx")
+```
+
 ## Example project
 
 Example project of Japx networking using Codable and Alamofire can be found in [Nuts And Bolts repository][12] with commonly used code. [Example][13] will cover how to handle basic CRUD (Create, Read, Update, Delete) operations with Japx and JSON:API format. To run the example, clone the [repository][12], open the `Catalog.xcworkspace`, run Catalog app and navigate to the Japx Networking section.
 
-In this repository there is also simple example project, to run it clone the repository, and run `pod install` from the Example directory first.
+In this repository there is also simple example project, to run it clone the repository, and run `pod install` from the Example directory first.Also include an integration with Swift Package manager
 
 ## Authors
 

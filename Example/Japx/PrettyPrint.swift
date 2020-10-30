@@ -7,7 +7,11 @@
 //
 
 import Foundation
+#if COCOAPODS
 import Japx
+#else
+import JapxCore
+#endif
 
 struct PrettyPrint {
     

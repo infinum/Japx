@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(JapxCore)
+import JapxCore
+#endif
 
 fileprivate enum JapxErrorCode: Int {
     /// - Returned when provided error is not an JapxError

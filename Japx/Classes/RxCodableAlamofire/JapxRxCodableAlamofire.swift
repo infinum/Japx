@@ -8,6 +8,15 @@
 import RxSwift
 import Alamofire
 import Foundation
+#if canImport(JapxCore)
+import JapxCore
+#endif
+#if canImport(JapxCodable)
+import JapxCodable
+#endif
+#if canImport(JapxCodableAlamofire)
+import JapxCodableAlamofire
+#endif
 
 extension Reactive where Base: DataRequest {
     

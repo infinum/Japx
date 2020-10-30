@@ -7,7 +7,11 @@
 //
 
 import UIKit
+#if COCOAPODS
 import Japx
+#else
+import JapxCore
+#endif
 
 class EncoderViewController: UIViewController, Resultable {
 

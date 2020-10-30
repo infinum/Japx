@@ -8,7 +8,12 @@
 
 import Quick
 import Nimble
+#if COCOAPODS
 import Japx
+#else
+import JapxCore
+import JapxCodable
+#endif
 
 class EncoderTesterSpec: QuickSpec {
     
