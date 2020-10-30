@@ -8,6 +8,12 @@
 import Moya
 import RxSwift
 import Foundation
+#if canImport(JapxCore)
+import JapxCore
+#endif
+#if canImport(JapxMoya)
+import JapxMoya
+#endif
 
 extension ObservableType where Element == Response {
 
