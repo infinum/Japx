@@ -107,10 +107,10 @@ public extension Japx.Encoder {
         /// - Tag: includeMetaToCommonNamespce
         public var includeMetaToCommonNamespce: Bool = false
         
-        /// When set to `true` empty object will be encoded send `"relationships": {}`
-        /// When set to `false`field `relationships` will be removed if empty
+        /// When set to `true` an empty relationships object will be send  as empty JSON object `"relationships": {}`.
+        /// When set to `false` an empty object will be removed from the encoded data
         ///
-        /// Defaults to false.
+        /// Defaults to ture. Empty JSON object will be sent.
         ///
         /// - Tag: includeEmptyRelationships
         public var includeEmptyRelationships: Bool = true
