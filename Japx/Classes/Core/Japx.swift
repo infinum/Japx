@@ -120,8 +120,9 @@ public extension Japx.Encoder {
         /// - parameter includeMetaToCommonNamespce: Read more [here](includeMetaToCommonNamespce)
         ///
         /// - returns: The new `Japx.Decoder.Options` instance.
-        public init(includeMetaToCommonNamespce: Bool = false) {
+        public init(includeMetaToCommonNamespce: Bool = false, includeEmptyRelationships: Bool = true) {
             self.includeMetaToCommonNamespce = includeMetaToCommonNamespce
+            self.includeEmptyRelationships = includeEmptyRelationships
         }
     }
 }
