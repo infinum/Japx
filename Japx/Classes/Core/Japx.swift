@@ -531,7 +531,7 @@ private extension Japx.Encoder {
         object[Consts.APIKeys.attributes] = attributes
         
         if !relationships.isEmpty || options.includeEmptyRelationships {
-                object[Consts.APIKeys.relationships] = relationships
+            object[Consts.APIKeys.relationships] = relationships
         }
         
         return object
