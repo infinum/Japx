@@ -57,6 +57,15 @@ public enum AFError: Error {
         case inputStreamReadFailed(error: Error)
     }
 
+    /// Represents unexpected input stream length that occur when encoding the `MultipartFormData`. Instances will be
+    /// embedded within an `AFError.multipartEncodingFailed` `.inputStreamReadFailed` case.
+    public struct UnexpectedInputStreamLength: Error {
+        /// The expected byte count to read.
+        public var bytesExpected: UInt64
+        /// The actual byte count read.
+        public var bytesRead: UInt64
+    }
+
     /// The underlying reason the `.parameterEncodingFailed` error occurred.
     public enum ParameterEncodingFailureReason {
         /// The `URLRequest` did not have a `URL` to encode.
@@ -215,7 +224,7 @@ public enum AFError: Error {
 extension Error {
     /// Returns the instance cast as an `AFError`.
     public var asAFError: AFError? {
-        return self as? AFError
+        self as? AFError
     }
 
     /// Returns the instance cast as an `AFError`. If casting fails, a `fatalError` with the specified `message` is thrown.
@@ -228,7 +237,7 @@ extension Error {
 
     /// Casts the instance as `AFError` or returns `defaultAFError`
     func asAFError(or defaultAFError: @autoclosure () -> AFError) -> AFError {
-        return self as? AFError ?? defaultAFError()
+        self as? AFError ?? defaultAFError()
     }
 }
 
@@ -432,6 +441,11 @@ extension AFError {
     public var destinationURL: URL? {
         guard case let .downloadedFileMoveFailed(_, _, destination) = self else { return nil }
         return destination
+    }
+
+    /// The download resume data of any underlying network error. Only produced by `DownloadRequest`s.
+    public var downloadResumeData: Data? {
+        (underlyingError as? URLError)?.userInfo[NSURLSessionDownloadTaskResumeData] as? Data
     }
 }
 
