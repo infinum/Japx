@@ -110,7 +110,7 @@ public extension Japx.Encoder {
         /// Sometimes it's not that clear if something should be encoded as a relationship or as an attribute.
         /// Empty array is an example of that case.
         /// Use this property to disable the auto-inference of relationships/attributes and provide an explicit list of relationships
-        ///It should be a list of relationship names, divided by commas, similar to `includeList` in `Japx.Decoder`.
+        /// It should be a list of relationship names, divided by commas, similar to `includeList` in `Japx.Decoder`.
         ///
         ///
         /// Defaults to nil. (using auto-inference)
@@ -496,7 +496,7 @@ private extension Japx.Encoder {
             includeMetaToCommonNamespce: options.includeMetaToCommonNamespce
         )
         
-        let isRelatinship = testIsRelationship(relatinshipList: options.relationshipList)
+        let isRelationship = testIsRelationship(relationshipList: options.relationshipList)
         
         for key in objectKeys where key != Consts.APIKeys.type && key != Consts.APIKeys.id {
             
@@ -506,7 +506,7 @@ private extension Japx.Encoder {
             
             if let array = object.asArray(from: key) {
                 
-                let isArrayOfRelationships = try isRelatinship((key:key, object: array.first))
+                let isArrayOfRelationships = try isRelationship((key: key, object: array.first))
                 if !isArrayOfRelationships {
                     // Handle attributes array
                     attributes[key] = array
@@ -520,7 +520,7 @@ private extension Japx.Encoder {
                 continue
             }
             if let obj = object.asDictionary(from: key) {
-                if try !isRelatinship((key:key, object: obj)) {
+                if try !isRelationship((key: key, object: obj)) {
                     // Handle attributes object
                     attributes[key] = obj
                     object.removeValue(forKey: key)
@@ -541,11 +541,11 @@ private extension Japx.Encoder {
     }
     
     typealias KeyObjectPair = (key: String, object: Parameters?)
-    static func testIsRelationship(relatinshipList: String?) -> (KeyObjectPair) throws -> Bool {
-        guard let relatinshipList = relatinshipList else {
+    static func testIsRelationship(relationshipList: String?) -> (KeyObjectPair) throws -> Bool {
+        guard let relationshipList = relationshipList else {
             return { $0.object?.containsTypeAndId() ?? false }
         }
-        let list = relatinshipList
+        let list = relationshipList
             .components(separatedBy: ",")
             .compactMap { $0.components(separatedBy: ".").first }
         return {
