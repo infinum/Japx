@@ -110,7 +110,7 @@ public extension JapxKit.Encoder {
         /// Sometimes it's not that clear if something should be encoded as a relationship or as an attribute.
         /// Empty array is an example of that case.
         /// Use this property to disable the auto-inference of relationships/attributes and provide an explicit list of relationships
-        /// It should be a list of relationship names, divided by commas, similar to `includeList` in `Japx.Decoder`.
+        /// It should be a list of relationship names, divided by commas, similar to `includeList` in `JapxKit.Decoder`.
         ///
         ///
         /// Defaults to nil. (using auto-inference)
