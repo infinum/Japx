@@ -1,0 +1,10 @@
+{
+    "id": "1",
+    "type": "articles",
+    "name": "My Article",
+    "likes": [],
+    "author": {
+        "id": "1",
+        "type": "authors"
+    }
+}
