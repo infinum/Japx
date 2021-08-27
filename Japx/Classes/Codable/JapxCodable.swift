@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(JapxCore)
-import JapxCore
-#endif
 
 /// Protocol that extends Decodable with required properties for JSON:API objects
 public protocol JapxDecodable: Decodable {

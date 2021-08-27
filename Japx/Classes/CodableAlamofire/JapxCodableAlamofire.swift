@@ -7,15 +7,6 @@
 
 import Alamofire
 import Foundation
-#if canImport(JapxCore)
-import JapxCore
-#endif
-#if canImport(JapxCodable)
-import JapxCodable
-#endif
-#if canImport(JapxAlamofire)
-import JapxAlamofire
-#endif
 
 extension DataRequest {
     

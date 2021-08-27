@@ -7,9 +7,6 @@
 
 import Moya
 import Foundation
-#if canImport(JapxCore)
-import JapxCore
-#endif
 
 /// `JapxMoyaError` is the error type returned by JapxMoya subspec.
 public enum JapxMoyaError: Error {

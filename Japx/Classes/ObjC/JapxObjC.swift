@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(JapxCore)
-import JapxCore
-#endif
 
 /// ObjC bride for `JapxKit.Decoder.Options`
 @objcMembers

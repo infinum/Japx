@@ -7,9 +7,6 @@
 
 import Alamofire
 import Foundation
-#if canImport(JapxCore)
-import JapxCore
-#endif
 
 /// `JapxAlamofireError` is the error type returned by JapxAlamofire subspec.
 public enum JapxAlamofireError: Error {
