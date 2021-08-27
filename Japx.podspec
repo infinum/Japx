@@ -41,13 +41,13 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.subspec 'Alamofire' do |sp| 
     sp.source_files = 'Japx/Classes/Alamofire/**/*'
     sp.dependency 'Japx/Core'
-    sp.dependency 'Alamofire', '~> 5.0'
+    sp.dependency 'Alamofire'
   end
 
   s.subspec 'RxAlamofire' do |sp| 
     sp.source_files = 'Japx/Classes/RxAlamofire/**/*'
     sp.dependency 'Japx/Alamofire'
-    sp.dependency 'RxSwift', '~> 5.0'
+    sp.dependency 'RxSwift'
   end
 
   s.subspec 'CodableAlamofire' do |sp| 
@@ -65,13 +65,13 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
   s.subspec 'Moya' do |sp|
     sp.source_files = 'Japx/Classes/Moya/**/*'
     sp.dependency 'Japx/Core'
-    sp.dependency 'Moya/Core', '~> 14.0'
+    sp.dependency 'Moya/Core'
   end
   
   s.subspec 'RxMoya' do |sp|
     sp.source_files = 'Japx/Classes/RxMoya/**/*'
     sp.dependency 'Japx/Moya'
-    sp.dependency 'Moya/RxSwift', '~> 14.0'
+    sp.dependency 'Moya/RxSwift'
   end
   
   s.subspec 'CodableMoya' do |sp|
