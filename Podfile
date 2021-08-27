@@ -1,0 +1,15 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target 'Japx_Example' do
+  pod 'Japx/ObjC', :path => './'
+  pod 'Japx/RxCodableAlamofire', :path => './'
+  pod 'Japx/RxCodableMoya', :path => './'
+
+  target 'Japx_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick'
+    pod 'Nimble'
+  end
+end
