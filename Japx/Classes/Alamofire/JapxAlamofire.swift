@@ -33,7 +33,7 @@ extension DataRequest {
     ///
     /// - parameter queue:             The queue on which the completion handler is dispatched. Defaults to `.main` .
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
-    /// - parameter options:           The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    /// - parameter options:           The options specifying how `JapxKit.Decoder` should decode JSON:API into JSON.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
@@ -41,7 +41,7 @@ extension DataRequest {
     public func responseJSONAPI(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default,
+        options: JapxKit.Decoder.Options = .default,
         completionHandler: @escaping (AFDataResponse<Parameters>) -> Void
     ) -> Self {
         return response(
@@ -58,7 +58,7 @@ extension DownloadRequest {
     ///
     /// - parameter queue:             The queue on which the completion handler is dispatched. Defaults to `.main` .
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
-    /// - parameter options:           The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    /// - parameter options:           The options specifying how `JapxKit.Decoder` should decode JSON:API into JSON.
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
@@ -66,7 +66,7 @@ extension DownloadRequest {
     public func responseJSONAPI(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default,
+        options: JapxKit.Decoder.Options = .default,
         completionHandler: @escaping (AFDownloadResponse<Parameters>) -> Void
     ) -> Self {
         return response(
@@ -80,16 +80,16 @@ extension DownloadRequest {
 public final class JSONAPIResponseSerializer: ResponseSerializer {
     
     public let includeList: String?
-    public let options: Japx.Decoder.Options
+    public let options: JapxKit.Decoder.Options
 
     /// Creates an instance using the values provided.
     ///
     /// - Parameters:
     ///   - includeList:         The include list for deserializing JSON:API relationships.
-    ///   - options:             The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    ///   - options:             The options specifying how `JapxKit.Decoder` should decode JSON:API into JSON.
     public init(
         includeList: String?,
-        options: Japx.Decoder.Options
+        options: JapxKit.Decoder.Options
     ) {
         self.includeList = includeList
         self.options = options
@@ -109,7 +109,7 @@ public final class JSONAPIResponseSerializer: ResponseSerializer {
         data = try dataPreprocessor.preprocess(data)
         
         do {
-            return try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: options)
+            return try JapxKit.Decoder.jsonObject(with: data, includeList: includeList, options: options)
         } catch {
             throw AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: error))
         }

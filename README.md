@@ -53,7 +53,7 @@ let jsonApiObject: [String: Any] = ...
 let simpleObject: [String: Any]
 
 do {
-    simpleObject = try Japx.Decoder.jsonObject(withJSONAPIObject: jsonApiObject)
+    simpleObject = try JapxKit.Decoder.jsonObject(withJSONAPIObject: jsonApiObject)
 } catch {
     print(error)
 }
@@ -253,7 +253,7 @@ For defining which nested object you want to parse, you can use `includeList` pa
 ```swift
 let includeList: String = "author.article.author"
 let jsonApiObject: [String: Any] = ...
-let recursiveObject: [String: Any] = try Japx.Decoder.jsonObject(with: jsonApiObject, includeList: includeList)
+let recursiveObject: [String: Any] = try JapxKit.Decoder.jsonObject(with: jsonApiObject, includeList: includeList)
 ```
 
 Parsed JSON:
