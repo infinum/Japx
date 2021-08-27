@@ -7,36 +7,36 @@
 
 import Foundation
 
-/// ObjC bride for `Japx.Decoder.Options`
+/// ObjC bride for `JapxKit.Decoder.Options`
 @objcMembers
 @objc(JAPXDecodingOptions)
 public class _JAPXOBjCDecodingOptions: NSObject {
     
     // MARK: - Private options reference
     
-    fileprivate var options: Japx.Decoder.Options = .default
+    fileprivate var options: JapxKit.Decoder.Options = .default
     
     // MARK: - Propery forwarding
     
-    /// ObjC bridge for [`Japx.Decoder.Options.parseNotIncludedRelationships`](x-source-tag://parseNotIncludedRelationships)
+    /// ObjC bridge for [`JapxKit.Decoder.Options.parseNotIncludedRelationships`](x-source-tag://parseNotIncludedRelationships)
     public var parseNotIncludedRelationships: Bool {
         get { options.parseNotIncludedRelationships }
         set { options.parseNotIncludedRelationships = newValue }
     }
 }
 
-/// ObjC bride for `Japx.Encoder.Options`
+/// ObjC bride for `JapxKit.Encoder.Options`
 @objcMembers
 @objc(JAPXEncodingOptions)
 public class _JAPXOBjCEncodingOptions: NSObject {
     
     // MARK: - Private options reference
     
-    fileprivate var options: Japx.Encoder.Options = .default
+    fileprivate var options: JapxKit.Encoder.Options = .default
     
     // MARK: - Propery forwarding
     
-    /// ObjC bridge for [`Japx.Encoder.Options.includeMetaToCommonNamespce`](x-source-tag://includeMetaToCommonNamespce)
+    /// ObjC bridge for [`JapxKit.Encoder.Options.includeMetaToCommonNamespce`](x-source-tag://includeMetaToCommonNamespce)
     public var includeMetaToCommonNamespce: Bool {
         get { options.includeMetaToCommonNamespce }
         set { options.includeMetaToCommonNamespce = newValue }
@@ -70,7 +70,7 @@ public class JAPXDecoder: NSObject {
     /// - returns: JSON object.
     public static func jsonObject(withJSONAPIObject object: Parameters, includeList: String?, options: _JAPXOBjCDecodingOptions) throws -> Parameters {
         do {
-            return try Japx.Decoder.jsonObject(withJSONAPIObject: object, includeList: includeList, options: options.options)
+            return try JapxKit.Decoder.jsonObject(withJSONAPIObject: object, includeList: includeList, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -85,7 +85,7 @@ public class JAPXDecoder: NSObject {
     /// - returns: JSON object as Data.
     public static func data(withJSONAPIObject object: Parameters, includeList: String?, options: _JAPXOBjCDecodingOptions) throws -> Data {
         do {
-            return try Japx.Decoder.data(withJSONAPIObject: object, includeList: includeList, options: options.options)
+            return try JapxKit.Decoder.data(withJSONAPIObject: object, includeList: includeList, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -100,7 +100,7 @@ public class JAPXDecoder: NSObject {
     /// - returns: JSON object.
     public static func jsonObject(withData data: Data, includeList: String?, options: _JAPXOBjCDecodingOptions) throws -> Parameters {
         do {
-            return try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: options.options)
+            return try JapxKit.Decoder.jsonObject(with: data, includeList: includeList, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -115,7 +115,7 @@ public class JAPXDecoder: NSObject {
     /// - returns: JSON object as Data.
     public static func data(withData data: Data, includeList: String?, options: _JAPXOBjCDecodingOptions) throws -> Data {
         do {
-            return try Japx.Decoder.data(with: data, includeList: includeList, options: options.options)
+            return try JapxKit.Decoder.data(with: data, includeList: includeList, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -146,7 +146,7 @@ public class JAPXEncoder: NSObject {
     /// - returns: JSON:API object.
     public static func encode(data: Data, additionalParams: Parameters?, options: _JAPXOBjCEncodingOptions) throws -> Parameters {
         do {
-            return try Japx.Encoder.encode(data: data, additionalParams: additionalParams, options: options.options)
+            return try JapxKit.Encoder.encode(data: data, additionalParams: additionalParams, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -161,7 +161,7 @@ public class JAPXEncoder: NSObject {
     /// - returns: JSON:API object.
     public static func encode(jsonParameter: Parameters, additionalParams: Parameters?, options: _JAPXOBjCEncodingOptions) throws -> Parameters {
         do {
-            return try Japx.Encoder.encode(json: jsonParameter, additionalParams: additionalParams, options: options.options)
+            return try JapxKit.Encoder.encode(json: jsonParameter, additionalParams: additionalParams, options: options.options)
         } catch {
             throw NSError(error: error)
         }
@@ -176,7 +176,7 @@ public class JAPXEncoder: NSObject {
     /// - returns: JSON:API object.
     public static func encode(jsonParameters: [Parameters], additionalParams: Parameters?, options: _JAPXOBjCEncodingOptions) throws -> Parameters {
         do {
-            return try Japx.Encoder.encode(json: jsonParameters, additionalParams: additionalParams, options: options.options)
+            return try JapxKit.Encoder.encode(json: jsonParameters, additionalParams: additionalParams, options: options.options)
         } catch {
             throw NSError(error: error)
         }

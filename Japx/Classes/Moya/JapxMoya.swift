@@ -29,17 +29,17 @@ extension Response {
     /// Maps data received from the signal into a JSON:API object.
     ///
     /// - parameter includeList: The include list for deserializing JSON:API relationships.
-    /// - parameter options: The options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    /// - parameter options: The options specifying how `JapxKit.Decoder` should decode JSON:API into JSON.
     /// - parameter failsOnEmptyData: A boolean value determining whether the mapping should fail if the data is empty.
     ///
     /// - returns: JSON:API object.
     public func mapJSONAPI(
         failsOnEmptyData: Bool = true,
         includeList: String? = nil,
-        options: Japx.Decoder.Options = .default
+        options: JapxKit.Decoder.Options = .default
     ) throws -> Any {
         do {
-            return try Japx.Decoder.jsonObject(with: data, includeList: includeList, options: options)
+            return try JapxKit.Decoder.jsonObject(with: data, includeList: includeList, options: options)
         } catch {
             if data.count < 1 && !failsOnEmptyData {
                 return NSNull()
