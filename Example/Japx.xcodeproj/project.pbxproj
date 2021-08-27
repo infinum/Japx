@@ -31,17 +31,17 @@
 		4F9A385D220099BC0063BEB3 /* DecoderTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A385C220099BC0063BEB3 /* DecoderTester.m */; };
 		4F9A385F220099C80063BEB3 /* EncoderTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A385E220099C80063BEB3 /* EncoderTester.m */; };
 		7A05C33B93679C56C0139B02 /* Pods_Japx_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB54DDB05A83058C0FABE091 /* Pods_Japx_Tests.framework */; };
-		84390F572536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F562536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F592536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F582536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F5B2536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F5A2536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F5D2536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F5C2536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F5F2536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F5E2536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F612536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F602536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F632536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F622536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F652536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F642536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F672536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F662536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F692536DDB9000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F682536DDB9000E2704 /* SwiftPackageProductDependency */; };
-		84390F6B2536DDBA000E2704 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F6A2536DDBA000E2704 /* SwiftPackageProductDependency */; };
+		84390F572536DDB9000E2704 /* JapxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F562536DDB9000E2704 /* JapxAlamofire */; };
+		84390F592536DDB9000E2704 /* JapxCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F582536DDB9000E2704 /* JapxCodable */; };
+		84390F5B2536DDB9000E2704 /* JapxCodableAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F5A2536DDB9000E2704 /* JapxCodableAlamofire */; };
+		84390F5D2536DDB9000E2704 /* JapxCodableMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F5C2536DDB9000E2704 /* JapxCodableMoya */; };
+		84390F5F2536DDB9000E2704 /* JapxCore in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F5E2536DDB9000E2704 /* JapxCore */; };
+		84390F612536DDB9000E2704 /* JapxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F602536DDB9000E2704 /* JapxMoya */; };
+		84390F632536DDB9000E2704 /* JapxObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F622536DDB9000E2704 /* JapxObjC */; };
+		84390F652536DDB9000E2704 /* JapxRxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F642536DDB9000E2704 /* JapxRxAlamofire */; };
+		84390F672536DDB9000E2704 /* JapxRxCodableAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F662536DDB9000E2704 /* JapxRxCodableAlamofire */; };
+		84390F692536DDB9000E2704 /* JapxRxCodableMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F682536DDB9000E2704 /* JapxRxCodableMoya */; };
+		84390F6B2536DDBA000E2704 /* JapxRxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 84390F6A2536DDBA000E2704 /* JapxRxMoya */; };
 		844462B62535DC06006E9A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FA420202CA35D00399CC7 /* AppDelegate.swift */; };
 		844462B72535DC06006E9A70 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FA416202CA35D00399CC7 /* ResultViewController.swift */; };
 		844462B82535DC06006E9A70 /* DecoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FA417202CA35D00399CC7 /* DecoderViewController.swift */; };
@@ -191,17 +191,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84390F5B2536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F612536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F692536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F592536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F5F2536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F672536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F652536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F6B2536DDBA000E2704 /* BuildFile in Frameworks */,
-				84390F632536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F5D2536DDB9000E2704 /* BuildFile in Frameworks */,
-				84390F572536DDB9000E2704 /* BuildFile in Frameworks */,
+				84390F5B2536DDB9000E2704 /* JapxCodableAlamofire in Frameworks */,
+				84390F612536DDB9000E2704 /* JapxMoya in Frameworks */,
+				84390F692536DDB9000E2704 /* JapxRxCodableMoya in Frameworks */,
+				84390F592536DDB9000E2704 /* JapxCodable in Frameworks */,
+				84390F5F2536DDB9000E2704 /* JapxCore in Frameworks */,
+				84390F672536DDB9000E2704 /* JapxRxCodableAlamofire in Frameworks */,
+				84390F652536DDB9000E2704 /* JapxRxAlamofire in Frameworks */,
+				84390F6B2536DDBA000E2704 /* JapxRxMoya in Frameworks */,
+				84390F632536DDB9000E2704 /* JapxObjC in Frameworks */,
+				84390F5D2536DDB9000E2704 /* JapxCodableMoya in Frameworks */,
+				84390F572536DDB9000E2704 /* JapxAlamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,17 +534,17 @@
 			);
 			name = "Japx_Example-SPM";
 			packageProductDependencies = (
-				84390F562536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F582536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F5A2536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F5C2536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F5E2536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F602536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F622536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F642536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F662536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F682536DDB9000E2704 /* SwiftPackageProductDependency */,
-				84390F6A2536DDBA000E2704 /* SwiftPackageProductDependency */,
+				84390F562536DDB9000E2704 /* JapxAlamofire */,
+				84390F582536DDB9000E2704 /* JapxCodable */,
+				84390F5A2536DDB9000E2704 /* JapxCodableAlamofire */,
+				84390F5C2536DDB9000E2704 /* JapxCodableMoya */,
+				84390F5E2536DDB9000E2704 /* JapxCore */,
+				84390F602536DDB9000E2704 /* JapxMoya */,
+				84390F622536DDB9000E2704 /* JapxObjC */,
+				84390F642536DDB9000E2704 /* JapxRxAlamofire */,
+				84390F662536DDB9000E2704 /* JapxRxCodableAlamofire */,
+				84390F682536DDB9000E2704 /* JapxRxCodableMoya */,
+				84390F6A2536DDBA000E2704 /* JapxRxMoya */,
 			);
 			productName = Japx;
 			productReference = 844462E22535DC06006E9A70 /* Japx_Example-SPM.app */;
@@ -689,12 +689,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Japx_Example/Pods-Japx_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Japx_Example/Pods-Japx_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Japx/Japx.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Japx_Example/Pods-Japx_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Japx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -750,12 +757,15 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Japx_Tests/Pods-Japx_Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1100,47 +1110,47 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		84390F562536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F562536DDB9000E2704 /* JapxAlamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxAlamofire;
 		};
-		84390F582536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F582536DDB9000E2704 /* JapxCodable */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxCodable;
 		};
-		84390F5A2536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F5A2536DDB9000E2704 /* JapxCodableAlamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxCodableAlamofire;
 		};
-		84390F5C2536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F5C2536DDB9000E2704 /* JapxCodableMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxCodableMoya;
 		};
-		84390F5E2536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F5E2536DDB9000E2704 /* JapxCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxCore;
 		};
-		84390F602536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F602536DDB9000E2704 /* JapxMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxMoya;
 		};
-		84390F622536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F622536DDB9000E2704 /* JapxObjC */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxObjC;
 		};
-		84390F642536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F642536DDB9000E2704 /* JapxRxAlamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxRxAlamofire;
 		};
-		84390F662536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F662536DDB9000E2704 /* JapxRxCodableAlamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxRxCodableAlamofire;
 		};
-		84390F682536DDB9000E2704 /* SwiftPackageProductDependency */ = {
+		84390F682536DDB9000E2704 /* JapxRxCodableMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxRxCodableMoya;
 		};
-		84390F6A2536DDBA000E2704 /* SwiftPackageProductDependency */ = {
+		84390F6A2536DDBA000E2704 /* JapxRxMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JapxRxMoya;
 		};
