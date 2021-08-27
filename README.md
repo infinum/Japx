@@ -467,7 +467,7 @@ You can find those convinience extensions here:
 
 Example project of Japx networking using Codable and Alamofire can be found in [Nuts And Bolts repository][12] with commonly used code. [Example][13] will cover how to handle basic CRUD (Create, Read, Update, Delete) operations with Japx and JSON:API format. To run the example, clone the [repository][12], open the `Catalog.xcworkspace`, run Catalog app and navigate to the Japx Networking section.
 
-In this repository there is also simple example project, to run it clone the repository, and run `pod install` from the Example directory first.Also include an integration with Swift Package manager
+In this repository there is also simple example project, to run it clone the repository, and run `pod install` from the Example directory first. Integration with Swift Package manager is also included in the Example directory.
 
 ## Authors
 

@@ -25,9 +25,6 @@ let package = Package(
             name: "JapxMoya",
             targets: ["JapxMoya"]),
         .library(
-            name: "JapxObjC",
-            targets: ["JapxObjC"]),
-        .library(
             name: "JapxRxAlamofire",
             targets: ["JapxRxAlamofire"]),
         .library(
