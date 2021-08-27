@@ -13,6 +13,7 @@ struct PrettyPrint {
     
     static func prettyPrintJson(data: Parameters) -> String {
         let dataData = try! JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+        
         return String(data: dataData, encoding: .utf8)!
     }
     
