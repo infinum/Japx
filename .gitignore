@@ -47,7 +47,6 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-Pods/
 
 ## Other
 *.moved-aside
@@ -61,7 +60,7 @@ Pods/
 *.dSYM
 
 # CocoaPods - Refactored to standalone file
-
+# Pods/
 
 # Carthage - Refactored to standalone file
 
