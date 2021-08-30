@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Japx
+import JapxRxMoya
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

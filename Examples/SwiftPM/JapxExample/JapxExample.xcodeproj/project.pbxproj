@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A503C3726DD0EDC0087C073 /* JapxRxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A503C3626DD0EDC0087C073 /* JapxRxMoya */; };
 		0AE6C14326DD001600116DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14226DD001600116DE5 /* AppDelegate.swift */; };
 		0AE6C14526DD001600116DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14426DD001600116DE5 /* SceneDelegate.swift */; };
 		0AE6C14726DD001600116DE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14626DD001600116DE5 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A503C3726DD0EDC0087C073 /* JapxRxMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			);
 			name = JapxExample;
 			packageProductDependencies = (
+				0A503C3626DD0EDC0087C073 /* JapxRxMoya */,
 			);
 			productName = JapxExample;
 			productReference = 0AE6C13F26DD001600116DE5 /* JapxExample.app */;
@@ -113,6 +116,7 @@
 			);
 			mainGroup = 0AE6C13626DD001600116DE5;
 			packageReferences = (
+				0A503C3526DD0EDC0087C073 /* XCRemoteSwiftPackageReference "Japx" */,
 			);
 			productRefGroup = 0AE6C14026DD001600116DE5 /* Products */;
 			projectDirPath = "";
@@ -343,6 +347,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A503C3526DD0EDC0087C073 /* XCRemoteSwiftPackageReference "Japx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/infinum/Japx";
+			requirement = {
+				branch = "feature/project-structure-update";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A503C3626DD0EDC0087C073 /* JapxRxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A503C3526DD0EDC0087C073 /* XCRemoteSwiftPackageReference "Japx" */;
+			productName = JapxRxMoya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0AE6C13726DD001600116DE5 /* Project object */;
 }
