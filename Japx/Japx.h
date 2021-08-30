@@ -2,7 +2,7 @@
 //  Japx.h
 //  Japx
 //
-//  Created by Filip Gulan on 27.08.2021..
+//  Created by Filip Gulan on 30.08.2021..
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double JapxVersionNumber;
 FOUNDATION_EXPORT const unsigned char JapxVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Japx/PublicHeader.h>
-
-

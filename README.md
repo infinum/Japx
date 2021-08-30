@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/Japx.svg?style=flat)](http://cocoapods.org/pods/Japx)
 
 <p align="center">
-    <img src="japx-logo-new.png" width="300" max-width="50%" alt="Japx"/>
+    <img src="img/japx-logo.png" width="300" max-width="50%" alt="Japx"/>
 </p>
 
 Lightweight [JSON:API][1] parser that flattens complex [JSON:API][1] structure and turns it into simple JSON and vice versa.
@@ -477,7 +477,7 @@ In this repository there is also simple example project, to run it clone the rep
 Maintained by [Infinum][9]
 
 <p align="center">
-    <img src="infinum-logo.png" width="300" max-width="70%" alt="Infinum"/>
+    <img src="img/infinum-logo.png" width="300" max-width="70%" alt="Infinum"/>
 </p>
 
 ## License

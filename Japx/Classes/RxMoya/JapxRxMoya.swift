@@ -5,9 +5,11 @@
 //  Created by Vlaho Poluta on 25/01/2018.
 //
 
+#if canImport(Moya) && canImport(RxSwift)
+
+import Foundation
 import Moya
 import RxSwift
-import Foundation
 
 extension ObservableType where Element == Response {
 
@@ -50,3 +52,5 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
         }
     }
 }
+
+#endif

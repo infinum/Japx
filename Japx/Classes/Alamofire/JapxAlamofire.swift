@@ -5,8 +5,10 @@
 //  Created by Vlaho Poluta on 25/01/2018.
 //
 
-import Alamofire
+#if canImport(Alamofire)
+
 import Foundation
+import Alamofire
 
 /// `JapxAlamofireError` is the error type returned by JapxAlamofire subspec.
 public enum JapxAlamofireError: Error {
@@ -112,3 +114,5 @@ public final class JSONAPIResponseSerializer: ResponseSerializer {
         }
     }
 }
+
+#endif

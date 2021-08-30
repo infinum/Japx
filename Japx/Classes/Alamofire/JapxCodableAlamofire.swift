@@ -5,8 +5,10 @@
 //  Created by Vlaho Poluta on 25/01/2018.
 //
 
-import Alamofire
+#if canImport(Alamofire)
+
 import Foundation
+import Alamofire
 
 extension DataRequest {
     
@@ -108,3 +110,5 @@ public final class DecodableJSONAPIResponseSerializer<T: Decodable>: ResponseSer
         }
     }
 }
+
+#endif

@@ -5,8 +5,10 @@
 //  Created by Vlaho Poluta on 25/01/2018.
 //
 
-import Moya
+#if canImport(Moya)
+
 import Foundation
+import Moya
 
 extension Response {
     
@@ -46,3 +48,5 @@ extension Response {
         }
     }
 }
+
+#endif

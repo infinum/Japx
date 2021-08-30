@@ -5,9 +5,11 @@
 //  Created by Vlaho Poluta on 25/01/2018.
 //
 
+#if canImport(Alamofire) && canImport(RxSwift)
+
+import Foundation
 import RxSwift
 import Alamofire
-import Foundation
 
 /// Extension to add `Reactive` capabilities to `DataRequest`
 extension DataRequest: ReactiveCompatible {}
@@ -74,3 +76,5 @@ extension Reactive where Base: DownloadRequest {
         }
     }
 }
+
+#endif
