@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1FEB4826DD058C004A0C6F /* Japx.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6C0F426DCF62500116DE5 /* Japx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A1FEB5026DD058C004A0C6F /* JapxCodableAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE426DCD2860016B4F7 /* JapxCodableAlamofire.swift */; };
+		0A1FEB5526DD058C004A0C6F /* JapxAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE326DCD2860016B4F7 /* JapxAlamofire.swift */; };
+		0A1FEB5F26DD058D004A0C6F /* Japx.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6C0F426DCF62500116DE5 /* Japx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A1FEB6226DD058D004A0C6F /* JapxRxCodableAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE026DCD2860016B4F7 /* JapxRxCodableAlamofire.swift */; };
+		0A1FEB6A26DD058D004A0C6F /* JapxRxAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE126DCD2860016B4F7 /* JapxRxAlamofire.swift */; };
+		0A1FEB7626DD058E004A0C6F /* Japx.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6C0F426DCF62500116DE5 /* Japx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A1FEB7B26DD058E004A0C6F /* JapxMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CDE26DCD2860016B4F7 /* JapxMoya.swift */; };
+		0A1FEB7C26DD058E004A0C6F /* JapxCodableMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CDD26DCD2860016B4F7 /* JapxCodableMoya.swift */; };
+		0A1FEB8D26DD05B0004A0C6F /* Japx.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6C0F426DCF62500116DE5 /* Japx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A1FEB9726DD05B0004A0C6F /* JapxRxCodableMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CEA26DCD2860016B4F7 /* JapxRxCodableMoya.swift */; };
+		0A1FEB9926DD05B0004A0C6F /* JapxRxMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE926DCD2860016B4F7 /* JapxRxMoya.swift */; };
 		0A634F2D26D92CC80026E01D /* SimpleEncoding-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0426D92CC80026E01D /* SimpleEncoding-JsonApi.json */; };
 		0A634F2E26D92CC80026E01D /* SimpleEncoding-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0526D92CC80026E01D /* SimpleEncoding-Json.json */; };
 		0A634F2F26D92CC80026E01D /* ExtraParams-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0726D92CC80026E01D /* ExtraParams-Json.json */; };
@@ -35,6 +47,12 @@
 		0A634F4626D92CC80026E01D /* MissingRelationshipObjectNull-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F2926D92CC80026E01D /* MissingRelationshipObjectNull-Json.json */; };
 		0A634F4726D92CC80026E01D /* ArticlePerson-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F2B26D92CC80026E01D /* ArticlePerson-Json.json */; };
 		0A634F4826D92CC80026E01D /* ArticlePerson-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F2C26D92CC80026E01D /* ArticlePerson-JsonApi.json */; };
+		0AE4B03426DD07930097AB5A /* Japx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE6C0F226DCF62500116DE5 /* Japx.framework */; };
+		0AE4B03926DD07990097AB5A /* JapxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1FEB5B26DD058C004A0C6F /* JapxAlamofire.framework */; };
+		0AE4B03D26DD07990097AB5A /* Japx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE6C0F226DCF62500116DE5 /* Japx.framework */; };
+		0AE4B04226DD07AD0097AB5A /* Japx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE6C0F226DCF62500116DE5 /* Japx.framework */; };
+		0AE4B04726DD07B70097AB5A /* Japx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE6C0F226DCF62500116DE5 /* Japx.framework */; };
+		0AE4B04B26DD07B70097AB5A /* JapxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1FEB8926DD058E004A0C6F /* JapxMoya.framework */; };
 		0AE6C0E326DCF60100116DE5 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C0D726DCF60100116DE5 /* ResultViewController.swift */; };
 		0AE6C0E426DCF60100116DE5 /* DecoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C0D826DCF60100116DE5 /* DecoderViewController.swift */; };
 		0AE6C0E526DCF60100116DE5 /* EncoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C0D926DCF60100116DE5 /* EncoderViewController.swift */; };
@@ -49,16 +67,8 @@
 		0AE6C0FB26DCF62F00116DE5 /* JapxCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE726DCD2860016B4F7 /* JapxCodable.swift */; };
 		0AE6C0FD26DCF66A00116DE5 /* Japx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE6C0F226DCF62500116DE5 /* Japx.framework */; };
 		0AE6C0FE26DCF66A00116DE5 /* Japx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE6C0F226DCF62500116DE5 /* Japx.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0AE6C10426DCF6A400116DE5 /* JapxAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE326DCD2860016B4F7 /* JapxAlamofire.swift */; };
-		0AE6C10526DCF6A400116DE5 /* JapxCodableAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE426DCD2860016B4F7 /* JapxCodableAlamofire.swift */; };
 		0AE6C10C26DCF70C00116DE5 /* NSError+Japx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CED26DCD2860016B4F7 /* NSError+Japx.swift */; };
-		0AE6C10D26DCF70C00116DE5 /* JapxRxMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE926DCD2860016B4F7 /* JapxRxMoya.swift */; };
-		0AE6C10E26DCF70C00116DE5 /* JapxRxCodableMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CEA26DCD2860016B4F7 /* JapxRxCodableMoya.swift */; };
-		0AE6C10F26DCF70C00116DE5 /* JapxMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CDE26DCD2860016B4F7 /* JapxMoya.swift */; };
 		0AE6C11026DCF70C00116DE5 /* JapxObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CEC26DCD2860016B4F7 /* JapxObjC.swift */; };
-		0AE6C11126DCF70C00116DE5 /* JapxCodableMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CDD26DCD2860016B4F7 /* JapxCodableMoya.swift */; };
-		0AE6C11226DCF70C00116DE5 /* JapxRxCodableAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE026DCD2860016B4F7 /* JapxRxCodableAlamofire.swift */; };
-		0AE6C11326DCF70C00116DE5 /* JapxRxAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A557CE126DCD2860016B4F7 /* JapxRxAlamofire.swift */; };
 		4F9A385D220099BC0063BEB3 /* DecoderTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A385C220099BC0063BEB3 /* DecoderTester.m */; };
 		4F9A385F220099C80063BEB3 /* EncoderTester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A385E220099C80063BEB3 /* EncoderTester.m */; };
 		E18794E520189E8B00E472C4 /* DecoderTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18794E120189D8000E472C4 /* DecoderTester.swift */; };
@@ -67,6 +77,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0AE4B03626DD07930097AB5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AE6C0F126DCF62500116DE5;
+			remoteInfo = Japx;
+		};
+		0AE4B03B26DD07990097AB5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A1FEB4626DD058C004A0C6F;
+			remoteInfo = AlamofireJapx;
+		};
+		0AE4B03F26DD07990097AB5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AE6C0F126DCF62500116DE5;
+			remoteInfo = Japx;
+		};
+		0AE4B04426DD07AD0097AB5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AE6C0F126DCF62500116DE5;
+			remoteInfo = Japx;
+		};
+		0AE4B04926DD07B70097AB5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AE6C0F126DCF62500116DE5;
+			remoteInfo = Japx;
+		};
+		0AE4B04D26DD07B70097AB5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A1FEB7426DD058E004A0C6F;
+			remoteInfo = MoyaJapx;
+		};
 		0AE6C0FF26DCF66A00116DE5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
@@ -100,6 +152,10 @@
 /* Begin PBXFileReference section */
 		0A0A79F226D92AA400478C22 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0A0A79F326D92AB300478C22 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0A1FEB5B26DD058C004A0C6F /* JapxAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JapxAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A1FEB7226DD058D004A0C6F /* JapxRxAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JapxRxAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A1FEB8926DD058E004A0C6F /* JapxMoya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JapxMoya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A1FEBA026DD05B0004A0C6F /* JapxRxMoya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JapxRxMoya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A557CDD26DCD2860016B4F7 /* JapxCodableMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCodableMoya.swift; sourceTree = "<group>"; };
 		0A557CDE26DCD2860016B4F7 /* JapxMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxMoya.swift; sourceTree = "<group>"; };
 		0A557CE026DCD2860016B4F7 /* JapxRxCodableAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxCodableAlamofire.swift; sourceTree = "<group>"; };
@@ -170,6 +226,40 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A1FEB5626DD058C004A0C6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE4B03426DD07930097AB5A /* Japx.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB6D26DD058D004A0C6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE4B03926DD07990097AB5A /* JapxAlamofire.framework in Frameworks */,
+				0AE4B03D26DD07990097AB5A /* Japx.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB8426DD058E004A0C6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE4B04226DD07AD0097AB5A /* Japx.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB9B26DD05B0004A0C6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE4B04726DD07B70097AB5A /* Japx.framework in Frameworks */,
+				0AE4B04B26DD07B70097AB5A /* JapxMoya.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AE6C0EF26DCF62500116DE5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,6 +607,10 @@
 				607FACD01AFB9204008FA782 /* Japx_Example.app */,
 				607FACE51AFB9204008FA782 /* Japx_Tests.xctest */,
 				0AE6C0F226DCF62500116DE5 /* Japx.framework */,
+				0A1FEB5B26DD058C004A0C6F /* JapxAlamofire.framework */,
+				0A1FEB7226DD058D004A0C6F /* JapxRxAlamofire.framework */,
+				0A1FEB8926DD058E004A0C6F /* JapxMoya.framework */,
+				0A1FEBA026DD05B0004A0C6F /* JapxRxMoya.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -553,6 +647,38 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0A1FEB4726DD058C004A0C6F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1FEB4826DD058C004A0C6F /* Japx.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB5E26DD058D004A0C6F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1FEB5F26DD058D004A0C6F /* Japx.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB7526DD058E004A0C6F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1FEB7626DD058E004A0C6F /* Japx.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB8C26DD05B0004A0C6F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1FEB8D26DD05B0004A0C6F /* Japx.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AE6C0ED26DCF62500116DE5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,6 +690,84 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0A1FEB4626DD058C004A0C6F /* JapxAlamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A1FEB5826DD058C004A0C6F /* Build configuration list for PBXNativeTarget "JapxAlamofire" */;
+			buildPhases = (
+				0A1FEB4726DD058C004A0C6F /* Headers */,
+				0A1FEB4926DD058C004A0C6F /* Sources */,
+				0A1FEB5626DD058C004A0C6F /* Frameworks */,
+				0A1FEB5726DD058C004A0C6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0AE4B03726DD07930097AB5A /* PBXTargetDependency */,
+			);
+			name = JapxAlamofire;
+			productName = Japx;
+			productReference = 0A1FEB5B26DD058C004A0C6F /* JapxAlamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0A1FEB5D26DD058D004A0C6F /* JapxRxAlamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A1FEB6F26DD058D004A0C6F /* Build configuration list for PBXNativeTarget "JapxRxAlamofire" */;
+			buildPhases = (
+				0A1FEB5E26DD058D004A0C6F /* Headers */,
+				0A1FEB6026DD058D004A0C6F /* Sources */,
+				0A1FEB6D26DD058D004A0C6F /* Frameworks */,
+				0A1FEB6E26DD058D004A0C6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0AE4B03C26DD07990097AB5A /* PBXTargetDependency */,
+				0AE4B04026DD07990097AB5A /* PBXTargetDependency */,
+			);
+			name = JapxRxAlamofire;
+			productName = Japx;
+			productReference = 0A1FEB7226DD058D004A0C6F /* JapxRxAlamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0A1FEB7426DD058E004A0C6F /* JapxMoya */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A1FEB8626DD058E004A0C6F /* Build configuration list for PBXNativeTarget "JapxMoya" */;
+			buildPhases = (
+				0A1FEB7526DD058E004A0C6F /* Headers */,
+				0A1FEB7726DD058E004A0C6F /* Sources */,
+				0A1FEB8426DD058E004A0C6F /* Frameworks */,
+				0A1FEB8526DD058E004A0C6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0AE4B04526DD07AD0097AB5A /* PBXTargetDependency */,
+			);
+			name = JapxMoya;
+			productName = Japx;
+			productReference = 0A1FEB8926DD058E004A0C6F /* JapxMoya.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0A1FEB8B26DD05B0004A0C6F /* JapxRxMoya */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A1FEB9D26DD05B0004A0C6F /* Build configuration list for PBXNativeTarget "JapxRxMoya" */;
+			buildPhases = (
+				0A1FEB8C26DD05B0004A0C6F /* Headers */,
+				0A1FEB8E26DD05B0004A0C6F /* Sources */,
+				0A1FEB9B26DD05B0004A0C6F /* Frameworks */,
+				0A1FEB9C26DD05B0004A0C6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0AE4B04A26DD07B70097AB5A /* PBXTargetDependency */,
+				0AE4B04E26DD07B70097AB5A /* PBXTargetDependency */,
+			);
+			name = JapxRxMoya;
+			productName = Japx;
+			productReference = 0A1FEBA026DD05B0004A0C6F /* JapxRxMoya.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		0AE6C0F126DCF62500116DE5 /* Japx */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AE6C0F726DCF62500116DE5 /* Build configuration list for PBXNativeTarget "Japx" */;
@@ -629,6 +833,18 @@
 				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					0A1FEB4626DD058C004A0C6F = {
+						ProvisioningStyle = Automatic;
+					};
+					0A1FEB5D26DD058D004A0C6F = {
+						ProvisioningStyle = Automatic;
+					};
+					0A1FEB7426DD058E004A0C6F = {
+						ProvisioningStyle = Automatic;
+					};
+					0A1FEB8B26DD05B0004A0C6F = {
+						ProvisioningStyle = Automatic;
+					};
 					0AE6C0F126DCF62500116DE5 = {
 						CreatedOnToolsVersion = 12.5;
 						ProvisioningStyle = Automatic;
@@ -662,11 +878,43 @@
 				607FACCF1AFB9204008FA782 /* Japx_Example */,
 				607FACE41AFB9204008FA782 /* Japx_Tests */,
 				0AE6C0F126DCF62500116DE5 /* Japx */,
+				0A1FEB4626DD058C004A0C6F /* JapxAlamofire */,
+				0A1FEB5D26DD058D004A0C6F /* JapxRxAlamofire */,
+				0A1FEB7426DD058E004A0C6F /* JapxMoya */,
+				0A1FEB8B26DD05B0004A0C6F /* JapxRxMoya */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0A1FEB5726DD058C004A0C6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB6E26DD058D004A0C6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB8526DD058E004A0C6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB9C26DD05B0004A0C6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AE6C0F026DCF62500116DE5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -722,22 +970,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A1FEB4926DD058C004A0C6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1FEB5026DD058C004A0C6F /* JapxCodableAlamofire.swift in Sources */,
+				0A1FEB5526DD058C004A0C6F /* JapxAlamofire.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB6026DD058D004A0C6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1FEB6226DD058D004A0C6F /* JapxRxCodableAlamofire.swift in Sources */,
+				0A1FEB6A26DD058D004A0C6F /* JapxRxAlamofire.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB7726DD058E004A0C6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1FEB7B26DD058E004A0C6F /* JapxMoya.swift in Sources */,
+				0A1FEB7C26DD058E004A0C6F /* JapxCodableMoya.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A1FEB8E26DD05B0004A0C6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1FEB9726DD05B0004A0C6F /* JapxRxCodableMoya.swift in Sources */,
+				0A1FEB9926DD05B0004A0C6F /* JapxRxMoya.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AE6C0EE26DCF62500116DE5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0AE6C0FA26DCF62F00116DE5 /* JapxCore.swift in Sources */,
-				0AE6C11226DCF70C00116DE5 /* JapxRxCodableAlamofire.swift in Sources */,
 				0AE6C0FB26DCF62F00116DE5 /* JapxCodable.swift in Sources */,
-				0AE6C10F26DCF70C00116DE5 /* JapxMoya.swift in Sources */,
-				0AE6C11126DCF70C00116DE5 /* JapxCodableMoya.swift in Sources */,
 				0AE6C10C26DCF70C00116DE5 /* NSError+Japx.swift in Sources */,
-				0AE6C10526DCF6A400116DE5 /* JapxCodableAlamofire.swift in Sources */,
 				0AE6C11026DCF70C00116DE5 /* JapxObjC.swift in Sources */,
-				0AE6C10E26DCF70C00116DE5 /* JapxRxCodableMoya.swift in Sources */,
-				0AE6C11326DCF70C00116DE5 /* JapxRxAlamofire.swift in Sources */,
-				0AE6C10D26DCF70C00116DE5 /* JapxRxMoya.swift in Sources */,
-				0AE6C10426DCF6A400116DE5 /* JapxAlamofire.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +1045,36 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0AE4B03726DD07930097AB5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AE6C0F126DCF62500116DE5 /* Japx */;
+			targetProxy = 0AE4B03626DD07930097AB5A /* PBXContainerItemProxy */;
+		};
+		0AE4B03C26DD07990097AB5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A1FEB4626DD058C004A0C6F /* JapxAlamofire */;
+			targetProxy = 0AE4B03B26DD07990097AB5A /* PBXContainerItemProxy */;
+		};
+		0AE4B04026DD07990097AB5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AE6C0F126DCF62500116DE5 /* Japx */;
+			targetProxy = 0AE4B03F26DD07990097AB5A /* PBXContainerItemProxy */;
+		};
+		0AE4B04526DD07AD0097AB5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AE6C0F126DCF62500116DE5 /* Japx */;
+			targetProxy = 0AE4B04426DD07AD0097AB5A /* PBXContainerItemProxy */;
+		};
+		0AE4B04A26DD07B70097AB5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AE6C0F126DCF62500116DE5 /* Japx */;
+			targetProxy = 0AE4B04926DD07B70097AB5A /* PBXContainerItemProxy */;
+		};
+		0AE4B04E26DD07B70097AB5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A1FEB7426DD058E004A0C6F /* JapxMoya */;
+			targetProxy = 0AE4B04D26DD07B70097AB5A /* PBXContainerItemProxy */;
+		};
 		0AE6C10026DCF66A00116DE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0AE6C0F126DCF62500116DE5 /* Japx */;
@@ -801,9 +1107,10 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0AE6C0F826DCF62500116DE5 /* Debug */ = {
+		0A1FEB5926DD058C004A0C6F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -820,12 +1127,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Japx/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.Japx;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.AlamofireJapx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
@@ -835,9 +1141,10 @@
 			};
 			name = Debug;
 		};
-		0AE6C0F926DCF62500116DE5 /* Release */ = {
+		0A1FEB5A26DD058C004A0C6F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -853,10 +1160,271 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Japx/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.Japx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.AlamofireJapx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0A1FEB7026DD058D004A0C6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Japx/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.RxAlamofireJapx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0A1FEB7126DD058D004A0C6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Japx/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.RxAlamofireJapx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0A1FEB8726DD058E004A0C6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Japx/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.MoyaJapx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0A1FEB8826DD058E004A0C6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Japx/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.MoyaJapx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0A1FEB9E26DD05B0004A0C6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Japx/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.RxMoyaJapx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0A1FEB9F26DD05B0004A0C6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Japx/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.RxMoyaJapx;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0AE6C0F826DCF62500116DE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Japx/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.Core;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0AE6C0F926DCF62500116DE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Japx/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.Japx.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1045,6 +1613,42 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A1FEB5826DD058C004A0C6F /* Build configuration list for PBXNativeTarget "JapxAlamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A1FEB5926DD058C004A0C6F /* Debug */,
+				0A1FEB5A26DD058C004A0C6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A1FEB6F26DD058D004A0C6F /* Build configuration list for PBXNativeTarget "JapxRxAlamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A1FEB7026DD058D004A0C6F /* Debug */,
+				0A1FEB7126DD058D004A0C6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A1FEB8626DD058E004A0C6F /* Build configuration list for PBXNativeTarget "JapxMoya" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A1FEB8726DD058E004A0C6F /* Debug */,
+				0A1FEB8826DD058E004A0C6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A1FEB9D26DD05B0004A0C6F /* Build configuration list for PBXNativeTarget "JapxRxMoya" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A1FEB9E26DD05B0004A0C6F /* Debug */,
+				0A1FEB9F26DD05B0004A0C6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0AE6C0F726DCF62500116DE5 /* Build configuration list for PBXNativeTarget "Japx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -10,6 +10,10 @@
 import Foundation
 import Alamofire
 
+#if !COCOAPODS
+import Japx
+#endif
+
 /// `JapxAlamofireError` is the error type returned by JapxAlamofire subspec.
 public enum JapxAlamofireError: Error {
     

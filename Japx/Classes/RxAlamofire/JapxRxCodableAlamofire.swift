@@ -11,6 +11,11 @@ import Foundation
 import RxSwift
 import Alamofire
 
+#if !COCOAPODS
+import Japx
+import JapxAlamofire
+#endif
+
 extension Reactive where Base: DataRequest {
     
     /// Converts a parsed and decoded JSON:API object request to `Single` of requested type.
@@ -35,7 +40,7 @@ extension Reactive where Base: DataRequest {
             ) { (response: AFDataResponse<T>) in
                 switch response.result {
                 case .success(let value): single(.success(value))
-                case .failure(let error): single(.error(error))
+                case .failure(let error): single(.failure(error))
                 }
             }
             return Disposables.create { request?.cancel() }
@@ -68,7 +73,7 @@ extension Reactive where Base: DownloadRequest {
             ) { (response: AFDownloadResponse<T>) in
                 switch response.result {
                 case .success(let value): single(.success(value))
-                case .failure(let error): single(.error(error))
+                case .failure(let error): single(.failure(error))
                 }
             }
             return Disposables.create { request?.cancel() }

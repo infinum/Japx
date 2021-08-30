@@ -11,6 +11,11 @@ import Foundation
 import RxSwift
 import Alamofire
 
+#if !COCOAPODS
+import Japx
+import JapxAlamofire
+#endif
+
 /// Extension to add `Reactive` capabilities to `DataRequest`
 extension DataRequest: ReactiveCompatible {}
 
@@ -39,7 +44,7 @@ extension Reactive where Base: DataRequest {
             ) { (response) in
                 switch response.result {
                 case .success(let value): single(.success(value))
-                case .failure(let error): single(.error(error))
+                case .failure(let error): single(.failure(error))
                 }
             }
             return Disposables.create { request?.cancel() }
@@ -69,7 +74,7 @@ extension Reactive where Base: DownloadRequest {
             ) { (response) in
                 switch response.result {
                 case .success(let value): single(.success(value))
-                case .failure(let error): single(.error(error))
+                case .failure(let error): single(.failure(error))
                 }
             }
             return Disposables.create { request?.cancel() }
