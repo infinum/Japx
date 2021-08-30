@@ -60,7 +60,7 @@ xcuserdata/
 *.dSYM
 
 # CocoaPods - Refactored to standalone file
-# Pods/
+Pods/
 
 # Carthage - Refactored to standalone file
 

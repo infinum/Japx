@@ -1,5 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-JapxExample/Pods-JapxExample-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/Japx/Japx.framework
-${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
-${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
