@@ -31,15 +31,6 @@
       "frameworks": "Foundation"
     },
     {
-      "name": "Codable",
-      "source_files": "Japx/Classes/Codable/**/*",
-      "dependencies": {
-        "Japx/Core": [
-
-        ]
-      }
-    },
-    {
       "name": "Alamofire",
       "source_files": "Japx/Classes/Alamofire/**/*",
       "dependencies": {
@@ -64,30 +55,6 @@
       }
     },
     {
-      "name": "CodableAlamofire",
-      "source_files": "Japx/Classes/CodableAlamofire/**/*",
-      "dependencies": {
-        "Japx/Alamofire": [
-
-        ],
-        "Japx/Codable": [
-
-        ]
-      }
-    },
-    {
-      "name": "RxCodableAlamofire",
-      "source_files": "Japx/Classes/RxCodableAlamofire/**/*",
-      "dependencies": {
-        "Japx/CodableAlamofire": [
-
-        ],
-        "Japx/RxAlamofire": [
-
-        ]
-      }
-    },
-    {
       "name": "Moya",
       "source_files": "Japx/Classes/Moya/**/*",
       "dependencies": {
@@ -107,36 +74,6 @@
 
         ],
         "Moya/RxSwift": [
-
-        ]
-      }
-    },
-    {
-      "name": "CodableMoya",
-      "source_files": "Japx/Classes/CodableMoya/**/*",
-      "dependencies": {
-        "Japx/Core": [
-
-        ],
-        "Japx/Codable": [
-
-        ],
-        "Japx/Moya": [
-
-        ]
-      }
-    },
-    {
-      "name": "RxCodableMoya",
-      "source_files": "Japx/Classes/RxCodableMoya/**/*",
-      "dependencies": {
-        "Japx/Core": [
-
-        ],
-        "Japx/CodableMoya": [
-
-        ],
-        "Japx/RxMoya": [
 
         ]
       }

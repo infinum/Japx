@@ -3,8 +3,8 @@ use_frameworks!
 
 target 'Japx_Example' do
   pod 'Japx/ObjC', :path => './'
-  pod 'Japx/RxCodableAlamofire', :path => './'
-  pod 'Japx/RxCodableMoya', :path => './'
+  pod 'Japx/RxAlamofire', :path => './'
+  pod 'Japx/RxMoya', :path => './'
 
   target 'Japx_Tests' do
     inherit! :search_paths

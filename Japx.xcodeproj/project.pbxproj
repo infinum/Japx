@@ -76,6 +76,20 @@
 		0A0A79E726D92A8D00478C22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A0A79F226D92AA400478C22 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0A0A79F326D92AB300478C22 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0A557CDD26DCD2860016B4F7 /* JapxCodableMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCodableMoya.swift; sourceTree = "<group>"; };
+		0A557CDE26DCD2860016B4F7 /* JapxMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxMoya.swift; sourceTree = "<group>"; };
+		0A557CE026DCD2860016B4F7 /* JapxRxCodableAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxCodableAlamofire.swift; sourceTree = "<group>"; };
+		0A557CE126DCD2860016B4F7 /* JapxRxAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxAlamofire.swift; sourceTree = "<group>"; };
+		0A557CE326DCD2860016B4F7 /* JapxAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxAlamofire.swift; sourceTree = "<group>"; };
+		0A557CE426DCD2860016B4F7 /* JapxCodableAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCodableAlamofire.swift; sourceTree = "<group>"; };
+		0A557CE626DCD2860016B4F7 /* JapxCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCore.swift; sourceTree = "<group>"; };
+		0A557CE726DCD2860016B4F7 /* JapxCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCodable.swift; sourceTree = "<group>"; };
+		0A557CE926DCD2860016B4F7 /* JapxRxMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxMoya.swift; sourceTree = "<group>"; };
+		0A557CEA26DCD2860016B4F7 /* JapxRxCodableMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxCodableMoya.swift; sourceTree = "<group>"; };
+		0A557CEC26DCD2860016B4F7 /* JapxObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxObjC.swift; sourceTree = "<group>"; };
+		0A557CED26DCD2860016B4F7 /* NSError+Japx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Japx.swift"; sourceTree = "<group>"; };
+		0A557CEE26DCD2860016B4F7 /* Japx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Japx.h; sourceTree = "<group>"; };
+		0A557CEF26DCD2860016B4F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A634F0426D92CC80026E01D /* SimpleEncoding-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SimpleEncoding-JsonApi.json"; sourceTree = "<group>"; };
 		0A634F0526D92CC80026E01D /* SimpleEncoding-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SimpleEncoding-Json.json"; sourceTree = "<group>"; };
 		0A634F0726D92CC80026E01D /* ExtraParams-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ExtraParams-Json.json"; sourceTree = "<group>"; };
@@ -104,18 +118,6 @@
 		0A634F2926D92CC80026E01D /* MissingRelationshipObjectNull-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "MissingRelationshipObjectNull-Json.json"; sourceTree = "<group>"; };
 		0A634F2B26D92CC80026E01D /* ArticlePerson-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ArticlePerson-Json.json"; sourceTree = "<group>"; };
 		0A634F2C26D92CC80026E01D /* ArticlePerson-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ArticlePerson-JsonApi.json"; sourceTree = "<group>"; };
-		0A634F4F26D92F5D0026E01D /* JapxRxCodableMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxCodableMoya.swift; sourceTree = "<group>"; };
-		0A634F5126D92F5D0026E01D /* JapxMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxMoya.swift; sourceTree = "<group>"; };
-		0A634F5326D92F5D0026E01D /* JapxRxAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxAlamofire.swift; sourceTree = "<group>"; };
-		0A634F5526D92F5D0026E01D /* JapxAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxAlamofire.swift; sourceTree = "<group>"; };
-		0A634F5726D92F5D0026E01D /* JapxCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCore.swift; sourceTree = "<group>"; };
-		0A634F5926D92F5D0026E01D /* JapxCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCodable.swift; sourceTree = "<group>"; };
-		0A634F5C26D92F5D0026E01D /* JapxCodableAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCodableAlamofire.swift; sourceTree = "<group>"; };
-		0A634F5E26D92F5D0026E01D /* JapxCodableMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxCodableMoya.swift; sourceTree = "<group>"; };
-		0A634F6026D92F5D0026E01D /* JapxRxCodableAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxCodableAlamofire.swift; sourceTree = "<group>"; };
-		0A634F6226D92F5D0026E01D /* JapxRxMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxRxMoya.swift; sourceTree = "<group>"; };
-		0A634F6426D92F5D0026E01D /* JapxObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxObjC.swift; sourceTree = "<group>"; };
-		0A634F6526D92F5D0026E01D /* NSError+Japx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Japx.swift"; sourceTree = "<group>"; };
 		0A634F6F26D92FA20026E01D /* Japx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Japx.h; sourceTree = "<group>"; };
 		0A634F7026D92FA20026E01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2802887F2EFB4FFDC9087F22 /* Pods-Japx_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Japx_Example.debug.xcconfig"; path = "Target Support Files/Pods-Japx_Example/Pods-Japx_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +172,83 @@
 				0A0A79E726D92A8D00478C22 /* Info.plist */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		0A557CDA26DCD2860016B4F7 /* Japx */ = {
+			isa = PBXGroup;
+			children = (
+				0A557CDB26DCD2860016B4F7 /* Classes */,
+				0A557CEE26DCD2860016B4F7 /* Japx.h */,
+				0A557CEF26DCD2860016B4F7 /* Info.plist */,
+			);
+			path = Japx;
+			sourceTree = "<group>";
+		};
+		0A557CDB26DCD2860016B4F7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0A557CDC26DCD2860016B4F7 /* Moya */,
+				0A557CDF26DCD2860016B4F7 /* RxAlamofire */,
+				0A557CE226DCD2860016B4F7 /* Alamofire */,
+				0A557CE526DCD2860016B4F7 /* Core */,
+				0A557CE826DCD2860016B4F7 /* RxMoya */,
+				0A557CEB26DCD2860016B4F7 /* ObjC */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0A557CDC26DCD2860016B4F7 /* Moya */ = {
+			isa = PBXGroup;
+			children = (
+				0A557CDD26DCD2860016B4F7 /* JapxCodableMoya.swift */,
+				0A557CDE26DCD2860016B4F7 /* JapxMoya.swift */,
+			);
+			path = Moya;
+			sourceTree = "<group>";
+		};
+		0A557CDF26DCD2860016B4F7 /* RxAlamofire */ = {
+			isa = PBXGroup;
+			children = (
+				0A557CE026DCD2860016B4F7 /* JapxRxCodableAlamofire.swift */,
+				0A557CE126DCD2860016B4F7 /* JapxRxAlamofire.swift */,
+			);
+			path = RxAlamofire;
+			sourceTree = "<group>";
+		};
+		0A557CE226DCD2860016B4F7 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				0A557CE326DCD2860016B4F7 /* JapxAlamofire.swift */,
+				0A557CE426DCD2860016B4F7 /* JapxCodableAlamofire.swift */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		0A557CE526DCD2860016B4F7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0A557CE626DCD2860016B4F7 /* JapxCore.swift */,
+				0A557CE726DCD2860016B4F7 /* JapxCodable.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0A557CE826DCD2860016B4F7 /* RxMoya */ = {
+			isa = PBXGroup;
+			children = (
+				0A557CE926DCD2860016B4F7 /* JapxRxMoya.swift */,
+				0A557CEA26DCD2860016B4F7 /* JapxRxCodableMoya.swift */,
+			);
+			path = RxMoya;
+			sourceTree = "<group>";
+		};
+		0A557CEB26DCD2860016B4F7 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				0A557CEC26DCD2860016B4F7 /* JapxObjC.swift */,
+				0A557CED26DCD2860016B4F7 /* NSError+Japx.swift */,
+			);
+			path = ObjC;
 			sourceTree = "<group>";
 		};
 		0A634F0126D92CC80026E01D /* Resources */ = {
@@ -327,121 +406,6 @@
 			path = ArticlePerson;
 			sourceTree = "<group>";
 		};
-		0A634F4C26D92F5D0026E01D /* Japx */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F4D26D92F5D0026E01D /* Classes */,
-			);
-			path = Japx;
-			sourceTree = "<group>";
-		};
-		0A634F4D26D92F5D0026E01D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F4E26D92F5D0026E01D /* RxCodableMoya */,
-				0A634F5026D92F5D0026E01D /* Moya */,
-				0A634F5226D92F5D0026E01D /* RxAlamofire */,
-				0A634F5426D92F5D0026E01D /* Alamofire */,
-				0A634F5626D92F5D0026E01D /* Core */,
-				0A634F5826D92F5D0026E01D /* Codable */,
-				0A634F5B26D92F5D0026E01D /* CodableAlamofire */,
-				0A634F5D26D92F5D0026E01D /* CodableMoya */,
-				0A634F5F26D92F5D0026E01D /* RxCodableAlamofire */,
-				0A634F6126D92F5D0026E01D /* RxMoya */,
-				0A634F6326D92F5D0026E01D /* ObjC */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		0A634F4E26D92F5D0026E01D /* RxCodableMoya */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F4F26D92F5D0026E01D /* JapxRxCodableMoya.swift */,
-			);
-			path = RxCodableMoya;
-			sourceTree = "<group>";
-		};
-		0A634F5026D92F5D0026E01D /* Moya */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F5126D92F5D0026E01D /* JapxMoya.swift */,
-			);
-			path = Moya;
-			sourceTree = "<group>";
-		};
-		0A634F5226D92F5D0026E01D /* RxAlamofire */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F5326D92F5D0026E01D /* JapxRxAlamofire.swift */,
-			);
-			path = RxAlamofire;
-			sourceTree = "<group>";
-		};
-		0A634F5426D92F5D0026E01D /* Alamofire */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F5526D92F5D0026E01D /* JapxAlamofire.swift */,
-			);
-			path = Alamofire;
-			sourceTree = "<group>";
-		};
-		0A634F5626D92F5D0026E01D /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F5726D92F5D0026E01D /* JapxCore.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		0A634F5826D92F5D0026E01D /* Codable */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F5926D92F5D0026E01D /* JapxCodable.swift */,
-			);
-			path = Codable;
-			sourceTree = "<group>";
-		};
-		0A634F5B26D92F5D0026E01D /* CodableAlamofire */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F5C26D92F5D0026E01D /* JapxCodableAlamofire.swift */,
-			);
-			path = CodableAlamofire;
-			sourceTree = "<group>";
-		};
-		0A634F5D26D92F5D0026E01D /* CodableMoya */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F5E26D92F5D0026E01D /* JapxCodableMoya.swift */,
-			);
-			path = CodableMoya;
-			sourceTree = "<group>";
-		};
-		0A634F5F26D92F5D0026E01D /* RxCodableAlamofire */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F6026D92F5D0026E01D /* JapxRxCodableAlamofire.swift */,
-			);
-			path = RxCodableAlamofire;
-			sourceTree = "<group>";
-		};
-		0A634F6126D92F5D0026E01D /* RxMoya */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F6226D92F5D0026E01D /* JapxRxMoya.swift */,
-			);
-			path = RxMoya;
-			sourceTree = "<group>";
-		};
-		0A634F6326D92F5D0026E01D /* ObjC */ = {
-			isa = PBXGroup;
-			children = (
-				0A634F6426D92F5D0026E01D /* JapxObjC.swift */,
-				0A634F6526D92F5D0026E01D /* NSError+Japx.swift */,
-			);
-			path = ObjC;
-			sourceTree = "<group>";
-		};
 		0A634F6E26D92FA20026E01D /* Japx */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,7 +446,7 @@
 			children = (
 				0A0A79F226D92AA400478C22 /* README.md */,
 				0A0A79F326D92AB300478C22 /* LICENSE */,
-				0A634F4C26D92F5D0026E01D /* Japx */,
+				0A557CDA26DCD2860016B4F7 /* Japx */,
 				0A0A79DB26D92A8D00478C22 /* Example */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
