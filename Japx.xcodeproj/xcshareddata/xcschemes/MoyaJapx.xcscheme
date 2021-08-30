@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A1FEB7426DD058E004A0C6F"
-               BuildableName = "MoyaJapx.framework"
-               BlueprintName = "MoyaJapx"
+               BuildableName = "JapxMoya.framework"
+               BlueprintName = "JapxMoya"
                ReferencedContainer = "container:Japx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A1FEB7426DD058E004A0C6F"
-            BuildableName = "MoyaJapx.framework"
-            BlueprintName = "MoyaJapx"
+            BuildableName = "JapxMoya.framework"
+            BlueprintName = "JapxMoya"
             ReferencedContainer = "container:Japx.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

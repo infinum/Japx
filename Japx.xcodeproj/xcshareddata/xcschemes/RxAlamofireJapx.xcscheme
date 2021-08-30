@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A1FEB5D26DD058D004A0C6F"
-               BuildableName = "RxAlamofireJapx.framework"
-               BlueprintName = "RxAlamofireJapx"
+               BuildableName = "JapxRxAlamofire.framework"
+               BlueprintName = "JapxRxAlamofire"
                ReferencedContainer = "container:Japx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A1FEB5D26DD058D004A0C6F"
-            BuildableName = "RxAlamofireJapx.framework"
-            BlueprintName = "RxAlamofireJapx"
+            BuildableName = "JapxRxAlamofire.framework"
+            BlueprintName = "JapxRxAlamofire"
             ReferencedContainer = "container:Japx.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
