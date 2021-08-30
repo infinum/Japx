@@ -19,7 +19,7 @@
 - (void)testJsonToJsonAPITransformationWithSimpleEncoding
 {
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"SimpleEncoding-Json"
-                                                   containsEverethingFrom:@"SimpleEncoding-JsonApi"
+                                                   containsEverythingFrom:@"SimpleEncoding-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXEncoder encodeWithData:data additionalParams:nil options:[JAPXEncodingOptions new] error:nil];
                                                         }];
@@ -28,8 +28,8 @@
 
 - (void)testJsonToJsonAPITransformationWithRecursiveRelationships
 {
-    BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RecursivRelationships-Json"
-                                                   containsEverethingFrom:@"RecursivRelationships-JsonApi"
+    BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RecursiveRelationships-Json"
+                                                   containsEverythingFrom:@"RecursiveRelationships-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXEncoder encodeWithData:data additionalParams:nil options:[JAPXEncodingOptions new] error:nil];
                                                         }];
@@ -42,7 +42,7 @@
                                   @"links": @{ @"self": @"http://example.com/articles" }
                                   };
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"ExtraParams-Json"
-                                                   containsEverethingFrom:@"ExtraParams-JsonApi"
+                                                   containsEverythingFrom:@"ExtraParams-JsonApi"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXEncoder encodeWithData:data additionalParams:extraParams options:[JAPXEncodingOptions new] error:nil];
                                                         }];
