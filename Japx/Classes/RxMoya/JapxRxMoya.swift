@@ -11,6 +11,11 @@ import Foundation
 import Moya
 import RxSwift
 
+#if !COCOAPODS
+import Japx
+import JapxMoya
+#endif
+
 extension ObservableType where Element == Response {
 
     /// Maps data received from the signal and decodes JSON:API object into requested type. If the conversion fails, the signal errors.

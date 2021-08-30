@@ -10,6 +10,10 @@
 import Foundation
 import Moya
 
+#if !COCOAPODS
+import Japx
+#endif
+
 /// `JapxMoyaError` is the error type returned by JapxMoya subspec.
 public enum JapxMoyaError: Error {
     

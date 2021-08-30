@@ -11,6 +11,11 @@ import Foundation
 import RxSwift
 import Alamofire
 
+#if !COCOAPODS
+import Japx
+import JapxAlamofire
+#endif
+
 extension Reactive where Base: DataRequest {
     
     /// Converts a parsed and decoded JSON:API object request to `Single` of requested type.

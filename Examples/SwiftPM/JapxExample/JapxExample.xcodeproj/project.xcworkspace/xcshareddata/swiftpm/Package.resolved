@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Japx",
+        "repositoryURL": "https://github.com/infinum/Japx",
+        "state": {
+          "branch": "feature/project-structure-update",
+          "revision": "03b75ff572e0e8af5dd63fc6e2eafcb14a9df45f",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

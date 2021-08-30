@@ -11,6 +11,11 @@ import Foundation
 import RxSwift
 import Alamofire
 
+#if !COCOAPODS
+import Japx
+import JapxAlamofire
+#endif
+
 /// Extension to add `Reactive` capabilities to `DataRequest`
 extension DataRequest: ReactiveCompatible {}
 

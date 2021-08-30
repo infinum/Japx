@@ -10,6 +10,10 @@
 import Foundation
 import Alamofire
 
+#if !COCOAPODS
+import Japx
+#endif
+
 extension DataRequest {
     
     /// Adds a handler to be called once the request has finished.

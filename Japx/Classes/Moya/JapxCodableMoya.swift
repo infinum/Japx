@@ -10,6 +10,10 @@
 import Foundation
 import Moya
 
+#if !COCOAPODS
+import Japx
+#endif
+
 extension Response {
     
     /// Maps data received from the signal and decodes JSON:API object into requested type.
