@@ -1,18 +1,18 @@
 PODS:
   - Alamofire (5.4.3)
-  - Japx/Alamofire (3.0.0):
+  - Japx/Alamofire (4.0.0):
     - Alamofire
     - Japx/Core
-  - Japx/Core (3.0.0)
-  - Japx/Moya (3.0.0):
+  - Japx/Core (4.0.0)
+  - Japx/Moya (4.0.0):
     - Japx/Core
     - Moya/Core
-  - Japx/ObjC (3.0.0):
+  - Japx/ObjC (4.0.0):
     - Japx/Core
-  - Japx/RxAlamofire (3.0.0):
+  - Japx/RxAlamofire (4.0.0):
     - Japx/Alamofire
     - RxSwift
-  - Japx/RxMoya (3.0.0):
+  - Japx/RxMoya (4.0.0):
     - Japx/Moya
     - Moya/RxSwift
   - Moya (15.0.0-alpha.1):
@@ -49,7 +49,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  Japx: 0dd627a3847aef99d0cf504ee0ba045a8cea2b98
+  Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   Moya: 1a04c3836ce1cd20430c176d1318436cbd1371a1
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
