@@ -560,13 +560,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4F9A3856220095B50063BEB3 /* Objc */ = {
+		4F9A3856220095B50063BEB3 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
 				4F9A385C220099BC0063BEB3 /* DecoderTester.m */,
 				4F9A385E220099C80063BEB3 /* EncoderTester.m */,
 			);
-			path = Objc;
+			path = ObjC;
 			sourceTree = "<group>";
 		};
 		4F9A3857220095C30063BEB3 /* Swift */ = {
@@ -620,7 +620,7 @@
 			isa = PBXGroup;
 			children = (
 				4F9A385B220099A00063BEB3 /* Utilities */,
-				4F9A3856220095B50063BEB3 /* Objc */,
+				4F9A3856220095B50063BEB3 /* ObjC */,
 				4F9A3857220095C30063BEB3 /* Swift */,
 				0A634F0126D92CC80026E01D /* Resources */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
