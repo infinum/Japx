@@ -17,6 +17,23 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let jsonApiObject: [String: Any] = [
+            "data": [
+                "id": "1",
+                "type": "users",
+                "attributes": [
+                    "email": "john@infinum.co",
+                    "username": "john"
+                ]
+            ]
+        ]
+        let simpleObject: [String: Any]
+
+        do {
+            simpleObject = try JapxKit.Decoder.jsonObject(withJSONAPIObject: jsonApiObject)
+            print(simpleObject)
+        } catch {
+            print(error)
+        }
     }
 }
