@@ -314,8 +314,7 @@ struct User: JapxCodable {
     let username: String
 }
 
-let userResponse: JapxResponse<User> = try JapxDecoder()
-                                                    .decode(JapxResponse<User>.self, from: data)
+let userResponse: JapxResponse<User> = try JapxDecoder().decode(JapxResponse<User>.self, from: data)
 let user: User = userResponse.data
 ```
 
@@ -391,83 +390,101 @@ Japx is available through [CocoaPods][8]. To install it, simply add the followin
 pod 'Japx'
 ```
 
-We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
-You can find those convinience extensions here: 
+We've also added some more functionalites like Alamofre or Moya for networking, Rx for reactive programming approach, Objective-C support:
 
 ```ruby
-# Codable
-pod 'Japx/Codable'
-
 # Alamofire
 pod 'Japx/Alamofire'
 
 # Alamofire and RxSwift
 pod 'Japx/RxAlamofire'
 
-# Alamofire and Codable
-pod 'Japx/CodableAlamofire'
+# Moya
+pod 'Japx/Moya'
 
-# Alamofire, Codable and RxSwift
-pod 'Japx/RxCodableAlamofire'
+# Moya and RxSwift
+pod 'Japx/RxMoya'
+
+# Objective-C
+pod 'Japx/ObjC'
 ```
 
 ### Swift Package Manager
-Add te dependency to your `Package.swift` and use in your target
-``` swift
+
+Add the dependency to your `Package.swift` and use in your target
+
+```swift
 dependencies: [
-    .package(url: "https://github.com/infinum/Japx.git", .upToNextMajor(from: "3.1.0"))
+    .package(url: "https://github.com/infinum/Japx.git", .upToNextMajor(from: "4.0.0"))
 ]
 ```
 
 Sample `Package.swift`
 
-``` swift
+```swift
 let package = Package(
     name: "YourDependency",
     products: [
-        .library(
-            name: "YourDependency",
-            targets: ["YourDependency"])
+        .library(name: "YourDependency", targets: ["YourDependency"])
     ],
     dependencies: [
-        .package(url: "https://github.com/infinum/Japx.git", .upToNextMajor(from: "3.1.0")),
+        .package(url: "https://github.com/infinum/Japx.git", .upToNextMajor(from: "4.0.0")),
     ],
     targets: [
         .target(
             name: "YourDependency",
-            dependencies: [
-                .product(name: "JapxCodable", package: "Japx")
-            ]
-        ),
+            dependencies: [.product(name: "Japx", package: "Japx")]
+        )
     ]
 )
 ```
 
-We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
-You can find those convinience extensions here:
+We've also added some more functionalites like Alamofre or Moya for networking, Rx for reactive programming approach:
 
 ``` swift
-// Codable
-.product(name: "JapxCodable", package: "Japx")
-
 // Alamofire
 .product(name: "JapxAlamofire", package: "Japx")
 
 // Alamofire and RxSwift
 .product(name: "JapxRxAlamofire", package: "Japx")
 
-// Alamofire and Codable
-.product(name: "JapxCodableAlamofire", package: "Japx")
+// Moya
+.product(name: "JapxMoya", package: "Japx")
 
-// Alamofire, Codable and RxSwift
-.product(name: "JapxRxCodableAlamofire", package: "Japx")
+// Moya and RxSwift
+.product(name: "JapxRxMoya", package: "Japx")
 ```
+
+Depending on which product you've picked, you'll have to import different modules:
+
+```swift
+// Pure Japx
+import Japx
+
+// Alamofire
+import JapxAlamofire
+
+// Alamofire and RxSwift
+import JapxRxAlamofire
+
+// Moya
+import JapxMoya
+
+// Moya and RxSwift
+import JapxRxMoya
+```
+
+### Carthage
+
+Run `carthage update --use-xcframeworks` and import desired integration. Pure `Japx` doesn't have any dependencies.
+
+**NOTE: Moya integration is currently not supported via Carthage since latest Moya build won't build with Carthage. More info [here](https://github.com/Moya/Moya/issues/2165).**
 
 ## Example project
 
 Example project of Japx networking using Codable and Alamofire can be found in [Nuts And Bolts repository][12] with commonly used code. [Example][13] will cover how to handle basic CRUD (Create, Read, Update, Delete) operations with Japx and JSON:API format. To run the example, clone the [repository][12], open the `Catalog.xcworkspace`, run Catalog app and navigate to the Japx Networking section.
 
-In this repository there is also simple example project, to run it clone the repository, and run `pod install` from the Example directory first. Integration with Swift Package manager is also included in the Example directory.
+In this repository there is also simple example project, to run it clone the repository, and run `pod install` from the Example directory first. Integration with Swift Package manager is also included in the `Examples` directory.
 
 ## Authors
 
