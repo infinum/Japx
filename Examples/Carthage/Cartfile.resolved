@@ -1,3 +1,5 @@
 github "Alamofire/Alamofire" "5.4.3"
-github "Infinum/Japx" "e4de38a0d76dd91f81a61e0f038d47f6cd5a52db"
+github "Infinum/Japx" "1945bd4e605c48c4d268a39bf3a5cec7e249987f"
+github "Moya/Moya" "50fe26aa85674c2e0ee1cf40274dbc79df643644"
+github "ReactiveCocoa/ReactiveSwift" "6.6.1"
 github "ReactiveX/RxSwift" "6.2.0"
