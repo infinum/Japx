@@ -25,6 +25,7 @@ It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][
   - [Installation](#installation)
     - [Cocoapods](#cocoapods)
     - [Swift Package Manager](#swift-package-manager)
+    - [Carthage](#carthage)
   - [Example project](#example-project)
   - [Authors](#authors)
   - [License](#license)
