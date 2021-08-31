@@ -12,7 +12,7 @@ import XCTest
 class DecoderTests: XCTestCase {
 
     func testSimpleJSONAPIDecoding_ArticlePerson() throws {
-        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "ArticlePerson-JsonApi", containsEverethingFrom: "ArticlePerson-Json") {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "ArticlePerson-JsonApi", containsEverythingFrom: "ArticlePerson-Json") {
             return try! JapxKit.Decoder.jsonObject(with: $0)
         }
         XCTAssertTrue(
@@ -20,104 +20,113 @@ class DecoderTests: XCTestCase {
             "Parses JSON:API Example (http://jsonapi.org/examples/) - Article person"
         )
     }
+
+    func testSimpleJSONAPIDecoding_MissingRelationship() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationship-JsonApi", containsEverythingFrom: "MissingRelationship-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Parses JSON:API Example (http://jsonapi.org/examples/) - Missing relationship"
+        )
+    }
+
+    func testSimpleJSONAPIDecoding_ArticleExample() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "ArticleExample-JsonApi", containsEverythingFrom: "ArticleExample-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Parses JSON:API Example (http://jsonapi.org/) - Article example"
+        )
+    }
+
+    func testJSONAPIDecodingWithIncludeList_RecursiveSample() throws {
+        let includeList = "author.article.author"
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RecursiveSample-JsonApi", containsEverythingFrom: "RecursiveSample-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should succesfully parse recursive sample with include list"
+        )
+    }
+
+    func testJSONAPIDecodingWithEmptyRelationshipList_RecursiveSample() throws {
+        let includeList = "author.article.author,author.categories"
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "EmptyRelationship-JsonApi", containsEverythingFrom: "EmptyRelationship-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should succesfully parse recursive sample with empty relationship list"
+        )
+    }
+
+    func testJSONAPIDecodingWithEmptyRelationshipList_RecursiveSampleDeep() throws {
+        let includeList = "author.article.author.categories,author.categories"
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "EmptyRelationship-JsonApi", containsEverythingFrom: "EmptyRelationshipDeep-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should succesfully parse recursive sample with empty relationship list - deep"
+        )
+    }
+
+    func testJSONAPIDecodingWithEmptyRelationshipList_MissingInclude() throws {
+        let includeList = "author.article.author,author.categories"
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipNoInclude-JsonApi", containsEverythingFrom: "RelationshipNoInclude-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should succesfully parse recursive sample with missing relationship include object"
+        )
+    }
+
+    func testJSONAPIDecodingWithParseNotIncludedRelationshipsProperty_MissingRelationshipObject() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverythingFrom: "MissingRelationshipObject-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0, options: .notIncludedRelationships)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should succesfully parse missing relationship object as type-id pair"
+        )
+    }
+
+    func testJSONAPIDecodingWithParseNotIncludedRelationshipsProperty_MissingRelationshipObjects() throws {
+        let includeList = "user"
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverythingFrom: "MissingRelationshipObjects-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList, options: .notIncludedRelationships)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should succesfully parse missing relationship with include list as array of type-id pairs"
+        )
+    }
+
+    func testJSONAPIDecodingWithParseNotIncludedRelationshipsProperty_MissingRelationshipObjectNull() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverythingFrom: "MissingRelationshipObjectNull-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should succesfully parse missing relationship object as nil"
+        )
+    }
+
+    func testJSONAPIDecodingWithParseNotIncludedRelationshipsProperty_MissingRelationshipObjectsEmpty() throws {
+        let includeList = "user,policy"
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverythingFrom: "MissingRelationshipObjectsEmpty-Json") {
+            return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should succesfully parse missing relationship with include list as empty array"
+        )
+    }
 }
-
-
-//class DecoderTesterSpec: QuickSpec {
-//    
-//    override func spec() {
-//        
-//        describe("Testing simple json api decoding") {
-//
-//            it("Parses json api exmple (http://jsonapi.org/examples/) - Missing reloationship") {
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationship-JsonApi", containsEverethingFrom: "MissingRelationship-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//            
-//            it("Parses json api intro exmple (http://jsonapi.org/) - Article example") {
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "ArticleExample-JsonApi", containsEverethingFrom: "ArticleExample-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//        }
-//        
-//        describe("Testing json api with includes decoding") {
-//            
-//            it("Should succesfully parse recursiv sample with include list") {
-//                let includeList = "author.article.author"
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RecursivSample-JsonApi", containsEverethingFrom: "RecursivSample-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//            
-//        }
-//        
-//        describe("Testing json api with empty relationship list") {
-//            
-//            it("Should succesfully parse recursive sample with empty relationship list") {
-//                let includeList = "author.article.author,author.categories"
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "EmptyRelationship-JsonApi", containsEverethingFrom: "EmptyRelationship-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//            
-//            it("Should succesfully parse recursive sample with empty relationship list - deep") {
-//                let includeList = "author.article.author.categories,author.categories"
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "EmptyRelationship-JsonApi", containsEverethingFrom: "EmptyRelationshipDeep-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//            
-//            it("Should succesfully parse recursive sample with missing relationship include object") {
-//                let includeList = "author.article.author,author.categories"
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipNoInclude-JsonApi", containsEverethingFrom: "RelationshipNoInclude-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//        }
-//        
-//        describe("Testing json api `parseNotIncludedRelationships` property") {
-//         
-//            it("Should parse missing relationship object as type-id pair") {
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverethingFrom: "MissingRelationshipObject-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0, options: .notIncludedRelationships)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//
-//            it("Should parse missing relationship with include list as array of type-id pairs") {
-//                let includeList = "user"
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverethingFrom: "MissingRelationshipObjects-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList, options: .notIncludedRelationships)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//
-//            it("Should parse missing relationship object as nil") {
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObject-JsonApi", containsEverethingFrom: "MissingRelationshipObjectNull-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//
-//            it("Should parse missing relationship with include list as empty array") {
-//                let includeList = "user,policy"
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "MissingRelationshipObjects-JsonApi", containsEverethingFrom: "MissingRelationshipObjectsEmpty-Json") {
-//                    return try! JapxKit.Decoder.jsonObject(with: $0, includeList: includeList)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//        }
-//    }
-//}
-
 
 extension JapxKit.Decoder.Options {
     

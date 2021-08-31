@@ -13,7 +13,7 @@ public typealias ParsingPipelineCallback = (_ json: Data) -> (Any)
 
 @objc public class AdditionalFunctions: NSObject {
 
-    @objc public static func does(jsonFromFileNamed: String, containsEverethingFrom otherJsonFromFile: String, afterParsingBlock block: ParsingPipelineCallback) -> Bool {
+    @objc public static func does(jsonFromFileNamed: String, containsEverythingFrom otherJsonFromFile: String, afterParsingBlock block: ParsingPipelineCallback) -> Bool {
         let path = Bundle(for: self).path(forResource: jsonFromFileNamed, ofType: "json")!
         let pathOther = Bundle(for: self).path(forResource: otherJsonFromFile, ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)

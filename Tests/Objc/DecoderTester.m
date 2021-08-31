@@ -19,7 +19,7 @@
 - (void)testArticlePerson
 {
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"ArticlePerson-JsonApi"
-                                                   containsEverethingFrom:@"ArticlePerson-Json"
+                                                   containsEverythingFrom:@"ArticlePerson-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXDecoder jsonObjectWithData:data includeList:nil options:[JAPXDecodingOptions new] error:nil];
                                                         }];
@@ -29,7 +29,7 @@
 - (void)testMissingRelationship
 {
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"MissingRelationship-JsonApi"
-                                                   containsEverethingFrom:@"MissingRelationship-Json"
+                                                   containsEverythingFrom:@"MissingRelationship-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXDecoder jsonObjectWithData:data includeList:nil options:[JAPXDecodingOptions new] error:nil];
                                                         }];
@@ -39,7 +39,7 @@
 - (void)testArticleExample
 {
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"ArticleExample-JsonApi"
-                                                   containsEverethingFrom:@"ArticleExample-Json"
+                                                   containsEverythingFrom:@"ArticleExample-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXDecoder jsonObjectWithData:data includeList:nil options:[JAPXDecodingOptions new] error:nil];
                                                         }];
@@ -49,8 +49,8 @@
 - (void)testRecursiveSampleWithIncludeList
 {
     NSString *includeList = @"author.article.author";
-    BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RecursivSample-JsonApi"
-                                                   containsEverethingFrom:@"RecursivSample-Json"
+    BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RecursiveSample-JsonApi"
+                                                   containsEverythingFrom:@"RecursiveSample-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXDecoder jsonObjectWithData:data includeList:includeList options:[JAPXDecodingOptions new] error:nil];
                                                         }];
@@ -61,7 +61,7 @@
 {
     NSString *includeList = @"author.article.author,author.categories";
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"EmptyRelationship-JsonApi"
-                                                   containsEverethingFrom:@"EmptyRelationship-Json"
+                                                   containsEverythingFrom:@"EmptyRelationship-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXDecoder jsonObjectWithData:data includeList:includeList options:[JAPXDecodingOptions new] error:nil];
                                                         }];
@@ -72,7 +72,7 @@
 {
     NSString *includeList = @"author.article.author.categories,author.categories";
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"EmptyRelationship-JsonApi"
-                                                   containsEverethingFrom:@"EmptyRelationshipDeep-Json"
+                                                   containsEverythingFrom:@"EmptyRelationshipDeep-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXDecoder jsonObjectWithData:data includeList:includeList options:[JAPXDecodingOptions new] error:nil];
                                                         }];
@@ -83,7 +83,7 @@
 {
     NSString *includeList = @"author.article.author,author.categories";
     BOOL correctlyParsed = [AdditionalFunctions doesWithJsonFromFileNamed:@"RelationshipNoInclude-JsonApi"
-                                                   containsEverethingFrom:@"RelationshipNoInclude-Json"
+                                                   containsEverythingFrom:@"RelationshipNoInclude-Json"
                                                         afterParsingBlock:^id _Nonnull(NSData * _Nonnull data) {
                                                             return [JAPXDecoder jsonObjectWithData:data includeList:includeList options:[JAPXDecodingOptions new] error:nil];
                                                         }];

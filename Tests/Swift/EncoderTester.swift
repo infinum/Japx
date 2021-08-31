@@ -7,52 +7,59 @@
 //
 
 import Japx
+import XCTest
 
-//class EncoderTesterSpec: QuickSpec {
-//    
-//    override func spec() {
-//        
-//        describe("Testing json to json:api encoding") {
-//            
-//            it("Transforms simple json to json:api - Simple encoding") {
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "SimpleEncoding-Json", containsEverethingFrom: "SimpleEncoding-JsonApi") {
-//                    return try! JapxKit.Encoder.encode(data: $0)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//            
-//            it("Transforms json to json:api with recursiv relationships - Recursiv relationships") {
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RecursivRelationships-Json", containsEverethingFrom: "RecursivRelationships-JsonApi") {
-//                    return try! JapxKit.Encoder.encode(data: $0)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//            
-//            it("Transforms json to json:api and adds extra params - Article person") {
-//                let extraParams: Parameters = ["links": ["self": "http://example.com/articles"]]
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "ExtraParams-Json", containsEverethingFrom: "ExtraParams-JsonApi") {
-//                    return try! JapxKit.Encoder.encode(data: $0, additionalParams: extraParams)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//        }
-//        
-//        describe("Testing inclusion of meta") {
-//            
-//            it("Transforms json to json:api with while including meta") {
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "Meta-Json", containsEverethingFrom: "Meta-Added-JsonApi") {
-//                    return try! JapxKit.Encoder.encode(data: $0, options: .init(includeMetaToCommonNamespce: true))
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//            
-//            it("Transforms json to json:api while not including meta") {
-//                let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "Meta-Json", containsEverethingFrom: "Meta-NotAdded-JsonApi") {
-//                    return try! JapxKit.Encoder.encode(data: $0)
-//                }
-//                expect(correctlyParsed) == true
-//            }
-//            
-//        }
-//    }
-//}
+class EncoderTests: XCTestCase {
+
+    func testJSONAPIEncoding_SimpleEncoding() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "SimpleEncoding-Json", containsEverythingFrom: "SimpleEncoding-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Transforms simple JSON to JSON:API"
+        )
+    }
+
+    func testJSONAPIEncoding_RecursiveRelationships() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RecursiveRelationships-Json", containsEverythingFrom: "RecursiveRelationships-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Transforms JSON to JSON:API with recursive relationships"
+        )
+    }
+
+    func testJSONAPIEncoding_ExtraParameters() throws {
+        let extraParams: Parameters = ["links": ["self": "http://example.com/articles"]]
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "ExtraParams-Json", containsEverythingFrom: "ExtraParams-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0, additionalParams: extraParams)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Transforms JSON to JSON:API and adds extra params - Article person"
+        )
+    }
+
+    func testJSONAPIEncoding_MetaIncluded() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "Meta-Json", containsEverythingFrom: "Meta-Added-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0, options: .init(includeMetaToCommonNamespce: true))
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Transforms JSON to JSON:API while including meta"
+        )
+    }
+
+    func testJSONAPIEncoding_MetaNotIncluded() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "Meta-Json", containsEverythingFrom: "Meta-NotAdded-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Transforms JSON to JSON:API without including meta"
+        )
+    }
+
+}

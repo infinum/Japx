@@ -23,13 +23,13 @@
 		0A634F2E26D92CC80026E01D /* SimpleEncoding-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0526D92CC80026E01D /* SimpleEncoding-Json.json */; };
 		0A634F2F26D92CC80026E01D /* ExtraParams-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0726D92CC80026E01D /* ExtraParams-Json.json */; };
 		0A634F3026D92CC80026E01D /* ExtraParams-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0826D92CC80026E01D /* ExtraParams-JsonApi.json */; };
-		0A634F3126D92CC80026E01D /* RecursivRelationships-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0A26D92CC80026E01D /* RecursivRelationships-Json.json */; };
-		0A634F3226D92CC80026E01D /* RecursivRelationships-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0B26D92CC80026E01D /* RecursivRelationships-JsonApi.json */; };
+		0A634F3126D92CC80026E01D /* RecursiveRelationships-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0A26D92CC80026E01D /* RecursiveRelationships-Json.json */; };
+		0A634F3226D92CC80026E01D /* RecursiveRelationships-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0B26D92CC80026E01D /* RecursiveRelationships-JsonApi.json */; };
 		0A634F3326D92CC80026E01D /* Meta-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0D26D92CC80026E01D /* Meta-Json.json */; };
 		0A634F3426D92CC80026E01D /* Meta-Added-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0E26D92CC80026E01D /* Meta-Added-JsonApi.json */; };
 		0A634F3526D92CC80026E01D /* Meta-NotAdded-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F0F26D92CC80026E01D /* Meta-NotAdded-JsonApi.json */; };
-		0A634F3626D92CC80026E01D /* RecursivSample-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F1226D92CC80026E01D /* RecursivSample-Json.json */; };
-		0A634F3726D92CC80026E01D /* RecursivSample-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F1326D92CC80026E01D /* RecursivSample-JsonApi.json */; };
+		0A634F3626D92CC80026E01D /* RecursiveSample-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F1226D92CC80026E01D /* RecursiveSample-Json.json */; };
+		0A634F3726D92CC80026E01D /* RecursiveSample-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F1326D92CC80026E01D /* RecursiveSample-JsonApi.json */; };
 		0A634F3826D92CC80026E01D /* RelationshipNoInclude-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F1526D92CC80026E01D /* RelationshipNoInclude-Json.json */; };
 		0A634F3926D92CC80026E01D /* RelationshipNoInclude-JsonApi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F1626D92CC80026E01D /* RelationshipNoInclude-JsonApi.json */; };
 		0A634F3A26D92CC80026E01D /* EmptyRelationshipDeep-Json.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A634F1826D92CC80026E01D /* EmptyRelationshipDeep-Json.json */; };
@@ -174,13 +174,13 @@
 		0A634F0526D92CC80026E01D /* SimpleEncoding-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SimpleEncoding-Json.json"; sourceTree = "<group>"; };
 		0A634F0726D92CC80026E01D /* ExtraParams-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ExtraParams-Json.json"; sourceTree = "<group>"; };
 		0A634F0826D92CC80026E01D /* ExtraParams-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ExtraParams-JsonApi.json"; sourceTree = "<group>"; };
-		0A634F0A26D92CC80026E01D /* RecursivRelationships-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursivRelationships-Json.json"; sourceTree = "<group>"; };
-		0A634F0B26D92CC80026E01D /* RecursivRelationships-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursivRelationships-JsonApi.json"; sourceTree = "<group>"; };
+		0A634F0A26D92CC80026E01D /* RecursiveRelationships-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursiveRelationships-Json.json"; sourceTree = "<group>"; };
+		0A634F0B26D92CC80026E01D /* RecursiveRelationships-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursiveRelationships-JsonApi.json"; sourceTree = "<group>"; };
 		0A634F0D26D92CC80026E01D /* Meta-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Meta-Json.json"; sourceTree = "<group>"; };
 		0A634F0E26D92CC80026E01D /* Meta-Added-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Meta-Added-JsonApi.json"; sourceTree = "<group>"; };
 		0A634F0F26D92CC80026E01D /* Meta-NotAdded-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Meta-NotAdded-JsonApi.json"; sourceTree = "<group>"; };
-		0A634F1226D92CC80026E01D /* RecursivSample-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursivSample-Json.json"; sourceTree = "<group>"; };
-		0A634F1326D92CC80026E01D /* RecursivSample-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursivSample-JsonApi.json"; sourceTree = "<group>"; };
+		0A634F1226D92CC80026E01D /* RecursiveSample-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursiveSample-Json.json"; sourceTree = "<group>"; };
+		0A634F1326D92CC80026E01D /* RecursiveSample-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RecursiveSample-JsonApi.json"; sourceTree = "<group>"; };
 		0A634F1526D92CC80026E01D /* RelationshipNoInclude-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RelationshipNoInclude-Json.json"; sourceTree = "<group>"; };
 		0A634F1626D92CC80026E01D /* RelationshipNoInclude-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RelationshipNoInclude-JsonApi.json"; sourceTree = "<group>"; };
 		0A634F1826D92CC80026E01D /* EmptyRelationshipDeep-Json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "EmptyRelationshipDeep-Json.json"; sourceTree = "<group>"; };
@@ -377,7 +377,7 @@
 			children = (
 				0A634F0326D92CC80026E01D /* SimpleEncoding */,
 				0A634F0626D92CC80026E01D /* ExtraParams */,
-				0A634F0926D92CC80026E01D /* RecursivRelationships */,
+				0A634F0926D92CC80026E01D /* RecursiveRelationships */,
 				0A634F0C26D92CC80026E01D /* MetaParams */,
 			);
 			path = Encoding;
@@ -401,13 +401,13 @@
 			path = ExtraParams;
 			sourceTree = "<group>";
 		};
-		0A634F0926D92CC80026E01D /* RecursivRelationships */ = {
+		0A634F0926D92CC80026E01D /* RecursiveRelationships */ = {
 			isa = PBXGroup;
 			children = (
-				0A634F0A26D92CC80026E01D /* RecursivRelationships-Json.json */,
-				0A634F0B26D92CC80026E01D /* RecursivRelationships-JsonApi.json */,
+				0A634F0A26D92CC80026E01D /* RecursiveRelationships-Json.json */,
+				0A634F0B26D92CC80026E01D /* RecursiveRelationships-JsonApi.json */,
 			);
-			path = RecursivRelationships;
+			path = RecursiveRelationships;
 			sourceTree = "<group>";
 		};
 		0A634F0C26D92CC80026E01D /* MetaParams */ = {
@@ -423,7 +423,7 @@
 		0A634F1026D92CC80026E01D /* Decoding */ = {
 			isa = PBXGroup;
 			children = (
-				0A634F1126D92CC80026E01D /* RecursivSample */,
+				0A634F1126D92CC80026E01D /* RecursiveSample */,
 				0A634F1426D92CC80026E01D /* RelationshipNoInclude */,
 				0A634F1726D92CC80026E01D /* EmptyRelationship */,
 				0A634F1B26D92CC80026E01D /* ArticleExample */,
@@ -433,13 +433,13 @@
 			path = Decoding;
 			sourceTree = "<group>";
 		};
-		0A634F1126D92CC80026E01D /* RecursivSample */ = {
+		0A634F1126D92CC80026E01D /* RecursiveSample */ = {
 			isa = PBXGroup;
 			children = (
-				0A634F1226D92CC80026E01D /* RecursivSample-Json.json */,
-				0A634F1326D92CC80026E01D /* RecursivSample-JsonApi.json */,
+				0A634F1226D92CC80026E01D /* RecursiveSample-Json.json */,
+				0A634F1326D92CC80026E01D /* RecursiveSample-JsonApi.json */,
 			);
-			path = RecursivSample;
+			path = RecursiveSample;
 			sourceTree = "<group>";
 		};
 		0A634F1426D92CC80026E01D /* RelationshipNoInclude */ = {
@@ -945,15 +945,15 @@
 				0A634F3826D92CC80026E01D /* RelationshipNoInclude-Json.json in Resources */,
 				0A634F3E26D92CC80026E01D /* ArticleExample-Json.json in Resources */,
 				0A634F4626D92CC80026E01D /* MissingRelationshipObjectNull-Json.json in Resources */,
-				0A634F3226D92CC80026E01D /* RecursivRelationships-JsonApi.json in Resources */,
-				0A634F3626D92CC80026E01D /* RecursivSample-Json.json in Resources */,
+				0A634F3226D92CC80026E01D /* RecursiveRelationships-JsonApi.json in Resources */,
+				0A634F3626D92CC80026E01D /* RecursiveSample-Json.json in Resources */,
 				0A634F3326D92CC80026E01D /* Meta-Json.json in Resources */,
 				0A634F3026D92CC80026E01D /* ExtraParams-JsonApi.json in Resources */,
 				0A634F3926D92CC80026E01D /* RelationshipNoInclude-JsonApi.json in Resources */,
 				0A634F3D26D92CC80026E01D /* ArticleExample-JsonApi.json in Resources */,
 				0A634F3F26D92CC80026E01D /* MissingRelationshipObjectsEmpty-Json.json in Resources */,
 				0A634F3C26D92CC80026E01D /* EmptyRelationship-JsonApi.json in Resources */,
-				0A634F3726D92CC80026E01D /* RecursivSample-JsonApi.json in Resources */,
+				0A634F3726D92CC80026E01D /* RecursiveSample-JsonApi.json in Resources */,
 				0A634F4026D92CC80026E01D /* MissingRelationshipObjects-Json.json in Resources */,
 				0A634F2E26D92CC80026E01D /* SimpleEncoding-Json.json in Resources */,
 				0A634F4826D92CC80026E01D /* ArticlePerson-JsonApi.json in Resources */,
@@ -965,7 +965,7 @@
 				0A634F4726D92CC80026E01D /* ArticlePerson-Json.json in Resources */,
 				0A634F3B26D92CC80026E01D /* EmptyRelationship-Json.json in Resources */,
 				0A634F3526D92CC80026E01D /* Meta-NotAdded-JsonApi.json in Resources */,
-				0A634F3126D92CC80026E01D /* RecursivRelationships-Json.json in Resources */,
+				0A634F3126D92CC80026E01D /* RecursiveRelationships-Json.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
