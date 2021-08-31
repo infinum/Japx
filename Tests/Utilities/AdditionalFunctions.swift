@@ -14,53 +14,56 @@ public typealias ParsingPipelineCallback = (_ json: Data) -> (Any)
 @objc public class AdditionalFunctions: NSObject {
 
     @objc public static func does(jsonFromFileNamed: String, containsEverythingFrom otherJsonFromFile: String, afterParsingBlock block: ParsingPipelineCallback) -> Bool {
-        let path = Bundle(for: self).path(forResource: jsonFromFileNamed, ofType: "json")!
-        let pathOther = Bundle(for: self).path(forResource: otherJsonFromFile, ofType: "json")!
-        let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        let dataOther = try! Data(contentsOf: URL(fileURLWithPath: pathOther), options: .mappedIfSafe)
+        let data = jsonData(from: jsonFromFileNamed)
+        let dataOther = jsonData(from: otherJsonFromFile)
 
         let json = block(data)
         let jsonOther = try! JSONSerialization.jsonObject(with: dataOther)
 
         if let json = json as? Parameters, let jsonOther = jsonOther as? Parameters {
-            return does(jsonParameter: json, containsEverethingFrom: jsonOther)
+            return does(jsonParameter: json, containsEverythingFrom: jsonOther)
         }
 
         if let json = json as? Parameters, let jsonOther = jsonOther as? [Parameters] {
-            return does(jsonParameter: json, containsEverethingFrom: ["data": jsonOther])
+            return does(jsonParameter: json, containsEverythingFrom: ["data": jsonOther])
         }
 
         if let json = json as? [Parameters], let jsonOther = jsonOther as? Parameters {
-            return does(jsonParameter: ["data": json], containsEverethingFrom: jsonOther)
+            return does(jsonParameter: ["data": json], containsEverythingFrom: jsonOther)
         }
 
         if let json = json as? [Parameters], let jsonOther = jsonOther as? [Parameters] {
-            return does(jsonParameters: json, containsEverethingFrom: jsonOther)
+            return does(jsonParameters: json, containsEverythingFrom: jsonOther)
         }
 
         assert(false, "You should not end up here")
     }
+    
+    @objc public static func jsonData(from jsonFromFileNamed: String) -> Data {
+        let path = Bundle(for: self).path(forResource: jsonFromFileNamed, ofType: "json")!
+        return try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+    }
 
-    @objc public static func does(jsonParameters: [Parameters], containsEverethingFrom otherJson: [Parameters]) -> Bool {
+    @objc public static func does(jsonParameters: [Parameters], containsEverythingFrom otherJson: [Parameters]) -> Bool {
         guard otherJson.count == jsonParameters.count else { return false }
         return zip(jsonParameters, otherJson).reduce(true) { (value, jsons) -> Bool in
-            return value && does(jsonParameter: jsons.0, containsEverethingFrom: jsons.1)
+            return value && does(jsonParameter: jsons.0, containsEverythingFrom: jsons.1)
         }
     }
 
-    @objc public static func does(jsonParameter: Parameters, containsEverethingFrom otherJson: Parameters) -> Bool {
+    @objc public static func does(jsonParameter: Parameters, containsEverythingFrom otherJson: Parameters) -> Bool {
         return otherJson.reduce(true) { (boolCollectedSoFar, entry) -> Bool in
 
             if !boolCollectedSoFar { return false }
 
             if let arrayOther = entry.value as? [Parameters] {
                 guard let array = jsonParameter[entry.key] as? [Parameters] else { return false }
-                return does(jsonParameters: array, containsEverethingFrom: arrayOther)
+                return does(jsonParameters: array, containsEverythingFrom: arrayOther)
             }
 
             if let innerJsonOther = entry.value as? Parameters {
                 guard let innerJson = jsonParameter[entry.key] as? Parameters else { return false }
-                return does(jsonParameter: innerJson, containsEverethingFrom: innerJsonOther)
+                return does(jsonParameter: innerJson, containsEverythingFrom: innerJsonOther)
             }
 
             if let stringOther = entry.value as? String {

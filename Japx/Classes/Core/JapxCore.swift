@@ -107,13 +107,26 @@ public extension JapxKit.Encoder {
         /// - Tag: includeMetaToCommonNamespce
         public var includeMetaToCommonNamespce: Bool = false
         
+        /// Sometimes it's not that clear if something should be encoded as a relationship or as an attribute.
+        /// Empty array is an example of that case.
+        /// Use this property to disable the auto-inference of relationships/attributes and provide an explicit list of relationships
+        /// It should be a list of relationship names, divided by commas, similar to `includeList` in `JapxKit.Decoder`.
+        ///
+        ///
+        /// Defaults to nil. (using auto-inference)
+        ///
+        /// - Tag: relationshipList
+        public var relationshipList: String?
+        
         /// Creates an instance with the specified properties.
         ///
         /// - parameter includeMetaToCommonNamespce: Read more [here](includeMetaToCommonNamespce)
+        /// - parameter relationshipList: Read more [here](relationshipList)
         ///
         /// - returns: The new `JapxKit.Decoder.Options` instance.
-        public init(includeMetaToCommonNamespce: Bool = false) {
+        public init(includeMetaToCommonNamespce: Bool = false, relationshipList: String? = nil) {
             self.includeMetaToCommonNamespce = includeMetaToCommonNamespce
+            self.relationshipList = relationshipList
         }
     }
 }
@@ -483,6 +496,8 @@ private extension JapxKit.Encoder {
             includeMetaToCommonNamespce: options.includeMetaToCommonNamespce
         )
         
+        let isRelationship = testIsRelationship(relationshipList: options.relationshipList)
+        
         for key in objectKeys where key != Consts.APIKeys.type && key != Consts.APIKeys.id {
             
             if options.includeMetaToCommonNamespce && key == Consts.APIKeys.meta {
@@ -490,7 +505,8 @@ private extension JapxKit.Encoder {
             }
             
             if let array = object.asArray(from: key) {
-                let isArrayOfRelationships = array.first?.containsTypeAndId() ?? false
+                
+                let isArrayOfRelationships = try isRelationship((key: key, object: array.first))
                 if !isArrayOfRelationships {
                     // Handle attributes array
                     attributes[key] = array
@@ -504,7 +520,7 @@ private extension JapxKit.Encoder {
                 continue
             }
             if let obj = object.asDictionary(from: key) {
-                if !obj.containsTypeAndId() {
+                if try !isRelationship((key: key, object: obj)) {
                     // Handle attributes object
                     attributes[key] = obj
                     object.removeValue(forKey: key)
@@ -522,6 +538,25 @@ private extension JapxKit.Encoder {
         object[Consts.APIKeys.attributes] = attributes
         object[Consts.APIKeys.relationships] = relationships
         return object
+    }
+    
+    typealias KeyObjectPair = (key: String, object: Parameters?)
+    static func testIsRelationship(relationshipList: String?) -> (KeyObjectPair) throws -> Bool {
+        guard let relationshipList = relationshipList else {
+            return { $0.object?.containsTypeAndId() ?? false }
+        }
+        let list = relationshipList
+            .components(separatedBy: ",")
+            .compactMap { $0.components(separatedBy: ".").first }
+        return {
+            switch (list.contains($0.key), $0.object?.containsTypeAndId()) {
+            case (let containsInList, nil):
+                return containsInList
+            case (true, true?): return true
+            case (true, false?): throw JapxError.notFoundTypeOrId(data: $0.object!)
+            case (false, _?): return false
+            }
+        }
     }
     
     static func extractRelationshipData(includeMetaToCommonNamespce: Bool) -> (Parameters) throws -> (Any) {

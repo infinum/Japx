@@ -41,6 +41,12 @@ public class _JAPXOBjCEncodingOptions: NSObject {
         get { options.includeMetaToCommonNamespce }
         set { options.includeMetaToCommonNamespce = newValue }
     }
+    
+    /// ObjC bridge for [`Japx.Encoder.Options.relationshipList`](x-source-tag://relationshipList)
+    public var relationshipList: String? {
+        get { options.relationshipList }
+        set { options.relationshipList = newValue }
+    }
 }
 
 @objcMembers
