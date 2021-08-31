@@ -297,7 +297,7 @@ Parsed JSON:
 
 ### Codable
 
-Japx comes with wrapper for _Swift 4_ [Codable][7] which can be installed as described in [installation](#installation) chapter.
+Japx comes with wrapper for _Swift_ [Codable][7].
 
 Since JSON:API object can have multiple additional fields like meta, links or pagination info, its real model needs to be wrapped inside `data` object. For easier parsing, also depending on your API specification, you should create wrapping native object which will contain your generic JSON model:
 
