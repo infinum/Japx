@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,35 @@
 		0AE6C12A26DCFB2100116DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE6C12826DCFB2100116DE5 /* Main.storyboard */; };
 		0AE6C12C26DCFB2300116DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE6C12B26DCFB2300116DE5 /* Assets.xcassets */; };
 		0AE6C12F26DCFB2300116DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE6C12D26DCFB2300116DE5 /* LaunchScreen.storyboard */; };
+		0AED4EDC26DE0AF000766795 /* JapxAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4ED526DE0AF000766795 /* JapxAlamofire.xcframework */; };
+		0AED4EDD26DE0AF000766795 /* JapxAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4ED526DE0AF000766795 /* JapxAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0AED4EDE26DE0AF000766795 /* JapxRxAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4ED626DE0AF000766795 /* JapxRxAlamofire.xcframework */; };
+		0AED4EDF26DE0AF000766795 /* JapxRxAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4ED626DE0AF000766795 /* JapxRxAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0AED4EE026DE0AF000766795 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4ED726DE0AF000766795 /* Alamofire.xcframework */; };
+		0AED4EE126DE0AF000766795 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4ED726DE0AF000766795 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0AED4EE426DE0AF000766795 /* Japx.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4ED926DE0AF000766795 /* Japx.xcframework */; };
+		0AED4EE526DE0AF000766795 /* Japx.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4ED926DE0AF000766795 /* Japx.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0AED4EE826DE0AF000766795 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4EDB26DE0AF000766795 /* RxSwift.xcframework */; };
+		0AED4EE926DE0AF000766795 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AED4EDB26DE0AF000766795 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0AED4EEA26DE0AF000766795 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0AED4EE126DE0AF000766795 /* Alamofire.xcframework in Embed Frameworks */,
+				0AED4EE526DE0AF000766795 /* Japx.xcframework in Embed Frameworks */,
+				0AED4EDD26DE0AF000766795 /* JapxAlamofire.xcframework in Embed Frameworks */,
+				0AED4EE926DE0AF000766795 /* RxSwift.xcframework in Embed Frameworks */,
+				0AED4EDF26DE0AF000766795 /* JapxRxAlamofire.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0AE6C11F26DCFB2100116DE5 /* JapxExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JapxExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +52,13 @@
 		0AE6C12B26DCFB2300116DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AE6C12E26DCFB2300116DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AE6C13026DCFB2300116DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AED4ED526DE0AF000766795 /* JapxAlamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JapxAlamofire.xcframework; path = Carthage/Build/JapxAlamofire.xcframework; sourceTree = "<group>"; };
+		0AED4ED626DE0AF000766795 /* JapxRxAlamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JapxRxAlamofire.xcframework; path = Carthage/Build/JapxRxAlamofire.xcframework; sourceTree = "<group>"; };
+		0AED4ED726DE0AF000766795 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
+		0AED4ED826DE0AF000766795 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		0AED4ED926DE0AF000766795 /* Japx.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Japx.xcframework; path = Carthage/Build/Japx.xcframework; sourceTree = "<group>"; };
+		0AED4EDA26DE0AF000766795 /* RxBlocking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBlocking.xcframework; path = Carthage/Build/RxBlocking.xcframework; sourceTree = "<group>"; };
+		0AED4EDB26DE0AF000766795 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +66,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AED4EE026DE0AF000766795 /* Alamofire.xcframework in Frameworks */,
+				0AED4EE426DE0AF000766795 /* Japx.xcframework in Frameworks */,
+				0AED4EDC26DE0AF000766795 /* JapxAlamofire.xcframework in Frameworks */,
+				0AED4EE826DE0AF000766795 /* RxSwift.xcframework in Frameworks */,
+				0AED4EDE26DE0AF000766795 /* JapxRxAlamofire.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +82,7 @@
 			children = (
 				0AE6C12126DCFB2100116DE5 /* JapxExample */,
 				0AE6C12026DCFB2100116DE5 /* Products */,
+				0AED4ED426DE0AF000766795 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +108,20 @@
 			path = JapxExample;
 			sourceTree = "<group>";
 		};
+		0AED4ED426DE0AF000766795 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AED4ED726DE0AF000766795 /* Alamofire.xcframework */,
+				0AED4ED926DE0AF000766795 /* Japx.xcframework */,
+				0AED4ED526DE0AF000766795 /* JapxAlamofire.xcframework */,
+				0AED4ED626DE0AF000766795 /* JapxRxAlamofire.xcframework */,
+				0AED4EDA26DE0AF000766795 /* RxBlocking.xcframework */,
+				0AED4ED826DE0AF000766795 /* RxCocoa.xcframework */,
+				0AED4EDB26DE0AF000766795 /* RxSwift.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +132,7 @@
 				0AE6C11B26DCFB2100116DE5 /* Sources */,
 				0AE6C11C26DCFB2100116DE5 /* Frameworks */,
 				0AE6C11D26DCFB2100116DE5 /* Resources */,
+				0AED4EEA26DE0AF000766795 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -6,7 +6,16 @@
 //
 
 import UIKit
+
 import Japx
+// or
+import JapxAlamofire
+// or
+import JapxRxAlamofire
+// or
+import JapxMoya
+// or
+import JapxRxMoya
 
 class ViewController: UIViewController {
 

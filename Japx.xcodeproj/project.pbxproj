@@ -200,6 +200,7 @@
 		0A634F2C26D92CC80026E01D /* ArticlePerson-JsonApi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ArticlePerson-JsonApi.json"; sourceTree = "<group>"; };
 		0A634F6F26D92FA20026E01D /* Japx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Japx.h; sourceTree = "<group>"; };
 		0A634F7026D92FA20026E01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AAA9F8B26DE12DC000E5F88 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		0AE6C0D526DCF5DB00116DE5 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		0AE6C0D726DCF60100116DE5 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		0AE6C0D826DCF60100116DE5 /* DecoderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderViewController.swift; sourceTree = "<group>"; };
@@ -638,6 +639,7 @@
 		607FACF51AFB993E008FA782 /* Dependency Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0AAA9F8B26DE12DC000E5F88 /* Cartfile */,
 				94FB768D577F6B9FCD0512AB /* Japx.podspec */,
 				0AE6C0D526DCF5DB00116DE5 /* Package.swift */,
 			);

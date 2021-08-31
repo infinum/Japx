@@ -7,6 +7,12 @@
 
 import UIKit
 
+import Japx
+// or
+import JapxAlamofire
+// or
+import JapxRxAlamofire
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
