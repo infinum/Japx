@@ -62,35 +62,45 @@ class EncoderTests: XCTestCase {
         )
     }
 
+    func testJSONAPIEncodingRelationshipList_NoList() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverythingFrom: "RelationshipList-Not-Relationship-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0)
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should auto infer relationships without the list"
+        )
+    }
 
-//    describe("Testing relationship list") {
+    func testJSONAPIEncodingRelationshipList_ListAvailable() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverythingFrom: "RelationshipList-Not-Relationship-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0, options: .init(relationshipList: "author"))
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should decode likes as attributes"
+        )
+    }
 
-//        it("Should auto infer relationships without the list") {
-//            let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverethingFrom: "RelationshipList-Not-Relationship-JsonApi") {
-//                return try! JapxKit.Encoder.encode(data: $0)
-//            }
-//            expect(correctlyParsed) == true
-//        }
-//
-//        it("Should decode likes as attributes") {
-//            let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverethingFrom: "RelationshipList-Not-Relationship-JsonApi") {
-//                return try! JapxKit.Encoder.encode(data: $0, options: .init(relationshipList: "author"))
-//            }
-//            expect(correctlyParsed) == true
-//        }
-//
-//        it("Should decode likes and author as attributes") {
-//            let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverethingFrom: "RelationshipList-Broken-JsonApi") {
-//                return try! JapxKit.Encoder.encode(data: $0, options: .init(relationshipList: ""))
-//            }
-//            expect(correctlyParsed) == true
-//        }
-//
-//        it("Should decode likes as relationships") {
-//            let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverethingFrom: "RelationshipList-Is-Relationship-JsonApi") {
-//                return try! JapxKit.Encoder.encode(data: $0, options: .init(relationshipList: "author,likes"))
-//            }
-//            expect(correctlyParsed) == true
-//        }
+    func testJSONAPIEncodingRelationshipList_ListEmpty() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverythingFrom: "RelationshipList-Broken-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0, options: .init(relationshipList: ""))
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should decode likes and author as attributes"
+        )
+    }
+
+    func testJSONAPIEncodingRelationshipList_ListWithMoreThanOneParam() throws {
+        let correctlyParsed = AdditionalFunctions.does(jsonFromFileNamed: "RelationshipList-Json", containsEverythingFrom: "RelationshipList-Is-Relationship-JsonApi") {
+            return try! JapxKit.Encoder.encode(data: $0, options: .init(relationshipList: "author,likes"))
+        }
+        XCTAssertTrue(
+            correctlyParsed,
+            "Should decode likes as relationships"
+        )
+    }
+
 
 }
