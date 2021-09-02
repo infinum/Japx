@@ -5,8 +5,14 @@
 //  Created by Vlaho Poluta on 25/01/2018.
 //
 
-import Moya
+#if canImport(Moya)
+
 import Foundation
+import Moya
+
+#if !COCOAPODS
+import Japx
+#endif
 
 /// `JapxMoyaError` is the error type returned by JapxMoya subspec.
 public enum JapxMoyaError: Error {
@@ -48,3 +54,5 @@ extension Response {
         }
     }
 }
+
+#endif
