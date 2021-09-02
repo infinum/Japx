@@ -110,7 +110,7 @@ public extension Japx.Encoder {
         /// When set to `true` an empty relationships object will be send as empty JSON object `"relationships": {}`.
         /// When set to `false` an empty object will be removed from the encoded data
         ///
-        /// Defaults to ture. Empty JSON object will be sent.
+        /// Defaults to `true`. Empty JSON object will be sent.
         ///
         /// - Tag: includeEmptyRelationships
         public var includeEmptyRelationships: Bool = true
