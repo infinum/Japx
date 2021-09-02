@@ -1,24 +1,16 @@
-
 Pod::Spec.new do |s|
-  s.name             = 'Japx'
-  s.version          = '3.0.0'
-  s.summary          = 'Lightweight JSON:API parser.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
+  s.name = 'Japx'
+  s.version = '4.0.0'
+  s.summary = 'Lightweight JSON:API parser.'
+  s.description = <<-DESC
 Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON. It can also take simple JSON and turn it into JSON:API structure.
 It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox, Wrap, ObjectMapper, or any other object mapping tool that you preffer.
                        DESC
 
-  s.homepage         = 'https://github.com/infinum/Japx'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Infinum' => 'ios@infinum.hr', 'Vlaho Poluta' => 'vlaho.poluta@infinum.hr', 'Filip Gulan' => 'filip.gulan@infinum.hr' }
-  s.source           = { :git => 'https://github.com/infinum/Japx.git', :tag => s.version.to_s }
+  s.homepage = 'https://github.com/infinum/Japx'
+  s.license = { :type => 'MIT', :file => 'LICENSE' }
+  s.author = { 'Infinum' => 'ios@infinum.hr', 'Vlaho Poluta' => 'vlaho.poluta@infinum.hr', 'Filip Gulan' => 'filip.gulan@infinum.hr' }
+  s.source = { :git => 'https://github.com/infinum/Japx.git', :tag => s.version.to_s }
 
   s.requires_arc = true
   s.platform = :ios, :osx
@@ -28,69 +20,37 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
 
   s.default_subspec = 'Core'
 
-  s.subspec 'Core' do |sp| 
+  s.subspec 'Core' do |sp|
     sp.source_files = 'Japx/Classes/Core/**/*'
     sp.frameworks = 'Foundation'
   end
 
-  s.subspec 'Codable' do |sp| 
-    sp.source_files = 'Japx/Classes/Codable/**/*'
-    sp.dependency 'Japx/Core'
-  end
-
-  s.subspec 'Alamofire' do |sp| 
+  s.subspec 'Alamofire' do |sp|
     sp.source_files = 'Japx/Classes/Alamofire/**/*'
     sp.dependency 'Japx/Core'
-    sp.dependency 'Alamofire', '~> 5.0'
+    sp.dependency 'Alamofire'
   end
 
-  s.subspec 'RxAlamofire' do |sp| 
+  s.subspec 'RxAlamofire' do |sp|
     sp.source_files = 'Japx/Classes/RxAlamofire/**/*'
     sp.dependency 'Japx/Alamofire'
-    sp.dependency 'RxSwift', '~> 5.0'
+    sp.dependency 'RxSwift'
   end
 
-  s.subspec 'CodableAlamofire' do |sp| 
-    sp.source_files = 'Japx/Classes/CodableAlamofire/**/*'
-    sp.dependency 'Japx/Alamofire'
-    sp.dependency 'Japx/Codable'
-  end
-
-  s.subspec 'RxCodableAlamofire' do |sp| 
-    sp.source_files = 'Japx/Classes/RxCodableAlamofire/**/*'
-    sp.dependency 'Japx/CodableAlamofire'
-    sp.dependency 'Japx/RxAlamofire'
-  end
-  
   s.subspec 'Moya' do |sp|
     sp.source_files = 'Japx/Classes/Moya/**/*'
     sp.dependency 'Japx/Core'
-    sp.dependency 'Moya/Core', '~> 14.0'
+    sp.dependency 'Moya/Core'
   end
-  
+
   s.subspec 'RxMoya' do |sp|
     sp.source_files = 'Japx/Classes/RxMoya/**/*'
     sp.dependency 'Japx/Moya'
-    sp.dependency 'Moya/RxSwift', '~> 14.0'
-  end
-  
-  s.subspec 'CodableMoya' do |sp|
-    sp.source_files = 'Japx/Classes/CodableMoya/**/*'
-    sp.dependency 'Japx/Core'
-    sp.dependency 'Japx/Codable'
-    sp.dependency 'Japx/Moya'
-  end
-  
-  s.subspec 'RxCodableMoya' do |sp|
-      sp.source_files = 'Japx/Classes/RxCodableMoya/**/*'
-      sp.dependency 'Japx/Core'
-      sp.dependency 'Japx/CodableMoya'
-      sp.dependency 'Japx/RxMoya'
+    sp.dependency 'Moya/RxSwift'
   end
 
   s.subspec 'ObjC' do |sp|
-      sp.source_files = 'Japx/Classes/ObjC/**/*'
-      sp.dependency 'Japx/Core'
+    sp.source_files = 'Japx/Classes/ObjC/**/*'
+    sp.dependency 'Japx/Core'
   end
-
 end

@@ -1,0 +1,58 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Japx/Alamofire (4.0.0):
+    - Alamofire
+    - Japx/Core
+  - Japx/Core (4.0.0)
+  - Japx/Moya (4.0.0):
+    - Japx/Core
+    - Moya/Core
+  - Japx/ObjC (4.0.0):
+    - Japx/Core
+  - Japx/RxAlamofire (4.0.0):
+    - Japx/Alamofire
+    - RxSwift
+  - Japx/RxMoya (4.0.0):
+    - Japx/Moya
+    - Moya/RxSwift
+  - Moya (15.0.0-alpha.1):
+    - Moya/Core (= 15.0.0-alpha.1)
+  - Moya/Core (15.0.0-alpha.1):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0-alpha.1):
+    - Moya/Core
+    - RxSwift (~> 6.0)
+  - RxSwift (6.2.0)
+
+DEPENDENCIES:
+  - Japx/ObjC (from `../../`)
+  - Japx/RxAlamofire (from `../../`)
+  - Japx/RxMoya (from `../../`)
+  - Moya (from `https://github.com/Moya/Moya.git`, branch `development`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - RxSwift
+
+EXTERNAL SOURCES:
+  Japx:
+    :path: "../../"
+  Moya:
+    :branch: development
+    :git: https://github.com/Moya/Moya.git
+
+CHECKOUT OPTIONS:
+  Moya:
+    :commit: 50fe26aa85674c2e0ee1cf40274dbc79df643644
+    :git: https://github.com/Moya/Moya.git
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
+  Moya: 1a04c3836ce1cd20430c176d1318436cbd1371a1
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+
+PODFILE CHECKSUM: 0fffe62c1314935d4673c97630155d346bc032b8
+
+COCOAPODS: 1.10.2
