@@ -107,6 +107,14 @@ public extension JapxKit.Encoder {
         /// - Tag: includeMetaToCommonNamespce
         public var includeMetaToCommonNamespce: Bool = false
         
+        /// When set to `true` an empty relationships object will be send as empty JSON object `"relationships": {}`.
+        /// When set to `false` an empty object will be removed from the encoded data
+        ///
+        /// Defaults to `true`. Empty JSON object will be sent.
+        ///
+        /// - Tag: includeEmptyRelationships
+        public var includeEmptyRelationships: Bool = true
+
         /// Sometimes it's not that clear if something should be encoded as a relationship or as an attribute.
         /// Empty array is an example of that case.
         /// Use this property to disable the auto-inference of relationships/attributes and provide an explicit list of relationships
@@ -124,9 +132,10 @@ public extension JapxKit.Encoder {
         /// - parameter relationshipList: Read more [here](relationshipList)
         ///
         /// - returns: The new `JapxKit.Decoder.Options` instance.
-        public init(includeMetaToCommonNamespce: Bool = false, relationshipList: String? = nil) {
+        public init(includeMetaToCommonNamespce: Bool = false, relationshipList: String? = nil, includeEmptyRelationships: Bool = true) {
             self.includeMetaToCommonNamespce = includeMetaToCommonNamespce
             self.relationshipList = relationshipList
+            self.includeEmptyRelationships = includeEmptyRelationships
         }
     }
 }
@@ -536,7 +545,11 @@ private extension JapxKit.Encoder {
             object.removeValue(forKey: key)
         }
         object[Consts.APIKeys.attributes] = attributes
-        object[Consts.APIKeys.relationships] = relationships
+        
+        if !relationships.isEmpty || options.includeEmptyRelationships {
+            object[Consts.APIKeys.relationships] = relationships
+        }
+        
         return object
     }
     
