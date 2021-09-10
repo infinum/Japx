@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Japx'
-  s.version = '4.0.1'
+  s.version = '4.0.0'
   s.summary = 'Lightweight JSON:API parser.'
   s.description = <<-DESC
 Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON. It can also take simple JSON and turn it into JSON:API structure.
