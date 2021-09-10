@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A14DAC726EB9FA600973881 /* JapxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A14DAC626EB9FA600973881 /* JapxMoya */; };
-		0A14DAC926EB9FA600973881 /* JapxRxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0A14DAC826EB9FA600973881 /* JapxRxAlamofire */; };
-		0A14DACB26EB9FA600973881 /* JapxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0A14DACA26EB9FA600973881 /* JapxAlamofire */; };
-		0A14DACD26EB9FA600973881 /* Japx in Frameworks */ = {isa = PBXBuildFile; productRef = 0A14DACC26EB9FA600973881 /* Japx */; };
-		0A14DACF26EB9FA600973881 /* JapxRxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A14DACE26EB9FA600973881 /* JapxRxMoya */; };
+		0A45328626EBA1A600993F64 /* JapxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A45328526EBA1A600993F64 /* JapxMoya */; };
+		0A45328826EBA1A600993F64 /* JapxRxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0A45328726EBA1A600993F64 /* JapxRxAlamofire */; };
+		0A45328A26EBA1A600993F64 /* JapxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0A45328926EBA1A600993F64 /* JapxAlamofire */; };
+		0A45328C26EBA1A600993F64 /* Japx in Frameworks */ = {isa = PBXBuildFile; productRef = 0A45328B26EBA1A600993F64 /* Japx */; };
+		0A45328E26EBA1A600993F64 /* JapxRxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A45328D26EBA1A600993F64 /* JapxRxMoya */; };
 		0AE6C14326DD001600116DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14226DD001600116DE5 /* AppDelegate.swift */; };
 		0AE6C14526DD001600116DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14426DD001600116DE5 /* SceneDelegate.swift */; };
 		0AE6C14726DD001600116DE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14626DD001600116DE5 /* ViewController.swift */; };
@@ -36,11 +36,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A14DACF26EB9FA600973881 /* JapxRxMoya in Frameworks */,
-				0A14DACB26EB9FA600973881 /* JapxAlamofire in Frameworks */,
-				0A14DAC926EB9FA600973881 /* JapxRxAlamofire in Frameworks */,
-				0A14DAC726EB9FA600973881 /* JapxMoya in Frameworks */,
-				0A14DACD26EB9FA600973881 /* Japx in Frameworks */,
+				0A45328E26EBA1A600993F64 /* JapxRxMoya in Frameworks */,
+				0A45328A26EBA1A600993F64 /* JapxAlamofire in Frameworks */,
+				0A45328826EBA1A600993F64 /* JapxRxAlamofire in Frameworks */,
+				0A45328626EBA1A600993F64 /* JapxMoya in Frameworks */,
+				0A45328C26EBA1A600993F64 /* Japx in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,11 +94,11 @@
 			);
 			name = JapxExample;
 			packageProductDependencies = (
-				0A14DAC626EB9FA600973881 /* JapxMoya */,
-				0A14DAC826EB9FA600973881 /* JapxRxAlamofire */,
-				0A14DACA26EB9FA600973881 /* JapxAlamofire */,
-				0A14DACC26EB9FA600973881 /* Japx */,
-				0A14DACE26EB9FA600973881 /* JapxRxMoya */,
+				0A45328526EBA1A600993F64 /* JapxMoya */,
+				0A45328726EBA1A600993F64 /* JapxRxAlamofire */,
+				0A45328926EBA1A600993F64 /* JapxAlamofire */,
+				0A45328B26EBA1A600993F64 /* Japx */,
+				0A45328D26EBA1A600993F64 /* JapxRxMoya */,
 			);
 			productName = JapxExample;
 			productReference = 0AE6C13F26DD001600116DE5 /* JapxExample.app */;
@@ -128,7 +128,7 @@
 			);
 			mainGroup = 0AE6C13626DD001600116DE5;
 			packageReferences = (
-				0A14DAC526EB9FA600973881 /* XCRemoteSwiftPackageReference "Japx" */,
+				0A45328426EBA1A600993F64 /* XCRemoteSwiftPackageReference "Japx" */,
 			);
 			productRefGroup = 0AE6C14026DD001600116DE5 /* Products */;
 			projectDirPath = "";
@@ -361,40 +361,40 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0A14DAC526EB9FA600973881 /* XCRemoteSwiftPackageReference "Japx" */ = {
+		0A45328426EBA1A600993F64 /* XCRemoteSwiftPackageReference "Japx" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/infinum/Japx";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0A14DAC626EB9FA600973881 /* JapxMoya */ = {
+		0A45328526EBA1A600993F64 /* JapxMoya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A14DAC526EB9FA600973881 /* XCRemoteSwiftPackageReference "Japx" */;
+			package = 0A45328426EBA1A600993F64 /* XCRemoteSwiftPackageReference "Japx" */;
 			productName = JapxMoya;
 		};
-		0A14DAC826EB9FA600973881 /* JapxRxAlamofire */ = {
+		0A45328726EBA1A600993F64 /* JapxRxAlamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A14DAC526EB9FA600973881 /* XCRemoteSwiftPackageReference "Japx" */;
+			package = 0A45328426EBA1A600993F64 /* XCRemoteSwiftPackageReference "Japx" */;
 			productName = JapxRxAlamofire;
 		};
-		0A14DACA26EB9FA600973881 /* JapxAlamofire */ = {
+		0A45328926EBA1A600993F64 /* JapxAlamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A14DAC526EB9FA600973881 /* XCRemoteSwiftPackageReference "Japx" */;
+			package = 0A45328426EBA1A600993F64 /* XCRemoteSwiftPackageReference "Japx" */;
 			productName = JapxAlamofire;
 		};
-		0A14DACC26EB9FA600973881 /* Japx */ = {
+		0A45328B26EBA1A600993F64 /* Japx */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A14DAC526EB9FA600973881 /* XCRemoteSwiftPackageReference "Japx" */;
+			package = 0A45328426EBA1A600993F64 /* XCRemoteSwiftPackageReference "Japx" */;
 			productName = Japx;
 		};
-		0A14DACE26EB9FA600973881 /* JapxRxMoya */ = {
+		0A45328D26EBA1A600993F64 /* JapxRxMoya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0A14DAC526EB9FA600973881 /* XCRemoteSwiftPackageReference "Japx" */;
+			package = 0A45328426EBA1A600993F64 /* XCRemoteSwiftPackageReference "Japx" */;
 			productName = JapxRxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */

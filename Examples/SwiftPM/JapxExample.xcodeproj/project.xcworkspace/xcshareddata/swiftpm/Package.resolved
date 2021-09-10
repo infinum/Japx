@@ -14,9 +14,9 @@
         "package": "Japx",
         "repositoryURL": "https://github.com/infinum/Japx",
         "state": {
-          "branch": "master",
-          "revision": "a8765eb544f5d029bf01ab1e5793fecb1ca16011",
-          "version": null
+          "branch": null,
+          "revision": "5f08fbe4eddfe70ab412ddd5d16a89396b32f214",
+          "version": "4.0.1"
         }
       },
       {
