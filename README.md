@@ -418,15 +418,11 @@ import Japx
 
 regardless of which custom integration you've picked.
 
-**NOTE: Version 4.0.0 of Japx points to Moya `development` branch due to Rx support issues. If you need stable Moya support, please use version 3.0.0. Otherwise point your Podfile to development Moya:**
-
 ```ruby
 platform :ios, '10.0'
 use_frameworks!
 
 target 'MyApp' do
-
-  pod 'Moya', :git => "https://github.com/Moya/Moya.git", :branch => "development"
   pod 'Japx/RxMoya'
 end
 ```
