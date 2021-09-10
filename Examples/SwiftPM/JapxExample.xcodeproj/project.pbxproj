@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AAA9F8826DE0BE1000E5F88 /* JapxRxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0AAA9F8726DE0BE1000E5F88 /* JapxRxAlamofire */; };
-		0AAA9F8A26DE0BE1000E5F88 /* JapxRxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 0AAA9F8926DE0BE1000E5F88 /* JapxRxMoya */; };
+		0A14DAC426EB9F5100973881 /* JapxRxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A14DAC326EB9F5100973881 /* JapxRxMoya */; };
 		0AE6C14326DD001600116DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14226DD001600116DE5 /* AppDelegate.swift */; };
 		0AE6C14526DD001600116DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14426DD001600116DE5 /* SceneDelegate.swift */; };
 		0AE6C14726DD001600116DE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6C14626DD001600116DE5 /* ViewController.swift */; };
@@ -33,8 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AAA9F8826DE0BE1000E5F88 /* JapxRxAlamofire in Frameworks */,
-				0AAA9F8A26DE0BE1000E5F88 /* JapxRxMoya in Frameworks */,
+				0A14DAC426EB9F5100973881 /* JapxRxMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,8 +86,7 @@
 			);
 			name = JapxExample;
 			packageProductDependencies = (
-				0AAA9F8726DE0BE1000E5F88 /* JapxRxAlamofire */,
-				0AAA9F8926DE0BE1000E5F88 /* JapxRxMoya */,
+				0A14DAC326EB9F5100973881 /* JapxRxMoya */,
 			);
 			productName = JapxExample;
 			productReference = 0AE6C13F26DD001600116DE5 /* JapxExample.app */;
@@ -119,7 +116,7 @@
 			);
 			mainGroup = 0AE6C13626DD001600116DE5;
 			packageReferences = (
-				0AAA9F8626DE0BE1000E5F88 /* XCRemoteSwiftPackageReference "Japx" */,
+				0A14DAC226EB9F5100973881 /* XCRemoteSwiftPackageReference "Japx" */,
 			);
 			productRefGroup = 0AE6C14026DD001600116DE5 /* Products */;
 			projectDirPath = "";
@@ -352,25 +349,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0AAA9F8626DE0BE1000E5F88 /* XCRemoteSwiftPackageReference "Japx" */ = {
+		0A14DAC226EB9F5100973881 /* XCRemoteSwiftPackageReference "Japx" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/infinum/Japx";
 			requirement = {
-				branch = "feature/project-structure-update";
+				branch = master;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0AAA9F8726DE0BE1000E5F88 /* JapxRxAlamofire */ = {
+		0A14DAC326EB9F5100973881 /* JapxRxMoya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0AAA9F8626DE0BE1000E5F88 /* XCRemoteSwiftPackageReference "Japx" */;
-			productName = JapxRxAlamofire;
-		};
-		0AAA9F8926DE0BE1000E5F88 /* JapxRxMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0AAA9F8626DE0BE1000E5F88 /* XCRemoteSwiftPackageReference "Japx" */;
+			package = 0A14DAC226EB9F5100973881 /* XCRemoteSwiftPackageReference "Japx" */;
 			productName = JapxRxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -2,9 +2,6 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'JapxExample' do
-
-  pod 'Moya', :git => "https://github.com/Moya/Moya.git", :branch => "development"
-
   pod 'Japx/ObjC', :path => '../../'
   pod 'Japx/RxAlamofire', :path => '../../'
   pod 'Japx/RxMoya', :path => '../../'
