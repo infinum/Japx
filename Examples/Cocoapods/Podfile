@@ -1,0 +1,8 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target 'JapxExample' do
+  pod 'Japx/ObjC', :path => '../../'
+  pod 'Japx/RxAlamofire', :path => '../../'
+  pod 'Japx/RxMoya', :path => '../../'
+end

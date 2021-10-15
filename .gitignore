@@ -60,9 +60,15 @@ xcuserdata/
 *.dSYM
 
 # CocoaPods - Refactored to standalone file
-
+Pods/
 
 # Carthage - Refactored to standalone file
+
+Examples/Carthage/Carthage/Build
+Carthage/Build
+
+Examples/Carthage/Carthage/Checkouts
+Carthage/Checkouts
 
 # fastlane
 #

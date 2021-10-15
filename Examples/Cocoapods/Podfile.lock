@@ -1,0 +1,48 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Japx/Alamofire (4.0.0):
+    - Alamofire
+    - Japx/Core
+  - Japx/Core (4.0.0)
+  - Japx/Moya (4.0.0):
+    - Japx/Core
+    - Moya/Core
+  - Japx/ObjC (4.0.0):
+    - Japx/Core
+  - Japx/RxAlamofire (4.0.0):
+    - Japx/Alamofire
+    - RxSwift
+  - Japx/RxMoya (4.0.0):
+    - Japx/Moya
+    - Moya/RxSwift
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
+  - RxSwift (6.2.0)
+
+DEPENDENCIES:
+  - Japx/ObjC (from `../../`)
+  - Japx/RxAlamofire (from `../../`)
+  - Japx/RxMoya (from `../../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Moya
+    - RxSwift
+
+EXTERNAL SOURCES:
+  Japx:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+
+PODFILE CHECKSUM: 3fe3f32c08cdc120dc78fbf41b0da9cc2264f38a
+
+COCOAPODS: 1.11.0

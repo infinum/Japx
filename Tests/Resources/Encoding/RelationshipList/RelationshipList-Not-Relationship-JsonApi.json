@@ -1,0 +1,18 @@
+{
+    "data": {
+        "id": "1",
+        "type": "articles",
+        "attributes": {
+            "name": "My Article",
+            "likes": [],
+        },
+        "relationships": {
+            "author": {
+                "data": {
+                    "id": "1",
+                    "type": "authors"
+                }
+            }
+        }
+    }
+}
