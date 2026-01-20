@@ -1,0 +1,1 @@
+select-catalogers: ["swift", "cocoapods", "spm"]
