@@ -1,0 +1,24 @@
+name: iOS Dependency Submission
+on:
+  push:
+    branches: [ 'master' ]
+
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  dependency-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate and Submit SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          config: .github/.syft.yaml
+          path: .
+          format: spdx-json
+          dependency-snapshot: true
