@@ -1,0 +1,55 @@
+name: Bug report
+description: File a bug report.
+labels: bug
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        An environment information where issue occurred. Try to provide as much information as possible, including:
+          - device name, model and manufacturer
+          - operating system version
+          - software name, version and build number
+          - additional information (e.g. dependencies, IDE, etc.)
+      value: |
+        - Device: 
+        - Operating system: 
+        - Software information: 
+        - Additional information: 
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Reproduction steps
+      description: Steps to reproduce the behavior.
+      value: |
+        1. 
+        2. 
+        3. 
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional information
+      description: Any additional information that might be helpful in solving the issue.
+    validations:
+      required: false
+  
