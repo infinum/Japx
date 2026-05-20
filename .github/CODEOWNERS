@@ -1,0 +1,6 @@
+# Global code owners - these people will be requested for review when someone opens a pull request
+* @LucijaUlaga
+
+# You can also add specific owners for different parts of the codebase
+# For example:
+# /Sources/Japx/ @username

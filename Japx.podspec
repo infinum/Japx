@@ -8,7 +8,7 @@ It works by transfering Dictionary to Dictionary, so you can use Codable, Unbox,
                        DESC
 
   s.homepage = 'https://github.com/infinum/Japx'
-  s.license = { :type => 'MIT', :file => 'LICENSE' }
+  s.license = { :type => 'Apache-2.0', :file => 'LICENSE' }
   s.author = { 'Infinum' => 'ios@infinum.hr', 'Vlaho Poluta' => 'vlaho.poluta@infinum.hr', 'Filip Gulan' => 'filip.gulan@infinum.hr' }
   s.source = { :git => 'https://github.com/infinum/Japx.git', :tag => s.version.to_s }
 
