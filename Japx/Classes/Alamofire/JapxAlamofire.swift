@@ -45,7 +45,7 @@ extension DataRequest {
         queue: DispatchQueue = .main,
         includeList: String? = nil,
         options: JapxKit.Decoder.Options = .default,
-        completionHandler: @escaping (AFDataResponse<Parameters>) -> Void
+        completionHandler: @escaping (AFDataResponse<Japx.Parameters>) -> Void
     ) -> Self {
         return response(
             queue: queue,
@@ -70,7 +70,7 @@ extension DownloadRequest {
         queue: DispatchQueue = .main,
         includeList: String? = nil,
         options: JapxKit.Decoder.Options = .default,
-        completionHandler: @escaping (AFDownloadResponse<Parameters>) -> Void
+        completionHandler: @escaping (AFDownloadResponse<Japx.Parameters>) -> Void
     ) -> Self {
         return response(
             queue: queue,
@@ -98,7 +98,7 @@ public final class JSONAPIResponseSerializer: ResponseSerializer {
         self.options = options
     }
     
-    public func serialize(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) throws -> Parameters {
+    public func serialize(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) throws -> Japx.Parameters {
         guard error == nil else { throw error! }
         
         guard var data = data, !data.isEmpty else {

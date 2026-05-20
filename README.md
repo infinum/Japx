@@ -20,7 +20,6 @@ It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][
 * [Getting started](#getting-started)
   * [CocoaPods](#cocoapods)
   * [Swift Package Manager](#swift-package-manager)
-  * [Carthage](#carthage)
 * [Usage](#usage)
   * [Basic example](#basic-example)
   * [Advanced examples](#advanced-examples)
@@ -151,14 +150,6 @@ import JapxMoya
 // Moya and RxSwift
 import JapxRxMoya
 ```
-
-### Carthage
-
-Run `carthage update --use-xcframeworks` and import desired integration. Pure `Japx` doesn't have any dependencies.
-
-Imports work same as for Swift Package Manager, depending on which integration you've picked.
-
-**NOTE: Moya integration is currently not supported via Carthage since latest Moya build won't build with Carthage. More info [here](https://github.com/Moya/Moya/issues/2165).**
 
 ## Usage
 
@@ -515,9 +506,9 @@ return Single.just(loginModel)
 
 Example project of Japx networking using Codable and Alamofire can be found in [Nuts And Bolts repository][12] with commonly used code. [Example][13] will cover how to handle basic CRUD (Create, Read, Update, Delete) operations with Japx and JSON:API format. To run the example, clone the [repository][12], open the `Catalog.xcworkspace`, run Catalog app and navigate to the Japx Networking section.
 
-In this repository there is also a simple example project, to run it open `Japx.xcodeproj` and inspect `Example` directory and Japx_Example scheme. 
+In this repository there is also a simple example project, to run it open `Japx.xcodeproj` and inspect `Example` directory and Japx_Example scheme.
 
-Basic integrations with CocoaPods (run `pod install`), Swift Package Manager and Carthage can be found inside `Examples` directory.
+Basic integrations with CocoaPods (run `pod install`) and Swift Package Manager can be found inside `Examples` directory.
 
 ## Contributing
 

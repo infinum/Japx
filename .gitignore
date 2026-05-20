@@ -62,13 +62,6 @@ xcuserdata/
 # CocoaPods - Refactored to standalone file
 Pods/
 
-# Carthage - Refactored to standalone file
-
-Examples/Carthage/Carthage/Build
-Carthage/Build
-
-Examples/Carthage/Carthage/Checkouts
-Carthage/Checkouts
 
 # fastlane
 #
@@ -116,8 +109,6 @@ playground.xcworkspace
 .build/
 
 # CocoaPods - Refactored to standalone file
-
-# Carthage - Refactored to standalone file
 
 # fastlane
 #
