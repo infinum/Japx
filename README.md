@@ -51,7 +51,7 @@ Japx is available through [CocoaPods][8]. To install it, simply add the followin
 pod 'Japx'
 ```
 
-We've also added some more functionalites like Alamofre or Moya for networking, Rx for reactive programming approach, Objective-C support:
+We've also added some more functionalities like Alamofire or Moya for networking, Rx for reactive programming approach, Objective-C support:
 
 ```ruby
 # Alamofire
@@ -117,7 +117,7 @@ let package = Package(
 )
 ```
 
-We've also added some more functionalites like Alamofre or Moya for networking, Rx for reactive programming approach:
+We've also added some more functionalities like Alamofire or Moya for networking, Rx for reactive programming approach:
 
 ``` swift
 // Alamofire
@@ -517,11 +517,11 @@ Example project of Japx networking using Codable and Alamofire can be found in [
 
 In this repository there is also a simple example project, to run it open `Japx.xcodeproj` and inspect `Example` directory and Japx_Example scheme. 
 
-Basic integrations with Cocoapods (run `pod install`), Swift Package Manager and Carthage can be found inside `Examples` directory.
+Basic integrations with CocoaPods (run `pod install`), Swift Package Manager and Carthage can be found inside `Examples` directory.
 
 ## Contributing
 
-We believe that the community can help us improve and build better a product.
+We believe that the community can help us improve and build a better product.
 Please refer to our [contributing guide](CONTRIBUTING.md) to learn about the types of contributions we accept and the process for submitting them.
 
 To ensure that our community remains respectful and professional, we defined a [code of conduct](CODE_OF_CONDUCT.md) that we expect all contributors to follow.
@@ -558,7 +558,7 @@ Maintained and sponsored by [Infinum](https://infinum.com).
     <a href='https://infinum.com'>
     <picture>
         <source srcset="https://assets.infinum.com/brand/logo/static/white.svg" media="(prefers-color-scheme: dark)">
-        <img src="https://assets.infinum.com/brand/logo/static/default.svg">
+        <img src="https://assets.infinum.com/brand/logo/static/default.svg" alt="Infinum">
     </picture>
     </a>
 </div>

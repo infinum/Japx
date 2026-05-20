@@ -13,6 +13,6 @@ body:
     id: additional-information
     attributes:
       label: Additional information
-      description: An additional information or screenshots about the feature request.
+      description: Additional information or screenshots about the feature request.
     validations:
       required: false

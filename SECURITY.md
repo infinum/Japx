@@ -10,7 +10,7 @@ If you discover a security vulnerability, please report it to us by emailing us 
 
 We request that you practice responsible disclosure by allowing us time to investigate and address any reported vulnerabilities before making them public. We believe this approach helps protect our users and provides a better outcome for everyone involved.
 
-## Preferred languages
+## Preferred language
 
 We prefer all communication to be in English.
 
