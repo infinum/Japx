@@ -457,7 +457,7 @@ protocol JapxEncodable: Encodable {
 
 ### Codable and Alamofire
 
-Japx also comes with wrapper for [Alamofire][10] and [Codable][7] which can be installed as described in [installation](#installation) chapter.
+Japx also comes with wrapper for [Alamofire][10] and [Codable][7] which can be installed as described in [getting started](#getting-started) chapter.
 
 Use `responseCodableJSONAPI` method on `DataRequest` which will pass serialized response in callback. Also, there is `keyPath` argument to extract only nested `data` object. So, if you don't need any additional info from API side except plain data, than you can create simple objects, without using wrapping objects/structs.
 
@@ -484,7 +484,7 @@ Alamofire
 
 ### Codable, Alamofire and RxSwift
 
-Japx also comes with wrapper for [Alamofire][10], [Codable][7] and [RxSwift][11] which can be installed as described in [installation](#installation) chapter.
+Japx also comes with wrapper for [Alamofire][10], [Codable][7] and [RxSwift][11] which can be installed as described in [getting started](#getting-started) chapter.
 
 Use `responseCodableJSONAPI` method from `.rx` extension on `DataRequest` which will return `Single` with serialized response.
 
@@ -562,7 +562,6 @@ Maintained and sponsored by [Infinum](https://infinum.com).
 [6]:    http://jsonapi.org/format
 [7]:    https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types
 [8]:    http://cocoapods.org
-[9]:    https://infinum.co
 [10]:   https://github.com/Alamofire/Alamofire
 [11]:   https://github.com/ReactiveX/RxSwift
 [12]:   https://github.com/infinum/iOS-Nuts-And-Bolts
