@@ -17,6 +17,7 @@ It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][
 ## Table of contents
 
 * [Requirements](#requirements)
+* [Migrating to 5.0](#migrating-to-50)
 * [Getting started](#getting-started)
   * [CocoaPods](#cocoapods)
   * [Swift Package Manager](#swift-package-manager)
@@ -36,9 +37,26 @@ It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][
 
 ## Requirements
 
-* iOS 10.0+
-* macOS 10.12+
-* Swift 5.0+
+* iOS 12.0+
+* macOS 10.13+
+* Swift 6.0+
+
+## Migrating to 5.0
+
+Japx 5.0 is built in the Swift 6 language mode and raises the minimum platforms to iOS 12 and macOS 10.13. Two changes are visible at call sites.
+
+**`responseJSONAPI` hands back a `JSONAPIDocument` instead of `Japx.Parameters`.** Alamofire requires a response serializer's output to be `Sendable`, which `[String: Any]` cannot be, so the parsed dictionary now travels in a `Sendable` box. Subscripting is forwarded, so reading a single key is unchanged; reach for `dictionary` when you need the whole thing.
+
+```swift
+request.responseJSONAPI { response in
+    let data = response.value?["data"]      // unchanged from 4.x
+    let whole = response.value?.dictionary  // the full parsed dictionary
+}
+```
+
+The `.rx` variants are unaffected and still emit `Single<Japx.Parameters>`.
+
+**`responseCodableJSONAPI` now requires `T: Decodable & Sendable`.** Models declared as structs or enums pick `Sendable` up automatically. A model that is a non-`final` class, or that holds mutable reference-typed state, has to earn its own conformance.
 
 ## Getting started
 

@@ -1,10 +1,10 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.0
 
 import PackageDescription
 
 let package = Package(
     name: "Japx",
-    platforms: [.macOS(.v10_12), .iOS(.v10)],
+    platforms: [.macOS(.v10_13), .iOS(.v12)],
     products: [
         .library(name: "Japx", targets: ["Japx"]),
         .library(name: "JapxAlamofire", targets: ["JapxAlamofire"]),

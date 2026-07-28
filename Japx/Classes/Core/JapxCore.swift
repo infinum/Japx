@@ -12,7 +12,18 @@ import Foundation
 public typealias Parameters = [String: Any]
 
 /// `JapxError` is the error type returned by Japx.
-public enum JapxError: Error {
+///
+/// `@unchecked Sendable`: associated values are JSON fragments captured at throw time;
+/// Japx aborts parsing on throw and never mutates them afterwards.
+///
+/// Note the limit of that guarantee. For the `Data`-based entry points the payload is a
+/// fragment Japx just parsed and solely owns. For the object-based entry points
+/// (`jsonObject(withJSONAPIObject:)`, `encode(json:)`) it aliases the collection the caller
+/// passed in, so forwarding such an error across isolation boundaries is only as safe as the
+/// caller's own use of that collection.
+///
+/// Required as long as the payloads are typed `Any`; revisit if they become typed.
+public enum JapxError: Error, @unchecked Sendable {
     /// - cantProcess(data:): Returned when `data` is not [String: Any] or [[String: Any]]
     case cantProcess(data: Any)
     /// - notDictionary(data:,value:): Returned when `value` in `data` is not [String: Any], when it should be [String: Any]
@@ -62,7 +73,7 @@ public struct JapxKit {
 public extension JapxKit.Decoder {
     
     /// `JapxKit.Decoder.Options` is a set of options affecting the decoding of JSON:API into JSON you request from `JapxKit.Decoder`.
-    struct Options {
+    struct Options: Sendable {
         
         /// Defines if a relationship that doesn't have related object stored in `included`
         /// shoud be parsed as a dictionary of only `type` and `id`.
@@ -93,7 +104,7 @@ public extension JapxKit.Decoder.Options {
 public extension JapxKit.Encoder {
     
     /// `JapxKit.Encoder.Options` is a set of options affecting the encoding of JSON into JSON:API you requested from `JapxKit.Encoder`.
-    struct Options {
+    struct Options: Sendable {
         
         /// Common namespace is a set of all attribute names, relationship names, keyword `type` and keyword `id`.
         /// If enabled it will include keyword `meta` into that common namespace, making it a part of JSON:API.

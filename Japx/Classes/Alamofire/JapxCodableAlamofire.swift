@@ -25,13 +25,16 @@ extension DataRequest {
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
+    // `@preconcurrency` mirrors Alamofire's own `response(queue:responseSerializer:completionHandler:)`,
+    // keeping non-`Sendable` captures at call sites a warning instead of an error.
+    @preconcurrency
     @discardableResult
-    public func responseCodableJSONAPI<T: Decodable>(
+    public func responseCodableJSONAPI<T: Decodable & Sendable>(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
         keyPath: String? = nil,
         decoder: JapxDecoder = JapxDecoder(),
-        completionHandler: @escaping (AFDataResponse<T>) -> Void
+        completionHandler: @escaping @Sendable (AFDataResponse<T>) -> Void
     ) -> Self {
         return response(
             queue: queue,
@@ -52,13 +55,16 @@ extension DownloadRequest {
     /// - parameter completionHandler: A closure to be executed once the request has finished.
     ///
     /// - returns: The request.
+    // `@preconcurrency` mirrors Alamofire's own `response(queue:responseSerializer:completionHandler:)`,
+    // keeping non-`Sendable` captures at call sites a warning instead of an error.
+    @preconcurrency
     @discardableResult
-    public func responseCodableJSONAPI<T: Decodable>(
+    public func responseCodableJSONAPI<T: Decodable & Sendable>(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
         keyPath: String? = nil,
         decoder: JapxDecoder = JapxDecoder(),
-        completionHandler: @escaping (AFDownloadResponse<T>) -> Void
+        completionHandler: @escaping @Sendable (AFDownloadResponse<T>) -> Void
     ) -> Self {
         return response(
             queue: queue,
@@ -68,7 +74,7 @@ extension DownloadRequest {
     }
 }
 
-public final class DecodableJSONAPIResponseSerializer<T: Decodable>: ResponseSerializer {
+public final class DecodableJSONAPIResponseSerializer<T: Decodable & Sendable>: ResponseSerializer {
     
     public let includeList: String?
     public let keyPath: String?

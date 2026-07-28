@@ -26,13 +26,16 @@ extension Reactive where Base: DataRequest {
     /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requested type.
     ///
     /// - returns: `Single` of parsed and decoded JSON:API object of requested type.
-    public func responseCodableJSONAPI<T: Decodable>(
+    public func responseCodableJSONAPI<T: Decodable & Sendable>(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
         keyPath: String? = nil,
         decoder: JapxDecoder = JapxDecoder()
     ) -> Single<T> {
         return Single<T>.create { [weak base] (single) -> Disposable in
+            // Safe: RxSwift observers may be invoked from any thread, and this one is called at most once.
+            // TODO: Remove once RxSwift marks observer closures @Sendable.
+            nonisolated(unsafe) let single = single
             let request = base?.responseCodableJSONAPI(
                 queue: queue,
                 includeList: includeList, keyPath: keyPath,
@@ -58,13 +61,16 @@ extension Reactive where Base: DownloadRequest {
     /// - parameter decoder:           The decoder that performs the decoding on parsed JSON into requested type.
     ///
     /// - returns: `Single` of parsed and decoded JSON:API object of requested type.
-    public func responseCodableJSONAPI<T: Decodable>(
+    public func responseCodableJSONAPI<T: Decodable & Sendable>(
         queue: DispatchQueue = .main,
         includeList: String? = nil,
         keyPath: String? = nil,
         decoder: JapxDecoder = JapxDecoder()
     ) -> Single<T> {
         return Single<T>.create { [weak base] (single) -> Disposable in
+            // Safe: RxSwift observers may be invoked from any thread, and this one is called at most once.
+            // TODO: Remove once RxSwift marks observer closures @Sendable.
+            nonisolated(unsafe) let single = single
             let request = base?.responseCodableJSONAPI(
                 queue: queue,
                 includeList: includeList,
