@@ -11,6 +11,7 @@ import Japx
 
 protocol Resultable { }
 
+@MainActor
 extension Resultable where Self: UIViewController {
     
     func pushResultViewController(with text: String) {

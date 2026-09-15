@@ -107,6 +107,7 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 .build/
+Package.resolved
 
 # CocoaPods - Refactored to standalone file
 

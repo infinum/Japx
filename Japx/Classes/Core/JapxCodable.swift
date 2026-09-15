@@ -21,7 +21,11 @@ public protocol JapxEncodable: Encodable {
 public typealias JapxCodable = JapxDecodable & JapxEncodable
 
 /// Wrapper around JSONEncoder capable of encoding normal objects into JSON:API dictionaries
-public final class JapxEncoder {
+///
+/// `Sendable` covers this wrapper's own stored properties; `JSONEncoder` is itself only
+/// `@unchecked Sendable`. Configure `jsonEncoder` before sharing an instance across
+/// isolation boundaries, and never mutate it while an encode is in flight.
+public final class JapxEncoder: Sendable {
     
     // Underlying JSONEncoder, can be used to add date formats, ...
     public let jsonEncoder: JSONEncoder
@@ -48,7 +52,11 @@ public final class JapxEncoder {
 }
 
 /// Wrapper around JSONDecoder capable of decoding JSON:API objects into normal objects
-public final class JapxDecoder {
+///
+/// `Sendable` covers this wrapper's own stored properties; `JSONDecoder` is itself only
+/// `@unchecked Sendable`. Configure `jsonDecoder` before sharing an instance across
+/// isolation boundaries, and never mutate it while a decode is in flight.
+public final class JapxDecoder: Sendable {
     
     /// Underlying JSONDecoder, can be used to add date formats, ...
     public let jsonDecoder: JSONDecoder

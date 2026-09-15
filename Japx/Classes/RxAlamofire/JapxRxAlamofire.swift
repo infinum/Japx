@@ -17,10 +17,10 @@ import JapxAlamofire
 #endif
 
 /// Extension to add `Reactive` capabilities to `DataRequest`
-extension DataRequest: ReactiveCompatible {}
+extension DataRequest: @retroactive ReactiveCompatible {}
 
 /// Extension to add `Reactive` capabilities to `DownloadRequest`
-extension DownloadRequest: ReactiveCompatible {}
+extension DownloadRequest: @retroactive ReactiveCompatible {}
 
 extension Reactive where Base: DataRequest {
     
@@ -37,13 +37,16 @@ extension Reactive where Base: DataRequest {
         options: JapxKit.Decoder.Options = .default
     ) -> Single<Japx.Parameters> {
         return Single<Japx.Parameters>.create { [weak base] (single) -> Disposable in
+            // Safe: RxSwift observers may be invoked from any thread, and this one is called at most once.
+            // TODO: Remove once RxSwift marks observer closures @Sendable.
+            nonisolated(unsafe) let single = single
             let request = base?.responseJSONAPI(
                 queue: queue,
                 includeList: includeList,
                 options: options
             ) { (response) in
                 switch response.result {
-                case .success(let value): single(.success(value))
+                case .success(let value): single(.success(value.dictionary))
                 case .failure(let error): single(.failure(error))
                 }
             }
@@ -67,13 +70,16 @@ extension Reactive where Base: DownloadRequest {
         options: JapxKit.Decoder.Options = .default
     ) -> Single<Japx.Parameters> {
         return Single<Japx.Parameters>.create { [weak base] (single) -> Disposable in
+            // Safe: RxSwift observers may be invoked from any thread, and this one is called at most once.
+            // TODO: Remove once RxSwift marks observer closures @Sendable.
+            nonisolated(unsafe) let single = single
             let request = base?.responseJSONAPI(
                 queue: queue,
                 includeList: includeList,
                 options: options
             ) { (response) in
                 switch response.result {
-                case .success(let value): single(.success(value))
+                case .success(let value): single(.success(value.dictionary))
                 case .failure(let error): single(.failure(error))
                 }
             }

@@ -1,18 +1,18 @@
 PODS:
-  - Alamofire (5.4.3)
-  - Japx/Alamofire (4.0.0):
+  - Alamofire (5.10.2)
+  - Japx/Alamofire (5.0.0):
     - Alamofire
     - Japx/Core
-  - Japx/Core (4.0.0)
-  - Japx/Moya (4.0.0):
+  - Japx/Core (5.0.0)
+  - Japx/Moya (5.0.0):
     - Japx/Core
     - Moya/Core
-  - Japx/ObjC (4.0.0):
+  - Japx/ObjC (5.0.0):
     - Japx/Core
-  - Japx/RxAlamofire (4.0.0):
+  - Japx/RxAlamofire (5.0.0):
     - Japx/Alamofire
     - RxSwift
-  - Japx/RxMoya (4.0.0):
+  - Japx/RxMoya (5.0.0):
     - Japx/Moya
     - Moya/RxSwift
   - Moya/Core (15.0.0):
@@ -20,7 +20,7 @@ PODS:
   - Moya/RxSwift (15.0.0):
     - Moya/Core
     - RxSwift (~> 6.0)
-  - RxSwift (6.2.0)
+  - RxSwift (6.9.0)
 
 DEPENDENCIES:
   - Japx/ObjC (from `../../`)
@@ -38,11 +38,11 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  Japx: 798e177076cae3d00c55b4997d792d0a8648fd33
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
-  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
 
-PODFILE CHECKSUM: 3fe3f32c08cdc120dc78fbf41b0da9cc2264f38a
+PODFILE CHECKSUM: 927d43ba7ca5d43ce0fbaf454cfcaf15d5d6ad0a
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.17.0
